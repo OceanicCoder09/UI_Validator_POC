@@ -1,0 +1,10 @@
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+opencv-python-headless>=4.9.0.80
+numpy>=1.26.0
+pillow>=10.2.0
+python-multipart>=0.0.9
+playwright>=1.42.0
+mss>=9.0.1
+pygetwindow>=0.0.9
+pydantic>=2.6.0
