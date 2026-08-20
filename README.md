@@ -85,5 +85,3 @@ UI_Validator_POC/
 
 ---
 
-## 📄 License
-MIT License.
