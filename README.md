@@ -100,11 +100,6 @@ cd frontend
 npm install
 npm run dev
 ```
-
-### Step 4: Open in Browser
-- **Web Application**: [http://localhost:3000](http://localhost:3000)
-- **Backend API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
-
 ---
 
 ## 📂 Project Structure
@@ -129,6 +124,3 @@ UI_Validator_POC/
 ```
 
 ---
-
-## 📄 License
-MIT License.
