@@ -2,6 +2,8 @@ import React from 'react';
 import { CheckCircle2, AlertTriangle, AlertCircle, Play } from 'lucide-react';
 
 export default function PresetSelector({ presets, activePresetId, onSelectPreset, isAnalyzing }) {
+  if (!presets || !Array.isArray(presets)) return null;
+
   return (
     <div className="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
       
@@ -28,7 +30,7 @@ export default function PresetSelector({ presets, activePresetId, onSelectPreset
         {presets.map((p) => {
           const isSelected = activePresetId === p.id;
           const isPass = p.id === 'de_perfect';
-          const isSevere = p.id === 'ja_shift_overlap';
+          const isSevere = p.id === 'ja_shift_overlap' || p.id === 'es_missing_misaligned';
 
           return (
             <button
@@ -51,7 +53,7 @@ export default function PresetSelector({ presets, activePresetId, onSelectPreset
                         ? 'bg-rose-100 text-rose-800 border border-rose-300'
                         : 'bg-amber-100 text-amber-800 border border-amber-300'
                   }`}>
-                    {isPass ? '✓ Clean UI (100%)' : isSevere ? '✕ Layout Shift (35%)' : '! Defect Found'}
+                    {isPass ? '✓ Clean UI (100%)' : isSevere ? '✕ Defect Present' : '! Overflow'}
                   </span>
 
                   {isPass ? (
@@ -67,9 +69,6 @@ export default function PresetSelector({ presets, activePresetId, onSelectPreset
                 <h3 className="text-xs font-extrabold text-slate-900 group-hover:text-[#0696D7] transition">
                   {p.title}
                 </h3>
-                <p className="text-[11px] font-bold text-slate-500 mt-0.5">
-                  {p.subtitle}
-                </p>
                 <p className="text-[11px] text-slate-600 mt-2 line-clamp-2 leading-relaxed">
                   {p.description}
                 </p>
@@ -78,7 +77,7 @@ export default function PresetSelector({ presets, activePresetId, onSelectPreset
               {/* Action label */}
               <div className="mt-3.5 pt-2.5 border-t border-slate-200/80 flex items-center justify-between text-[11px]">
                 <span className="font-bold text-slate-400">
-                  {p.tags[0]}
+                  {p.language || p.expected_result || 'Test Preset'}
                 </span>
                 <span className={`flex items-center gap-1 font-bold ${
                   isSelected ? 'text-[#0696D7]' : 'text-slate-600 group-hover:text-[#0696D7]'
