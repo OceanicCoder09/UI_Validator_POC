@@ -20,6 +20,7 @@ export default function App() {
   const [localizedImage, setLocalizedImage] = useState(null);
   
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [isUrlAnalyzing, setIsUrlAnalyzing] = useState(false);
   const [results, setResults] = useState(null);
   const [error, setError] = useState(null);
 
@@ -152,6 +153,60 @@ export default function App() {
     }
   };
 
+  // Handle Live URL Auto-Capture Analysis
+  const handleUrlAnalyze = async (englishUrl, localizedUrl) => {
+    setIsUrlAnalyzing(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/capture-and-analyze-url', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          english_url: englishUrl,
+          localized_url: localizedUrl,
+          viewport_width: 1280,
+          viewport_height: 800,
+          wait_seconds: 1.5
+        })
+      });
+
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.detail || `URL Auto-Capture returned error ${res.status}`);
+      }
+
+      const data = await res.json();
+      setResults(data);
+      setActivePresetId(null);
+
+      setEnglishImage({
+        name: englishUrl,
+        preview: data.images.baseline_image,
+        isPreset: false
+      });
+
+      setLocalizedImage({
+        name: localizedUrl,
+        preview: data.images.localized_image,
+        isPreset: false
+      });
+
+      if (data.score === 100) {
+        confetti({
+          particleCount: 80,
+          spread: 60,
+          origin: { y: 0.6 }
+        });
+      }
+    } catch (err) {
+      console.error('URL auto-capture error:', err);
+      setError(err.message || 'Failed to auto-capture web pages');
+    } finally {
+      setIsUrlAnalyzing(false);
+    }
+  };
+
   const handleClear = () => {
     setEnglishImage(null);
     setLocalizedImage(null);
@@ -166,7 +221,7 @@ export default function App() {
       {/* Global Header */}
       <Header
         onOpenDocs={() => setIsDocsOpen(true)}
-        isAnalyzing={isAnalyzing}
+        isAnalyzing={isAnalyzing || isUrlAnalyzing}
         onReset={handleClear}
       />
 
@@ -179,11 +234,11 @@ export default function App() {
             presets={presets}
             activePresetId={activePresetId}
             onSelectPreset={handleSelectPreset}
-            isAnalyzing={isAnalyzing}
+            isAnalyzing={isAnalyzing || isUrlAnalyzing}
           />
         )}
 
-        {/* 2. Drag & Drop Upload Zone (Always Visible) */}
+        {/* 2. Drag & Drop Upload Zone + Live URL Auto-Capture */}
         <ImageUploader
           englishImage={englishImage}
           localizedImage={localizedImage}
@@ -198,6 +253,8 @@ export default function App() {
           onAnalyze={handleAnalyze}
           isAnalyzing={isAnalyzing}
           onClear={handleClear}
+          onUrlAnalyze={handleUrlAnalyze}
+          isUrlAnalyzing={isUrlAnalyzing}
         />
 
         {/* Error Alert */}
