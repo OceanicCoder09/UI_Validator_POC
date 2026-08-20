@@ -85,17 +85,31 @@ cd UI_Validator_POC
 ```
 
 ### Step 2: Start the Python Backend
+
+**On macOS / Linux:**
+```bash
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+playwright install chromium
+uvicorn main:app --reload --port 8000
+```
+
+**On Windows (PowerShell):**
 ```powershell
 cd backend
 python -m venv venv
-.\venv\Scripts\activate
+.\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 python -m playwright install chromium
 python -m uvicorn main:app --reload --port 8000
 ```
 
 ### Step 3: Start the React Frontend
-```powershell
+
+**On macOS / Linux / Windows:**
+```bash
 cd frontend
 npm install
 npm run dev

@@ -62,7 +62,20 @@ PRESETS = [
 def capture_url_screenshot(url: str, width: int = 1280, height: int = 800, wait_seconds: float = 1.0) -> np.ndarray:
     """Captures a high-resolution screenshot of a web URL using headless Chromium."""
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        try:
+            browser = p.chromium.launch(headless=True)
+        except Exception as launch_err:
+            if "Executable doesn't exist" in str(launch_err) or "playwright install" in str(launch_err):
+                import subprocess, sys
+                # Automatically install chromium binaries if missing
+                try:
+                    subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
+                    browser = p.chromium.launch(headless=True)
+                except Exception:
+                    raise RuntimeError("Playwright Chromium is not installed. Please run: 'playwright install chromium' in your terminal.")
+            else:
+                raise launch_err
+
         context = browser.new_context(viewport={"width": width, "height": height})
         page = context.new_page()
         try:
