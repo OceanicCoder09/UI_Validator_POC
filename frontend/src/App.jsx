@@ -81,11 +81,15 @@ export default function App() {
       setResults(data);
 
       if (data.score === 100) {
-        confetti({
-          particleCount: 60,
-          spread: 60,
-          origin: { y: 0.6 }
-        });
+        try {
+          confetti({
+            particleCount: 60,
+            spread: 60,
+            origin: { y: 0.6 }
+          });
+        } catch (e) {
+          // ignore confetti errors in restricted browsers
+        }
       }
     } catch (err) {
       console.error('Preset analysis error:', err);
@@ -139,11 +143,13 @@ export default function App() {
       setActivePresetId(null);
 
       if (data.score === 100) {
-        confetti({
-          particleCount: 80,
-          spread: 60,
-          origin: { y: 0.6 }
-        });
+        try {
+          confetti({
+            particleCount: 80,
+            spread: 60,
+            origin: { y: 0.6 }
+          });
+        } catch (e) {}
       }
     } catch (err) {
       console.error('Custom image analysis error:', err);
@@ -193,11 +199,13 @@ export default function App() {
       });
 
       if (data.score === 100) {
-        confetti({
-          particleCount: 80,
-          spread: 60,
-          origin: { y: 0.6 }
-        });
+        try {
+          confetti({
+            particleCount: 80,
+            spread: 60,
+            origin: { y: 0.6 }
+          });
+        } catch (e) {}
       }
     } catch (err) {
       console.error('URL auto-capture error:', err);

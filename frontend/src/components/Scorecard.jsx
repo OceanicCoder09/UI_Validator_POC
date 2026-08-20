@@ -4,22 +4,31 @@ import { CheckCircle2, AlertCircle, AlertTriangle, ShieldAlert, Layers } from 'l
 export default function Scorecard({ results }) {
   if (!results) return null;
 
-  const { score, grade, grade_description, summary } = results;
+  const score = results?.score ?? 0;
+  const grade = String(results?.grade || 'B');
+  const grade_description = results?.grade_description || 'Analysis completed';
+  const summary = results?.summary || {
+    total_defects: 0,
+    critical_count: 0,
+    major_count: 0,
+    minor_count: 0,
+    checks_performed: []
+  };
 
   const getTheme = (g) => {
-    if (g.startsWith('A')) return {
+    if (g && typeof g === 'string' && g.startsWith('A')) return {
       card: 'bg-emerald-50 border-emerald-300 text-emerald-900',
       badge: 'bg-emerald-600 text-white',
       progress: 'bg-emerald-500',
       scoreText: 'text-emerald-700'
     };
-    if (g.startsWith('B')) return {
+    if (g && typeof g === 'string' && g.startsWith('B')) return {
       card: 'bg-sky-50 border-sky-300 text-sky-900',
       badge: 'bg-[#0696D7] text-white',
       progress: 'bg-[#0696D7]',
       scoreText: 'text-sky-700'
     };
-    if (g.startsWith('C')) return {
+    if (g && typeof g === 'string' && g.startsWith('C')) return {
       card: 'bg-amber-50 border-amber-300 text-amber-900',
       badge: 'bg-amber-500 text-white',
       progress: 'bg-amber-500',
@@ -34,6 +43,7 @@ export default function Scorecard({ results }) {
   };
 
   const theme = getTheme(grade);
+  const checks = summary?.checks_performed || [];
 
   return (
     <div className="space-y-4">
@@ -63,7 +73,7 @@ export default function Scorecard({ results }) {
                 <div className="w-28 h-2.5 rounded-full bg-slate-200 overflow-hidden">
                   <div 
                     className={`h-full ${theme.progress} transition-all duration-700`} 
-                    style={{ width: `${score}%` }}
+                    style={{ width: `${Math.min(100, Math.max(0, score))}%` }}
                   ></div>
                 </div>
                 <span className="text-xs font-bold text-slate-700">{score}% Integrity</span>
@@ -79,7 +89,7 @@ export default function Scorecard({ results }) {
               <span className="text-[11px] font-bold text-slate-500">Total Defects</span>
               <div className="mt-1">
                 <span className="text-2xl font-black text-slate-900">
-                  {summary.total_defects}
+                  {summary.total_defects ?? 0}
                 </span>
                 <span className="text-[10px] text-slate-400 ml-1 font-medium">Found</span>
               </div>
@@ -87,7 +97,7 @@ export default function Scorecard({ results }) {
 
             {/* Critical */}
             <div className={`p-3.5 rounded-xl border flex flex-col justify-between ${
-              summary.critical_count > 0 
+              (summary.critical_count ?? 0) > 0 
                 ? 'bg-rose-50 border-rose-200 text-rose-800' 
                 : 'bg-slate-50 border-slate-200 text-slate-600'
             }`}>
@@ -97,15 +107,15 @@ export default function Scorecard({ results }) {
               </div>
               <div className="mt-1">
                 <span className="text-2xl font-black text-rose-700">
-                  {summary.critical_count}
+                  {summary.critical_count ?? 0}
                 </span>
-                <span className="text-[10px] text-slate-500 ml-1 font-medium">Missing / Clash</span>
+                <span className="text-[10px] text-slate-500 ml-1 font-medium">Missing / Overflow</span>
               </div>
             </div>
 
             {/* Major */}
             <div className={`p-3.5 rounded-xl border flex flex-col justify-between ${
-              summary.major_count > 0 
+              (summary.major_count ?? 0) > 0 
                 ? 'bg-amber-50 border-amber-200 text-amber-800' 
                 : 'bg-slate-50 border-slate-200 text-slate-600'
             }`}>
@@ -115,7 +125,7 @@ export default function Scorecard({ results }) {
               </div>
               <div className="mt-1">
                 <span className="text-2xl font-black text-amber-700">
-                  {summary.major_count}
+                  {summary.major_count ?? 0}
                 </span>
                 <span className="text-[10px] text-slate-500 ml-1 font-medium">Layout Shifts</span>
               </div>
@@ -123,7 +133,7 @@ export default function Scorecard({ results }) {
 
             {/* Minor */}
             <div className={`p-3.5 rounded-xl border flex flex-col justify-between ${
-              summary.minor_count > 0 
+              (summary.minor_count ?? 0) > 0 
                 ? 'bg-amber-50/60 border-amber-200 text-amber-800' 
                 : 'bg-slate-50 border-slate-200 text-slate-600'
             }`}>
@@ -133,7 +143,7 @@ export default function Scorecard({ results }) {
               </div>
               <div className="mt-1">
                 <span className="text-2xl font-black text-slate-800">
-                  {summary.minor_count}
+                  {summary.minor_count ?? 0}
                 </span>
                 <span className="text-[10px] text-slate-500 ml-1 font-medium">Alignment</span>
               </div>
@@ -144,50 +154,52 @@ export default function Scorecard({ results }) {
         </div>
       </div>
 
-      {/* 5 Quality Checks Summary Bar */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-4 card-shadow">
-        <div className="flex items-center justify-between mb-3 px-1">
-          <div className="flex items-center gap-2 text-xs font-bold text-slate-800 uppercase tracking-wider">
-            <Layers className="w-4 h-4 text-[#0696D7]" />
-            <span>OpenCV Quality Checks Checklist</span>
+      {/* Quality Checks Summary Bar */}
+      {checks.length > 0 && (
+        <div className="bg-white border border-slate-200 rounded-2xl p-4 card-shadow">
+          <div className="flex items-center justify-between mb-3 px-1">
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-800 uppercase tracking-wider">
+              <Layers className="w-4 h-4 text-[#0696D7]" />
+              <span>OpenCV Quality Checks Checklist</span>
+            </div>
+            <span className="text-xs font-semibold text-slate-500">
+              {checks.length} Checks Performed
+            </span>
           </div>
-          <span className="text-xs font-semibold text-slate-500">
-            5 Checks Performed
-          </span>
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5">
-          {summary.checks_performed.map((chk, i) => {
-            const isPassed = chk.status === 'Passed';
-            return (
-              <div
-                key={i}
-                className={`p-3 rounded-xl border flex items-center justify-between ${
-                  isPassed
-                    ? 'bg-emerald-50/60 border-emerald-200 text-emerald-900'
-                    : 'bg-rose-50 border-rose-200 text-rose-900'
-                }`}
-              >
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider block text-slate-500">
-                    {chk.severity}
-                  </span>
-                  <h4 className="text-xs font-bold text-slate-900">{chk.name}</h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5">
+            {checks.map((chk, i) => {
+              const isPassed = chk?.status === 'Passed';
+              return (
+                <div
+                  key={i}
+                  className={`p-3 rounded-xl border flex items-center justify-between ${
+                    isPassed
+                      ? 'bg-emerald-50/60 border-emerald-200 text-emerald-900'
+                      : 'bg-rose-50 border-rose-200 text-rose-900'
+                  }`}
+                >
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider block text-slate-500">
+                      {chk?.severity || 'Check'}
+                    </span>
+                    <h4 className="text-xs font-bold text-slate-900">{chk?.name || 'Inspection'}</h4>
+                  </div>
+                  {isPassed ? (
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-700 border border-emerald-300">
+                      PASS
+                    </span>
+                  ) : (
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-rose-100 text-rose-700 border border-rose-300">
+                      DEFECT
+                    </span>
+                  )}
                 </div>
-                {isPassed ? (
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-700 border border-emerald-300">
-                    PASS
-                  </span>
-                ) : (
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-rose-100 text-rose-700 border border-rose-300">
-                    DEFECT
-                  </span>
-                )}
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
     </div>
   );
