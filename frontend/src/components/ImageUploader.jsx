@@ -13,8 +13,8 @@ export default function ImageUploader({
   isUrlAnalyzing
 }) {
   const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'url'
-  const [englishUrl, setEnglishUrl] = useState('https://help.autodesk.com/view/OARX/2024/ENU/');
-  const [localizedUrl, setLocalizedUrl] = useState('https://help.autodesk.com/view/OARX/2024/DEU/');
+  const [englishUrl, setEnglishUrl] = useState('');
+  const [localizedUrl, setLocalizedUrl] = useState('');
 
   const handleFile = (e, isEnglish) => {
     const file = e.target.files?.[0];
