@@ -183,8 +183,6 @@ def detect_ellipsis_precise(crop_bgr_or_gray):
         return False
         
     if len(crop_bgr_or_gray.shape) == 3:
-        if crop_bgr_or_gray.shape[2] == 0:
-            return False
         gray = cv2.cvtColor(crop_bgr_or_gray, cv2.COLOR_BGR2GRAY)
     else:
         gray = crop_bgr_or_gray
@@ -390,13 +388,16 @@ def analyze_localization_quality(img_en_bgr, img_loc_bgr):
                     break
 
     # -------------------------------------------------------------------------
-    # 3. OVERLAPPING (Code: 0001) - Component Collision & Sibling Overlap
+    # 3. OVERLAPPING (Code: 0001) - Differential Gutter Collision Check
     # -------------------------------------------------------------------------
     if h >= 400 and w >= 960:
-        gutter = gray_loc[160:min(h, 400), 936:min(w, 960)]
-        if gutter.size > 50 and gutter.shape[0] > 10 and gutter.shape[1] > 10:
-            gutter_edges = np.mean(cv2.Canny(gutter, 50, 150))
-            if gutter_edges > 8.0:
+        gutter_en = gray_en[160:min(h, 400), 936:min(w, 960)]
+        gutter_loc = gray_loc[160:min(h, 400), 936:min(w, 960)]
+        if gutter_en.size > 50 and gutter_loc.size > 50 and gutter_loc.shape[0] > 10 and gutter_loc.shape[1] > 10:
+            edges_en = np.mean(cv2.Canny(gutter_en, 50, 150))
+            edges_loc = np.mean(cv2.Canny(gutter_loc, 50, 150))
+            # Only flag OVERLAPPING if baseline gutter was clear (< 4.5) and localized is collided (> 8.0)
+            if edges_en < 4.5 and edges_loc > 8.0:
                 findings.append({
                     "id": "ERR-0001",
                     "code": "0001",
@@ -549,8 +550,16 @@ def analyze_localization_quality(img_en_bgr, img_loc_bgr):
     # -------------------------------------------------------------------------
     for db in containers_loc["dropdowns"]:
         dx, dy, dw, dh = db
-        if 22 <= dh <= 70 and dw >= 100:
-            if dh < 30: # Defectively shallow dropdown container
+        if dh < 30 and dw >= 100:
+            # Differential check: match baseline container
+            matched_en = None
+            for eb in containers_en["all_containers"]:
+                if abs(eb[1] - dy) < 60 and abs(eb[0] - dx) < 80:
+                    matched_en = eb
+                    break
+            
+            # Only flag COMBO_BOX_HEIGHT if baseline had a standard container (>= 34px) that shrank (< 30px)
+            if matched_en is not None and matched_en[3] >= 34 and dh < 30:
                 findings.append({
                     "id": "ERR-0012",
                     "code": "0012",
