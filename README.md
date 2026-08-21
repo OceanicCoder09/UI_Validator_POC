@@ -4,7 +4,7 @@ An automated Computer Vision visual quality validation platform that compares an
 
 Built on the official **Autodesk Enterprise Localization QA (LQA) Defect Taxonomy Standard**.
 
-> **⚡ Zero AI / Cloud Costs**: Powered purely by deterministic **OpenCV (`cv2`)** and **NumPy** on Python FastAPI with a React frontend and Playwright headless URL capture.
+Powered by **OpenCV (`cv2`)** and **NumPy** on Python FastAPI with a React frontend and Playwright headless URL capture.
 
 ---
 
@@ -35,8 +35,8 @@ Once the application is running at **`http://localhost:3000`**:
 
 ### Method 1: Upload Screenshots
 1. Stay on the **"Upload Images"** tab.
-2. Drag and drop (or click to browse) your **English Reference Screenshot** into the left box.
-3. Drag and drop your **Localized Target Screenshot** into the right box.
+2. Drag and drop (or click to browse) your **English Reference Screenshot** into the left box (e.g. from `test_images/01_Baseline_English_Reference.png`).
+3. Drag and drop your **Localized Target Screenshot** into the right box (e.g. from `test_images/`).
 4. Click **"Analyze Screenshots"**.
 
 ---
