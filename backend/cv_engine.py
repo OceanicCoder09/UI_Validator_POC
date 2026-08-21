@@ -225,7 +225,10 @@ def detect_ellipsis_precise(crop_bgr_or_gray):
     return False
 
 def detect_corrupted_glyph(crop_bgr_or_gray):
-    """Detects Unicode replacement character glyphs (black diamond question marks) or solid broken tofu boxes."""
+    """
+    Detects true Unicode replacement character glyphs (black diamond question mark '') 
+    with CJK (Chinese / Japanese / Korean) ideograph suppression to avoid false positives on Asian scripts.
+    """
     if crop_bgr_or_gray is None or not isinstance(crop_bgr_or_gray, np.ndarray) or crop_bgr_or_gray.size < 40:
         return False
     if len(crop_bgr_or_gray.shape) == 3:
@@ -235,11 +238,29 @@ def detect_corrupted_glyph(crop_bgr_or_gray):
         
     _, bin_img = cv2.threshold(gray, 90, 255, cv2.THRESH_BINARY_INV)
     cnts, _ = cv2.findContours(bin_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    
+    # 1. CJK Text Run Awareness:
+    # If this text line contains 3 or more square characters, it is standard East Asian text (Chinese/Japanese/Korean)!
+    ideograph_count = 0
     for c in cnts:
         x, y, w, h = cv2.boundingRect(c)
-        area = cv2.contourArea(c)
-        if 12 <= w <= 26 and 12 <= h <= 26 and area >= 75:
-            return True
+        if 10 <= w <= 32 and 10 <= h <= 32 and 0.55 <= w/float(h) <= 1.45:
+            ideograph_count += 1
+            
+    if ideograph_count >= 3:
+        return False
+        
+    # 2. Precise Unicode Replacement Diamond (Rhombus) Check:
+    for c in cnts:
+        x, y, w, h = cv2.boundingRect(c)
+        if 12 <= w <= 26 and 12 <= h <= 26 and 0.70 <= w/float(h) <= 1.40:
+            hull = cv2.convexHull(c)
+            hull_area = cv2.contourArea(hull)
+            rect_area = w * h
+            fill_ratio = hull_area / rect_area if rect_area > 0 else 0
+            # A 45-degree diamond fills 42% - 65% of bounding rectangle
+            if 0.42 <= fill_ratio <= 0.65 and cv2.contourArea(c) >= 55:
+                return True
     return False
 
 def analyze_localization_quality(img_en_bgr, img_loc_bgr):
@@ -576,7 +597,7 @@ def analyze_localization_quality(img_en_bgr, img_loc_bgr):
                 })
 
     # -------------------------------------------------------------------------
-    # 7. EXTENDED_CHAR_ISSUE (Code: 0016) - Differential Corrupted Glyphs Check
+    # 7. EXTENDED_CHAR_ISSUE (Code: 0016) - CJK-Safe Differential Corrupted Glyphs Check
     # -------------------------------------------------------------------------
     for bx, by, bw, bh in lines_loc:
         # Only inspect legitimate text lines inside content areas (ignore top navigation icon boxes)
