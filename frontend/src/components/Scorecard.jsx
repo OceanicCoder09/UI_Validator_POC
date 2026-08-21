@@ -1,73 +1,63 @@
 import React from 'react';
-import { CheckCircle2, AlertCircle, AlertTriangle, ShieldAlert, Layers } from 'lucide-react';
+import { ShieldAlert, AlertTriangle, AlertCircle } from 'lucide-react';
 
 export default function Scorecard({ results }) {
   if (!results) return null;
 
   const score = results?.score ?? 0;
-  const grade = String(results?.grade || 'B');
   const grade_description = results?.grade_description || 'Analysis completed';
   const summary = results?.summary || {
     total_defects: 0,
     critical_count: 0,
     major_count: 0,
-    minor_count: 0,
-    checks_performed: []
+    minor_count: 0
   };
 
-  const getTheme = (g) => {
-    if (g && typeof g === 'string' && g.startsWith('A')) return {
+  const getScoreTheme = (s) => {
+    if (s >= 90) return {
       card: 'bg-emerald-50 border-emerald-300 text-emerald-900',
-      badge: 'bg-emerald-600 text-white',
       progress: 'bg-emerald-500',
       scoreText: 'text-emerald-700'
     };
-    if (g && typeof g === 'string' && g.startsWith('B')) return {
+    if (s >= 70) return {
       card: 'bg-sky-50 border-sky-300 text-sky-900',
-      badge: 'bg-[#0696D7] text-white',
       progress: 'bg-[#0696D7]',
       scoreText: 'text-sky-700'
     };
-    if (g && typeof g === 'string' && g.startsWith('C')) return {
+    if (s >= 50) return {
       card: 'bg-amber-50 border-amber-300 text-amber-900',
-      badge: 'bg-amber-500 text-white',
       progress: 'bg-amber-500',
       scoreText: 'text-amber-700'
     };
     return {
       card: 'bg-rose-50 border-rose-300 text-rose-900',
-      badge: 'bg-rose-600 text-white',
       progress: 'bg-rose-500',
       scoreText: 'text-rose-700'
     };
   };
 
-  const theme = getTheme(grade);
-  const checks = summary?.checks_performed || [];
+  const theme = getScoreTheme(score);
 
   return (
     <div className="space-y-4">
       
-      {/* Big Bright Summary Card */}
+      {/* Big Summary Score Card */}
       <div className="bg-white border border-slate-200 rounded-2xl p-6 card-shadow">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           
-          {/* Main Score Box */}
+          {/* Main Score Box (Scores kept, Grade removed) */}
           <div className="lg:col-span-5 flex items-center gap-5 border-b lg:border-b-0 lg:border-r border-slate-200 pb-6 lg:pb-0 lg:pr-6">
-            <div className={`w-24 h-24 rounded-2xl flex flex-col items-center justify-center border-2 shadow-sm relative shrink-0 ${theme.card}`}>
+            <div className={`w-24 h-24 rounded-2xl flex flex-col items-center justify-center border-2 shadow-sm shrink-0 ${theme.card}`}>
               <span className={`text-3xl font-black ${theme.scoreText}`}>{score}</span>
               <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">out of 100</span>
-              <div className={`absolute -top-2 -right-2 px-2 py-0.5 rounded-md text-[11px] font-black shadow ${theme.badge}`}>
-                Grade {grade}
-              </div>
             </div>
 
             <div className="space-y-1">
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                UI Quality Result
+                Quality Score
               </span>
               <h2 className="text-base font-bold text-slate-900 leading-tight">
-                {grade_description}
+                {score === 100 ? "Clean UI — No Visual Defects Detected" : grade_description}
               </h2>
               <div className="flex items-center gap-2 pt-1.5">
                 <div className="w-28 h-2.5 rounded-full bg-slate-200 overflow-hidden">
@@ -153,53 +143,6 @@ export default function Scorecard({ results }) {
 
         </div>
       </div>
-
-      {/* Quality Checks Summary Bar */}
-      {checks.length > 0 && (
-        <div className="bg-white border border-slate-200 rounded-2xl p-4 card-shadow">
-          <div className="flex items-center justify-between mb-3 px-1">
-            <div className="flex items-center gap-2 text-xs font-bold text-slate-800 uppercase tracking-wider">
-              <Layers className="w-4 h-4 text-[#0696D7]" />
-              <span>OpenCV Quality Checks Checklist</span>
-            </div>
-            <span className="text-xs font-semibold text-slate-500">
-              {checks.length} Checks Performed
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5">
-            {checks.map((chk, i) => {
-              const isPassed = chk?.status === 'Passed';
-              return (
-                <div
-                  key={i}
-                  className={`p-3 rounded-xl border flex items-center justify-between ${
-                    isPassed
-                      ? 'bg-emerald-50/60 border-emerald-200 text-emerald-900'
-                      : 'bg-rose-50 border-rose-200 text-rose-900'
-                  }`}
-                >
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider block text-slate-500">
-                      {chk?.severity || 'Check'}
-                    </span>
-                    <h4 className="text-xs font-bold text-slate-900">{chk?.name || 'Inspection'}</h4>
-                  </div>
-                  {isPassed ? (
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-700 border border-emerald-300">
-                      PASS
-                    </span>
-                  ) : (
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-rose-100 text-rose-700 border border-rose-300">
-                      DEFECT
-                    </span>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
 
     </div>
   );

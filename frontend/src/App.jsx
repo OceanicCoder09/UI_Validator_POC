@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { AlertCircle } from 'lucide-react';
 
 import Header from './components/Header';
-import PresetSelector from './components/PresetSelector';
 import ImageUploader from './components/ImageUploader';
 import Scorecard from './components/Scorecard';
 import DiffViewer from './components/DiffViewer';
@@ -11,11 +10,9 @@ import FindingsList from './components/FindingsList';
 import FindingModal from './components/FindingModal';
 import DocumentationModal from './components/DocumentationModal';
 import ReportExporter from './components/ReportExporter';
+import AutodeskLogo from './components/AutodeskLogo';
 
 export default function App() {
-  const [presets, setPresets] = useState([]);
-  const [activePresetId, setActivePresetId] = useState(null);
-  
   const [englishImage, setEnglishImage] = useState(null);
   const [localizedImage, setLocalizedImage] = useState(null);
   
@@ -28,85 +25,9 @@ export default function App() {
   const [activeModalFinding, setActiveModalFinding] = useState(null);
   const [isDocsOpen, setIsDocsOpen] = useState(false);
 
-  // Fetch presets on mount
-  useEffect(() => {
-    fetch('/api/presets')
-      .then(res => res.json())
-      .then(data => {
-        setPresets(data);
-        if (data.length > 0) {
-          handleSelectPreset(data[0].id);
-        }
-      })
-      .catch(err => {
-        console.error('Failed to fetch presets:', err);
-      });
-  }, []);
-
-  // Handle Preset selection
-  const handleSelectPreset = async (presetId) => {
-    setActivePresetId(presetId);
-    setError(null);
-    setIsAnalyzing(true);
-
-    try {
-      const foundPreset = presets.find(p => p.id === presetId);
-      const locFilename = foundPreset ? foundPreset.filename : `${presetId}.png`;
-
-      setEnglishImage({
-        name: 'en_baseline.png',
-        preview: `/api/preset-image/en_baseline.png`,
-        isPreset: true
-      });
-
-      setLocalizedImage({
-        name: locFilename,
-        preview: `/api/preset-image/${locFilename}`,
-        isPreset: true
-      });
-
-      const formData = new FormData();
-      formData.append('preset_id', presetId);
-
-      const res = await fetch('/api/analyze-preset', {
-        method: 'POST',
-        body: formData
-      });
-
-      if (!res.ok) {
-        throw new Error(`Analysis failed with status ${res.status}`);
-      }
-
-      const data = await res.json();
-      setResults(data);
-
-      if (data.score === 100) {
-        try {
-          confetti({
-            particleCount: 60,
-            spread: 60,
-            origin: { y: 0.6 }
-          });
-        } catch (e) {
-          // ignore confetti errors in restricted browsers
-        }
-      }
-    } catch (err) {
-      console.error('Preset analysis error:', err);
-      setError(err.message || 'Failed to analyze preset');
-    } finally {
-      setIsAnalyzing(false);
-    }
-  };
-
   // Handle Custom Upload Analysis
   const handleAnalyze = async () => {
     if (!englishImage || !localizedImage) return;
-    
-    if (activePresetId && englishImage.isPreset && localizedImage.isPreset) {
-      handleSelectPreset(activePresetId);
-      return;
-    }
 
     setIsAnalyzing(true);
     setError(null);
@@ -140,7 +61,6 @@ export default function App() {
 
       const data = await res.json();
       setResults(data);
-      setActivePresetId(null);
 
       if (data.score === 100) {
         try {
@@ -184,7 +104,6 @@ export default function App() {
 
       const data = await res.json();
       setResults(data);
-      setActivePresetId(null);
 
       setEnglishImage({
         name: englishUrl,
@@ -219,7 +138,6 @@ export default function App() {
     setEnglishImage(null);
     setLocalizedImage(null);
     setResults(null);
-    setActivePresetId(null);
     setError(null);
   };
 
@@ -236,26 +154,14 @@ export default function App() {
       {/* Main Container */}
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 space-y-6">
         
-        {/* 1. Quick Presets Bar */}
-        {presets.length > 0 && (
-          <PresetSelector
-            presets={presets}
-            activePresetId={activePresetId}
-            onSelectPreset={handleSelectPreset}
-            isAnalyzing={isAnalyzing || isUrlAnalyzing}
-          />
-        )}
-
-        {/* 2. Drag & Drop Upload Zone + Live URL Auto-Capture */}
+        {/* 1. Drag & Drop Upload Zone + Live URL Auto-Capture (Demos removed) */}
         <ImageUploader
           englishImage={englishImage}
           localizedImage={localizedImage}
           onEnglishUpload={(file, preview) => {
-            setActivePresetId(null);
             setEnglishImage(file ? { file, preview, name: file.name, isPreset: false } : null);
           }}
           onLocalizedUpload={(file, preview) => {
-            setActivePresetId(null);
             setLocalizedImage(file ? { file, preview, name: file.name, isPreset: false } : null);
           }}
           onAnalyze={handleAnalyze}
@@ -276,7 +182,7 @@ export default function App() {
           </div>
         )}
 
-        {/* 3. Results Section */}
+        {/* 2. Results Section */}
         {results && (
           <div className="space-y-6 animate-in fade-in duration-300">
             
@@ -299,11 +205,8 @@ export default function App() {
               onOpenModal={setActiveModalFinding}
             />
 
-            {/* Exporter */}
-            <ReportExporter
-              results={results}
-              activePresetTitle={presets.find(p => p.id === activePresetId)?.title}
-            />
+            {/* Final Report Exporter (Consolidated with Embedded Diff Image) */}
+            <ReportExporter results={results} />
 
           </div>
         )}
@@ -313,13 +216,10 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-white py-5 text-center text-xs text-slate-500">
         <div className="max-w-6xl mx-auto px-4 flex items-center justify-center">
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-5 rounded bg-[#0696D7] flex items-center justify-center">
-              <svg viewBox="0 0 32 32" className="w-3 h-3 fill-white">
-                <path d="M7 23 L15 7 L23 23 L18 23 L15 14 L12 23 Z" />
-              </svg>
-            </div>
-            <span className="font-bold text-slate-700">Autodesk UI Localization Quality Checker</span>
+          <div className="flex items-center gap-2.5">
+            <AutodeskLogo className="h-4 w-auto" />
+            <span className="text-slate-300">|</span>
+            <span className="font-semibold text-slate-600">UI Localization Quality Checker</span>
           </div>
         </div>
       </footer>

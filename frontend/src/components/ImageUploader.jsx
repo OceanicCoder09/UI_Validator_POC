@@ -67,7 +67,7 @@ export default function ImageUploader({
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
             {activeTab === 'upload'
-              ? 'Upload manual screenshots or select a test scenario above'
+              ? 'Upload the English baseline reference and Localized target screenshot'
               : 'Enter live web URLs for automated headless browser capture'}
           </p>
         </div>

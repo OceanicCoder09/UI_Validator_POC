@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import { 
-  Split, 
-  Layers, 
-  Flame, 
-  Download
-} from 'lucide-react';
+import { Split, Layers, Flame } from 'lucide-react';
 
 export default function DiffViewer({ 
   images, 
@@ -70,16 +65,8 @@ export default function DiffViewer({
 
         </div>
 
-        {/* Download Action */}
-        <div className="flex items-center gap-2">
-          <a
-            href={annotated_diff_image}
-            download="autodesk_localization_difference.png"
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 transition shadow-sm"
-          >
-            <Download className="w-3.5 h-3.5 text-slate-500" />
-            <span>Save Difference Image</span>
-          </a>
+        <div className="text-xs text-slate-400 font-medium">
+          Visual Quality Inspector
         </div>
 
       </div>
