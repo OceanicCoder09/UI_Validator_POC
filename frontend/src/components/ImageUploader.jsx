@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, ArrowRight, RefreshCw, Globe, Image as ImageIcon, Sparkles } from 'lucide-react';
+import { Upload, ArrowRight, RefreshCw, Globe, Image as ImageIcon, Sparkles, Network } from 'lucide-react';
 
 export default function ImageUploader({
   englishImage,
@@ -10,11 +10,21 @@ export default function ImageUploader({
   isAnalyzing,
   onClear,
   onUrlAnalyze,
-  isUrlAnalyzing
+  isUrlAnalyzing,
+  onCrawl,
+  isCrawling
 }) {
-  const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'url'
+  const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'url' | 'crawl'
   const [englishUrl, setEnglishUrl] = useState('');
   const [localizedUrl, setLocalizedUrl] = useState('');
+  const [rootUrl, setRootUrl] = useState('');
+  const [baselineRootUrl, setBaselineRootUrl] = useState('');
+  const [maxDepth, setMaxDepth] = useState(2);
+  const [maxPages, setMaxPages] = useState(10);
+  const [checkLinks, setCheckLinks] = useState(true);
+  const [checkImages, setCheckImages] = useState(true);
+  const [checkInteractions, setCheckInteractions] = useState(true);
+  const [safeInteractionsOnly, setSafeInteractionsOnly] = useState(true);
 
   const handleFile = (e, isEnglish) => {
     const file = e.target.files?.[0];
@@ -63,12 +73,14 @@ export default function ImageUploader({
         <div>
           <h2 className="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#0696D7]"></span>
-            Screenshot Comparison Input
+            Quality Validation Mode
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
             {activeTab === 'upload'
               ? 'Upload the English baseline reference and Localized target screenshot'
-              : 'Enter live web URLs for automated headless browser capture'}
+              : activeTab === 'url'
+                ? 'Enter live web URLs for automated headless browser capture'
+                : 'Crawl from a root URL, validate links/images/elements, and generate audit reports'}
           </p>
         </div>
 
@@ -97,6 +109,19 @@ export default function ImageUploader({
           >
             <Globe className="w-3.5 h-3.5" />
             <span>Auto-Capture URL</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('crawl')}
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition ${
+              activeTab === 'crawl'
+                ? 'bg-white text-[#0696D7] shadow-sm'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <Network className="w-3.5 h-3.5" />
+            <span>Site Crawl & Validate</span>
             <span className="px-1.5 py-0.2 text-[9px] bg-emerald-100 text-emerald-700 rounded font-bold">New</span>
           </button>
         </div>
@@ -139,38 +164,36 @@ export default function ImageUploader({
                       <span>Change Baseline Image</span>
                       <input
                         type="file"
-                        accept="image/png, image/jpeg, image/webp"
-                        className="hidden"
+                        accept="image/*,.bmp"
                         onChange={(e) => handleFile(e, true)}
+                        className="hidden"
                       />
                     </label>
                   </div>
                 ) : (
-                  <label className="cursor-pointer flex flex-col items-center justify-center gap-2 text-slate-500 hover:text-[#0696D7] transition">
-                    <div className="w-10 h-10 rounded-full bg-slate-200/70 flex items-center justify-center text-slate-600">
+                  <label className="w-full h-full flex flex-col items-center justify-center cursor-pointer space-y-2">
+                    <div className="w-10 h-10 rounded-full bg-[#0696D7]/10 flex items-center justify-center text-[#0696D7]">
                       <Upload className="w-5 h-5" />
                     </div>
-                    <span className="text-xs font-bold text-slate-700">
-                      Drop English Screenshot Here
-                    </span>
-                    <span className="text-[11px] text-slate-400">
-                      or click to browse from files
-                    </span>
+                    <div>
+                      <p className="text-xs font-bold text-slate-700">Upload Reference Image</p>
+                      <p className="text-[11px] text-slate-400">PNG, JPG, WebP, or BMP</p>
+                    </div>
                     <input
                       type="file"
-                      accept="image/png, image/jpeg, image/webp"
-                      className="hidden"
+                      accept="image/*,.bmp"
                       onChange={(e) => handleFile(e, true)}
+                      className="hidden"
                     />
                   </label>
                 )}
               </div>
             </div>
 
-            {/* Localized Screenshot Box */}
+            {/* Localized Target Box */}
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-bold text-slate-700">2. Localized Screenshot (Target)</span>
+                <span className="font-bold text-slate-700">2. Localized Target (To Test)</span>
                 {localizedImage && (
                   <span className="text-slate-400 truncate max-w-[200px]">
                     {localizedImage.name}
@@ -191,7 +214,7 @@ export default function ImageUploader({
                   <div className="relative w-full h-full flex items-center justify-center group overflow-hidden rounded-lg">
                     <img
                       src={localizedImage.preview}
-                      alt="Localized UI"
+                      alt="Localized Target"
                       className="max-h-full max-w-full object-contain rounded"
                     />
                     <label className="absolute inset-0 bg-slate-900/60 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition cursor-pointer text-xs font-semibold gap-1.5 backdrop-blur-[2px]">
@@ -199,28 +222,26 @@ export default function ImageUploader({
                       <span>Change Localized Image</span>
                       <input
                         type="file"
-                        accept="image/png, image/jpeg, image/webp"
-                        className="hidden"
+                        accept="image/*,.bmp"
                         onChange={(e) => handleFile(e, false)}
+                        className="hidden"
                       />
                     </label>
                   </div>
                 ) : (
-                  <label className="cursor-pointer flex flex-col items-center justify-center gap-2 text-slate-500 hover:text-[#0696D7] transition">
-                    <div className="w-10 h-10 rounded-full bg-slate-200/70 flex items-center justify-center text-slate-600">
+                  <label className="w-full h-full flex flex-col items-center justify-center cursor-pointer space-y-2">
+                    <div className="w-10 h-10 rounded-full bg-[#0696D7]/10 flex items-center justify-center text-[#0696D7]">
                       <Upload className="w-5 h-5" />
                     </div>
-                    <span className="text-xs font-bold text-slate-700">
-                      Drop Localized Screenshot Here
-                    </span>
-                    <span className="text-[11px] text-slate-400">
-                      or click to browse from files
-                    </span>
+                    <div>
+                      <p className="text-xs font-bold text-slate-700">Upload Target Image</p>
+                      <p className="text-[11px] text-slate-400">German, Spanish, French, etc.</p>
+                    </div>
                     <input
                       type="file"
-                      accept="image/png, image/jpeg, image/webp"
-                      className="hidden"
+                      accept="image/*,.bmp"
                       onChange={(e) => handleFile(e, false)}
+                      className="hidden"
                     />
                   </label>
                 )}
@@ -229,18 +250,19 @@ export default function ImageUploader({
 
           </div>
 
-          {/* Action Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-100">
             <button
-              onClick={onClear}
               type="button"
-              className="text-xs font-medium text-slate-500 hover:text-slate-800 flex items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-slate-100 transition"
+              onClick={onClear}
+              disabled={!englishImage && !localizedImage}
+              className="text-xs text-slate-500 hover:text-slate-800 font-semibold disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               <span>Reset Selection</span>
             </button>
 
             <button
+              type="button"
               onClick={onAnalyze}
               disabled={!englishImage || !localizedImage || isAnalyzing}
               className={`w-full sm:w-auto px-6 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition active:scale-95 ${
@@ -252,11 +274,11 @@ export default function ImageUploader({
               {isAnalyzing ? (
                 <>
                   <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                  <span>Running Computer Vision Analysis...</span>
+                  <span>Analyzing Layout Quality...</span>
                 </>
               ) : (
                 <>
-                  <span>Compare & Check UI Quality</span>
+                  <span>Analyze Screenshots</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
@@ -267,12 +289,12 @@ export default function ImageUploader({
 
       {/* TAB 2: LIVE URL AUTO-CAPTURE */}
       {activeTab === 'url' && (
-        <form onSubmit={handleUrlSubmit} className="space-y-5">
+        <form onSubmit={handleUrlSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-slate-400"></span>
+                <span className="w-2 h-2 rounded-full bg-[#0696D7]"></span>
                 English Baseline Web URL
               </label>
               <input
@@ -328,6 +350,163 @@ export default function ImageUploader({
                 <>
                   <Globe className="w-4 h-4" />
                   <span>Auto-Capture & Analyze</span>
+                </>
+              )}
+            </button>
+          </div>
+        </form>
+      )}
+
+      {/* TAB 3: SITE CRAWL FRAMEWORK */}
+      {activeTab === 'crawl' && (
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (!rootUrl || !onCrawl) return;
+            onCrawl({
+              root_url: rootUrl,
+              baseline_root_url: baselineRootUrl || undefined,
+              max_depth: Number(maxDepth),
+              max_pages: Number(maxPages),
+              same_origin_only: true,
+              viewport_width: 1280,
+              viewport_height: 800,
+              wait_seconds: 1.0,
+              check_links: checkLinks,
+              check_images: checkImages,
+              check_interactions: checkInteractions,
+              safe_interactions_only: safeInteractionsOnly
+            });
+          }}
+          className="space-y-5"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="space-y-1.5 md:col-span-2">
+              <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#0696D7]"></span>
+                Root Website URL (required)
+              </label>
+              <input
+                type="url"
+                required
+                value={rootUrl}
+                onChange={(e) => setRootUrl(e.target.value)}
+                placeholder="https://example.com"
+                className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0696D7] bg-slate-50"
+              />
+              <p className="text-[11px] text-slate-400">Playwright will recursively crawl links from this root page within the same domain.</p>
+            </div>
+
+            <div className="space-y-1.5 md:col-span-2">
+              <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-slate-400"></span>
+                Optional Baseline Root URL (Pairwise Visual Localization)
+              </label>
+              <input
+                type="url"
+                value={baselineRootUrl}
+                onChange={(e) => setBaselineRootUrl(e.target.value)}
+                placeholder="https://example.com/en/ (optional)"
+                className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0696D7] bg-slate-50"
+              />
+              <p className="text-[11px] text-slate-400">If provided, paired pages will undergo pairwise computer vision comparison against baseline.</p>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-slate-700">Max Crawl Depth</label>
+              <input
+                type="number"
+                min="0"
+                max="5"
+                value={maxDepth}
+                onChange={(e) => setMaxDepth(e.target.value)}
+                className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50"
+              />
+              <p className="text-[10px] text-slate-400">0 = Root only, 1 = Root + 1 hop, 2 = 2 hops (recommended: 2)</p>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-slate-700">Max Pages Limit</label>
+              <input
+                type="number"
+                min="1"
+                max="50"
+                value={maxPages}
+                onChange={(e) => setMaxPages(e.target.value)}
+                className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50"
+              />
+              <p className="text-[10px] text-slate-400">Caps total crawl volume to prevent infinite loops (max 50)</p>
+            </div>
+          </div>
+
+          {/* Validation Checks & Safety Options */}
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+            <div className="text-xs font-bold text-slate-700">Active Quality Checks & Safety Rules</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+              <label className="flex items-center gap-2 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={checkLinks}
+                  onChange={(e) => setCheckLinks(e.target.checked)}
+                  className="rounded text-[#0696D7] focus:ring-[#0696D7]"
+                />
+                <span className="font-semibold text-slate-700">Broken Links Check</span>
+              </label>
+
+              <label className="flex items-center gap-2 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={checkImages}
+                  onChange={(e) => setCheckImages(e.target.checked)}
+                  className="rounded text-[#0696D7] focus:ring-[#0696D7]"
+                />
+                <span className="font-semibold text-slate-700">Broken Images Check</span>
+              </label>
+
+              <label className="flex items-center gap-2 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={checkInteractions}
+                  onChange={(e) => setCheckInteractions(e.target.checked)}
+                  className="rounded text-[#0696D7] focus:ring-[#0696D7]"
+                />
+                <span className="font-semibold text-slate-700">Element State Checks</span>
+              </label>
+
+              <label className="flex items-center gap-2 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={safeInteractionsOnly}
+                  onChange={(e) => setSafeInteractionsOnly(e.target.checked)}
+                  className="rounded text-[#0696D7] focus:ring-[#0696D7]"
+                />
+                <span className="font-semibold text-slate-700">Destructive Protection</span>
+              </label>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-100">
+            <p className="text-xs text-slate-500">
+              Discovers links, buttons, inputs, images, dropdowns, and iframes, validates rendering health, and exports JSON, CSV, and Excel reports.
+            </p>
+            <button
+              type="submit"
+              disabled={isCrawling || !rootUrl}
+              className={`w-full sm:w-auto px-6 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition active:scale-95 ${
+                isCrawling || !rootUrl
+                  ? 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                  : 'bg-[#0696D7] hover:bg-[#0284C7] text-white shadow-sky-200 hover:shadow-md'
+              }`}
+            >
+              {isCrawling ? (
+                <>
+                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                  <span>Crawling & Validating Website...</span>
+                </>
+              ) : (
+                <>
+                  <Network className="w-4 h-4" />
+                  <span>Start Crawl & Validate</span>
                 </>
               )}
             </button>

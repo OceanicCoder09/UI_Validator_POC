@@ -20,6 +20,9 @@ __pycache__/
 *.so
 .pytest_cache/
 
+# Framework crawl reports & evidence
+backend/reports/
+
 # Logs & Temporary Files
 *.log
 npm-debug.log*

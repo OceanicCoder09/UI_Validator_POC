@@ -10,6 +10,7 @@ import FindingsList from './components/FindingsList';
 import FindingModal from './components/FindingModal';
 import DocumentationModal from './components/DocumentationModal';
 import ReportExporter from './components/ReportExporter';
+import CrawlResults from './components/CrawlResults';
 import AutodeskLogo from './components/AutodeskLogo';
 
 export default function App() {
@@ -18,7 +19,9 @@ export default function App() {
   
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [isUrlAnalyzing, setIsUrlAnalyzing] = useState(false);
+  const [isCrawling, setIsCrawling] = useState(false);
   const [results, setResults] = useState(null);
+  const [crawlResults, setCrawlResults] = useState(null);
   const [error, setError] = useState(null);
 
   const [selectedFindingId, setSelectedFindingId] = useState(null);
@@ -134,10 +137,55 @@ export default function App() {
     }
   };
 
+  const handleCrawl = async (payload) => {
+    setIsCrawling(true);
+    setError(null);
+    setCrawlResults(null);
+    setResults(null);
+
+    try {
+      const res = await fetch('/api/crawl-and-validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.detail || `Site crawl returned error ${res.status}`);
+      }
+
+      const data = await res.json();
+      setCrawlResults(data);
+
+      if (data.pairwise_cv) {
+        setResults(data.pairwise_cv);
+        if (data.pairwise_cv.images) {
+          setEnglishImage({
+            name: payload.baseline_root_url || 'baseline',
+            preview: data.pairwise_cv.images.baseline_image,
+            isPreset: false
+          });
+          setLocalizedImage({
+            name: payload.root_url,
+            preview: data.pairwise_cv.images.localized_image,
+            isPreset: false
+          });
+        }
+      }
+    } catch (err) {
+      console.error('Site crawl error:', err);
+      setError(err.message || 'Site crawl validation failed');
+    } finally {
+      setIsCrawling(false);
+    }
+  };
+
   const handleClear = () => {
     setEnglishImage(null);
     setLocalizedImage(null);
     setResults(null);
+    setCrawlResults(null);
     setError(null);
   };
 
@@ -147,7 +195,7 @@ export default function App() {
       {/* Global Header */}
       <Header
         onOpenDocs={() => setIsDocsOpen(true)}
-        isAnalyzing={isAnalyzing || isUrlAnalyzing}
+        isAnalyzing={isAnalyzing || isUrlAnalyzing || isCrawling}
         onReset={handleClear}
       />
 
@@ -169,6 +217,8 @@ export default function App() {
           onClear={handleClear}
           onUrlAnalyze={handleUrlAnalyze}
           isUrlAnalyzing={isUrlAnalyzing}
+          onCrawl={handleCrawl}
+          isCrawling={isCrawling}
         />
 
         {/* Error Alert */}
@@ -182,7 +232,9 @@ export default function App() {
           </div>
         )}
 
-        {/* 2. Results Section */}
+        {crawlResults && <CrawlResults crawl={crawlResults} />}
+
+        {/* 2. Results Section (existing BMP / pairwise CV) */}
         {results && (
           <div className="space-y-6 animate-in fade-in duration-300">
             

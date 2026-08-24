@@ -8,3 +8,6 @@ playwright>=1.42.0
 mss>=9.0.1
 pygetwindow>=0.0.9
 pydantic>=2.6.0
+openpyxl>=3.1.2
+requests>=2.31.0
+pytesseract>=0.3.10

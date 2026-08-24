@@ -118,24 +118,90 @@ The frontend dashboard will be available at **`http://localhost:3000`**.
 
 ---
 
+## 🌐 Production Web Page Crawling & UI Quality Validation Engine
+
+The engine supports full-scale website hierarchy crawling, element discovery, deep UI defect validation, safety interaction checks, and multi-format report generation:
+
+### Core Workflow
+```
+Root Page URL (e.g. https://example.com)
+   │
+   ▼
+Playwright Headless Browser Launch
+   │
+   ▼
+Page Analysis (HTTP status, page title, JS exceptions & console logs)
+   │
+   ▼
+DOM Element Discovery (Links, Buttons, Images, Inputs, Dropdowns, Textareas, Iframes, Navs)
+   │
+   ▼
+Validation Checks:
+ ├─ LinkValidator (Broken links, 4xx/5xx responses, missing/invalid href)
+ ├─ ImageValidator (Broken images, naturalWidth/Height == 0, missing src)
+ ├─ InteractionValidator (Safety classification, visibility, pointer-events, collision, overflow)
+ └─ Pairwise CV Engine (Optional pairwise comparison if Baseline Root URL is provided)
+   │
+   ▼
+Recursive Internal Link Crawl (BFS traversal up to max_depth & max_pages)
+   │
+   ▼
+Defect Classification & Annotation (Evidence screenshots with bounding boxes & badges)
+   │
+   ▼
+Final Multi-Format Reports Generated:
+ ├─ report.json (Full structured JSON schema)
+ ├─ report.csv (Tabular CSV export)
+ └─ report.xlsx (Multi-tab styled Excel workbook with KPI Executive Dashboard)
+```
+
+### Modular Components Architecture
+
+| Component | File | Responsibilities |
+|---|---|---|
+| **ConfigurationManager** | [`backend/config_manager.py`](file:///c:/Users/Rohan%20Keskar/OneDrive%20-%20Centre%20for%20Computational%20Technologies%20Private%20Limited/Desktop/pocs/UI_Validator_POC/backend/config_manager.py) | Manages crawl depth, page limits, viewport dimensions, timeouts, URL normalizer, and safety policies. |
+| **Crawler** | [`backend/crawler.py`](file:///c:/Users/Rohan%20Keskar/OneDrive%20-%20Centre%20for%20Computational%20Technologies%20Private%20Limited/Desktop/pocs/UI_Validator_POC/backend/crawler.py) | Playwright BFS crawler with same-origin filtering, progressive timeout fallbacks, and runtime error hooks. |
+| **PageAnalyzer** | [`backend/page_analyzer.py`](file:///c:/Users/Rohan%20Keskar/OneDrive%20-%20Centre%20for%20Computational%20Technologies%20Private%20Limited/Desktop/pocs/UI_Validator_POC/backend/page_analyzer.py) | Captures uncaught JavaScript errors (`page.on('pageerror')`), console error logs, and HTTP status codes. |
+| **ElementAnalyzer** | [`backend/element_analyzer.py`](file:///c:/Users/Rohan%20Keskar/OneDrive%20-%20Centre%20for%20Computational%20Technologies%20Private%20Limited/Desktop/pocs/UI_Validator_POC/backend/element_analyzer.py) | Full DOM introspection extracting unique CSS selectors, bounding boxes $(x,y,w,h)$, visibility, and overflow metrics. |
+| **LinkValidator** | [`backend/link_validator.py`](file:///c:/Users/Rohan%20Keskar/OneDrive%20-%20Centre%20for%20Computational%20Technologies%20Private%20Limited/Desktop/pocs/UI_Validator_POC/backend/link_validator.py) | Resolves relative URLs, checks missing/empty `href`, detects placeholder links, and verifies HTTP status codes. |
+| **ImageValidator** | [`backend/image_validator.py`](file:///c:/Users/Rohan%20Keskar/OneDrive%20-%20Centre%20for%20Computational%20Technologies%20Private%20Limited/Desktop/pocs/UI_Validator_POC/backend/image_validator.py) | Detects broken images (`naturalWidth === 0`), missing `src`, and verifies HTTP asset status. |
+| **InteractionValidator** | [`backend/interaction_validator.py`](file:///c:/Users/Rohan%20Keskar/OneDrive%20-%20Centre%20for%20Computational%20Technologies%20Private%20Limited/Desktop/pocs/UI_Validator_POC/backend/interaction_validator.py) | Classifies controls (`Safe`, `Navigation`, `Form submission`, `Destructive`, `Unknown`), detects collision overlaps and hidden elements. |
+| **DefectClassifier** | [`backend/defect_classifier.py`](file:///c:/Users/Rohan%20Keskar/OneDrive%20-%20Centre%20for%20Computational%20Technologies%20Private%20Limited/Desktop/pocs/UI_Validator_POC/backend/defect_classifier.py) | Standardizes defect records into categories (`Broken Link`, `Broken Image`, `Invisible Element`, `Disabled Element`, `JavaScript Error`, etc.). |
+| **ScreenshotManager** | [`backend/screenshot_manager.py`](file:///c:/Users/Rohan%20Keskar/OneDrive%20-%20Centre%20for%20Computational%20Technologies%20Private%20Limited/Desktop/pocs/UI_Validator_POC/backend/screenshot_manager.py) | Generates annotated screenshots with colored bounding boxes & defect badges, creates element visual crops, and saves PNGs. |
+| **ReportGenerator** | [`backend/report_generator.py`](file:///c:/Users/Rohan%20Keskar/OneDrive%20-%20Centre%20for%20Computational%20Technologies%20Private%20Limited/Desktop/pocs/UI_Validator_POC/backend/report_generator.py) | Exports `report.json`, `report.csv`, and styled `report.xlsx` multi-tab workbooks. |
+| **Framework Orchestrator** | [`backend/framework.py`](file:///c:/Users/Rohan%20Keskar/OneDrive%20-%20Centre%20for%20Computational%20Technologies%20Private%20Limited/Desktop/pocs/UI_Validator_POC/backend/framework.py) | Coordinates the end-to-end crawl and validation lifecycle. |
+
+---
+
 ## 📂 Project Structure
 
 ```
 UI_Validator_POC/
 ├── backend/
-│   ├── cv_engine.py                # Full 12-rule Autodesk LQA Computer Vision Engine
-│   ├── main.py                     # FastAPI REST API + Playwright URL capture
-│   └── requirements.txt            # Python dependencies (fastapi, opencv, pillow, playwright)
+│   ├── config_manager.py           # ConfigurationManager (CrawlConfig dataclass & boundaries)
+│   ├── crawler.py                  # PlaywrightCrawler (BFS crawler, URL normalizer & listeners)
+│   ├── page_analyzer.py            # PageAnalyzer (HTTP status & JS exception listener)
+│   ├── element_analyzer.py         # ElementAnalyzer (DOM introspection & unique CSS selectors)
+│   ├── link_validator.py           # LinkValidator (Broken links & invalid href detection)
+│   ├── image_validator.py          # ImageValidator (Broken images & load verification)
+│   ├── interaction_validator.py    # InteractionValidator (Safety classification & layout collisions)
+│   ├── defect_classifier.py        # DefectClassifier (Standard categories & Autodesk LQA codes)
+│   ├── screenshot_manager.py       # ScreenshotManager (Visual annotation, crops & persistence)
+│   ├── report_generator.py         # ReportGenerator (JSON, CSV, and styled Excel exports)
+│   ├── framework.py                # Framework Orchestrator
+│   ├── cv_engine.py                # Full 12-rule Autodesk LQA Computer Vision Engine (Preserved)
+│   ├── main.py                     # FastAPI REST API
+│   ├── test_production_crawl.py    # End-to-end production verification test suite
+│   ├── test_engine.py              # Pairwise CV engine unit tests
+│   └── requirements.txt            # Python dependencies (fastapi, opencv, pillow, playwright, openpyxl, requests)
 ├── frontend/
 │   ├── src/
-│   │   ├── components/             # React UI components (Scorecard, DiffViewer, Exporter, etc.)
+│   │   ├── components/             # React UI components (CrawlResults, ImageUploader, Scorecard, etc.)
 │   │   ├── App.jsx                 # Main application dashboard
 │   │   └── index.css               # Clean modern CSS styling
-│   ├── package.json                # Frontend dependencies (React, Vite, jsPDF, html2canvas)
-│   └── vite.config.js              # Vite bundler configuration
-├── test_images/                    # Standardized test screenshots
-│   └── TEST_GUIDE.md               # Test scenario matrix guide
-├── .gitignore
+│   ├── package.json                # Frontend dependencies (React, Vite, TailwindCSS, Lucide)
+│   └── vite.config.js              # Vite bundler configuration (proxies /api to :8000)
+├── requirements.txt
 └── README.md
 ```
 
@@ -143,4 +209,5 @@ UI_Validator_POC/
 
 ## 🛡️ License
 
-Internal Proof of Concept — Built for Autodesk Localization Quality Assurance (LQA) Automation.
+Internal Quality Validation Engine — Built for UI Quality & Localization Assurance Automation.
+
