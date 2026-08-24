@@ -112,33 +112,9 @@ def validate_dom(page_url: str, elements: list, img_bgr) -> List[dict]:
             ), bbox))
 
         if kind in interactive:
-            input_type = (el.get("type") or "").lower()
-            if input_type == "hidden":
-                continue
-            hidden = (
-                vis.get("display") == "none"
-                or vis.get("visibility") == "hidden"
-                or vis.get("hiddenAttr")
-            )
-            # Skip collapsed chrome (menus, unused nav copies) unless the control is named.
-            named = bool(el.get("id") or el.get("name") or el.get("ariaLabel"))
-            if hidden and named and kind in {"button", "textbox", "dropdown", "checkbox", "radio"}:
-                issues.append(_attach_bbox(make_issue(
-                    page_url, label, "Hidden element", 0.86, "FAIL",
-                    f"Named interactive {kind} is hidden (display={vis.get('display')}, visibility={vis.get('visibility')}).",
-                    _crop_evidence(img_bgr, bbox) if bbox.get("width", 0) > 0 else (image_to_base64(img_bgr) if img_bgr is not None else ""),
-                ), bbox if bbox.get("width", 0) > 0 else None))
+        # (Hidden / Invisible element checks removed per user requirement)
 
-        overflow = el.get("overflow") or {}
-        if kind in {"button", "textbox", "label", "link", "dropdown"}:
-            if overflow.get("x", 0) > 2 or overflow.get("y", 0) > 2:
-                ellipsis = overflow.get("textOverflow") == "ellipsis"
-                issue_name = "Text truncation" if ellipsis else "Text overflow"
-                issues.append(_attach_bbox(make_issue(
-                    page_url, label, issue_name, 0.95, "FAIL",
-                    f"scroll overflow dx={overflow.get('x')} dy={overflow.get('y')} textOverflow={overflow.get('textOverflow')}.",
-                    _crop_evidence(img_bgr, bbox),
-                ), bbox))
+        # (Text truncation checks removed per user requirement)
 
         for msg in find_symbol_issues_in_text(el.get("text") or ""):
             issues.append(_attach_bbox(make_issue(
@@ -164,15 +140,7 @@ def validate_dom(page_url: str, elements: list, img_bgr) -> List[dict]:
         and (el.get("bbox") or {}).get("height", 0) > 4
         and (el.get("visibility") or {}).get("display") != "none"
     ]
-    for i, a in enumerate(visible_ix):
-        for b in visible_ix[i + 1:]:
-            if _rects_overlap(a["bbox"], b["bbox"], min_area=24):
-                issues.append(_attach_bbox(make_issue(
-                    page_url, f"{element_label(a)} ∩ {element_label(b)}", "Overlap", 0.86, "FAIL",
-                    f"Bounding boxes intersect: {a['bbox']} vs {b['bbox']}.",
-                    _crop_evidence(img_bgr, a["bbox"]),
-                ), a["bbox"]))
-                break
+        # (Raw DOM overlap check removed; visual collisions are handled via OpenCV pairwise visual diff)
 
     # Misalignment: same-row interactive elements with large y delta
     rows: Dict[int, list] = {}

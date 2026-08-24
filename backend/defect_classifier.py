@@ -83,6 +83,9 @@ class DefectRecord:
     severity: str = "Major"  # "Critical" | "Major" | "Minor" | "Info"
     bbox: Optional[Dict[str, int]] = None
     lqa_code: str = "0020"
+    crop_baseline_b64: str = ""
+    crop_localized_b64: str = ""
+    remediation: str = ""
 
     def to_dict(self) -> Dict[str, Any]:
         """Serializes the record for API responses and JSON reports."""
@@ -101,6 +104,9 @@ class DefectRecord:
             "error_message": self.error_message,
             "screenshot_path": self.screenshot_path,
             "evidence_image": self.evidence_image_b64,
+            "crop_baseline_b64": self.crop_baseline_b64,
+            "crop_localized_b64": self.crop_localized_b64,
+            "remediation": self.remediation,
             "timestamp": self.timestamp,
             "confidence": round(self.confidence, 2),
             "severity": self.severity,
@@ -118,6 +124,9 @@ class DefectRecord:
             "Status": self.status,
             "Details": self.actual_behavior or self.error_message,
             "EvidenceImage": self.screenshot_path or self.evidence_image_b64,
+            "crop_baseline_b64": self.crop_baseline_b64,
+            "crop_localized_b64": self.crop_localized_b64,
+            "remediation": self.remediation,
             "Selector": self.element_selector,
             "Expected": self.expected_behavior,
             "Actual": self.actual_behavior,
@@ -147,9 +156,13 @@ def create_defect(
     confidence: float = 0.9,
     severity: str = "Major",
     bbox: Optional[Dict[str, int]] = None,
+    crop_baseline_b64: str = "",
+    crop_localized_b64: str = "",
+    remediation: str = "",
+    lqa_code: Optional[str] = None,
 ) -> DefectRecord:
     """Factory helper to instantiate a standardized DefectRecord."""
-    lqa = AUTODESK_CODE_MAP.get(defect_category, "0020")
+    lqa = lqa_code or AUTODESK_CODE_MAP.get(defect_category, "0020")
     return DefectRecord(
         root_url=root_url,
         crawled_url=crawled_url,
@@ -169,4 +182,8 @@ def create_defect(
         severity=severity,
         bbox=bbox,
         lqa_code=lqa,
+        crop_baseline_b64=crop_baseline_b64,
+        crop_localized_b64=crop_localized_b64,
+        remediation=remediation,
     )
+

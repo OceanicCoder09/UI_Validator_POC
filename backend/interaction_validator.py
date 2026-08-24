@@ -112,32 +112,7 @@ class InteractionValidator:
             bbox = el.get("bbox") or {}
             ev = evidence_b64_map.get(selector, "")
 
-            # 1. Invisible element defect (Check for active elements unexpectedly hidden via opacity 0 or clipping)
-            if kind in interactive_kinds:
-                is_named = bool(el.get("id") or el.get("name") or el.get("ariaLabel") or el.get("text"))
-                is_hidden_input = (el.get("type") or "").lower() == "hidden"
-                # Exclude standard collapsible/accordion/dropdown containers and non-named/hidden controls
-                is_collapsible = any(k in selector.lower() for k in ("collapse", "dropdown", "modal", "drawer", "menu", "tree", "accordion"))
-                if not is_hidden_input and is_named and not is_collapsible:
-                    is_invisible = vis.get("display") == "none" or vis.get("visibility") in ("hidden", "collapse") or (vis.get("opacity") == "0" and bbox.get("width", 0) > 20)
-                    if is_invisible:
-                        defects.append(create_defect(
-                            root_url=root_url,
-                            crawled_url=page_url,
-                            page_title=page_title,
-                            element_type=kind.capitalize(),
-                            element_identifier=label,
-                            element_selector=selector,
-                            expected_behavior=f"Interactive {kind} should be rendered and visible to the user.",
-                            actual_behavior=f"Element is hidden in DOM (display={vis.get('display')}, visibility={vis.get('visibility')}, opacity={vis.get('opacity')}).",
-                            defect_category=CATEGORY_INVISIBLE_ELEMENT,
-                            status="FAIL",
-                            error_message=f"Interactive {kind} is hidden from user view.",
-                            evidence_image_b64=ev,
-                            confidence=0.90,
-                            severity="Major",
-                            bbox=bbox if bbox.get("width", 0) > 0 else None,
-                        ))
+            # (Invisible element check removed per user requirement to avoid false positives on hidden sub-menus)
 
             # 2. Disabled element check (Flags elements rendered with disabled state or pointer-events: none)
             if el.get("disabled") and kind in ("button", "input", "dropdown", "textarea"):
@@ -161,81 +136,9 @@ class InteractionValidator:
                         bbox=bbox,
                     ))
 
-            # 3. Text truncation / scroll overflow (Exclude standard scrollbars or subpixel variations)
-            overflow = el.get("overflow") or {}
-            if kind in ("button", "label", "link", "dropdown"):
-                is_ellipsis = overflow.get("textOverflow") == "ellipsis"
-                x_overflow = overflow.get("x", 0)
-                if is_ellipsis or x_overflow > 12:
-                    defects.append(create_defect(
-                        root_url=root_url,
-                        crawled_url=page_url,
-                        page_title=page_title,
-                        element_type=kind.capitalize(),
-                        element_identifier=label,
-                        element_selector=selector,
-                        expected_behavior=f"Element text content should fit comfortably inside container boundaries without truncation.",
-                        actual_behavior=f"Content overflow / text truncation detected (overflowX={x_overflow}px, textOverflow={overflow.get('textOverflow')}).",
-                        defect_category=CATEGORY_TEXT_TRUNCATION,
-                        status="FAIL",
-                        error_message=f"Text container overflow: {x_overflow}px horizontal overflow.",
-                        evidence_image_b64=ev,
-                        confidence=0.92,
-                        severity="Major" if x_overflow > 25 else "Minor",
-                        bbox=bbox,
-                    ))
+            # (Text truncation checks removed per user requirement)
 
-        # 4. Layout Collision / Overlap among distinct, non-nested visible interactive controls
-        visible_interactive = [
-            e for e in elements
-            if e.get("kind") in interactive_kinds
-            and (e.get("bbox") or {}).get("width", 0) > 15
-            and (e.get("bbox") or {}).get("height", 0) > 15
-            and (e.get("visibility") or {}).get("isVisible")
-        ]
-
-        for i, a in enumerate(visible_interactive):
-            box_a = a["bbox"]
-            sel_a = a.get("selector") or ""
-            ax2, ay2 = box_a["x"] + box_a["width"], box_a["y"] + box_a["height"]
-            for b in visible_interactive[i + 1:]:
-                box_b = b["bbox"]
-                sel_b = b.get("selector") or ""
-                
-                # Skip if one element is nested inside or shares root ancestor with the other
-                if sel_a in sel_b or sel_b in sel_a:
-                    continue
-
-                bx2, by2 = box_b["x"] + box_b["width"], box_b["y"] + box_b["height"]
-                
-                # Check bounding box rectangle intersection
-                ix = max(0, min(ax2, bx2) - max(box_a["x"], box_b["x"]))
-                iy = max(0, min(ay2, by2) - max(box_a["y"], box_b["y"]))
-                intersect_area = ix * iy
-                
-                # Only flag significant intersection between disjoint elements
-                if intersect_area > 120:
-                    label_a = ElementAnalyzer.get_element_label(a)
-                    label_b = ElementAnalyzer.get_element_label(b)
-                    defects.append(create_defect(
-                        root_url=root_url,
-                        crawled_url=page_url,
-                        page_title=page_title,
-                        element_type="Layout Collision",
-                        element_identifier=f"{label_a} ∩ {label_b}",
-                        element_selector=sel_a,
-                        expected_behavior="Adjacent interactive UI components should not overlap each other.",
-                        actual_behavior=f"Bounding box collision detected between '{label_a}' and '{label_b}' (intersection area={intersect_area}px²).",
-                        defect_category=CATEGORY_LAYOUT_OVERLAP,
-                        status="FAIL",
-                        error_message=f"Interactive component collision: {label_a} overlaps {label_b}",
-                        evidence_image_b64=evidence_b64_map.get(sel_a, ""),
-                        confidence=0.88,
-                        severity="Critical",
-                        bbox=box_a,
-                    ))
-                    break
-
+        # (Raw DOM layout collision check removed; visual collisions are handled via OpenCV pairwise visual diff)
         return defects
 
     def execute_safe_interaction_trial(

@@ -14,14 +14,20 @@ import {
   MousePointer,
   AlertTriangle,
   X,
-  Maximize2
+  Maximize2,
+  Split,
+  Flame,
+  Code2
 } from 'lucide-react';
+import FindingModal from './FindingModal';
 
 export default function CrawlResults({ crawl }) {
   const [statusFilter, setStatusFilter] = useState('ALL'); // 'ALL' | 'FAIL' | 'PASS'
   const [categoryFilter, setCategoryFilter] = useState('ALL');
   const [selectedPageUrl, setSelectedPageUrl] = useState(null);
   const [zoomImage, setZoomImage] = useState(null);
+  const [viewMode, setViewMode] = useState('side_by_side'); // 'side_by_side' | 'annotated' | 'heatmap'
+  const [selectedFindingModal, setSelectedFindingModal] = useState(null);
 
   const rawIssues = crawl?.issues || [];
   const defects = crawl?.defects || [];
@@ -52,6 +58,24 @@ export default function CrawlResults({ crawl }) {
   if (!crawl) return null;
 
   const previewPage = pages.find((p) => p.url === selectedPageUrl) || pages[0];
+  const hasBaseline = Boolean(previewPage?.baseline_b64 || crawl?.baseline_root_url);
+
+  const handleOpenFinding = (row) => {
+    const findingObj = {
+      id: row.lqa_code ? `ERR-${row.lqa_code}` : (row.id || (row.Selector ? row.Selector.slice(0, 15) : 'DEFECT')),
+      severity: row.Severity || row.severity || 'Major',
+      category: row.Category || row.Issue || row.defect_category || 'Localization Defect',
+      title: row.Element || row.title || `${row.Category || row.Issue} Discrepancy`,
+      description: row.Details || row.error_message || row.description || row.Actual || 'Visual discrepancy detected against baseline.',
+      location: row._bbox || row.bbox || { x: 0, y: 0, width: 0, height: 0 },
+      crop_baseline_b64: row.crop_baseline_b64 || '',
+      crop_localized_b64: row.crop_localized_b64 || (row.EvidenceImage && row.EvidenceImage.startsWith('data:') ? row.EvidenceImage : '') || '',
+      expected: row.Expected || row.expected_behavior || 'Matches baseline English layout and dimensions.',
+      actual: row.Actual || row.actual_behavior || row.Details || 'Detected defect on localized page.',
+      remediation: row.remediation || 'Ensure container uses dynamic padding and width (e.g. min-width: auto; padding: 0.5rem 1rem;).',
+    };
+    setSelectedFindingModal(findingObj);
+  };
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
@@ -62,7 +86,9 @@ export default function CrawlResults({ crawl }) {
           <div>
             <div className="flex items-center gap-2">
               <Globe className="w-5 h-5 text-[#0696D7]" />
-              <h2 className="text-lg font-black text-slate-900">Site Crawl & Quality Validation Report</h2>
+              <h2 className="text-lg font-black text-slate-900">
+                {hasBaseline ? '2-Language Pairwise Crawl & Localization Report' : 'Site Crawl & Quality Validation Report'}
+              </h2>
               <span className={`px-2.5 py-0.5 rounded-full text-xs font-black border uppercase tracking-wider ${
                 summary.status === 'PASS'
                   ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
@@ -71,15 +97,19 @@ export default function CrawlResults({ crawl }) {
                 {summary.status || 'DONE'}
               </span>
             </div>
-            <p className="text-xs text-slate-500 mt-1 break-all">
-              <span className="font-semibold text-slate-700">Root URL:</span> {crawl.root_url}
+            
+            <div className="flex flex-wrap items-center gap-y-1 text-xs text-slate-500 mt-1.5">
+              <span className="font-semibold text-slate-700 mr-1">Target Localized Site:</span>
+              <span className="font-mono text-slate-800 mr-3">{crawl.root_url}</span>
+              
               {crawl.baseline_root_url ? (
                 <>
-                  <span className="mx-2 text-slate-300">|</span>
-                  <span className="font-semibold text-slate-700">Baseline URL:</span> {crawl.baseline_root_url}
+                  <span className="text-slate-300 mr-3">|</span>
+                  <span className="font-semibold text-blue-700 mr-1">English Baseline Reference:</span>
+                  <span className="font-mono text-blue-900">{crawl.baseline_root_url}</span>
                 </>
               ) : null}
-            </p>
+            </div>
           </div>
 
           {/* Export Action Buttons */}
@@ -119,7 +149,7 @@ export default function CrawlResults({ crawl }) {
           </div>
         </div>
 
-        {/* 8 Metric KPI Cards Grid */}
+        {/* Metric KPI Cards Grid */}
         {(() => {
           const totalElements = summary.total_elements_checked || 0;
           const failedCount = summary.fail_count ?? summary.total_defects ?? 0;
@@ -155,7 +185,7 @@ export default function CrawlResults({ crawl }) {
         })()}
       </div>
 
-      {/* 2. Visual Explorer: Crawled Pages List + Evidence Viewport */}
+      {/* 2. Visual Explorer: Crawled Pages List + Side-by-Side Viewport */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         
         {/* Left Column: Pages List */}
@@ -163,17 +193,19 @@ export default function CrawlResults({ crawl }) {
           <div className="flex items-center justify-between">
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
               <Globe className="w-3.5 h-3.5 text-[#0696D7]" />
-              Discovered Pages ({pages.length})
+              Crawled Pages ({pages.length})
             </h3>
+            <span className="text-[11px] text-slate-400 font-semibold">Select to inspect</span>
           </div>
 
-          <div className="max-h-96 overflow-auto space-y-2 pr-1">
+          <div className="max-h-[500px] overflow-auto space-y-2 pr-1">
             {pages.map((page, idx) => {
               const isSelected = (previewPage && previewPage.url === page.url) || (!selectedPageUrl && idx === 0);
               const counts = page.element_counts || {};
+              const defCount = page.defects_count || 0;
               return (
                 <button
-                  key={page.url}
+                  key={`${page.url}-${idx}`}
                   type="button"
                   onClick={() => setSelectedPageUrl(page.url)}
                   className={`w-full text-left rounded-xl border p-3 transition duration-150 ${
@@ -186,18 +218,36 @@ export default function CrawlResults({ crawl }) {
                     <span className="text-xs font-bold text-slate-800 truncate">
                       {page.title || page.url}
                     </span>
-                    <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono font-bold ${
-                      page.http_status >= 400
-                        ? 'bg-rose-100 text-rose-700'
-                        : 'bg-emerald-100 text-emerald-700'
-                    }`}>
-                      {page.http_status ? `HTTP ${page.http_status}` : '200'}
-                    </span>
+                    <div className="flex items-center gap-1 shrink-0">
+                      {defCount > 0 ? (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-rose-100 text-rose-700">
+                          {defCount} defects
+                        </span>
+                      ) : (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-emerald-100 text-emerald-700">
+                          Clean
+                        </span>
+                      )}
+                      <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono font-bold ${
+                        page.http_status >= 400
+                          ? 'bg-rose-100 text-rose-700'
+                          : 'bg-slate-100 text-slate-700'
+                      }`}>
+                        {page.http_status ? `HTTP ${page.http_status}` : '200'}
+                      </span>
+                    </div>
                   </div>
 
                   <div className="text-[11px] text-slate-500 truncate mt-0.5" title={page.url}>
                     {page.url}
                   </div>
+
+                  {page.baseline_url ? (
+                    <div className="text-[10px] text-blue-600 truncate mt-1 flex items-center gap-1 font-medium" title={page.baseline_url}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                      <span>Ref: {page.baseline_url}</span>
+                    </div>
+                  ) : null}
 
                   <div className="flex items-center gap-3 text-[10px] text-slate-400 mt-2">
                     <span>Depth: <b>{page.depth}</b></span>
@@ -210,47 +260,174 @@ export default function CrawlResults({ crawl }) {
           </div>
         </div>
 
-        {/* Right Column: Screenshot & Annotated Evidence Viewer */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 card-shadow lg:col-span-2 space-y-3">
-          <div className="flex items-center justify-between">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
-              <Eye className="w-3.5 h-3.5 text-[#0696D7]" />
-              Annotated Quality Evidence
-            </h3>
-            {previewPage && (
-              <span className="text-xs text-slate-500 truncate max-w-sm" title={previewPage.url}>
-                {previewPage.title || previewPage.url}
-              </span>
+        {/* Right Column: Visual Evidence Viewport (Side-by-Side or Annotated) */}
+        <div className="bg-white border border-slate-200 rounded-2xl p-5 card-shadow lg:col-span-2 space-y-4">
+          
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100">
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                <Eye className="w-3.5 h-3.5 text-[#0696D7]" />
+                Visual Quality Evidence
+              </h3>
+              {previewPage && (
+                <p className="text-xs text-slate-500 truncate max-w-md mt-0.5" title={previewPage.url}>
+                  {previewPage.title || previewPage.url}
+                </p>
+              )}
+            </div>
+
+            {/* View Mode Switcher */}
+            {hasBaseline && (
+              <div className="flex items-center gap-1 p-1 rounded-xl bg-slate-100 border border-slate-200">
+                <button
+                  onClick={() => setViewMode('side_by_side')}
+                  className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition ${
+                    viewMode === 'side_by_side'
+                      ? 'bg-[#0696D7] text-white shadow-sm'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-white'
+                  }`}
+                >
+                  <Split className="w-3.5 h-3.5" />
+                  <span>Side-by-Side</span>
+                </button>
+
+                <button
+                  onClick={() => setViewMode('annotated')}
+                  className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition ${
+                    viewMode === 'annotated'
+                      ? 'bg-[#0696D7] text-white shadow-sm'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-white'
+                  }`}
+                >
+                  <Layers className="w-3.5 h-3.5" />
+                  <span>Defects Highlighted</span>
+                </button>
+
+                {previewPage?.heatmap_b64 && (
+                  <button
+                    onClick={() => setViewMode('heatmap')}
+                    className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition ${
+                      viewMode === 'heatmap'
+                        ? 'bg-[#0696D7] text-white shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-white'
+                    }`}
+                  >
+                    <Flame className="w-3.5 h-3.5" />
+                    <span>Heatmap</span>
+                  </button>
+                )}
+              </div>
             )}
           </div>
 
-          <div className="relative rounded-xl border border-slate-200 bg-slate-900/5 overflow-hidden flex items-center justify-center min-h-[260px] group">
-            {previewPage?.annotated_b64 || previewPage?.screenshot_b64 ? (
-              <>
-                <img
-                  src={previewPage.annotated_b64 || previewPage.screenshot_b64}
-                  alt="Page quality evidence"
-                  className="w-full object-contain max-h-[380px] rounded-lg"
-                />
-                <button
-                  type="button"
-                  onClick={() => setZoomImage(previewPage.annotated_b64 || previewPage.screenshot_b64)}
-                  className="absolute bottom-3 right-3 bg-slate-900/80 hover:bg-slate-900 text-white text-xs px-3 py-1.5 rounded-lg font-bold flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition shadow-md backdrop-blur-sm"
-                >
-                  <Maximize2 className="w-3.5 h-3.5" /> Fullscreen Preview
-                </button>
-              </>
-            ) : (
-              <div className="p-8 text-center text-xs text-slate-400">
-                No inline image preview available for this page.
+          {/* Viewport Display */}
+          <div className="bg-slate-50 rounded-xl border border-slate-200 p-3 min-h-[340px] flex items-center justify-center">
+            
+            {/* 1. SIDE-BY-SIDE PAIRWISE VIEW */}
+            {hasBaseline && viewMode === 'side_by_side' && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                
+                {/* English Baseline Reference */}
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between px-1">
+                    <span className="text-xs font-bold text-blue-800 flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                      English Baseline (Passed Standard)
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-semibold">Reference</span>
+                  </div>
+                  <div className="rounded-lg overflow-hidden border border-slate-300 bg-white shadow-sm flex items-center justify-center min-h-[220px]">
+                    {previewPage?.baseline_b64 ? (
+                      <img
+                        src={previewPage.baseline_b64}
+                        alt="English Baseline"
+                        className="w-full object-contain max-h-[360px]"
+                      />
+                    ) : (
+                      <span className="text-xs text-slate-400 p-4">Baseline image loading...</span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Localized Target with Highlights */}
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between px-1">
+                    <span className="text-xs font-bold text-rose-700 flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-rose-600"></span>
+                      Localized Target (with Defect Boxes)
+                    </span>
+                    <span className="text-[10px] font-bold text-rose-600">
+                      {previewPage?.defects_count ?? 0} defects marked
+                    </span>
+                  </div>
+                  <div className="rounded-lg overflow-hidden border border-slate-300 bg-white shadow-sm flex items-center justify-center min-h-[220px] relative group">
+                    {previewPage?.annotated_b64 || previewPage?.screenshot_b64 ? (
+                      <>
+                        <img
+                          src={previewPage.annotated_b64 || previewPage.screenshot_b64}
+                          alt="Localized Target Annotated"
+                          className="w-full object-contain max-h-[360px]"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setZoomImage(previewPage.annotated_b64 || previewPage.screenshot_b64)}
+                          className="absolute bottom-2 right-2 bg-slate-900/80 hover:bg-slate-900 text-white text-xs px-2.5 py-1 rounded-lg font-bold flex items-center gap-1 opacity-0 group-hover:opacity-100 transition shadow-md backdrop-blur-sm"
+                        >
+                          <Maximize2 className="w-3 h-3" /> Zoom
+                        </button>
+                      </>
+                    ) : (
+                      <span className="text-xs text-slate-400 p-4">Screenshot not available</span>
+                    )}
+                  </div>
+                </div>
+
               </div>
             )}
+
+            {/* 2. ANNOTATED SINGLE FULL VIEW */}
+            {(!hasBaseline || viewMode === 'annotated') && (
+              <div className="relative w-full overflow-hidden flex items-center justify-center group">
+                {previewPage?.annotated_b64 || previewPage?.screenshot_b64 ? (
+                  <>
+                    <img
+                      src={previewPage.annotated_b64 || previewPage.screenshot_b64}
+                      alt="Page quality evidence"
+                      className="w-full object-contain max-h-[380px] rounded-lg shadow-sm"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setZoomImage(previewPage.annotated_b64 || previewPage.screenshot_b64)}
+                      className="absolute bottom-3 right-3 bg-slate-900/80 hover:bg-slate-900 text-white text-xs px-3 py-1.5 rounded-lg font-bold flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition shadow-md backdrop-blur-sm"
+                    >
+                      <Maximize2 className="w-3.5 h-3.5" /> Fullscreen Preview
+                    </button>
+                  </>
+                ) : (
+                  <div className="p-8 text-center text-xs text-slate-400">
+                    No image preview available for this page.
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* 3. DIFFERENCE HEATMAP */}
+            {hasBaseline && viewMode === 'heatmap' && previewPage?.heatmap_b64 && (
+              <div className="relative w-full overflow-hidden flex items-center justify-center">
+                <img
+                  src={previewPage.heatmap_b64}
+                  alt="Difference Heatmap"
+                  className="w-full object-contain max-h-[380px] rounded-lg shadow-sm"
+                />
+              </div>
+            )}
+
           </div>
 
           {/* Element Breakdown Chips */}
           {previewPage?.element_counts && (
             <div className="flex flex-wrap items-center gap-1.5 pt-1">
-              <span className="text-[10px] font-bold text-slate-400 uppercase mr-1">Elements:</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase mr-1">DOM Elements:</span>
               {Object.entries(previewPage.element_counts)
                 .filter(([k, v]) => k !== 'total' && v > 0)
                 .map(([k, v]) => (
@@ -264,7 +441,7 @@ export default function CrawlResults({ crawl }) {
 
       </div>
 
-      {/* 3. Detailed Filterable Findings & Issues Table */}
+      {/* 3. Detailed Filterable Findings & Diagnostic Records Table */}
       <div className="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
         
         {/* Table Filters Bar */}
@@ -274,7 +451,7 @@ export default function CrawlResults({ crawl }) {
               Audit Findings & Element Diagnostic Records ({filteredIssues.length})
             </h3>
             <p className="text-xs text-slate-400 mt-0.5">
-              Inspect element selectors, expected vs actual behaviors, and captured evidence
+              Click any finding or Preview button to view side-by-side visual crops and engineering CSS fixes
             </p>
           </div>
 
@@ -323,17 +500,21 @@ export default function CrawlResults({ crawl }) {
                 <th className="px-3.5 py-3">Element / Selector</th>
                 <th className="px-3.5 py-3">Expected Behavior</th>
                 <th className="px-3.5 py-3">Actual Behavior / Error</th>
-                <th className="px-3.5 py-3 text-center">Evidence</th>
+                <th className="px-3.5 py-3 text-center">Evidence & Crops</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 bg-white">
               {filteredIssues.map((row, idx) => {
                 const isFail = row.Status === 'FAIL';
                 const category = row.Category || row.Issue || 'Other';
-                const evidenceUrl = row.EvidenceImage || '';
+                const hasEvidence = Boolean(row.EvidenceImage || row.crop_localized_b64 || row.crop_baseline_b64);
 
                 return (
-                  <tr key={`${row.Page}-${row.Issue}-${idx}`} className="hover:bg-slate-50/70 transition align-top">
+                  <tr
+                    key={`${row.Page}-${row.Issue}-${idx}`}
+                    onClick={() => handleOpenFinding(row)}
+                    className="hover:bg-sky-50/50 transition cursor-pointer align-top"
+                  >
                     
                     {/* Status Badge */}
                     <td className="px-3.5 py-3 whitespace-nowrap">
@@ -381,15 +562,18 @@ export default function CrawlResults({ crawl }) {
                       <div className="font-medium">{row.Actual || row.Details}</div>
                     </td>
 
-                    {/* Evidence Thumbnail */}
+                    {/* Evidence Thumbnail / Action */}
                     <td className="px-3.5 py-3 text-center whitespace-nowrap">
-                      {evidenceUrl ? (
+                      {hasEvidence ? (
                         <button
                           type="button"
-                          onClick={() => setZoomImage(evidenceUrl)}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-slate-200 bg-slate-50 hover:bg-sky-50 hover:border-sky-300 text-[11px] font-bold text-[#0696D7] transition shadow-xs"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleOpenFinding(row);
+                          }}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-slate-200 bg-slate-50 hover:bg-[#0696D7] hover:text-white hover:border-[#0696D7] text-[11px] font-bold text-slate-700 transition shadow-xs"
                         >
-                          <Eye className="w-3.5 h-3.5" /> Preview
+                          <Eye className="w-3.5 h-3.5" /> Inspect Crop
                         </button>
                       ) : (
                         <span className="text-slate-300 text-[11px]">—</span>
@@ -430,6 +614,14 @@ export default function CrawlResults({ crawl }) {
             </div>
           </div>
         </div>
+      )}
+
+      {/* 5. Rich Finding Modal with Side-by-Side Crops & CSS Fixes */}
+      {selectedFindingModal && (
+        <FindingModal
+          finding={selectedFindingModal}
+          onClose={() => setSelectedFindingModal(null)}
+        />
       )}
 
     </div>

@@ -89,10 +89,10 @@ class ImageValidator:
                 bbox=bbox,
             )
 
-        # 3. If source is an external HTTP URL, verify responsiveness
-        if self.check_live_src and src.startswith(("http://", "https://")):
+        # 3. If source is an external HTTP URL and image failed to render, verify responsiveness
+        if self.check_live_src and src.startswith(("http://", "https://")) and (natural_w == 0 or natural_h == 0):
             status_code, err_msg = check_url_status(src, timeout_sec=4.0)
-            if status_code >= 400:
+            if status_code in (404, 410):
                 return create_defect(
                     root_url=root_url,
                     crawled_url=page_url,
@@ -102,13 +102,14 @@ class ImageValidator:
                     element_selector=selector,
                     expected_behavior=f"Image asset source '{src}' should return HTTP 200 OK.",
                     actual_behavior=f"Image asset source returned HTTP {status_code} ({err_msg}).",
-                    defect_category=CATEGORY_BROKEN_IMAGE if status_code == 404 else CATEGORY_HTTP_ERROR,
+                    defect_category=CATEGORY_BROKEN_IMAGE,
                     status="FAIL",
                     http_status=status_code,
-                    error_message=f"Image HTTP {status_code}: {src}",
+                    error_message=f"Image 404 Not Found: {src}",
                     evidence_image_b64=evidence_b64,
+                    crop_localized_b64=evidence_b64,
                     confidence=0.96,
-                    severity="Critical" if status_code == 404 else "Major",
+                    severity="Critical",
                     bbox=bbox,
                 )
 

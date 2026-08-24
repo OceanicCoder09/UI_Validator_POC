@@ -178,9 +178,9 @@ class PlaywrightCrawler:
                     # Extract DOM elements
                     page_record.elements = ElementAnalyzer.extract_elements(page)
 
-                    # Capture high-resolution viewport screenshot
+                    # Capture full-page high-resolution screenshot
                     page_record.screenshot_png = page.screenshot(
-                        full_page=False,
+                        full_page=True,
                         type="png"
                     )
 

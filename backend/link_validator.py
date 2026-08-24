@@ -117,6 +117,7 @@ class LinkValidator:
                 status="FAIL",
                 error_message="Missing or empty 'href' attribute on <a> element.",
                 evidence_image_b64=evidence_b64,
+                crop_localized_b64=evidence_b64,
                 confidence=0.98,
                 severity="Major",
                 bbox=bbox,
@@ -138,6 +139,7 @@ class LinkValidator:
                     status="FAIL",
                     error_message=f"Placeholder link '{href}' without role or click handler.",
                     evidence_image_b64=evidence_b64,
+                    crop_localized_b64=evidence_b64,
                     confidence=0.85,
                     severity="Minor",
                     bbox=bbox,
@@ -153,8 +155,10 @@ class LinkValidator:
         target_absolute_url = urljoin(page_url, href)
         if self.check_live_status and target_absolute_url.startswith(("http://", "https://")):
             status_code, err_msg = check_url_status(target_absolute_url, timeout_sec=self.timeout_sec)
-            if status_code >= 400:
-                category = CATEGORY_BROKEN_LINK if status_code == 404 else CATEGORY_HTTP_ERROR
+            # Only flag actual dead links: 404 (Not Found), 410 (Gone), or connection errors.
+            # HTTP 401, 403, 405, 429, etc. occur due to CDN/WAF anti-bot protections on valid live links.
+            if status_code in (404, 410) or (status_code >= 500 and "Refused" in err_msg):
+                category = CATEGORY_BROKEN_LINK
                 return create_defect(
                     root_url=root_url,
                     crawled_url=page_url,
@@ -162,15 +166,16 @@ class LinkValidator:
                     element_type="Link",
                     element_identifier=text or href,
                     element_selector=selector,
-                    expected_behavior=f"Link target URL '{target_absolute_url}' should return HTTP 200 OK.",
-                    actual_behavior=f"Link target URL returned HTTP status {status_code} ({err_msg}).",
+                    expected_behavior=f"Link target URL '{target_absolute_url}' should be reachable and return HTTP 200.",
+                    actual_behavior=f"Link target URL returned HTTP {status_code} ({err_msg}). Target destination does not exist.",
                     defect_category=category,
                     status="FAIL",
                     http_status=status_code,
-                    error_message=f"Broken link: HTTP {status_code} for target {target_absolute_url}",
+                    error_message=f"Broken link (HTTP {status_code}) for target {target_absolute_url}",
                     evidence_image_b64=evidence_b64,
+                    crop_localized_b64=evidence_b64,
                     confidence=0.95,
-                    severity="Critical" if status_code == 404 else "Major",
+                    severity="Critical",
                     bbox=bbox,
                 )
 

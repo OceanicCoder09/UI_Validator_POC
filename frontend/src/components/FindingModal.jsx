@@ -91,12 +91,18 @@ export default function FindingModal({ finding, onClose }) {
                 <span className="text-[10px] text-slate-500 font-semibold">Expected State</span>
               </div>
               <div className="h-48 bg-white rounded-lg overflow-hidden flex items-center justify-center p-2 border border-slate-200 shadow-sm">
-                {finding.crop_baseline_b64 && (
+                {finding.crop_baseline_b64 ? (
                   <img
                     src={finding.crop_baseline_b64}
                     alt="English Baseline Crop"
                     className="max-h-full max-w-full object-contain rounded"
                   />
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-center p-4 text-slate-500 text-xs space-y-1">
+                    <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold">EN</div>
+                    <span className="font-bold text-slate-700">English Baseline State</span>
+                    <span className="text-[10px] text-slate-400">Standard expected baseline behavior</span>
+                  </div>
                 )}
               </div>
               <p className="text-xs text-slate-700">
@@ -113,12 +119,18 @@ export default function FindingModal({ finding, onClose }) {
                 <span className="text-[10px] text-rose-600 font-bold">Detected Flaw</span>
               </div>
               <div className="h-48 bg-white rounded-lg overflow-hidden flex items-center justify-center p-2 border border-rose-200 shadow-sm">
-                {finding.crop_localized_b64 && (
+                {finding.crop_localized_b64 ? (
                   <img
                     src={finding.crop_localized_b64}
                     alt="Localized Crop"
                     className="max-h-full max-w-full object-contain rounded"
                   />
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-center p-4 text-slate-500 text-xs space-y-1">
+                    <div className="w-8 h-8 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center font-bold">!</div>
+                    <span className="font-bold text-rose-700">Localized Finding Area</span>
+                    <span className="text-[10px] text-slate-500 max-w-[200px] truncate">{finding.title}</span>
+                  </div>
                 )}
               </div>
               <p className="text-xs text-slate-700">

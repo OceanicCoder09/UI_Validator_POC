@@ -79,8 +79,8 @@ export default function ImageUploader({
             {activeTab === 'upload'
               ? 'Upload the English baseline reference and Localized target screenshot'
               : activeTab === 'url'
-                ? 'Enter live web URLs for automated headless browser capture'
-                : 'Crawl from a root URL, validate links/images/elements, and generate audit reports'}
+                ? 'Enter live web URLs for automated single-page headless browser capture'
+                : 'Crawl entire website and compare matching pages against English baseline'}
           </p>
         </div>
 
@@ -121,8 +121,8 @@ export default function ImageUploader({
             }`}
           >
             <Network className="w-3.5 h-3.5" />
-            <span>Site Crawl & Validate</span>
-            <span className="px-1.5 py-0.2 text-[9px] bg-emerald-100 text-emerald-700 rounded font-bold">New</span>
+            <span>2-Language Site Crawl</span>
+            <span className="px-1.5 py-0.2 text-[9px] bg-emerald-100 text-emerald-700 rounded font-bold">LQA</span>
           </button>
         </div>
       </div>
@@ -294,16 +294,16 @@ export default function ImageUploader({
             
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#0696D7]"></span>
-                English Baseline Web URL
+                <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                English Baseline Web URL (Reference)
               </label>
               <input
                 type="url"
                 required
                 value={englishUrl}
                 onChange={(e) => setEnglishUrl(e.target.value)}
-                placeholder="https://example.com/en/support"
-                className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0696D7] bg-slate-50"
+                placeholder="https://help.autodesk.com/view/ACD/2026/ENU/"
+                className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-blue-50/20"
               />
               <p className="text-[11px] text-slate-400">Reference URL rendered in headless Chromium (1280x800)</p>
             </div>
@@ -311,17 +311,17 @@ export default function ImageUploader({
             <div className="space-y-1.5">
               <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-[#0696D7]"></span>
-                Localized Target Web URL
+                Localized Target Web URL (To Test)
               </label>
               <input
                 type="url"
                 required
                 value={localizedUrl}
                 onChange={(e) => setLocalizedUrl(e.target.value)}
-                placeholder="https://example.com/de/support"
+                placeholder="https://help.autodesk.com/view/ACD/2026/DEU/"
                 className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0696D7] bg-slate-50"
               />
-              <p className="text-[11px] text-slate-400">Target localized URL in German, Spanish, French, etc.</p>
+              <p className="text-[11px] text-slate-400">Target localized URL in German, Spanish, French, Japanese, etc.</p>
             </div>
 
           </div>
@@ -329,7 +329,7 @@ export default function ImageUploader({
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-100">
             <div className="flex items-center gap-2 text-xs text-slate-500">
               <Sparkles className="w-4 h-4 text-[#0696D7]" />
-              <span>Headless browser will automatically navigate, capture both pages, and analyze layout consistency.</span>
+              <span>Headless browser will automatically navigate, capture both pages, and analyze visual localization consistency.</span>
             </div>
 
             <button
@@ -357,7 +357,7 @@ export default function ImageUploader({
         </form>
       )}
 
-      {/* TAB 3: SITE CRAWL FRAMEWORK */}
+      {/* TAB 3: 2-LANGUAGE SITE CRAWL & LOCALIZATION VALIDATOR */}
       {activeTab === 'crawl' && (
         <form
           onSubmit={(e) => {
@@ -381,35 +381,45 @@ export default function ImageUploader({
           className="space-y-5"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="space-y-1.5 md:col-span-2">
-              <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#0696D7]"></span>
-                Root Website URL (required)
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-slate-800 flex items-center justify-between">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                  1. English Baseline Root URL (Reference)
+                </span>
+                <span className="text-[10px] text-blue-700 bg-blue-50 px-2 py-0.5 rounded font-bold border border-blue-200">
+                  Passed Standard
+                </span>
+              </label>
+              <input
+                type="url"
+                value={baselineRootUrl}
+                onChange={(e) => setBaselineRootUrl(e.target.value)}
+                placeholder="https://help.autodesk.com/view/ACD/2026/ENU/"
+                className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-blue-50/20"
+              />
+              <p className="text-[11px] text-slate-400">English reference root URL to compare every crawled page against.</p>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-slate-800 flex items-center justify-between">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#0696D7]"></span>
+                  2. Localized Target Root URL (To Test)
+                </span>
+                <span className="text-[10px] text-rose-700 bg-rose-50 px-2 py-0.5 rounded font-bold border border-rose-200">
+                  Target To Test
+                </span>
               </label>
               <input
                 type="url"
                 required
                 value={rootUrl}
                 onChange={(e) => setRootUrl(e.target.value)}
-                placeholder="https://example.com"
+                placeholder="https://help.autodesk.com/view/ACD/2026/DEU/"
                 className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0696D7] bg-slate-50"
               />
-              <p className="text-[11px] text-slate-400">Playwright will recursively crawl links from this root page within the same domain.</p>
-            </div>
-
-            <div className="space-y-1.5 md:col-span-2">
-              <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-slate-400"></span>
-                Optional Baseline Root URL (Pairwise Visual Localization)
-              </label>
-              <input
-                type="url"
-                value={baselineRootUrl}
-                onChange={(e) => setBaselineRootUrl(e.target.value)}
-                placeholder="https://example.com/en/ (optional)"
-                className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0696D7] bg-slate-50"
-              />
-              <p className="text-[11px] text-slate-400">If provided, paired pages will undergo pairwise computer vision comparison against baseline.</p>
+              <p className="text-[11px] text-slate-400">Localized root URL (German, Spanish, French, Japanese, etc.) to crawl.</p>
             </div>
 
             <div className="space-y-1.5">
@@ -422,7 +432,7 @@ export default function ImageUploader({
                 onChange={(e) => setMaxDepth(e.target.value)}
                 className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50"
               />
-              <p className="text-[10px] text-slate-400">0 = Root only, 1 = Root + 1 hop, 2 = 2 hops (recommended: 2)</p>
+              <p className="text-[10px] text-slate-400">0 = Root page only, 1 = 1 hop, 2 = 2 hops (recommended: 2)</p>
             </div>
 
             <div className="space-y-1.5">
@@ -487,7 +497,7 @@ export default function ImageUploader({
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-100">
             <p className="text-xs text-slate-500">
-              Discovers links, buttons, inputs, images, dropdowns, and iframes, validates rendering health, and exports JSON, CSV, and Excel reports.
+              Recursively crawls matching pages in both languages, compares visual localization defects (truncations, overlaps), tests links/images, and exports multi-format reports.
             </p>
             <button
               type="submit"
@@ -501,12 +511,12 @@ export default function ImageUploader({
               {isCrawling ? (
                 <>
                   <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                  <span>Crawling & Validating Website...</span>
+                  <span>Crawling & Comparing 2 Languages...</span>
                 </>
               ) : (
                 <>
                   <Network className="w-4 h-4" />
-                  <span>Start Crawl & Validate</span>
+                  <span>Start 2-Language Crawl & Compare</span>
                 </>
               )}
             </button>

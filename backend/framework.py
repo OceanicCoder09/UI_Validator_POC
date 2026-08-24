@@ -107,10 +107,38 @@ def run_framework(
     total_images_checked = 0
     total_interactions_checked = 0
 
+    import re
+    from urllib.parse import urlparse
+
+    def find_matching_baseline_page(target_url: str, bp_list: List[CrawledPage], cur_idx: int) -> Optional[CrawledPage]:
+        if not bp_list:
+            return None
+        target_path = urlparse(target_url).path.strip("/")
+        target_slug = re.sub(r'^(en|enu|de|deu|es|esp|fr|fra|ja|jpn|zh|chs|it|ita|pt|ptb|ko|kor)/?', '', target_path, flags=re.IGNORECASE).strip("/")
+        for bp in bp_list:
+            bp_path = urlparse(bp.url).path.strip("/")
+            bp_slug = re.sub(r'^(en|enu|de|deu|es|esp|fr|fra|ja|jpn|zh|chs|it|ita|pt|ptb|ko|kor)/?', '', bp_path, flags=re.IGNORECASE).strip("/")
+            if target_slug and target_slug.lower() == bp_slug.lower():
+                return bp
+        if cur_idx < len(bp_list):
+            return bp_list[cur_idx]
+        return bp_list[0]
+
     # 3. Analyze each crawled page
     for idx, page in enumerate(target_pages):
         img_bgr = ScreenshotManager.bytes_to_bgr(page.screenshot_png)
         page_defects: List[DefectRecord] = []
+
+        # Find matching baseline page if baseline crawl was requested
+        matched_baseline = find_matching_baseline_page(page.url, baseline_pages, idx) if baseline_pages else None
+        img_en_bgr = ScreenshotManager.bytes_to_bgr(matched_baseline.screenshot_png) if matched_baseline and matched_baseline.screenshot_png else None
+        
+        cv_result: Optional[Dict[str, Any]] = None
+        if img_en_bgr is not None and img_bgr is not None:
+            try:
+                cv_result = analyze_localization_quality(img_en_bgr, img_bgr)
+            except Exception as cv_err:
+                logger.warning(f"Pairwise CV analysis failed for {page.url}: {cv_err}")
 
         # Count element stats
         elements = page.elements
@@ -135,7 +163,34 @@ def run_framework(
                 if sel and bbox and bbox.get("width", 0) > 0 and bbox.get("height", 0) > 0:
                     evidence_crops[sel] = ScreenshotManager.crop_element_b64(img_bgr, bbox)
 
-        # 3.1 Page-Level Health Checks
+        # 3.1 Pairwise Computer Vision Visual Localization Defects
+        if cv_result and cv_result.get("findings"):
+            for f in cv_result["findings"]:
+                loc = f.get("location") or {}
+                page_defects.append(create_defect(
+                    root_url=config.root_url,
+                    crawled_url=page.url,
+                    page_title=page.title or "(Localized Target)",
+                    element_type=f.get("category", "Visual Layout"),
+                    element_identifier=f.get("title", f.get("id", "Visual Issue")),
+                    element_selector=f.get("id", "layout-node"),
+                    expected_behavior=f.get("expected", "Matches baseline English layout and typography."),
+                    actual_behavior=f.get("actual", f.get("description", "Visual regression detected.")),
+                    defect_category=f.get("category", "Other"),
+                    status="FAIL",
+                    http_status=page.status,
+                    error_message=f.get("description", ""),
+                    evidence_image_b64=f.get("crop_localized_b64") or f.get("crop_baseline_b64") or "",
+                    confidence=0.95,
+                    severity=f.get("severity", "Major"),
+                    bbox=loc if loc.get("width", 0) > 0 else None,
+                    crop_baseline_b64=f.get("crop_baseline_b64", ""),
+                    crop_localized_b64=f.get("crop_localized_b64", ""),
+                    remediation=f.get("remediation", ""),
+                    lqa_code=f.get("code", "0020"),
+                ))
+
+        # 3.2 Page-Level Health Checks
         page_defects.extend(page_analyzer.evaluate_page_health(
             root_url=config.root_url,
             page_url=page.url,
@@ -147,7 +202,7 @@ def run_framework(
 
         # If page navigated successfully, run DOM & Element checks
         if not page.navigation_error:
-            # 3.2 Link Validation
+            # 3.3 Link Validation
             if config.check_links:
                 page_defects.extend(link_validator.validate_all_links(
                     root_url=config.root_url,
@@ -157,7 +212,7 @@ def run_framework(
                     evidence_b64_map=evidence_crops,
                 ))
 
-            # 3.3 Image Validation
+            # 3.4 Image Validation
             if config.check_images:
                 page_defects.extend(image_validator.validate_all_images(
                     root_url=config.root_url,
@@ -167,7 +222,7 @@ def run_framework(
                     evidence_b64_map=evidence_crops,
                 ))
 
-            # 3.4 Interaction & Layout Validation
+            # 3.5 Interaction & Layout Validation
             if config.check_interactions:
                 page_defects.extend(interaction_validator.validate_element_states(
                     root_url=config.root_url,
@@ -188,7 +243,7 @@ def run_framework(
                 element_identifier=page.url,
                 element_selector="html",
                 expected_behavior="All discovered links, images, inputs, and components meet quality checks.",
-                actual_behavior=f"Verified {len(elements)} DOM elements. No defects discovered.",
+                actual_behavior=f"Verified {len(elements)} DOM elements and visual layout against baseline. No defects discovered.",
                 defect_category="Other",
                 status="PASS",
                 http_status=page.status,
@@ -199,7 +254,7 @@ def run_framework(
             )
             page_defects.append(pass_defect)
 
-        # 3.5 Persist Screenshots & Annotations
+        # 3.6 Persist Screenshots & Annotations
         screenshot_filename = f"page_{idx:02d}_screenshot.png"
         annotated_filename = f"page_{idx:02d}_annotated.png"
 
@@ -221,19 +276,36 @@ def run_framework(
                     run_dir, annotated_filename, annotated_bytes
                 )
 
-        # Assign screenshot paths to defects
+        # Assign screenshot paths and crops to defects
         for d in page_defects:
             if d.status == "FAIL":
                 d.screenshot_path = annotated_rel or screenshot_rel
-                if not d.evidence_image_b64 and annotated_bgr is not None:
-                    d.evidence_image_b64 = ScreenshotManager.image_to_base64(annotated_bgr)
+                if not d.crop_localized_b64 and d.bbox and img_bgr is not None:
+                    d.crop_localized_b64 = ScreenshotManager.crop_element_b64(img_bgr, d.bbox)
+                if not d.crop_baseline_b64 and d.bbox and img_en_bgr is not None:
+                    d.crop_baseline_b64 = ScreenshotManager.crop_element_b64(img_en_bgr, d.bbox)
+        # Filter out truncation, invisible element, and raw DOM layout collisions per user requirement
+        page_defects = [
+            d for d in page_defects
+            if "truncat" not in (d.defect_category or "").lower()
+            and "truncat" not in (d.error_message or "").lower()
+            and "truncat" not in (d.actual_behavior or "").lower()
+            and "invisible" not in (d.defect_category or "").lower()
+            and "hidden" not in (d.defect_category or "").lower()
+            and d.element_type != "Layout Collision"
+        ]
 
         all_defects.extend(page_defects)
+
+        # Pairwise visual images from CV engine if available
+        cv_images = (cv_result.get("images") or {}) if cv_result else {}
 
         # Page summary for UI rendering
         page_summaries.append({
             "url": page.url,
+            "baseline_url": matched_baseline.url if matched_baseline else "",
             "title": page.title,
+            "baseline_title": matched_baseline.title if matched_baseline else "",
             "depth": page.depth,
             "http_status": page.status,
             "duration_ms": page.duration_ms,
@@ -241,9 +313,14 @@ def run_framework(
             "element_counts": ElementAnalyzer.get_element_counts(elements),
             "screenshot": screenshot_rel,
             "annotated": annotated_rel,
-            "screenshot_b64": ScreenshotManager.image_to_base64(img_bgr) if img_bgr is not None and idx < 6 else "",
-            "annotated_b64": ScreenshotManager.image_to_base64(annotated_bgr) if annotated_bgr is not None and idx < 6 else "",
+            "screenshot_b64": cv_images.get("localized_image") or (ScreenshotManager.image_to_base64(img_bgr) if img_bgr is not None else ""),
+            "baseline_b64": cv_images.get("baseline_image") or (ScreenshotManager.image_to_base64(img_en_bgr) if img_en_bgr is not None else ""),
+            "annotated_b64": cv_images.get("annotated_diff_image") or (ScreenshotManager.image_to_base64(annotated_bgr) if annotated_bgr is not None else ""),
+            "heatmap_b64": cv_images.get("heatmap_image") or "",
+            "defects_count": len([d for d in page_defects if d.status == "FAIL"]),
+            "score": cv_result.get("score") if cv_result else None,
         })
+
 
     # 4. Aggregate Summary Metrics
     defects_dict_list = [d.to_dict() for d in all_defects]
