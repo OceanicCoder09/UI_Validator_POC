@@ -202,7 +202,7 @@ def run_framework(
 
         # If page navigated successfully, run DOM & Element checks
         if not page.navigation_error:
-            # 3.3 Link Validation
+            # 3.3 Link Validation (Differential against baseline)
             if config.check_links:
                 page_defects.extend(link_validator.validate_all_links(
                     root_url=config.root_url,
@@ -210,9 +210,11 @@ def run_framework(
                     page_title=page.title,
                     elements=elements,
                     evidence_b64_map=evidence_crops,
+                    baseline_elements=matched_baseline.elements if matched_baseline else None,
+                    baseline_url=matched_baseline.url if matched_baseline else "",
                 ))
 
-            # 3.4 Image Validation
+            # 3.4 Image Validation (Differential against baseline)
             if config.check_images:
                 page_defects.extend(image_validator.validate_all_images(
                     root_url=config.root_url,
@@ -220,6 +222,8 @@ def run_framework(
                     page_title=page.title,
                     elements=elements,
                     evidence_b64_map=evidence_crops,
+                    baseline_elements=matched_baseline.elements if matched_baseline else None,
+                    baseline_url=matched_baseline.url if matched_baseline else "",
                 ))
 
             # 3.5 Interaction & Layout Validation

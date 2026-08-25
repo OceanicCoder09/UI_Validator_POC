@@ -86,10 +86,12 @@ class LinkValidator:
         page_title: str,
         link_element: dict,
         evidence_b64: str = "",
+        baseline_element: Optional[dict] = None,
+        baseline_url: str = "",
     ) -> Optional[DefectRecord]:
         """
         Validates a single link element.
-        Returns a DefectRecord if an issue is discovered, otherwise None.
+        When baseline context is provided, performs differential LQA checking.
         """
         href = (link_element.get("href") or "").strip()
         text = (link_element.get("text") or link_element.get("ariaLabel") or "").strip()
@@ -102,6 +104,10 @@ class LinkValidator:
         if not href:
             # Anchors used as expandable accordion toggles, tabs, or buttons are valid ARIA controls
             if role in ("button", "tab", "treeitem", "menuitem") or has_click:
+                return None
+
+            # If baseline also had empty href for this control, it's intended
+            if baseline_element and not (baseline_element.get("href") or "").strip():
                 return None
 
             return create_defect(
@@ -126,6 +132,9 @@ class LinkValidator:
         # 2. Check for dummy javascript:void(0) or naked '#' without button semantics or aria role
         if href in ("#", "javascript:void(0)", "javascript:;", "javascript:void(0);"):
             if role not in ("button", "tab", "treeitem", "menuitem") and not has_click:
+                if baseline_element and (baseline_element.get("href") or "").strip() in ("#", "javascript:void(0)", "javascript:;", "javascript:void(0);"):
+                    return None
+
                 return create_defect(
                     root_url=root_url,
                     crawled_url=page_url,
@@ -151,13 +160,24 @@ class LinkValidator:
         if parsed.scheme in ("mailto", "tel", "sms", "data", "blob", "javascript"):
             return None
 
-        # 3. Resolve absolute URL and test HTTP responsiveness if enabled
+        # 3. Resolve absolute URL and test HTTP responsiveness
         target_absolute_url = urljoin(page_url, href)
         if self.check_live_status and target_absolute_url.startswith(("http://", "https://")):
             status_code, err_msg = check_url_status(target_absolute_url, timeout_sec=self.timeout_sec)
-            # Only flag actual dead links: 404 (Not Found), 410 (Gone), or connection errors.
-            # HTTP 401, 403, 405, 429, etc. occur due to CDN/WAF anti-bot protections on valid live links.
+            
+            # If target returns a dead status (404/410/connection error)
             if status_code in (404, 410) or (status_code >= 500 and "Refused" in err_msg):
+                # --- DIFFERENTIAL BASELINE LQA CHECK ---
+                if baseline_element and baseline_url:
+                    base_href = (baseline_element.get("href") or "").strip()
+                    if base_href:
+                        base_target_url = urljoin(baseline_url, base_href)
+                        status_en, _ = check_url_status(base_target_url, timeout_sec=self.timeout_sec)
+                        # If English baseline also returns 404/non-200, this is an inherited website pattern, NOT a localization defect!
+                        if status_en >= 400 or status_en == 0:
+                            logger.info(f"Differential suppression: Both English ({base_target_url}) and Localized ({target_absolute_url}) return non-200 status ({status_en} vs {status_code}). Suppressing defect.")
+                            return None
+
                 category = CATEGORY_BROKEN_LINK
                 return create_defect(
                     root_url=root_url,
@@ -167,7 +187,7 @@ class LinkValidator:
                     element_identifier=text or href,
                     element_selector=selector,
                     expected_behavior=f"Link target URL '{target_absolute_url}' should be reachable and return HTTP 200.",
-                    actual_behavior=f"Link target URL returned HTTP {status_code} ({err_msg}). Target destination does not exist.",
+                    actual_behavior=f"Localized link target returned HTTP {status_code} ({err_msg}). Target destination does not exist.",
                     defect_category=category,
                     status="FAIL",
                     http_status=status_code,
@@ -189,25 +209,49 @@ class LinkValidator:
         page_title: str,
         elements: List[dict],
         evidence_b64_map: Optional[Dict[str, str]] = None,
+        baseline_elements: Optional[List[dict]] = None,
+        baseline_url: str = "",
     ) -> List[DefectRecord]:
         """
-        Filters and validates all <a> link elements from the page inventory.
+        Filters and validates all <a> link elements from the page inventory with differential baseline comparison.
         """
         defects: List[DefectRecord] = []
         evidence_b64_map = evidence_b64_map or {}
 
+        # Build lookup map for baseline links by selector and index
+        baseline_by_sel: Dict[str, dict] = {}
+        baseline_links: List[dict] = []
+        if baseline_elements:
+            for bel in baseline_elements:
+                if bel.get("kind") == "link" or bel.get("tag") == "a":
+                    sel = bel.get("selector")
+                    if sel:
+                        baseline_by_sel[sel] = bel
+                    baseline_links.append(bel)
+
+        link_idx = 0
         for el in elements:
             if el.get("kind") == "link" or el.get("tag") == "a":
                 selector = el.get("selector") or ""
                 ev = evidence_b64_map.get(selector, "")
+                
+                # Match baseline element by selector, fallback to index
+                matched_base_el = baseline_by_sel.get(selector)
+                if not matched_base_el and link_idx < len(baseline_links):
+                    matched_base_el = baseline_links[link_idx]
+
                 defect = self.validate_link(
                     root_url=root_url,
                     page_url=page_url,
                     page_title=page_title,
                     link_element=el,
                     evidence_b64=ev,
+                    baseline_element=matched_base_el,
+                    baseline_url=baseline_url,
                 )
                 if defect:
                     defects.append(defect)
+
+                link_idx += 1
 
         return defects
