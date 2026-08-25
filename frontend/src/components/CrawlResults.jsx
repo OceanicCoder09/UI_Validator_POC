@@ -61,6 +61,14 @@ export default function CrawlResults({ crawl }) {
   const hasBaseline = Boolean(previewPage?.baseline_b64 || crawl?.baseline_root_url);
 
   const handleOpenFinding = (row) => {
+    let targetUrl = row.target_url || row.TargetUrl || '';
+    if (!targetUrl) {
+      const match = (row.Actual || row.Expected || row.Details || '').match(/https?:\/\/[^\s'")]+/);
+      if (match) {
+        targetUrl = match[0].replace(/['"]$/, '');
+      }
+    }
+
     const findingObj = {
       id: row.lqa_code ? `ERR-${row.lqa_code}` : (row.id || (row.Selector ? row.Selector.slice(0, 15) : 'DEFECT')),
       severity: row.Severity || row.severity || 'Major',
@@ -73,6 +81,8 @@ export default function CrawlResults({ crawl }) {
       expected: row.Expected || row.expected_behavior || 'Matches baseline English layout and dimensions.',
       actual: row.Actual || row.actual_behavior || row.Details || 'Detected defect on localized page.',
       remediation: row.remediation || 'Ensure container uses dynamic padding and width (e.g. min-width: auto; padding: 0.5rem 1rem;).',
+      target_url: targetUrl,
+      page_url: row.Page || row.crawled_url || previewPage?.url || '',
     };
     setSelectedFindingModal(findingObj);
   };
@@ -547,9 +557,19 @@ export default function CrawlResults({ crawl }) {
                           {row.Selector}
                         </div>
                       ) : null}
-                      <div className="text-[10px] text-slate-400 truncate mt-0.5" title={row.Page}>
-                        {row.Page}
-                      </div>
+                      {row.Page ? (
+                        <a
+                          href={row.Page}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-[10px] text-slate-400 hover:text-[#0696D7] truncate mt-0.5 flex items-center gap-1 font-mono hover:underline"
+                          title={`Open crawled page: ${row.Page}`}
+                        >
+                          <span className="truncate">{row.Page}</span>
+                          <ExternalLink className="w-2.5 h-2.5 shrink-0" />
+                        </a>
+                      ) : null}
                     </td>
 
                     {/* Expected Behavior */}
@@ -560,6 +580,29 @@ export default function CrawlResults({ crawl }) {
                     {/* Actual Behavior */}
                     <td className="px-3.5 py-3 text-slate-800 max-w-[260px]">
                       <div className="font-medium">{row.Actual || row.Details}</div>
+                      {(() => {
+                        let targetUrl = row.target_url || row.TargetUrl || '';
+                        if (!targetUrl) {
+                          const match = (row.Actual || row.Expected || row.Details || '').match(/https?:\/\/[^\s'")]+/);
+                          if (match) targetUrl = match[0].replace(/['"]$/, '');
+                        }
+                        if (targetUrl) {
+                          return (
+                            <a
+                              href={targetUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-1 px-2 py-0.5 mt-1.5 rounded-md bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 text-[10px] font-mono font-bold hover:underline transition max-w-full truncate"
+                              title={`Open destination: ${targetUrl}`}
+                            >
+                              <ExternalLink className="w-3 h-3 shrink-0" />
+                              <span className="truncate">Open Target URL ↗</span>
+                            </a>
+                          );
+                        }
+                        return null;
+                      })()}
                     </td>
 
                     {/* Evidence Thumbnail / Action */}

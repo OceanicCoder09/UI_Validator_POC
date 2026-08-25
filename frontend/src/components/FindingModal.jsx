@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ShieldAlert, AlertTriangle, AlertCircle, Copy, Check, Crosshair, Code2 } from 'lucide-react';
+import { X, ShieldAlert, AlertTriangle, AlertCircle, Copy, Check, Crosshair, Code2, ExternalLink, Globe } from 'lucide-react';
 
 export default function FindingModal({ finding, onClose }) {
   const [copied, setCopied] = useState(false);
@@ -59,8 +59,42 @@ export default function FindingModal({ finding, onClose }) {
               {finding.description}
             </p>
           </div>
+          {/* Direct Live Action Bar */}
+          {(finding.target_url || finding.page_url) && (
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <Globe className="w-4 h-4 text-[#0696D7]" />
+                <span>Live Destination & Webpage Links:</span>
+              </div>
 
-          {/* Coordinate Details */}
+              <div className="flex flex-wrap items-center gap-2">
+                {finding.target_url && (
+                  <a
+                    href={finding.target_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-rose-600 hover:bg-rose-700 text-white shadow-sm transition active:scale-95"
+                    title={finding.target_url}
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>Open Broken URL in New Tab ↗</span>
+                  </a>
+                )}
+                {finding.page_url && (
+                  <a
+                    href={finding.page_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 shadow-sm transition"
+                    title={finding.page_url}
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-[#0696D7]" />
+                    <span>Open Source Page ↗</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
           <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2 text-xs font-mono text-slate-700">
               <Crosshair className="w-4 h-4 text-[#0696D7]" />

@@ -177,6 +177,7 @@ class LinkValidator:
                     confidence=0.95,
                     severity="Critical",
                     bbox=bbox,
+                    target_url=target_absolute_url,
                 )
 
         return None

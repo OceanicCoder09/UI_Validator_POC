@@ -111,6 +111,7 @@ class ImageValidator:
                     confidence=0.96,
                     severity="Critical",
                     bbox=bbox,
+                    target_url=src,
                 )
 
         return None

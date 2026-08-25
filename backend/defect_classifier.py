@@ -86,6 +86,7 @@ class DefectRecord:
     crop_baseline_b64: str = ""
     crop_localized_b64: str = ""
     remediation: str = ""
+    target_url: str = ""
 
     def to_dict(self) -> Dict[str, Any]:
         """Serializes the record for API responses and JSON reports."""
@@ -107,6 +108,7 @@ class DefectRecord:
             "crop_baseline_b64": self.crop_baseline_b64,
             "crop_localized_b64": self.crop_localized_b64,
             "remediation": self.remediation,
+            "target_url": self.target_url,
             "timestamp": self.timestamp,
             "confidence": round(self.confidence, 2),
             "severity": self.severity,
@@ -127,6 +129,8 @@ class DefectRecord:
             "crop_baseline_b64": self.crop_baseline_b64,
             "crop_localized_b64": self.crop_localized_b64,
             "remediation": self.remediation,
+            "target_url": self.target_url,
+            "TargetUrl": self.target_url,
             "Selector": self.element_selector,
             "Expected": self.expected_behavior,
             "Actual": self.actual_behavior,
@@ -160,6 +164,7 @@ def create_defect(
     crop_localized_b64: str = "",
     remediation: str = "",
     lqa_code: Optional[str] = None,
+    target_url: str = "",
 ) -> DefectRecord:
     """Factory helper to instantiate a standardized DefectRecord."""
     lqa = lqa_code or AUTODESK_CODE_MAP.get(defect_category, "0020")
@@ -185,5 +190,6 @@ def create_defect(
         crop_baseline_b64=crop_baseline_b64,
         crop_localized_b64=crop_localized_b64,
         remediation=remediation,
+        target_url=target_url,
     )
 
