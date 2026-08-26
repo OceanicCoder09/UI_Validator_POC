@@ -8,3 +8,5 @@ playwright>=1.42.0
 mss>=9.0.1
 pygetwindow>=0.0.9
 pydantic>=2.6.0
+easyocr>=1.7.2
+pytesseract>=0.3.13

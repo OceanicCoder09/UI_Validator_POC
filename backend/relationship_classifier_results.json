@@ -1,0 +1,353 @@
+{
+  "mean_top1_accuracy": 33.59,
+  "std_top1_accuracy": 6.11,
+  "mean_top2_accuracy": 55.23,
+  "std_top2_accuracy": 6.02,
+  "per_class_metrics": [
+    {
+      "class_name": "Misalignment",
+      "total_gt_evaluations": 190,
+      "correct_evaluations": 54,
+      "recall": 28.42,
+      "precision": 32.53
+    },
+    {
+      "class_name": "Overlapping",
+      "total_gt_evaluations": 190,
+      "correct_evaluations": 18,
+      "recall": 9.47,
+      "precision": 11.84
+    },
+    {
+      "class_name": "Repeated hotkey",
+      "total_gt_evaluations": 70,
+      "correct_evaluations": 9,
+      "recall": 12.86,
+      "precision": 15.79
+    },
+    {
+      "class_name": "Truncation",
+      "total_gt_evaluations": 300,
+      "correct_evaluations": 144,
+      "recall": 48.0,
+      "precision": 38.3
+    },
+    {
+      "class_name": "Untranslation",
+      "total_gt_evaluations": 260,
+      "correct_evaluations": 114,
+      "recall": 43.85,
+      "precision": 44.02
+    }
+  ],
+  "aggregated_confusion_matrix": [
+    [
+      54,
+      32,
+      12,
+      68,
+      24
+    ],
+    [
+      29,
+      18,
+      8,
+      75,
+      60
+    ],
+    [
+      19,
+      10,
+      9,
+      27,
+      5
+    ],
+    [
+      37,
+      42,
+      21,
+      144,
+      56
+    ],
+    [
+      27,
+      50,
+      7,
+      62,
+      114
+    ]
+  ],
+  "feature_importance_by_class": {
+    "Misalignment": [
+      [
+        "num_newly_created_intersections",
+        -1.1204
+      ],
+      [
+        "max_displacement_px",
+        0.9716
+      ],
+      [
+        "untranslated_words_count",
+        -0.7
+      ],
+      [
+        "median_displacement_px",
+        0.6937
+      ],
+      [
+        "match_rate_pct",
+        0.654
+      ],
+      [
+        "has_ellipsis_count",
+        0.6061
+      ],
+      [
+        "max_alignment_divergence_px",
+        0.5315
+      ],
+      [
+        "max_text_expansion_px",
+        0.5109
+      ],
+      [
+        "num_independently_displaced",
+        -0.3383
+      ],
+      [
+        "hotkey_conflict_count",
+        -0.2094
+      ],
+      [
+        "max_gap_collapse_px",
+        0.1966
+      ],
+      [
+        "log_intersection_area",
+        0.1264
+      ],
+      [
+        "avg_match_confidence",
+        -0.0056
+      ]
+    ],
+    "Overlapping": [
+      [
+        "max_alignment_divergence_px",
+        1.423
+      ],
+      [
+        "max_displacement_px",
+        -0.7094
+      ],
+      [
+        "hotkey_conflict_count",
+        0.5218
+      ],
+      [
+        "num_independently_displaced",
+        -0.4805
+      ],
+      [
+        "untranslated_words_count",
+        -0.4069
+      ],
+      [
+        "match_rate_pct",
+        -0.39
+      ],
+      [
+        "max_gap_collapse_px",
+        -0.3507
+      ],
+      [
+        "has_ellipsis_count",
+        -0.2812
+      ],
+      [
+        "median_displacement_px",
+        0.253
+      ],
+      [
+        "num_newly_created_intersections",
+        0.2288
+      ],
+      [
+        "max_text_expansion_px",
+        0.2186
+      ],
+      [
+        "log_intersection_area",
+        0.1981
+      ],
+      [
+        "avg_match_confidence",
+        0.0457
+      ]
+    ],
+    "Repeated hotkey": [
+      [
+        "num_independently_displaced",
+        1.6961
+      ],
+      [
+        "max_displacement_px",
+        -1.2734
+      ],
+      [
+        "num_newly_created_intersections",
+        -1.1351
+      ],
+      [
+        "max_gap_collapse_px",
+        0.9889
+      ],
+      [
+        "max_alignment_divergence_px",
+        -0.7044
+      ],
+      [
+        "median_displacement_px",
+        -0.5106
+      ],
+      [
+        "log_intersection_area",
+        0.4416
+      ],
+      [
+        "avg_match_confidence",
+        -0.3841
+      ],
+      [
+        "has_ellipsis_count",
+        0.3142
+      ],
+      [
+        "max_text_expansion_px",
+        0.2533
+      ],
+      [
+        "match_rate_pct",
+        0.0859
+      ],
+      [
+        "untranslated_words_count",
+        -0.0805
+      ],
+      [
+        "hotkey_conflict_count",
+        0.0563
+      ]
+    ],
+    "Truncation": [
+      [
+        "num_independently_displaced",
+        -1.135
+      ],
+      [
+        "max_alignment_divergence_px",
+        -1.0822
+      ],
+      [
+        "num_newly_created_intersections",
+        1.0625
+      ],
+      [
+        "max_text_expansion_px",
+        0.5548
+      ],
+      [
+        "max_gap_collapse_px",
+        0.4868
+      ],
+      [
+        "has_ellipsis_count",
+        -0.4345
+      ],
+      [
+        "max_displacement_px",
+        0.4325
+      ],
+      [
+        "hotkey_conflict_count",
+        -0.3173
+      ],
+      [
+        "log_intersection_area",
+        -0.2906
+      ],
+      [
+        "avg_match_confidence",
+        0.2887
+      ],
+      [
+        "match_rate_pct",
+        0.2785
+      ],
+      [
+        "median_displacement_px",
+        0.1694
+      ],
+      [
+        "untranslated_words_count",
+        -0.1372
+      ]
+    ],
+    "Untranslation": [
+      [
+        "max_text_expansion_px",
+        -0.9822
+      ],
+      [
+        "max_alignment_divergence_px",
+        0.893
+      ],
+      [
+        "max_gap_collapse_px",
+        -0.7834
+      ],
+      [
+        "num_newly_created_intersections",
+        0.7655
+      ],
+      [
+        "match_rate_pct",
+        -0.7251
+      ],
+      [
+        "untranslated_words_count",
+        0.7003
+      ],
+      [
+        "avg_match_confidence",
+        -0.3699
+      ],
+      [
+        "has_ellipsis_count",
+        -0.3629
+      ],
+      [
+        "max_displacement_px",
+        0.2706
+      ],
+      [
+        "median_displacement_px",
+        -0.2534
+      ],
+      [
+        "hotkey_conflict_count",
+        -0.2388
+      ],
+      [
+        "log_intersection_area",
+        -0.2069
+      ],
+      [
+        "num_independently_displaced",
+        -0.0606
+      ]
+    ]
+  },
+  "n_evaluations_total": 1010
+}

@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Misalignment Displacement Discrimination Analysis</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 22px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 10px 12px; text-align: right; border-bottom: 1px solid #334155; }
+  th:first-child, td:first-child { text-align: left; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .gt-badge { padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+  .gt-mis { background: #064e3b; color: #a7f3d0; border: 1px solid #10b981; }
+  .gt-non { background: #450a0a; color: #fecaca; border: 1px solid #ef4444; }
+</style>
+</head>
+<body>
+<h1>Misalignment Displacement Discrimination Analysis</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Evaluating the selectivity of global-anchor translation-corrected displacement evidence across all 101 benchmark cases (19 Misalignment vs. 82 Non-Misalignment).
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Misalignment with Strong Disp (&ge;20px)</div>
+    <div class="card-val" style="color: #4ade80;">19 / 19 (100.0%)</div>
+    <div class="card-sub">19/19 with &ge;49.4px</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Non-Misalignment with Disp &ge;20px</div>
+    <div class="card-val" style="color: #f43f5e;">73 / 82 (89.0%)</div>
+    <div class="card-sub">due to localized text expansion / layout shifts</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Non-Misalignment with Disp &ge;50px</div>
+    <div class="card-val" style="color: #f59e0b;">64 / 82 (78.0%)</div>
+    <div class="card-sub">significant lateral movement cases</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Top Separating Feature</div>
+    <div class="card-val" style="font-size: 16px; color: #38bdf8;"><code>max_corrected_displacement_px</code></div>
+    <div class="card-sub">Fisher ratio: 0.1612</div>
+  </div>
+</div>
+
+<h2>1. Feature Separation Power (Misalignment vs Non-Misalignment)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Measurement</th>
+      <th>Misalignment Mean &plusmn; Std (N=19)</th>
+      <th>Non-Misalignment Mean &plusmn; Std (N=82)</th>
+      <th>Mean Difference</th>
+      <th>Separation Ratio (Fisher Criterion)</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>max_corrected_displacement_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">216.52 &plusmn; 128.13</td>
+      <td style="color:#cbd5e1;">143.8 &plusmn; 128.03</td>
+      <td style="font-weight:bold;">+72.72</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.1612</td>
+    </tr>
+
+    <tr>
+      <td><code>match_rate_pct</code></td>
+      <td style="color:#4ade80; font-weight:bold;">99.01 &plusmn; 2.14</td>
+      <td style="color:#cbd5e1;">97.61 &plusmn; 3.99</td>
+      <td style="font-weight:bold;">+1.40</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0946</td>
+    </tr>
+
+    <tr>
+      <td><code>max_alignment_divergence_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">106.21 &plusmn; 101.87</td>
+      <td style="color:#cbd5e1;">72.02 &plusmn; 115.72</td>
+      <td style="font-weight:bold;">+34.19</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0492</td>
+    </tr>
+
+    <tr>
+      <td><code>median_corrected_displacement_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">8.45 &plusmn; 12.32</td>
+      <td style="color:#cbd5e1;">5.25 &plusmn; 10.1</td>
+      <td style="font-weight:bold;">+3.20</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0405</td>
+    </tr>
+
+    <tr>
+      <td><code>independently_displaced_elements</code></td>
+      <td style="color:#4ade80; font-weight:bold;">15.26 &plusmn; 11.92</td>
+      <td style="color:#cbd5e1;">12.22 &plusmn; 18.7</td>
+      <td style="font-weight:bold;">+3.04</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0188</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. Full Physical Evidence Distribution by Category (5 Target Classes)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Ground Truth Category</th>
+      <th>Case Count</th>
+      <th>Max Displacement (Mean / Median)</th>
+      <th>Alignment Divergence (Mean / Median)</th>
+      <th>Independently Displaced (Mean / Median)</th>
+      <th>Match Rate % (Mean / Median)</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr style="background: #1e3a5f; font-weight:bold;">
+      <td style="color: #38bdf8;">Misalignment</td>
+      <td>19</td>
+      <td>216.5px / 187.2px</td>
+      <td>106.2px / 64.0px</td>
+      <td>15.3 / 14.0</td>
+      <td>99.0% / 100.0%</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Overlapping</td>
+      <td>19</td>
+      <td>160.8px / 104.0px</td>
+      <td>110.0px / 56.0px</td>
+      <td>14.8 / 7.0</td>
+      <td>97.2% / 97.8%</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Repeated hotkey</td>
+      <td>7</td>
+      <td>103.5px / 103.9px</td>
+      <td>53.3px / 30.0px</td>
+      <td>21.3 / 15.0</td>
+      <td>98.5% / 98.9%</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Truncation</td>
+      <td>30</td>
+      <td>135.5px / 96.3px</td>
+      <td>37.1px / 2.0px</td>
+      <td>7.2 / 4.5</td>
+      <td>98.6% / 100.0%</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Untranslation</td>
+      <td>26</td>
+      <td>151.8px / 121.0px</td>
+      <td>89.6px / 24.5px</td>
+      <td>13.7 / 5.0</td>
+      <td>96.6% / 100.0%</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>3. High-Displacement Non-Misalignment Cases (Max Displacement &ge; 50px, N = 64)</h2>
+<div style="color: #94a3b8; font-size: 13px; margin-bottom: 8px;">
+  These cases exhibit large element movement driven by text expansion, button resizing, or collision rather than independent column misalignment.
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Case ID</th>
+      <th>Product / Folder (Lang)</th>
+      <th>Ground Truth Category</th>
+      <th>Max Corrected Displacement</th>
+      <th>Median Displacement</th>
+      <th>Independently Displaced</th>
+      <th>Max Alignment Divergence</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold;">#98</td>
+      <td>Inventor / Inventor-04 (KOR)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">588.0px</td>
+      <td>65.6px</td>
+      <td>109</td>
+      <td>463.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#84</td>
+      <td>Vault / Vault-24 (CHT)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">555.4px</td>
+      <td>0.0px</td>
+      <td>12</td>
+      <td>82.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#103</td>
+      <td>Inventor / Inventor-22 (KOR)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">511.0px</td>
+      <td>22.8px</td>
+      <td>76</td>
+      <td>626.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#85</td>
+      <td>Vault / Vault-26 (FRA)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">471.0px</td>
+      <td>3.2px</td>
+      <td>8</td>
+      <td>50.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#29</td>
+      <td>Civil3d / Civil3d-06 (RUS)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">440.2px</td>
+      <td>48.3px</td>
+      <td>69</td>
+      <td>464.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#42</td>
+      <td>Vault / Vault-12 (CHT)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">359.2px</td>
+      <td>3.0px</td>
+      <td>13</td>
+      <td>32.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#46</td>
+      <td>Vault / Vault-33 (PTB)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">342.1px</td>
+      <td>17.2px</td>
+      <td>36</td>
+      <td>346.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#79</td>
+      <td>Vault / Vault-11 (ESP)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">339.0px</td>
+      <td>9.6px</td>
+      <td>30</td>
+      <td>57.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#62</td>
+      <td>Civil3d / Civil3d-17 (HUN)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">316.3px</td>
+      <td>7.0px</td>
+      <td>7</td>
+      <td>10.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#35</td>
+      <td>Inventor / Inventor-08 (JPN)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">311.6px</td>
+      <td>10.0px</td>
+      <td>17</td>
+      <td>298.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#112</td>
+      <td>Vault / Vault-25 (CSY)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">290.0px</td>
+      <td>0.0px</td>
+      <td>2</td>
+      <td>0.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#60</td>
+      <td>Civil3d / Civil3d-05 (DEU)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">268.3px</td>
+      <td>0.0px</td>
+      <td>22</td>
+      <td>268.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#81</td>
+      <td>Vault / Vault-20 (PLK)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">252.0px</td>
+      <td>5.5px</td>
+      <td>6</td>
+      <td>2.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#33</td>
+      <td>Civil3d / Civil3d-30 (CHT)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">233.7px</td>
+      <td>7.2px</td>
+      <td>12</td>
+      <td>233.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#107</td>
+      <td>Vault / Vault-13 (CSY)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">230.0px</td>
+      <td>1.0px</td>
+      <td>3</td>
+      <td>230.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#97</td>
+      <td>Civil3d / Civil3d-35 (ESP)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">226.0px</td>
+      <td>0.0px</td>
+      <td>15</td>
+      <td>222.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#105</td>
+      <td>Vault / Vault-07 (KOR)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">206.9px</td>
+      <td>2.0px</td>
+      <td>4</td>
+      <td>1.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#39</td>
+      <td>Vault / Vault-04 (HUN)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">205.3px</td>
+      <td>0.0px</td>
+      <td>4</td>
+      <td>138.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#34</td>
+      <td>Inventor / Inventor-07 (PTB)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">198.0px</td>
+      <td>0.0px</td>
+      <td>1</td>
+      <td>1.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#99</td>
+      <td>Inventor / Inventor-06 (PTB)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">198.0px</td>
+      <td>24.5px</td>
+      <td>38</td>
+      <td>147.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#73</td>
+      <td>Inventor / Inventor-32 (DEU)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">176.8px</td>
+      <td>9.6px</td>
+      <td>1</td>
+      <td>0.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#96</td>
+      <td>Civil3d / Civil3d-34 (CHS)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">174.4px</td>
+      <td>18.9px</td>
+      <td>14</td>
+      <td>31.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#38</td>
+      <td>Inventor / Inventor-39 (ESP)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">172.1px</td>
+      <td>12.0px</td>
+      <td>74</td>
+      <td>142.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#92</td>
+      <td>Civil3d / Civil3d-11 (ITA)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">165.0px</td>
+      <td>0.0px</td>
+      <td>5</td>
+      <td>2.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#56</td>
+      <td>Inventor / Inventor-36 (PTB)</td>
+      <td><span class="gt-badge gt-non">Repeated hotkey</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">162.1px</td>
+      <td>0.0px</td>
+      <td>22</td>
+      <td>40.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#88</td>
+      <td>Vault / Vault-39 (DEU)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">151.0px</td>
+      <td>2.0px</td>
+      <td>3</td>
+      <td>0.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#68</td>
+      <td>Inventor / Inventor-03 (CHS)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">150.0px</td>
+      <td>2.2px</td>
+      <td>2</td>
+      <td>152.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#89</td>
+      <td>Civil3d / Civil3d-02 (CHS)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">149.0px</td>
+      <td>7.5px</td>
+      <td>13</td>
+      <td>0.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#78</td>
+      <td>Vault / Vault-08 (PLK)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">148.0px</td>
+      <td>0.0px</td>
+      <td>3</td>
+      <td>2.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#109</td>
+      <td>Vault / Vault-16 (HUN)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">147.0px</td>
+      <td>0.0px</td>
+      <td>9</td>
+      <td>127.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#71</td>
+      <td>Inventor / Inventor-19 (CSY)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">146.3px</td>
+      <td>3.0px</td>
+      <td>9</td>
+      <td>122.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#63</td>
+      <td>Civil3d / Civil3d-19 (ESP)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">146.0px</td>
+      <td>15.0px</td>
+      <td>11</td>
+      <td>97.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#51</td>
+      <td>Civil3d / Civil3d-22 (FRA)</td>
+      <td><span class="gt-badge gt-non">Repeated hotkey</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">141.2px</td>
+      <td>12.2px</td>
+      <td>48</td>
+      <td>164.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#37</td>
+      <td>Inventor / Inventor-34 (KOR)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">138.3px</td>
+      <td>0.0px</td>
+      <td>10</td>
+      <td>136.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#95</td>
+      <td>Civil3d / Civil3d-31 (CHT)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">136.1px</td>
+      <td>0.0px</td>
+      <td>1</td>
+      <td>1.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#77</td>
+      <td>Vault / Vault-03 (DEU)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">132.0px</td>
+      <td>0.0px</td>
+      <td>8</td>
+      <td>0.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#102</td>
+      <td>Inventor / Inventor-16 (JPN)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">122.1px</td>
+      <td>2.0px</td>
+      <td>2</td>
+      <td>78.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#114</td>
+      <td>Vault / Vault-38 (FRA)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">120.0px</td>
+      <td>0.0px</td>
+      <td>5</td>
+      <td>104.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#57</td>
+      <td>Vault / Vault-09 (PTB)</td>
+      <td><span class="gt-badge gt-non">Repeated hotkey</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">109.0px</td>
+      <td>0.0px</td>
+      <td>5</td>
+      <td>28.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#72</td>
+      <td>Inventor / Inventor-21 (CSY)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">106.0px</td>
+      <td>0.0px</td>
+      <td>16</td>
+      <td>62.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#32</td>
+      <td>Civil3d / Civil3d-29 (FRA)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">104.0px</td>
+      <td>0.0px</td>
+      <td>7</td>
+      <td>52.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#55</td>
+      <td>Inventor / Inventor-30 (FRA)</td>
+      <td><span class="gt-badge gt-non">Repeated hotkey</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">103.9px</td>
+      <td>0.0px</td>
+      <td>38</td>
+      <td>30.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#110</td>
+      <td>Vault / Vault-19 (KOR)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">103.0px</td>
+      <td>10.5px</td>
+      <td>8</td>
+      <td>103.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#30</td>
+      <td>Civil3d / Civil3d-18 (CSY)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">102.0px</td>
+      <td>1.0px</td>
+      <td>4</td>
+      <td>0.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#80</td>
+      <td>Vault / Vault-17 (ITA)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">96.7px</td>
+      <td>7.2px</td>
+      <td>16</td>
+      <td>64.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#36</td>
+      <td>Inventor / Inventor-33 (ITA)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">96.0px</td>
+      <td>0.0px</td>
+      <td>1</td>
+      <td>2.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#83</td>
+      <td>Vault / Vault-23 (ESP)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">96.0px</td>
+      <td>0.0px</td>
+      <td>1</td>
+      <td>0.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#82</td>
+      <td>Vault / Vault-21 (PTB)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">95.5px</td>
+      <td>2.5px</td>
+      <td>16</td>
+      <td>41.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#94</td>
+      <td>Civil3d / Civil3d-25 (JPN)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">95.4px</td>
+      <td>7.6px</td>
+      <td>15</td>
+      <td>54.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#76</td>
+      <td>Vault / Vault-02 (FRA)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">92.1px</td>
+      <td>2.0px</td>
+      <td>19</td>
+      <td>86.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#52</td>
+      <td>Inventor / Inventor-02 (ITA)</td>
+      <td><span class="gt-badge gt-non">Repeated hotkey</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">90.7px</td>
+      <td>0.0px</td>
+      <td>15</td>
+      <td>22.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#31</td>
+      <td>Civil3d / Civil3d-28 (PTB)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">88.0px</td>
+      <td>0.0px</td>
+      <td>10</td>
+      <td>84.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#43</td>
+      <td>Vault / Vault-14 (FRA)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">86.0px</td>
+      <td>0.0px</td>
+      <td>13</td>
+      <td>72.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#113</td>
+      <td>Vault / Vault-30 (JPN)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">83.0px</td>
+      <td>16.7px</td>
+      <td>3</td>
+      <td>0.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#66</td>
+      <td>Civil3d / Civil3d-26 (ITA)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">81.0px</td>
+      <td>5.0px</td>
+      <td>6</td>
+      <td>0.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#91</td>
+      <td>Civil3d / Civil3d-08 (DEU)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">80.2px</td>
+      <td>0.0px</td>
+      <td>5</td>
+      <td>45.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#93</td>
+      <td>Civil3d / Civil3d-24 (KOR)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">76.1px</td>
+      <td>1.4px</td>
+      <td>2</td>
+      <td>0.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#104</td>
+      <td>Inventor / Inventor-23 (KOR)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">74.1px</td>
+      <td>4.1px</td>
+      <td>8</td>
+      <td>18.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#54</td>
+      <td>Inventor / Inventor-29 (CSY)</td>
+      <td><span class="gt-badge gt-non">Repeated hotkey</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">63.8px</td>
+      <td>9.9px</td>
+      <td>14</td>
+      <td>20.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#90</td>
+      <td>Civil3d / Civil3d-07 (JPN)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">62.2px</td>
+      <td>13.0px</td>
+      <td>9</td>
+      <td>13.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#47</td>
+      <td>Vault / Vault-34 (CHS)</td>
+      <td><span class="gt-badge gt-non">Overlapping</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">56.0px</td>
+      <td>2.2px</td>
+      <td>3</td>
+      <td>56.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#111</td>
+      <td>Vault / Vault-22 (CHS)</td>
+      <td><span class="gt-badge gt-non">Untranslation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">55.0px</td>
+      <td>3.3px</td>
+      <td>4</td>
+      <td>50.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#53</td>
+      <td>Inventor / Inventor-28 (JPN)</td>
+      <td><span class="gt-badge gt-non">Repeated hotkey</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">54.1px</td>
+      <td>5.0px</td>
+      <td>7</td>
+      <td>69.0px</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#74</td>
+      <td>Inventor / Inventor-35 (PLK)</td>
+      <td><span class="gt-badge gt-non">Truncation</span></td>
+      <td style="color:#f43f5e; font-weight:bold;">50.0px</td>
+      <td>0.0px</td>
+      <td>4</td>
+      <td>2.0px</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "1": {
+    "case_id": 1,
+    "product": "Inventor",
+    "folder": "Inventor-14",
+    "lang": "ESP",
+    "gt_category": "Bad layout",
+    "x": 307,
+    "y": 113,
+    "width": 352,
+    "height": 328
+  },
+  "2": {
+    "case_id": 2,
+    "product": "Inventor",
+    "folder": "Inventor-38",
+    "lang": "CHS",
+    "gt_category": "Different Number Controls",
+    "x": 496,
+    "y": 36,
+    "width": 463,
+    "height": 51
+  },
+  "5": {
+    "case_id": 5,
+    "product": "Civil3d",
+    "folder": "Civil3d-03",
+    "lang": "JPN",
+    "gt_category": "Extral string \"Keep Current\"",
+    "x": 464,
+    "y": 437,
+    "width": 213,
+    "height": 29
+  },
+  "6": {
+    "case_id": 6,
+    "product": "Civil3d",
+    "folder": "Civil3d-27",
+    "lang": "PLK",
+    "gt_category": "Header DIFFERENTNUMBEROFCONTROLS",
+    "x": 175,
+    "y": 8,
+    "width": 60,
+    "height": 17
+  }
+}

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Relationship Evidence Analysis — 101 Benchmark Cases</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 24px; }
+  .cat-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 14px; text-align: center; }
+  .cat-title { font-size: 15px; font-weight: 600; color: #38bdf8; }
+  .cat-count { font-size: 22px; font-weight: bold; margin-top: 4px; color: #f8fafc; }
+  table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 8px 12px; text-align: right; border-bottom: 1px solid #334155; }
+  th:first-child, td:first-child { text-align: left; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .highlight-high { color: #f43f5e; font-weight: bold; }
+  .highlight-med { color: #facc15; font-weight: bold; }
+  .highlight-clean { color: #4ade80; }
+</style>
+</head>
+<body>
+<h1>Relationship Evidence Analysis — 101 Cases Across 5 Core GT Categories</h1>
+<div style="font-size:14px; color:#94a3b8; margin-bottom:20px;">
+  Analysis of physical element displacement, gap collapse, bounding-box intersection, text expansion, and OCR signals.
+</div>
+
+<div class="summary-grid">
+
+  <div class="cat-card">
+    <div class="cat-title">Misalignment</div>
+    <div class="cat-count">19 cases</div>
+  </div>
+
+  <div class="cat-card">
+    <div class="cat-title">Overlapping</div>
+    <div class="cat-count">19 cases</div>
+  </div>
+
+  <div class="cat-card">
+    <div class="cat-title">Truncation</div>
+    <div class="cat-count">30 cases</div>
+  </div>
+
+  <div class="cat-card">
+    <div class="cat-title">Untranslation</div>
+    <div class="cat-count">26 cases</div>
+  </div>
+
+  <div class="cat-card">
+    <div class="cat-title">Repeated hotkey</div>
+    <div class="cat-count">7 cases</div>
+  </div>
+</div>
+
+<h2>1. Feature Distributions Grouped by Ground Truth Category</h2>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:20px;">Feature: <code>max_displacement_px</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>GT Category</th>
+      <th>Cases</th>
+      <th>Min</th>
+      <th>Median</th>
+      <th>Mean</th>
+      <th>75th %ile</th>
+      <th>90th %ile</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Misalignment</td>
+      <td>19</td>
+      <td>49.4</td>
+      <td class="highlight-med">187.2</td>
+      <td>216.5</td>
+      <td>261.6</td>
+      <td>399.7</td>
+      <td class="highlight-high">543.6</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Overlapping</td>
+      <td>19</td>
+      <td>2.0</td>
+      <td class="highlight-med">104.0</td>
+      <td>160.9</td>
+      <td>219.5</td>
+      <td>345.5</td>
+      <td class="highlight-high">440.2</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Truncation</td>
+      <td>30</td>
+      <td>2.0</td>
+      <td class="highlight-med">96.3</td>
+      <td>135.5</td>
+      <td>150.8</td>
+      <td>318.6</td>
+      <td class="highlight-high">555.4</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Untranslation</td>
+      <td>26</td>
+      <td>4.0</td>
+      <td class="highlight-med">121.0</td>
+      <td>151.8</td>
+      <td>192.1</td>
+      <td>260.0</td>
+      <td class="highlight-high">588.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Repeated hotkey</td>
+      <td>7</td>
+      <td>54.1</td>
+      <td class="highlight-med">103.9</td>
+      <td>103.5</td>
+      <td>125.1</td>
+      <td>149.6</td>
+      <td class="highlight-high">162.1</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:20px;">Feature: <code>median_displacement_px</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>GT Category</th>
+      <th>Cases</th>
+      <th>Min</th>
+      <th>Median</th>
+      <th>Mean</th>
+      <th>75th %ile</th>
+      <th>90th %ile</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Misalignment</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">2.0</td>
+      <td>8.5</td>
+      <td>12.1</td>
+      <td>21.5</td>
+      <td class="highlight-high">51.2</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Overlapping</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">1.4</td>
+      <td>6.7</td>
+      <td>9.6</td>
+      <td>15.4</td>
+      <td class="highlight-high">48.3</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Truncation</td>
+      <td>30</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>2.5</td>
+      <td>3.2</td>
+      <td>7.4</td>
+      <td class="highlight-high">15.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Untranslation</td>
+      <td>26</td>
+      <td>0.0</td>
+      <td class="highlight-med">1.7</td>
+      <td>7.8</td>
+      <td>9.8</td>
+      <td>20.9</td>
+      <td class="highlight-high">65.6</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Repeated hotkey</td>
+      <td>7</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>3.9</td>
+      <td>7.5</td>
+      <td>10.8</td>
+      <td class="highlight-high">12.2</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:20px;">Feature: <code>num_independently_displaced</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>GT Category</th>
+      <th>Cases</th>
+      <th>Min</th>
+      <th>Median</th>
+      <th>Mean</th>
+      <th>75th %ile</th>
+      <th>90th %ile</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Misalignment</td>
+      <td>19</td>
+      <td>1.0</td>
+      <td class="highlight-med">14.0</td>
+      <td>15.3</td>
+      <td>20.0</td>
+      <td>27.6</td>
+      <td class="highlight-high">50.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Overlapping</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">7.0</td>
+      <td>14.8</td>
+      <td>13.0</td>
+      <td>42.6</td>
+      <td class="highlight-high">74.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Truncation</td>
+      <td>30</td>
+      <td>0.0</td>
+      <td class="highlight-med">4.5</td>
+      <td>7.2</td>
+      <td>10.5</td>
+      <td>16.3</td>
+      <td class="highlight-high">30.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Untranslation</td>
+      <td>26</td>
+      <td>0.0</td>
+      <td class="highlight-med">5.0</td>
+      <td>13.7</td>
+      <td>12.0</td>
+      <td>26.5</td>
+      <td class="highlight-high">109.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Repeated hotkey</td>
+      <td>7</td>
+      <td>5.0</td>
+      <td class="highlight-med">15.0</td>
+      <td>21.3</td>
+      <td>30.0</td>
+      <td>42.0</td>
+      <td class="highlight-high">48.0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:20px;">Feature: <code>max_alignment_divergence_px</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>GT Category</th>
+      <th>Cases</th>
+      <th>Min</th>
+      <th>Median</th>
+      <th>Mean</th>
+      <th>75th %ile</th>
+      <th>90th %ile</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Misalignment</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">64.0</td>
+      <td>106.2</td>
+      <td>174.5</td>
+      <td>233.6</td>
+      <td class="highlight-high">390.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Overlapping</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">56.0</td>
+      <td>110.0</td>
+      <td>140.0</td>
+      <td>307.6</td>
+      <td class="highlight-high">464.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Truncation</td>
+      <td>30</td>
+      <td>0.0</td>
+      <td class="highlight-med">2.0</td>
+      <td>37.1</td>
+      <td>60.8</td>
+      <td>99.5</td>
+      <td class="highlight-high">268.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Untranslation</td>
+      <td>26</td>
+      <td>0.0</td>
+      <td class="highlight-med">24.5</td>
+      <td>89.6</td>
+      <td>103.8</td>
+      <td>226.0</td>
+      <td class="highlight-high">626.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Repeated hotkey</td>
+      <td>7</td>
+      <td>20.0</td>
+      <td class="highlight-med">30.0</td>
+      <td>53.3</td>
+      <td>54.5</td>
+      <td>107.0</td>
+      <td class="highlight-high">164.0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:20px;">Feature: <code>max_gap_collapse_px</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>GT Category</th>
+      <th>Cases</th>
+      <th>Min</th>
+      <th>Median</th>
+      <th>Mean</th>
+      <th>75th %ile</th>
+      <th>90th %ile</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Misalignment</td>
+      <td>19</td>
+      <td>10.0</td>
+      <td class="highlight-med">94.0</td>
+      <td>111.5</td>
+      <td>141.0</td>
+      <td>186.2</td>
+      <td class="highlight-high">288.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Overlapping</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">103.0</td>
+      <td>100.0</td>
+      <td>137.5</td>
+      <td>201.6</td>
+      <td class="highlight-high">226.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Truncation</td>
+      <td>30</td>
+      <td>0.0</td>
+      <td class="highlight-med">92.5</td>
+      <td>90.5</td>
+      <td>131.0</td>
+      <td>179.5</td>
+      <td class="highlight-high">259.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Untranslation</td>
+      <td>26</td>
+      <td>0.0</td>
+      <td class="highlight-med">54.0</td>
+      <td>73.4</td>
+      <td>106.0</td>
+      <td>171.5</td>
+      <td class="highlight-high">267.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Repeated hotkey</td>
+      <td>7</td>
+      <td>48.0</td>
+      <td class="highlight-med">126.0</td>
+      <td>140.3</td>
+      <td>146.0</td>
+      <td>210.4</td>
+      <td class="highlight-high">301.0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:20px;">Feature: <code>num_newly_created_intersections</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>GT Category</th>
+      <th>Cases</th>
+      <th>Min</th>
+      <th>Median</th>
+      <th>Mean</th>
+      <th>75th %ile</th>
+      <th>90th %ile</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Misalignment</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">2.0</td>
+      <td>2.3</td>
+      <td>3.0</td>
+      <td>6.2</td>
+      <td class="highlight-high">7.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Overlapping</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">2.0</td>
+      <td>4.1</td>
+      <td>4.5</td>
+      <td>8.8</td>
+      <td class="highlight-high">22.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Truncation</td>
+      <td>30</td>
+      <td>0.0</td>
+      <td class="highlight-med">1.0</td>
+      <td>2.4</td>
+      <td>2.0</td>
+      <td>10.2</td>
+      <td class="highlight-high">14.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Untranslation</td>
+      <td>26</td>
+      <td>0.0</td>
+      <td class="highlight-med">2.0</td>
+      <td>3.5</td>
+      <td>4.5</td>
+      <td>7.0</td>
+      <td class="highlight-high">28.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Repeated hotkey</td>
+      <td>7</td>
+      <td>0.0</td>
+      <td class="highlight-med">1.0</td>
+      <td>2.3</td>
+      <td>2.5</td>
+      <td>5.4</td>
+      <td class="highlight-high">9.0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:20px;">Feature: <code>total_intersection_area_px2</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>GT Category</th>
+      <th>Cases</th>
+      <th>Min</th>
+      <th>Median</th>
+      <th>Mean</th>
+      <th>75th %ile</th>
+      <th>90th %ile</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Misalignment</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">1236.0</td>
+      <td>3143.4</td>
+      <td>3333.5</td>
+      <td>5930.2</td>
+      <td class="highlight-high">28322.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Overlapping</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">1565.0</td>
+      <td>5080.9</td>
+      <td>4932.5</td>
+      <td>15447.0</td>
+      <td class="highlight-high">28351.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Truncation</td>
+      <td>30</td>
+      <td>0.0</td>
+      <td class="highlight-med">69.0</td>
+      <td>8069.0</td>
+      <td>1440.5</td>
+      <td>6575.0</td>
+      <td class="highlight-high">204124.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Untranslation</td>
+      <td>26</td>
+      <td>0.0</td>
+      <td class="highlight-med">1184.0</td>
+      <td>3505.8</td>
+      <td>2694.0</td>
+      <td>10741.5</td>
+      <td class="highlight-high">24964.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Repeated hotkey</td>
+      <td>7</td>
+      <td>0.0</td>
+      <td class="highlight-med">532.0</td>
+      <td>1374.3</td>
+      <td>1762.5</td>
+      <td>3965.2</td>
+      <td class="highlight-high">5473.0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:20px;">Feature: <code>max_text_expansion_px</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>GT Category</th>
+      <th>Cases</th>
+      <th>Min</th>
+      <th>Median</th>
+      <th>Mean</th>
+      <th>75th %ile</th>
+      <th>90th %ile</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Misalignment</td>
+      <td>19</td>
+      <td>8.0</td>
+      <td class="highlight-med">112.0</td>
+      <td>109.2</td>
+      <td>147.5</td>
+      <td>193.2</td>
+      <td class="highlight-high">333.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Overlapping</td>
+      <td>19</td>
+      <td>14.0</td>
+      <td class="highlight-med">66.0</td>
+      <td>92.1</td>
+      <td>156.0</td>
+      <td>172.0</td>
+      <td class="highlight-high">288.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Truncation</td>
+      <td>30</td>
+      <td>-2.0</td>
+      <td class="highlight-med">84.0</td>
+      <td>93.8</td>
+      <td>117.0</td>
+      <td>168.0</td>
+      <td class="highlight-high">260.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Untranslation</td>
+      <td>26</td>
+      <td>-2.0</td>
+      <td class="highlight-med">33.0</td>
+      <td>61.1</td>
+      <td>91.5</td>
+      <td>133.0</td>
+      <td class="highlight-high">299.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Repeated hotkey</td>
+      <td>7</td>
+      <td>6.0</td>
+      <td class="highlight-med">76.0</td>
+      <td>106.6</td>
+      <td>156.0</td>
+      <td>189.2</td>
+      <td class="highlight-high">224.0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:20px;">Feature: <code>has_ellipsis_count</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>GT Category</th>
+      <th>Cases</th>
+      <th>Min</th>
+      <th>Median</th>
+      <th>Mean</th>
+      <th>75th %ile</th>
+      <th>90th %ile</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Misalignment</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td class="highlight-high">2.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Overlapping</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td class="highlight-high">0.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Truncation</td>
+      <td>30</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td class="highlight-high">0.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Untranslation</td>
+      <td>26</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td class="highlight-high">0.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Repeated hotkey</td>
+      <td>7</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.4</td>
+      <td class="highlight-high">1.0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:20px;">Feature: <code>untranslated_words_count</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>GT Category</th>
+      <th>Cases</th>
+      <th>Min</th>
+      <th>Median</th>
+      <th>Mean</th>
+      <th>75th %ile</th>
+      <th>90th %ile</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Misalignment</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">1.0</td>
+      <td>1.7</td>
+      <td>3.0</td>
+      <td>5.4</td>
+      <td class="highlight-high">7.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Overlapping</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>2.3</td>
+      <td>2.0</td>
+      <td>3.2</td>
+      <td class="highlight-high">27.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Truncation</td>
+      <td>30</td>
+      <td>0.0</td>
+      <td class="highlight-med">1.0</td>
+      <td>3.1</td>
+      <td>3.0</td>
+      <td>4.1</td>
+      <td class="highlight-high">47.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Untranslation</td>
+      <td>26</td>
+      <td>0.0</td>
+      <td class="highlight-med">2.0</td>
+      <td>5.4</td>
+      <td>6.0</td>
+      <td>17.0</td>
+      <td class="highlight-high">32.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Repeated hotkey</td>
+      <td>7</td>
+      <td>0.0</td>
+      <td class="highlight-med">2.0</td>
+      <td>6.3</td>
+      <td>4.0</td>
+      <td>16.2</td>
+      <td class="highlight-high">33.0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:20px;">Feature: <code>hotkey_conflict_count</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>GT Category</th>
+      <th>Cases</th>
+      <th>Min</th>
+      <th>Median</th>
+      <th>Mean</th>
+      <th>75th %ile</th>
+      <th>90th %ile</th>
+      <th>Max</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Misalignment</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td class="highlight-high">0.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Overlapping</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td class="highlight-high">1.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Truncation</td>
+      <td>30</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td class="highlight-high">0.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Untranslation</td>
+      <td>26</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td class="highlight-high">0.0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#f1f5f9;">Repeated hotkey</td>
+      <td>7</td>
+      <td>0.0</td>
+      <td class="highlight-med">0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td class="highlight-high">0.0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. Pairwise Feature Comparisons (Median Values)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Evidence Feature</th>
+      <th>Misalignment (N=19)</th>
+      <th>Overlapping (N=19)</th>
+      <th>Truncation (N=30)</th>
+      <th>Untranslation (N=26)</th>
+      <th>Repeated Hotkey (N=7)</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; text-align:left;"><code>max_displacement_px</code></td>
+<td>187.2 (mean: 216.5)</td><td>104.0 (mean: 160.9)</td><td>96.3 (mean: 135.5)</td><td>121.0 (mean: 151.8)</td><td>103.9 (mean: 103.5)</td></tr>
+    <tr>
+      <td style="font-weight:600; text-align:left;"><code>median_displacement_px</code></td>
+<td>2.0 (mean: 8.5)</td><td>1.4 (mean: 6.7)</td><td>0.0 (mean: 2.5)</td><td>1.7 (mean: 7.8)</td><td>0.0 (mean: 3.9)</td></tr>
+    <tr>
+      <td style="font-weight:600; text-align:left;"><code>num_independently_displaced</code></td>
+<td>14.0 (mean: 15.3)</td><td>7.0 (mean: 14.8)</td><td>4.5 (mean: 7.2)</td><td>5.0 (mean: 13.7)</td><td>15.0 (mean: 21.3)</td></tr>
+    <tr>
+      <td style="font-weight:600; text-align:left;"><code>max_alignment_divergence_px</code></td>
+<td>64.0 (mean: 106.2)</td><td>56.0 (mean: 110.0)</td><td>2.0 (mean: 37.1)</td><td>24.5 (mean: 89.6)</td><td>30.0 (mean: 53.3)</td></tr>
+    <tr>
+      <td style="font-weight:600; text-align:left;"><code>max_gap_collapse_px</code></td>
+<td>94.0 (mean: 111.5)</td><td>103.0 (mean: 100.0)</td><td>92.5 (mean: 90.5)</td><td>54.0 (mean: 73.4)</td><td>126.0 (mean: 140.3)</td></tr>
+    <tr>
+      <td style="font-weight:600; text-align:left;"><code>num_newly_created_intersections</code></td>
+<td>2.0 (mean: 2.3)</td><td>2.0 (mean: 4.1)</td><td>1.0 (mean: 2.4)</td><td>2.0 (mean: 3.5)</td><td>1.0 (mean: 2.3)</td></tr>
+    <tr>
+      <td style="font-weight:600; text-align:left;"><code>total_intersection_area_px2</code></td>
+<td>1236.0 (mean: 3143.4)</td><td>1565.0 (mean: 5080.9)</td><td>69.0 (mean: 8069.0)</td><td>1184.0 (mean: 3505.8)</td><td>532.0 (mean: 1374.3)</td></tr>
+    <tr>
+      <td style="font-weight:600; text-align:left;"><code>max_text_expansion_px</code></td>
+<td>112.0 (mean: 109.2)</td><td>66.0 (mean: 92.1)</td><td>84.0 (mean: 93.8)</td><td>33.0 (mean: 61.1)</td><td>76.0 (mean: 106.6)</td></tr>
+    <tr>
+      <td style="font-weight:600; text-align:left;"><code>has_ellipsis_count</code></td>
+<td>0.0 (mean: 0.1)</td><td>0.0 (mean: 0.0)</td><td>0.0 (mean: 0.0)</td><td>0.0 (mean: 0.0)</td><td>0.0 (mean: 0.1)</td></tr>
+    <tr>
+      <td style="font-weight:600; text-align:left;"><code>untranslated_words_count</code></td>
+<td>1.0 (mean: 1.7)</td><td>0.0 (mean: 2.3)</td><td>1.0 (mean: 3.1)</td><td>2.0 (mean: 5.4)</td><td>2.0 (mean: 6.3)</td></tr>
+    <tr>
+      <td style="font-weight:600; text-align:left;"><code>hotkey_conflict_count</code></td>
+<td>0.0 (mean: 0.0)</td><td>0.0 (mean: 0.1)</td><td>0.0 (mean: 0.0)</td><td>0.0 (mean: 0.0)</td><td>0.0 (mean: 0.0)</td></tr>
+  </tbody>
+</table>
+</body>
+</html>

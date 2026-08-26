@@ -59,11 +59,26 @@ PRESETS = [
     }
 ]
 
-def capture_url_screenshot(url: str, width: int = 1280, height: int = 800, wait_seconds: float = 1.0) -> np.ndarray:
-    """Captures a high-resolution screenshot of a web URL using headless Chromium."""
+def capture_url_screenshot(
+    url: str,
+    width: int = 1280,
+    height: int = 800,
+    wait_seconds: float = 1.5,
+    full_page: bool = False
+) -> np.ndarray:
+    """Captures an exact, un-stretched screenshot of a web URL using headless Chromium."""
     with sync_playwright() as p:
         try:
-            browser = p.chromium.launch(headless=True)
+            browser = p.chromium.launch(
+                headless=True,
+                args=[
+                    "--disable-dev-shm-usage",
+                    "--no-sandbox",
+                    "--disable-setuid-sandbox",
+                    "--disable-gpu",
+                    "--force-device-scale-factor=1"
+                ]
+            )
         except Exception as launch_err:
             if "Executable doesn't exist" in str(launch_err) or "playwright install" in str(launch_err):
                 import subprocess, sys
@@ -76,18 +91,59 @@ def capture_url_screenshot(url: str, width: int = 1280, height: int = 800, wait_
             else:
                 raise launch_err
 
-        context = browser.new_context(viewport={"width": width, "height": height})
+        context = browser.new_context(
+            viewport={"width": width, "height": height},
+            device_scale_factor=1.0,
+            is_mobile=False,
+            has_touch=False,
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+        )
         page = context.new_page()
         try:
-            page.goto(url, wait_until="networkidle", timeout=20000)
+            page.goto(url, wait_until="networkidle", timeout=30000)
         except Exception:
             # Fallback to load state if networkidle times out
-            page.goto(url, wait_until="load", timeout=15000)
+            page.goto(url, wait_until="load", timeout=20000)
             
+        # Ensure document fonts and media are fully loaded and rendered
+        try:
+            page.evaluate("() => document.fonts ? document.fonts.ready : Promise.resolve()")
+        except Exception:
+            pass
+
+        # If full_page is requested, scroll through to trigger lazy-loading without changing viewport aspect ratio
+        if full_page:
+            try:
+                page.evaluate("""
+                    async () => {
+                        await new Promise((resolve) => {
+                            let totalHeight = 0;
+                            const distance = 400;
+                            const timer = setInterval(() => {
+                                const scrollHeight = Math.max(
+                                    document.body.scrollHeight, document.documentElement.scrollHeight,
+                                    document.body.offsetHeight, document.documentElement.offsetHeight
+                                );
+                                window.scrollBy(0, distance);
+                                totalHeight += distance;
+                                if (totalHeight >= scrollHeight) {
+                                    clearInterval(timer);
+                                    window.scrollTo(0, 0);
+                                    resolve();
+                                }
+                            }, 80);
+                        });
+                    }
+                """)
+                # Allow DOM and sticky headers to settle back at scroll top
+                page.wait_for_timeout(500)
+            except Exception:
+                pass
+
         if wait_seconds > 0:
             page.wait_for_timeout(int(wait_seconds * 1000))
             
-        screenshot_bytes = page.screenshot(full_page=False)
+        screenshot_bytes = page.screenshot(full_page=full_page)
         browser.close()
         
         nparr = np.frombuffer(screenshot_bytes, np.uint8)
@@ -127,6 +183,22 @@ def analyze_preset(preset_id: str = Form(...)):
     result = analyze_localization_quality(img_en, img_loc)
     return JSONResponse(content=sanitize_for_json(result))
 
+def decode_image_bytes(data: bytes) -> Optional[np.ndarray]:
+    if not data:
+        return None
+    try:
+        nparr = np.frombuffer(data, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        if img is not None:
+            return img
+    except Exception:
+        pass
+    try:
+        pil_img = Image.open(io.BytesIO(data)).convert("RGB")
+        return cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
+    except Exception:
+        return None
+
 @app.post("/api/analyze")
 async def analyze_custom_images(
     english_image: UploadFile = File(...),
@@ -136,14 +208,11 @@ async def analyze_custom_images(
         en_bytes = await english_image.read()
         loc_bytes = await localized_image.read()
 
-        nparr_en = np.frombuffer(en_bytes, np.uint8)
-        img_en = cv2.imdecode(nparr_en, cv2.IMREAD_COLOR)
-
-        nparr_loc = np.frombuffer(loc_bytes, np.uint8)
-        img_loc = cv2.imdecode(nparr_loc, cv2.IMREAD_COLOR)
+        img_en = decode_image_bytes(en_bytes)
+        img_loc = decode_image_bytes(loc_bytes)
 
         if img_en is None or img_loc is None:
-            raise HTTPException(status_code=400, detail="Invalid image format. Could not decode images.")
+            raise HTTPException(status_code=400, detail="Invalid image format. Could not decode one or both images.")
 
         result = analyze_localization_quality(img_en, img_loc)
         return JSONResponse(content=sanitize_for_json(result))
@@ -157,7 +226,8 @@ class UrlCaptureRequest(BaseModel):
     localized_url: str
     viewport_width: Optional[int] = 1280
     viewport_height: Optional[int] = 800
-    wait_seconds: Optional[float] = 1.0
+    wait_seconds: Optional[float] = 1.5
+    full_page: Optional[bool] = False
 
 @app.post("/api/capture-and-analyze-url")
 def capture_and_analyze_url(req: UrlCaptureRequest):
@@ -167,13 +237,15 @@ def capture_and_analyze_url(req: UrlCaptureRequest):
             req.english_url,
             width=req.viewport_width or 1280,
             height=req.viewport_height or 800,
-            wait_seconds=req.wait_seconds or 1.0
+            wait_seconds=req.wait_seconds or 1.0,
+            full_page=req.full_page if req.full_page is not None else True
         )
         img_loc = capture_url_screenshot(
             req.localized_url,
             width=req.viewport_width or 1280,
             height=req.viewport_height or 800,
-            wait_seconds=req.wait_seconds or 1.0
+            wait_seconds=req.wait_seconds or 1.0,
+            full_page=req.full_page if req.full_page is not None else True
         )
 
         if img_en is None or img_loc is None:

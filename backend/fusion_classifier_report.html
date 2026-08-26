@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fusion Classifier Benchmark Report</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 18px; text-align: center; }
+  .card-val { font-size: 26px; font-weight: bold; color: #38bdf8; margin-top: 4px; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 10px 14px; text-align: right; border-bottom: 1px solid #334155; }
+  th:first-child, td:first-child { text-align: left; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .coef-pos { color: #4ade80; font-family: monospace; font-weight: bold; }
+  .coef-neg { color: #f43f5e; font-family: monospace; }
+</style>
+</head>
+<body>
+<h1>Multimodal Fusion Classifier — Repeated Stratified 3-Fold Cross-Validation</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Fusing 35 multimodal signals (ViT + Hybrid + MIL + Relationship OOF probabilities + 13 physical relationship metrics + MIL attention metadata).
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 14px; color: #94a3b8;">Fusion Mean Top-1 Accuracy</div>
+    <div class="card-val">32.55%</div>
+    <div class="card-sub">&plusmn; 8.02%</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 14px; color: #94a3b8;">Fusion Mean Top-2 Accuracy</div>
+    <div class="card-val">54.51%</div>
+    <div class="card-sub">&plusmn; 7.29%</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 14px; color: #94a3b8;">Best Previous Single Baseline</div>
+    <div class="card-val" style="color: #cbd5e1;">41.58%</div>
+    <div class="card-sub">Hybrid ViT+Evidence</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 14px; color: #94a3b8;">Total Test Evaluations</div>
+    <div class="card-val" style="color: #4ade80;">327 / 1010</div>
+    <div class="card-sub">across 30 independent folds</div>
+  </div>
+</div>
+
+<h2>1. Baseline Comparison (5 Core Categories, N = 101)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Model Architecture</th>
+      <th>Top-1 Accuracy</th>
+      <th>Top-2 Accuracy</th>
+      <th>Delta vs Hybrid Baseline (41.58%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Relationship-Only Classifier</td>
+      <td>33.59% &plusmn; 6.11%</td>
+      <td>55.23%</td>
+      <td style="color: #f43f5e;">-7.99%</td>
+    </tr>
+    <tr>
+      <td>Multiple Instance Learning (MIL)</td>
+      <td>38.61%</td>
+      <td>51.49%</td>
+      <td style="color: #f43f5e;">-2.97%</td>
+    </tr>
+    <tr>
+      <td>Whole-Screen ViT-B/16 Only</td>
+      <td>40.59%</td>
+      <td>62.38%</td>
+      <td style="color: #f43f5e;">-0.99%</td>
+    </tr>
+    <tr>
+      <td>Whole-Screen Hybrid (ViT + Evidence)</td>
+      <td>41.58%</td>
+      <td>62.38%</td>
+      <td>0.00% (Baseline)</td>
+    </tr>
+    <tr style="background: #1e3a5f; font-weight: bold;">
+      <td style="color: #38bdf8;">Multimodal Fusion Classifier (35 Features)</td>
+      <td style="color: #38bdf8;">32.55% &plusmn; 8.02%</td>
+      <td style="color: #38bdf8;">54.51%</td>
+      <td style="color: #f43f5e; font-weight:bold;">
+        -9.03%
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>2. Per-Class Recall & Precision Breakdown</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Class Name</th>
+      <th>Total GT Samples</th>
+      <th>Correct Predictions</th>
+      <th>Recall</th>
+      <th>Precision</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight: 600;">Misalignment</td>
+      <td>190</td>
+      <td>53</td>
+      <td style="font-weight: bold; color: #38bdf8;">27.89%</td>
+      <td>26.63%</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight: 600;">Overlapping</td>
+      <td>190</td>
+      <td>41</td>
+      <td style="font-weight: bold; color: #38bdf8;">21.58%</td>
+      <td>24.4%</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight: 600;">Repeated hotkey</td>
+      <td>70</td>
+      <td>10</td>
+      <td style="font-weight: bold; color: #38bdf8;">14.29%</td>
+      <td>13.16%</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight: 600;">Truncation</td>
+      <td>300</td>
+      <td>137</td>
+      <td style="font-weight: bold; color: #38bdf8;">45.67%</td>
+      <td>46.76%</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight: 600;">Untranslation</td>
+      <td>260</td>
+      <td>86</td>
+      <td style="font-weight: bold; color: #38bdf8;">33.08%</td>
+      <td>31.39%</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>3. Aggregated Confusion Matrix (Row = True GT, Col = Predicted)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>True GT / Predicted</th>
+<th>Misalign</th><th>Overlapp</th><th>Repeated</th><th>Truncati</th><th>Untransl</th><th>Total GT</th></tr></thead><tbody><tr><td style='font-weight:600;'>Misalignment</td><td style='font-weight: bold; color: #4ade80;'>53</td><td style='color: #94a3b8;'>33</td><td style='color: #94a3b8;'>24</td><td style='color: #94a3b8;'>43</td><td style='color: #94a3b8;'>37</td><td style='font-weight:bold;'>190</td></tr><tr><td style='font-weight:600;'>Overlapping</td><td style='color: #94a3b8;'>37</td><td style='font-weight: bold; color: #4ade80;'>41</td><td style='color: #94a3b8;'>15</td><td style='color: #94a3b8;'>41</td><td style='color: #94a3b8;'>56</td><td style='font-weight:bold;'>190</td></tr><tr><td style='font-weight:600;'>Repeated hotkey</td><td style='color: #94a3b8;'>18</td><td style='color: #94a3b8;'>17</td><td style='font-weight: bold; color: #4ade80;'>10</td><td style='color: #94a3b8;'>7</td><td style='color: #94a3b8;'>18</td><td style='font-weight:bold;'>70</td></tr><tr><td style='font-weight:600;'>Truncation</td><td style='color: #94a3b8;'>45</td><td style='color: #94a3b8;'>32</td><td style='color: #94a3b8;'>9</td><td style='font-weight: bold; color: #4ade80;'>137</td><td style='color: #94a3b8;'>77</td><td style='font-weight:bold;'>300</td></tr><tr><td style='font-weight:600;'>Untranslation</td><td style='color: #94a3b8;'>46</td><td style='color: #94a3b8;'>45</td><td style='color: #94a3b8;'>18</td><td style='color: #94a3b8;'>65</td><td style='font-weight: bold; color: #4ade80;'>86</td><td style='font-weight:bold;'>260</td></tr>
+  </tbody>
+</table>
+
+<h2>4. Top Learned Feature Weights (Positive Decision Drivers by Class)</h2>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:18px;">Target Class: <code>Misalignment</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Name</th>
+      <th>Mean Weight (Coefficient)</th>
+      <th>Impact Direction</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>ev_num_newly_created_intersections</code></td>
+      <td class="coef-neg">-1.7825</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_max_displacement_px</code></td>
+      <td class="coef-pos">+1.7643</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_match_rate_pct</code></td>
+      <td class="coef-pos">+1.2550</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>mil_max_attention_weight</code></td>
+      <td class="coef-neg">-1.1680</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>vit_prob_Overlapping</code></td>
+      <td class="coef-pos">+0.9866</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>vit_prob_Untranslation</code></td>
+      <td class="coef-neg">-0.9463</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:18px;">Target Class: <code>Overlapping</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Name</th>
+      <th>Mean Weight (Coefficient)</th>
+      <th>Impact Direction</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>ev_max_alignment_divergence_px</code></td>
+      <td class="coef-pos">+1.9819</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>rel_oof_prob_Overlapping</code></td>
+      <td class="coef-neg">-1.5610</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_max_displacement_px</code></td>
+      <td class="coef-neg">-1.3200</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>mil_prob_Repeated hotkey</code></td>
+      <td class="coef-neg">-1.2086</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>rel_oof_prob_Untranslation</code></td>
+      <td class="coef-pos">+1.0805</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>vit_prob_Truncation</code></td>
+      <td class="coef-pos">+0.9348</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:18px;">Target Class: <code>Repeated hotkey</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Name</th>
+      <th>Mean Weight (Coefficient)</th>
+      <th>Impact Direction</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>ev_max_displacement_px</code></td>
+      <td class="coef-neg">-1.3875</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_num_independently_displaced</code></td>
+      <td class="coef-pos">+1.1237</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>rel_oof_prob_Overlapping</code></td>
+      <td class="coef-pos">+1.0430</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>vit_prob_Repeated hotkey</code></td>
+      <td class="coef-pos">+0.8379</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_max_gap_collapse_px</code></td>
+      <td class="coef-pos">+0.8266</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_max_alignment_divergence_px</code></td>
+      <td class="coef-neg">-0.7911</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:18px;">Target Class: <code>Truncation</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Name</th>
+      <th>Mean Weight (Coefficient)</th>
+      <th>Impact Direction</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>ev_max_alignment_divergence_px</code></td>
+      <td class="coef-neg">-1.7738</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_num_newly_created_intersections</code></td>
+      <td class="coef-pos">+1.2135</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_num_independently_displaced</code></td>
+      <td class="coef-neg">-0.9531</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>mil_attention_entropy</code></td>
+      <td class="coef-pos">+0.9281</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>hybrid_prob_Overlapping</code></td>
+      <td class="coef-neg">-0.8984</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>mil_prob_Repeated hotkey</code></td>
+      <td class="coef-pos">+0.8929</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:18px;">Target Class: <code>Untranslation</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Name</th>
+      <th>Mean Weight (Coefficient)</th>
+      <th>Impact Direction</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>ev_max_text_expansion_px</code></td>
+      <td class="coef-neg">-1.2731</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>vit_prob_Truncation</code></td>
+      <td class="coef-neg">-0.9752</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_match_rate_pct</code></td>
+      <td class="coef-neg">-0.9282</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_num_independently_displaced</code></td>
+      <td class="coef-pos">+0.9054</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_max_gap_collapse_px</code></td>
+      <td class="coef-neg">-0.8911</td>
+      <td>Negative Suppressor (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>ev_max_alignment_divergence_px</code></td>
+      <td class="coef-pos">+0.8440</td>
+      <td>Positive Driver (+)</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

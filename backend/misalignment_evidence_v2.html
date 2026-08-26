@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Misalignment Physical Evidence Report v2</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 26px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  .case-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; margin-bottom: 24px; padding: 18px; }
+  .case-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 12px; }
+  .status-pass { background: #064e3b; border: 1px solid #10b981; color: #a7f3d0; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+  .status-fail { background: #450a0a; border: 1px solid #ef4444; color: #fecaca; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; background: #0f172a; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #020617; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #1e293b; }
+  .prov-badge { background: #064e3b; color: #34d399; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Misalignment Physical Evidence Report (v2)</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Global-anchor translation-corrected displacement recovery across all 19 benchmark Misalignment cases.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Total Misalignment Cases</div>
+    <div class="card-val" style="color: #f8fafc;">19</div>
+    <div class="card-sub">19 ground-truth cases</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Cases with Genuine Evidence</div>
+    <div class="card-val" style="color: #4ade80;">19 / 19</div>
+    <div class="card-sub">100.0% coverage</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Cases Improved</div>
+    <div class="card-val" style="color: #38bdf8;">19 / 19</div>
+    <div class="card-sub">new physical evidence recovered</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Remaining Without Evidence</div>
+    <div class="card-val" style="color: #4ade80;">0</div>
+    <div class="card-sub">cases needing further analysis</div>
+  </div>
+</div>
+
+<h2>Case-by-Case Physical Evidence Records (19 Misalignment Cases)</h2>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #9: Civil3d / Civil3d-01 (RUS)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 29 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+22.0px, dy=-7.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">389.6px</span></div>
+    <div><strong>Independently Displaced:</strong> 27 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=822, y=734, w=62, h=24</td>
+        <td>x=519, y=725, w=156, h=31</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-325.0px, dy=-2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">325.0px</td>
+        <td>0.791</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=835, y=739, w=40, h=14</td>
+        <td>x=548, y=732, w=100, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-309.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">309.0px</td>
+        <td>0.807</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=109, y=87, w=90, h=14</td>
+        <td>x=379, y=19, w=90, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+248.0px, dy=-61.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">255.4px</td>
+        <td>0.606</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=25, y=509, w=58, h=16</td>
+        <td>x=199, y=483, w=76, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+152.0px, dy=-19.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">153.2px</td>
+        <td>0.723</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=133, y=127, w=106, h=14</td>
+        <td>x=301, y=155, w=171, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+146.0px, dy=+35.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">150.1px</td>
+        <td>0.666</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=455, y=413, w=393, h=24</td>
+        <td>x=332, y=397, w=451, h=31</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-145.0px, dy=-9.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">145.3px</td>
+        <td>0.981</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=453, y=481, w=46, h=14</td>
+        <td>x=603, y=483, w=78, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+128.0px, dy=+9.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">128.3px</td>
+        <td>0.920</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=455, y=389, w=68, h=14</td>
+        <td>x=427, y=279, w=62, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-50.0px, dy=-103.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">114.5px</td>
+        <td>0.689</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=463, y=509, w=104, h=16</td>
+        <td>x=457, y=591, w=137, h=26</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-28.0px, dy=+89.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">93.3px</td>
+        <td>0.705</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=15, y=163, w=36, h=16</td>
+        <td>x=117, y=151, w=76, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+80.0px, dy=-5.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">80.2px</td>
+        <td>0.931</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 7 | New translation-corrected findings: 23
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #10: Civil3d / Civil3d-12 (FRA)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 37 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+20.0px, dy=+0.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">86.0px</span></div>
+    <div><strong>Independently Displaced:</strong> 27 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=277, y=43, w=74, h=14</td>
+        <td>x=209, y=43, w=92, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-88.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">88.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=165, y=45, w=64, h=14</td>
+        <td>x=121, y=45, w=74, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-64.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">64.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=43, y=45, w=70, h=14</td>
+        <td>x=19, y=45, w=88, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-44.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">44.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=31, y=65, w=70, h=16</td>
+        <td>x=17, y=65, w=96, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-34.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">34.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=37, y=85, w=162, h=16</td>
+        <td>x=23, y=85, w=132, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-34.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">34.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=35, y=221, w=226, h=67</td>
+        <td>x=21, y=221, w=277, h=67</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-34.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">34.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=125, y=111, w=82, h=16</td>
+        <td>x=113, y=110, w=96, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-32.0px, dy=-1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">32.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=33, y=311, w=50, h=16</td>
+        <td>x=21, y=311, w=54, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-32.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">32.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=44, y=7, w=85, h=19</td>
+        <td>x=37, y=9, w=136, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-27.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">27.1px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=27, y=295, w=38, h=14</td>
+        <td>x=21, y=295, w=44, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-26.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">26.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 19
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #11: Civil3d / Civil3d-13 (ESP)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 28 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+0.0px, dy=+0.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">77.0px</span></div>
+    <div><strong>Independently Displaced:</strong> 2 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=198, y=83, w=83, h=20</td>
+        <td>x=121, y=83, w=204, h=20</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-77.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">77.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=759, y=739, w=40, h=14</td>
+        <td>x=753, y=739, w=54, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-6.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">6.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=835, y=739, w=40, h=14</td>
+        <td>x=841, y=739, w=34, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+6.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">6.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=822, y=734, w=62, h=24</td>
+        <td>x=828, y=734, w=56, h=24</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+6.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">6.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 7 | New translation-corrected findings: 4
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #12: Civil3d / Civil3d-14 (CHT)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 38 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+0.0px, dy=-0.5px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">187.2px</span></div>
+    <div><strong>Independently Displaced:</strong> 4 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=325, y=411, w=68, h=14</td>
+        <td>x=403, y=413, w=58, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+78.0px, dy=+2.5px</td>
+        <td style="font-weight:bold; color:#4ade80;">78.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=393, y=277, w=62, h=14</td>
+        <td>x=389, y=270, w=66, h=41</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-4.0px, dy=-6.5px</td>
+        <td style="font-weight:bold; color:#4ade80;">7.6px</td>
+        <td>0.917</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=213, y=277, w=82, h=14</td>
+        <td>x=209, y=270, w=100, h=41</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-4.0px, dy=-6.5px</td>
+        <td style="font-weight:bold; color:#4ade80;">7.6px</td>
+        <td>0.898</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=133, y=277, w=50, h=14</td>
+        <td>x=129, y=270, w=80, h=41</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-4.0px, dy=-6.5px</td>
+        <td style="font-weight:bold; color:#4ade80;">7.6px</td>
+        <td>0.864</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=313, y=277, w=24, h=14</td>
+        <td>x=309, y=270, w=80, h=41</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-4.0px, dy=-6.5px</td>
+        <td style="font-weight:bold; color:#4ade80;">7.6px</td>
+        <td>0.805</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 5
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #13: Civil3d / Civil3d-16 (KOR)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 41 (93.2%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+4.0px, dy=-5.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">199.0px</span></div>
+    <div><strong>Independently Displaced:</strong> 22 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=295, y=380, w=33, h=16</td>
+        <td>x=499, y=377, w=26, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+200.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">200.0px</td>
+        <td>0.867</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=307, y=83, w=104, h=16</td>
+        <td>x=452, y=79, w=56, h=48</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+141.0px, dy=+1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">141.0px</td>
+        <td>0.691</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=441, y=321, w=76, h=14</td>
+        <td>x=551, y=333, w=24, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+106.0px, dy=+17.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">107.4px</td>
+        <td>0.894</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=369, y=288, w=277, h=23</td>
+        <td>x=467, y=293, w=92, h=20</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+94.0px, dy=+10.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">94.5px</td>
+        <td>0.937</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=108, y=86, w=30, h=8</td>
+        <td>x=55, y=79, w=56, h=48</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-57.0px, dy=-2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">57.0px</td>
+        <td>0.757</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=345, y=383, w=120, h=14</td>
+        <td>x=405, y=377, w=26, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+56.0px, dy=-1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">56.0px</td>
+        <td>0.999</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=177, y=9, w=52, h=14</td>
+        <td>x=138, y=7, w=75, h=19</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-43.0px, dy=+3.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">43.1px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=49, y=316, w=275, h=23</td>
+        <td>x=19, y=330, w=176, h=39</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-34.0px, dy=+19.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">38.9px</td>
+        <td>0.853</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=555, y=361, w=44, h=14</td>
+        <td>x=589, y=377, w=38, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+30.0px, dy=+21.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">36.6px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=375, y=219, w=238, h=16</td>
+        <td>x=373, y=249, w=112, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-6.0px, dy=+35.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">35.5px</td>
+        <td>0.721</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 23
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #14: Civil3d / Civil3d-23 (FRA)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 60 (96.8%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+0.0px, dy=+0.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">334.3px</span></div>
+    <div><strong>Independently Displaced:</strong> 15 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=519, y=327, w=24, h=18</td>
+        <td>x=185, y=313, w=30, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-334.0px, dy=-14.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">334.3px</td>
+        <td>0.606</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=471, y=331, w=48, h=12</td>
+        <td>x=306, y=329, w=54, h=24</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-165.0px, dy=-2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">165.0px</td>
+        <td>0.735</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=417, y=331, w=44, h=12</td>
+        <td>x=331, y=329, w=234, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-86.0px, dy=-2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">86.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=47, y=105, w=64, h=14</td>
+        <td>x=133, y=104, w=27, h=15</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+86.0px, dy=-1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">86.0px</td>
+        <td>0.981</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=185, y=313, w=30, h=14</td>
+        <td>x=103, y=313, w=32, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-82.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">82.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=302, y=255, w=332, h=52</td>
+        <td>x=223, y=269, w=36, h=12</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-79.0px, dy=+14.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">80.2px</td>
+        <td>0.503</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=103, y=313, w=32, h=14</td>
+        <td>x=31, y=315, w=40, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-72.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">72.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=463, y=177, w=24, h=14</td>
+        <td>x=521, y=211, w=46, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+58.0px, dy=+34.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">67.2px</td>
+        <td>0.733</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=37, y=9, w=192, h=14</td>
+        <td>x=87, y=9, w=200, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+50.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">50.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=543, y=329, w=24, h=14</td>
+        <td>x=577, y=329, w=26, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+34.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">34.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 15
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #15: Inventor / Inventor-01 (JPN)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 37 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=-14.0px, dy=-4.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">273.6px</span></div>
+    <div><strong>Independently Displaced:</strong> 18 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=35, y=241, w=122, h=20</td>
+        <td>x=291, y=255, w=48, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+270.0px, dy=+18.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">270.6px</td>
+        <td>0.739</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=335, y=303, w=70, h=14</td>
+        <td>x=379, y=255, w=76, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+58.0px, dy=-44.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">72.8px</td>
+        <td>0.732</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=427, y=273, w=42, h=16</td>
+        <td>x=379, y=283, w=76, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-34.0px, dy=+14.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">36.8px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=335, y=273, w=70, h=14</td>
+        <td>x=291, y=283, w=48, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-30.0px, dy=+14.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">33.1px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=21, y=47, w=349, h=148</td>
+        <td>x=20, y=43, w=348, h=137</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+13.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">13.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=9, y=0, w=731, h=415</td>
+        <td>x=7, y=1, w=735, h=414</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+12.0px, dy=+5.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">13.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=577, y=159, w=32, h=18</td>
+        <td>x=551, y=151, w=24, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-12.0px, dy=-4.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">12.6px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=35, y=345, w=44, h=16</td>
+        <td>x=31, y=343, w=30, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+10.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">10.2px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=379, y=47, w=349, h=148</td>
+        <td>x=375, y=45, w=348, h=135</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+10.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">10.2px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=37, y=133, w=66, h=16</td>
+        <td>x=31, y=123, w=60, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+8.0px, dy=-6.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">10.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 14
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #16: Inventor / Inventor-12 (FRA)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 45 (97.8%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=-4.0px, dy=-1.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">237.8px</span></div>
+    <div><strong>Independently Displaced:</strong> 17 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=315, y=591, w=72, h=16</td>
+        <td>x=115, y=563, w=40, h=12</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-196.0px, dy=-27.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">197.9px</td>
+        <td>0.463</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=295, y=207, w=92, h=16</td>
+        <td>x=237, y=205, w=146, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-54.0px, dy=-1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">54.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=295, y=235, w=40, h=16</td>
+        <td>x=237, y=235, w=38, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-54.0px, dy=+1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">54.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=295, y=263, w=28, h=14</td>
+        <td>x=237, y=263, w=26, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-54.0px, dy=+1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">54.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=12, y=53, w=452, h=573</td>
+        <td>x=7, y=0, w=466, h=723</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-1.0px, dy=-52.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">52.0px</td>
+        <td>0.906</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=245, y=377, w=56, h=16</td>
+        <td>x=265, y=377, w=50, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+24.0px, dy=+1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">24.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=121, y=699, w=108, h=14</td>
+        <td>x=93, y=697, w=132, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-24.0px, dy=-1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">24.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=249, y=355, w=78, h=16</td>
+        <td>x=267, y=353, w=96, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+22.0px, dy=-1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">22.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=251, y=403, w=64, h=14</td>
+        <td>x=269, y=401, w=60, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+22.0px, dy=-1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">22.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=285, y=559, w=110, h=16</td>
+        <td>x=259, y=557, w=180, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-22.0px, dy=-1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">22.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 14
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #17: Inventor / Inventor-17 (CSY)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 31 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=-3.0px, dy=-9.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">138.8px</span></div>
+    <div><strong>Independently Displaced:</strong> 18 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=199, y=217, w=136, h=16</td>
+        <td>x=299, y=197, w=30, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+103.0px, dy=-11.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">103.6px</td>
+        <td>0.760</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=173, y=45, w=52, h=16</td>
+        <td>x=123, y=39, w=64, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-47.0px, dy=+3.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">47.1px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=31, y=161, w=42, h=16</td>
+        <td>x=25, y=109, w=30, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-3.0px, dy=-43.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">43.1px</td>
+        <td>0.775</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=113, y=49, w=46, h=14</td>
+        <td>x=69, y=43, w=46, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-41.0px, dy=+3.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">41.1px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=219, y=471, w=22, h=14</td>
+        <td>x=253, y=473, w=22, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+37.0px, dy=+11.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">38.6px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=301, y=471, w=46, h=14</td>
+        <td>x=323, y=473, w=42, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+25.0px, dy=+11.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">27.3px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=17, y=42, w=441, h=414</td>
+        <td>x=15, y=59, w=444, h=401</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+1.0px, dy=+26.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">26.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=31, y=127, w=40, h=16</td>
+        <td>x=25, y=141, w=56, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-3.0px, dy=+23.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">23.2px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=147, y=127, w=32, h=14</td>
+        <td>x=125, y=115, w=30, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-19.0px, dy=-3.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">19.2px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=397, y=471, w=40, h=16</td>
+        <td>x=407, y=473, w=38, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+13.0px, dy=+11.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">17.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 21
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #18: Inventor / Inventor-25 (ESP)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 120 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+0.0px, dy=+0.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">121.5px</span></div>
+    <div><strong>Independently Displaced:</strong> 30 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=451, y=507, w=30, h=16</td>
+        <td>x=415, y=623, w=34, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-36.0px, dy=+116.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">121.5px</td>
+        <td>0.731</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=67, y=459, w=22, h=14</td>
+        <td>x=57, y=353, w=88, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-10.0px, dy=-106.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">106.5px</td>
+        <td>0.704</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=421, y=243, w=90, h=14</td>
+        <td>x=329, y=257, w=136, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-92.0px, dy=+14.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">93.1px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=669, y=63, w=42, h=14</td>
+        <td>x=597, y=63, w=56, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-72.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">72.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=117, y=649, w=62, h=14</td>
+        <td>x=49, y=647, w=180, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-68.0px, dy=-2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">68.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=49, y=649, w=58, h=14</td>
+        <td>x=103, y=609, w=60, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+54.0px, dy=-40.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">67.2px</td>
+        <td>0.850</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=419, y=287, w=76, h=14</td>
+        <td>x=391, y=345, w=68, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-28.0px, dy=+58.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">64.4px</td>
+        <td>0.855</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=739, y=63, w=26, h=14</td>
+        <td>x=675, y=63, w=42, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-64.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">64.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=225, y=63, w=36, h=14</td>
+        <td>x=163, y=63, w=42, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-62.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">62.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=329, y=257, w=92, h=14</td>
+        <td>x=317, y=199, w=108, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-12.0px, dy=-58.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">59.2px</td>
+        <td>0.858</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 32
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #19: Inventor / Inventor-27 (JPN)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 30 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=-1.0px, dy=+2.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">133.5px</span></div>
+    <div><strong>Independently Displaced:</strong> 14 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=837, y=468, w=38, h=14</td>
+        <td>x=638, y=465, w=88, h=28</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-198.0px, dy=-5.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">198.1px</td>
+        <td>0.751</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=254, y=57, w=50, h=16</td>
+        <td>x=378, y=59, w=54, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+125.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">125.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=752, y=497, w=42, h=14</td>
+        <td>x=640, y=504, w=84, h=24</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-111.0px, dy=+5.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">111.1px</td>
+        <td>0.816</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=252, y=499, w=72, h=16</td>
+        <td>x=360, y=507, w=54, h=15</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+109.0px, dy=+6.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">109.2px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=661, y=470, w=35, h=14</td>
+        <td>x=758, y=468, w=27, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+98.0px, dy=-4.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">98.1px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=752, y=470, w=33, h=14</td>
+        <td>x=839, y=468, w=29, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+88.0px, dy=-4.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">88.1px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=306, y=51, w=263, h=24</td>
+        <td>x=354, y=55, w=221, h=28</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+49.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">49.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=576, y=106, w=118, h=15</td>
+        <td>x=530, y=123, w=87, h=15</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-45.0px, dy=+15.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">47.4px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=576, y=144, w=126, h=16</td>
+        <td>x=530, y=142, w=91, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-45.0px, dy=-4.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">45.2px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=576, y=162, w=124, h=17</td>
+        <td>x=530, y=165, w=91, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-45.0px, dy=+1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">45.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 16
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #20: Inventor / Inventor-31 (DEU)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 56 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+20.0px, dy=+0.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">543.6px</span></div>
+    <div><strong>Independently Displaced:</strong> 50 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=845, y=480, w=112, h=23</td>
+        <td>x=733, y=480, w=105, h=23</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-132.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">132.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=718, y=480, w=110, h=22</td>
+        <td>x=613, y=480, w=104, h=22</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-125.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">125.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=55, y=453, w=50, h=14</td>
+        <td>x=37, y=453, w=90, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-38.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">38.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=8, y=0, w=960, h=515</td>
+        <td>x=8, y=30, w=961, h=485</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-20.0px, dy=+30.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">36.1px</td>
+        <td>0.942</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=763, y=485, w=22, h=14</td>
+        <td>x=755, y=485, w=62, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-28.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">28.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=35, y=149, w=76, h=14</td>
+        <td>x=31, y=163, w=76, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-24.0px, dy=+14.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">27.8px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=35, y=163, w=24, h=14</td>
+        <td>x=31, y=177, w=60, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-24.0px, dy=+14.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">27.8px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=339, y=147, w=32, h=14</td>
+        <td>x=376, y=127, w=37, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+17.0px, dy=-20.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">26.2px</td>
+        <td>0.853</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=33, y=121, w=34, h=14</td>
+        <td>x=31, y=135, w=46, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-22.0px, dy=+14.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">26.1px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=35, y=191, w=78, h=16</td>
+        <td>x=32, y=203, w=69, h=19</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-23.0px, dy=+12.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">25.9px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 45
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #21: Inventor / Inventor-37 (RUS)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 42 (93.3%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+0.0px, dy=+0.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">184.0px</span></div>
+    <div><strong>Independently Displaced:</strong> 13 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=99, y=589, w=76, h=14</td>
+        <td>x=349, y=591, w=44, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+250.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">250.0px</td>
+        <td>0.660</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=37, y=89, w=166, h=18</td>
+        <td>x=221, y=91, w=112, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+184.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">184.0px</td>
+        <td>0.797</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=37, y=611, w=206, h=16</td>
+        <td>x=139, y=473, w=130, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+102.0px, dy=-138.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">171.6px</td>
+        <td>0.479</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=37, y=497, w=218, h=16</td>
+        <td>x=159, y=495, w=142, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+122.0px, dy=-2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">122.0px</td>
+        <td>0.922</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=37, y=211, w=118, h=16</td>
+        <td>x=139, y=213, w=96, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+102.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">102.0px</td>
+        <td>0.934</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=109, y=39, w=86, h=16</td>
+        <td>x=105, y=135, w=36, h=12</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-4.0px, dy=+96.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">96.1px</td>
+        <td>0.604</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=37, y=565, w=250, h=16</td>
+        <td>x=91, y=541, w=182, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+54.0px, dy=-24.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">59.1px</td>
+        <td>0.847</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=23, y=271, w=80, h=14</td>
+        <td>x=59, y=239, w=54, h=12</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+36.0px, dy=-32.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">48.2px</td>
+        <td>0.813</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=21, y=393, w=68, h=16</td>
+        <td>x=25, y=419, w=54, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+4.0px, dy=+26.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">26.3px</td>
+        <td>0.907</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=233, y=419, w=52, h=16</td>
+        <td>x=247, y=421, w=82, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+14.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">14.1px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 12
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #22: Vault / Vault-28 (HUN)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 60 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+0.0px, dy=+0.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">440.0px</span></div>
+    <div><strong>Independently Displaced:</strong> 11 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=25, y=43, w=28, h=16</td>
+        <td>x=465, y=45, w=38, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+440.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">440.0px</td>
+        <td>0.568</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=319, y=45, w=64, h=14</td>
+        <td>x=205, y=45, w=42, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-114.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">114.0px</td>
+        <td>0.924</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=85, y=259, w=220, h=16</td>
+        <td>x=145, y=253, w=170, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+60.0px, dy=-6.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">60.3px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=191, y=43, w=122, h=19</td>
+        <td>x=251, y=45, w=116, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+60.0px, dy=+2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">60.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=183, y=509, w=72, h=14</td>
+        <td>x=192, y=473, w=59, h=19</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+9.0px, dy=-36.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">37.1px</td>
+        <td>0.858</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=57, y=45, w=70, h=14</td>
+        <td>x=25, y=45, w=106, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-32.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">32.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=183, y=389, w=72, h=14</td>
+        <td>x=204, y=390, w=81, h=20</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+21.0px, dy=+1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">21.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=443, y=319, w=54, h=14</td>
+        <td>x=427, y=323, w=70, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-16.0px, dy=+4.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">16.5px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=447, y=355, w=46, h=14</td>
+        <td>x=431, y=353, w=62, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-16.0px, dy=-2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">16.1px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#10</td>
+        <td>x=389, y=45, w=88, h=16</td>
+        <td>x=373, y=45, w=86, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-16.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">16.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 21
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #23: Vault / Vault-32 (PLK)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 17 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+0.0px, dy=+0.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">49.4px</span></div>
+    <div><strong>Independently Displaced:</strong> 1 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=281, y=87, w=342, h=23</td>
+        <td>x=232, y=93, w=342, h=23</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-49.0px, dy=+6.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">49.4px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=621, y=259, w=28, h=14</td>
+        <td>x=615, y=259, w=42, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-6.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">6.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=19, y=93, w=132, h=14</td>
+        <td>x=19, y=99, w=192, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+0.0px, dy=+6.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">6.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 3
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #24: Vault / Vault-35 (ESP)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 26 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+0.0px, dy=+0.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">118.0px</span></div>
+    <div><strong>Independently Displaced:</strong> 5 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=281, y=105, w=330, h=16</td>
+        <td>x=399, y=105, w=138, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+118.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">118.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=59, y=65, w=42, h=14</td>
+        <td>x=123, y=111, w=64, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+64.0px, dy=+46.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">78.8px</td>
+        <td>0.788</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=113, y=65, w=44, h=14</td>
+        <td>x=59, y=63, w=128, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-54.0px, dy=-2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">54.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=299, y=207, w=274, h=14</td>
+        <td>x=337, y=195, w=290, h=19</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+38.0px, dy=-12.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">39.8px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=289, y=183, w=144, h=18</td>
+        <td>x=271, y=179, w=166, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-18.0px, dy=-4.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">18.4px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=611, y=663, w=30, h=14</td>
+        <td>x=603, y=663, w=48, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-8.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">8.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=705, y=663, w=36, h=14</td>
+        <td>x=697, y=663, w=52, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-8.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">8.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=805, y=663, w=36, h=14</td>
+        <td>x=799, y=663, w=50, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-6.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">6.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#9</td>
+        <td>x=911, y=663, w=28, h=16</td>
+        <td>x=905, y=663, w=38, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-6.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">6.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 9
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #25: Vault / Vault-36 (CHT)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 12 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+0.0px, dy=+4.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">127.0px</span></div>
+    <div><strong>Independently Displaced:</strong> 4 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=613, y=723, w=28, h=16</td>
+        <td>x=701, y=725, w=42, h=16</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+88.0px, dy=-2.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">88.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=57, y=121, w=104, h=14</td>
+        <td>x=57, y=105, w=64, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+0.0px, dy=-20.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">20.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=17, y=43, w=213, h=646</td>
+        <td>x=17, y=40, w=213, h=655</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+0.0px, dy=-7.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">7.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 3
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #26: Vault / Vault-37 (CSY)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 26 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+0.0px, dy=+0.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">249.5px</span></div>
+    <div><strong>Independently Displaced:</strong> 5 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=113, y=65, w=44, h=14</td>
+        <td>x=362, y=81, w=40, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+249.0px, dy=+16.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">249.5px</td>
+        <td>0.851</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=257, y=601, w=246, h=16</td>
+        <td>x=306, y=602, w=263, h=17</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+49.0px, dy=+1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">49.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=299, y=207, w=274, h=14</td>
+        <td>x=281, y=197, w=336, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-18.0px, dy=-10.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">20.6px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=289, y=183, w=144, h=18</td>
+        <td>x=271, y=177, w=180, h=18</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-18.0px, dy=-6.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">19.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=911, y=663, w=28, h=16</td>
+        <td>x=897, y=663, w=56, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-14.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">14.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=705, y=663, w=36, h=14</td>
+        <td>x=697, y=663, w=52, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-8.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">8.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 6
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #27: Vault / Vault-40 (HUN)</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Physical Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Matched Elements:</strong> 26 (100.0%)</div>
+    <div><strong>Global Dialog Shift:</strong> dx=+0.0px, dy=+0.0px</div>
+    <div><strong>Max Displacement:</strong> <span style="color:#4ade80; font-weight:bold;">224.1px</span></div>
+    <div><strong>Independently Displaced:</strong> 7 elements</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Top Measured Displaced Element Pairs (Translation-Corrected):</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>ENU Bounding Box</th>
+        <th>Localized Bounding Box</th>
+        <th>Corrected Delta (dx, dy)</th>
+        <th>Magnitude</th>
+        <th>Confidence</th>
+        <th>Provenance</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#1</td>
+        <td>x=57, y=203, w=70, h=14</td>
+        <td>x=281, y=197, w=78, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+224.0px, dy=-6.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">224.1px</td>
+        <td>0.934</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#2</td>
+        <td>x=299, y=207, w=274, h=14</td>
+        <td>x=367, y=197, w=158, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+68.0px, dy=-10.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">68.7px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#3</td>
+        <td>x=257, y=601, w=246, h=16</td>
+        <td>x=325, y=602, w=100, h=17</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+68.0px, dy=+1.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">68.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#4</td>
+        <td>x=113, y=65, w=44, h=14</td>
+        <td>x=57, y=79, w=66, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-56.0px, dy=+14.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">57.7px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#5</td>
+        <td>x=57, y=111, w=100, h=14</td>
+        <td>x=54, y=148, w=38, h=23</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-3.0px, dy=+37.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">37.1px</td>
+        <td>0.729</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#6</td>
+        <td>x=59, y=157, w=46, h=16</td>
+        <td>x=91, y=150, w=92, h=19</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=+32.0px, dy=-7.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">32.8px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#7</td>
+        <td>x=289, y=183, w=144, h=18</td>
+        <td>x=273, y=176, w=268, h=19</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-16.0px, dy=-7.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">17.5px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+      <tr>
+        <td>#8</td>
+        <td>x=705, y=663, w=36, h=14</td>
+        <td>x=695, y=663, w=54, h=14</td>
+        <td style="font-family:monospace; color:#38bdf8;">dx=-10.0px, dy=+0.0px</td>
+        <td style="font-weight:bold; color:#4ade80;">10.0px</td>
+        <td>1.000</td>
+        <td><span class="prov-badge">DIRECTLY_MEASURED</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div style="font-size:12px; color:#94a3b8; margin-top:10px;">
+    <strong>Detector Findings Comparison:</strong> Old local-pair findings: 0 | New translation-corrected findings: 8
+  </div>
+</div>
+</body></html>

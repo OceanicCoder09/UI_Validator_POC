@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Causal Precedence Arbitrator v3 Comparison Report</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 22px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .badge-gain { background: #064e3b; color: #a7f3d0; border: 1px solid #10b981; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+  .badge-reg { background: #450a0a; color: #fecaca; border: 1px solid #ef4444; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+  .badge-same { color: #94a3b8; font-size: 11px; }
+</style>
+</head>
+<body>
+<h1>Causal Precedence Arbitrator v3 Comparison Report</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Evaluating generalized context-dependent physical precedence rules (v3) against baseline and v2 across all 101 benchmark cases.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">4-Category Top-1 (v3 vs v2 vs Base)</div>
+    <div class="card-val" style="color: #4ade80;">31.91%</div>
+    <div class="card-sub">+0.00% vs v2 (31.91%) / +3.19% vs Base</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">4-Category Top-2 Accuracy</div>
+    <div class="card-val" style="color: #38bdf8;">73.4%</div>
+    <div class="card-sub">+2.12% vs v2 (71.28%)</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">v3 Net Case Gain</div>
+    <div class="card-val" style="color: #4ade80;">+0 Cases</div>
+    <div class="card-sub">8 corrected / 8 regressions</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Full 5-Category Top-1</div>
+    <div class="card-val" style="color: #f59e0b;">29.7%</div>
+    <div class="card-sub">+0.00% vs v2 (29.7%)</div>
+  </div>
+</div>
+
+<h2>1. 3-Way Architecture Evolution (Baseline vs. v2 vs. v3)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Architecture Stage</th>
+      <th>4-Category Observable Top-1</th>
+      <th>4-Category Observable Top-2</th>
+      <th>Full 5-Category Top-1</th>
+      <th>Full 5-Category Top-2</th>
+      <th>Macro F1 (4-Cat)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Baseline Un-Tuned Arbitrator</strong></td>
+      <td>28.72%</td>
+      <td>70.21%</td>
+      <td>26.73%</td>
+      <td>65.35%</td>
+      <td>28.54</td>
+    </tr>
+    <tr>
+      <td><strong>Causal Precedence v2</strong></td>
+      <td>31.91%</td>
+      <td>71.28%</td>
+      <td>29.70%</td>
+      <td>66.34%</td>
+      <td>31.01</td>
+    </tr>
+    <tr style="background: #182842;">
+      <td style="color:#38bdf8; font-weight:bold;">Causal Precedence v3 (Context-Dependent)</td>
+      <td style="color:#4ade80; font-weight:bold;">31.91%</td>
+      <td style="color:#38bdf8; font-weight:bold;">73.4%</td>
+      <td style="color:#4ade80; font-weight:bold;">29.7%</td>
+      <td style="color:#38bdf8; font-weight:bold;">68.32%</td>
+      <td style="color:#4ade80; font-weight:bold;">31.24</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>2. Category-Level Performance (v3)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Ground Truth Category</th>
+      <th>Benchmark N</th>
+      <th>Predicted Count</th>
+      <th>True Positives</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1 Score</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr style="">
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment </td>
+      <td>19</td>
+      <td>18</td>
+      <td style="font-weight:bold; color:#4ade80;">7</td>
+      <td>38.9%</td>
+      <td>36.8%</td>
+      <td style="font-weight:bold; color:#38bdf8;">37.8</td>
+    </tr>
+
+    <tr style="">
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping </td>
+      <td>19</td>
+      <td>11</td>
+      <td style="font-weight:bold; color:#4ade80;">4</td>
+      <td>36.4%</td>
+      <td>21.1%</td>
+      <td style="font-weight:bold; color:#38bdf8;">26.7</td>
+    </tr>
+
+    <tr style="">
+      <td style="font-weight:bold; color:#38bdf8;">Truncation </td>
+      <td>30</td>
+      <td>39</td>
+      <td style="font-weight:bold; color:#4ade80;">11</td>
+      <td>28.2%</td>
+      <td>36.7%</td>
+      <td style="font-weight:bold; color:#38bdf8;">31.9</td>
+    </tr>
+
+    <tr style="">
+      <td style="font-weight:bold; color:#38bdf8;">Untranslation </td>
+      <td>26</td>
+      <td>30</td>
+      <td style="font-weight:bold; color:#4ade80;">8</td>
+      <td>26.7%</td>
+      <td>30.8%</td>
+      <td style="font-weight:bold; color:#38bdf8;">28.6</td>
+    </tr>
+
+    <tr style="background: #182234; font-style: italic;">
+      <td style="font-weight:bold; color:#94a3b8;">Repeated hotkey (Visually Unsupported)</td>
+      <td>7</td>
+      <td>0</td>
+      <td style="font-weight:bold; color:#4ade80;">0</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td style="font-weight:bold; color:#38bdf8;">0.0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>3. 5-Class Confusion Matrix (v3)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Ground Truth \ Predicted</th>
+      <th>Misalignment</th>
+      <th>Overlapping</th>
+      <th>Truncation</th>
+      <th>Untranslation</th>
+      <th>Repeated hotkey</th>
+      <th>Abstained / Insufficient</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>7</td>
+      <td>0</td>
+      <td>10</td>
+      <td>2</td>
+      <td>0</td>
+      <td style="color:#f59e0b;">0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>6</td>
+      <td>0</td>
+      <td style="color:#f59e0b;">1</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Truncation</td>
+      <td>3</td>
+      <td>1</td>
+      <td>11</td>
+      <td>13</td>
+      <td>0</td>
+      <td style="color:#f59e0b;">2</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Untranslation</td>
+      <td>3</td>
+      <td>6</td>
+      <td>9</td>
+      <td>8</td>
+      <td>0</td>
+      <td style="color:#f59e0b;">0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Repeated hotkey</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td style="color:#f59e0b;">0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>4. Case-by-Case Diff Sample (v2 vs. v3)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Product / Lang</th>
+      <th>Ground Truth</th>
+      <th>v2 Primary</th>
+      <th>v3 Primary</th>
+      <th>Status</th>
+      <th>Causal Reasoning Trace</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold;">#9</td>
+      <td>Civil3d (RUS)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (486.0px anchor break, 393.5px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.720), Truncation (strength: 0.450), Untranslation (strength: 0.292). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#10</td>
+      <td>Civil3d (FRA)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Untranslation</td>
+      <td><span class='badge-same'>SHIFTED (INCORRECT)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (10 untranslated strings, 18 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650), Misalignment (strength: 0.640). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#11</td>
+      <td>Civil3d (ESP)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 120px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#12</td>
+      <td>Civil3d (CHT)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (187.0px anchor break, 93.6px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.900), Untranslation (strength: 0.708), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#13</td>
+      <td>Civil3d (KOR)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td><span class='badge-gain'>CORRECTED (+1)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (95.0px anchor break, 92.0px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 1.000), Untranslation (strength: 0.458). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#14</td>
+      <td>Civil3d (FRA)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (7 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Misalignment (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#15</td>
+      <td>Inventor (JPN)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (260.0px anchor break, 260.9px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 1.000), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#16</td>
+      <td>Inventor (FRA)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>SHIFTED (INCORRECT)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Overlapping (strength: 0.700), Misalignment (strength: 0.685). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#17</td>
+      <td>Inventor (CSY)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>SHIFTED (INCORRECT)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (4 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 1.000), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#18</td>
+      <td>Inventor (ESP)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>SHIFTED (INCORRECT)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (9 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Overlapping (strength: 0.700), Misalignment (strength: 0.531). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#19</td>
+      <td>Inventor (JPN)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.651), Untranslation (strength: 0.354). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#20</td>
+      <td>Inventor (DEU)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 0.935) driven by Structural Column Grid Break (115.0px anchor break, 60.5px residual drift). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 0.808), Overlapping (strength: 0.361). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#21</td>
+      <td>Inventor (RUS)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (184.0px anchor break, 184.0px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#22</td>
+      <td>Vault (HUN)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (5 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.940). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#23</td>
+      <td>Vault (PLK)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Untranslation</td>
+      <td style="font-weight:bold;">Untranslation</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Untranslation (strength: 0.829) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 5 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#24</td>
+      <td>Vault (ESP)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.712). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#25</td>
+      <td>Vault (CHT)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.293). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#26</td>
+      <td>Vault (CSY)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#27</td>
+      <td>Vault (HUN)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (227.0px anchor break, 208.0px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.900), Untranslation (strength: 0.458). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#29</td>
+      <td>Civil3d (RUS)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (464.0px anchor break, 438.3px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#30</td>
+      <td>Civil3d (CSY)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>NO_STRONG_OBSERVABLE_DEFECT</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>SHIFTED (INCORRECT)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 0.400) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.350). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#31</td>
+      <td>Civil3d (PTB)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Untranslation</td>
+      <td><span class='badge-same'>SHIFTED (INCORRECT)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (3 untranslated strings, 9 Latin words). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.900), Misalignment (strength: 0.734). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#32</td>
+      <td>Civil3d (FRA)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Overlapping</td>
+      <td style="font-weight:bold;">Overlapping</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (3784px² overlap area, 146.0px intrusion). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#33</td>
+      <td>Civil3d (CHT)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (233.0px anchor break, 232.4px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#34</td>
+      <td>Inventor (PTB)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Overlapping</td>
+      <td style="font-weight:bold;">Untranslation</td>
+      <td><span class='badge-reg'>REGRESSION (-1)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (3 untranslated strings, 3 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.725). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#35</td>
+      <td>Inventor (JPN)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (307.0px anchor break, 309.1px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.900), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#36</td>
+      <td>Inventor (ITA)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Untranslation</td>
+      <td><span class='badge-same'>SHIFTED (INCORRECT)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (3 untranslated strings, 3 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#37</td>
+      <td>Inventor (KOR)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (9 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#38</td>
+      <td>Inventor (ESP)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (142.0px anchor break, 142.0px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#39</td>
+      <td>Vault (HUN)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td style="font-weight:bold;">Overlapping</td>
+      <td><span class='badge-gain'>CORRECTED (+1)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (21651px² overlap area, 66.0px intrusion). Causal Precedence: Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.875). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#40</td>
+      <td>Vault (ITA)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>NO_STRONG_OBSERVABLE_DEFECT</td>
+      <td style="font-weight:bold;">NO_STRONG_OBSERVABLE_DEFECT</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">No single visual defect mechanism exhibited strong physical evidence (top candidate was Misalignment with strength 0.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#41</td>
+      <td>Vault (JPN)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Truncation</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#42</td>
+      <td>Vault (CHT)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Overlapping</td>
+      <td style="font-weight:bold;">Truncation</td>
+      <td><span class='badge-reg'>REGRESSION (-1)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (3 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.731), Overlapping (strength: 0.700), Untranslation (strength: 0.354). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#43</td>
+      <td>Vault (FRA)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Untranslation</td>
+      <td style="font-weight:bold;">Untranslation</td>
+      <td><span class='badge-same'>UNCHANGED</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (9 untranslated strings, 16 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650), Misalignment (strength: 0.319). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#44</td>
+      <td>Vault (JPN)</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Overlapping</td>
+      <td style="font-weight:bold;">Untranslation</td>
+      <td><span class='badge-reg'>REGRESSION (-1)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Untranslation (strength: 0.767) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 4 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.648). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

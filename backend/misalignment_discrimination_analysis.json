@@ -1,0 +1,1384 @@
+{
+  "total_benchmark_cases": 101,
+  "misalignment_cases_count": 19,
+  "non_misalignment_cases_count": 82,
+  "misalignment_strong_disp_ge_20px": "19 / 19 (100.0%)",
+  "misalignment_strong_disp_ge_50px": "18 / 19 (94.7%)",
+  "non_misalignment_strong_disp_ge_20px": "73 / 82 (89.0%)",
+  "non_misalignment_strong_disp_ge_50px": "64 / 82 (78.0%)",
+  "top_separating_features": [
+    {
+      "feature_name": "max_corrected_displacement_px",
+      "misalignment_mean": 216.52,
+      "non_misalignment_mean": 143.8,
+      "misalignment_std": 128.13,
+      "non_misalignment_std": 128.03,
+      "separation_ratio": 0.1612
+    },
+    {
+      "feature_name": "match_rate_pct",
+      "misalignment_mean": 99.01,
+      "non_misalignment_mean": 97.61,
+      "misalignment_std": 2.14,
+      "non_misalignment_std": 3.99,
+      "separation_ratio": 0.0946
+    },
+    {
+      "feature_name": "max_alignment_divergence_px",
+      "misalignment_mean": 106.21,
+      "non_misalignment_mean": 72.02,
+      "misalignment_std": 101.87,
+      "non_misalignment_std": 115.72,
+      "separation_ratio": 0.0492
+    },
+    {
+      "feature_name": "median_corrected_displacement_px",
+      "misalignment_mean": 8.45,
+      "non_misalignment_mean": 5.25,
+      "misalignment_std": 12.32,
+      "non_misalignment_std": 10.1,
+      "separation_ratio": 0.0405
+    },
+    {
+      "feature_name": "independently_displaced_elements",
+      "misalignment_mean": 15.26,
+      "non_misalignment_mean": 12.22,
+      "misalignment_std": 11.92,
+      "non_misalignment_std": 18.7,
+      "separation_ratio": 0.0188
+    }
+  ],
+  "category_distribution_stats": {
+    "Misalignment": {
+      "count": 19,
+      "max_corrected_displacement_px": {
+        "mean": 216.52,
+        "std": 128.13,
+        "median": 187.2,
+        "q25": 124.25,
+        "q75": 261.55,
+        "min": 49.4,
+        "max": 543.6
+      },
+      "median_corrected_displacement_px": {
+        "mean": 8.45,
+        "std": 12.32,
+        "median": 2.0,
+        "q25": 1.1,
+        "q75": 12.1,
+        "min": 0.0,
+        "max": 51.2
+      },
+      "independently_displaced_elements": {
+        "mean": 15.26,
+        "std": 11.92,
+        "median": 14.0,
+        "q25": 5.0,
+        "q75": 20.0,
+        "min": 1.0,
+        "max": 50.0
+      },
+      "max_alignment_divergence_px": {
+        "mean": 106.21,
+        "std": 101.87,
+        "median": 64.0,
+        "q25": 31.0,
+        "q75": 174.5,
+        "min": 0.0,
+        "max": 390.0
+      },
+      "match_rate_pct": {
+        "mean": 99.01,
+        "std": 2.14,
+        "median": 100.0,
+        "q25": 100.0,
+        "q75": 100.0,
+        "min": 93.2,
+        "max": 100.0
+      }
+    },
+    "Overlapping": {
+      "count": 19,
+      "max_corrected_displacement_px": {
+        "mean": 160.85,
+        "std": 122.21,
+        "median": 104.0,
+        "q25": 71.0,
+        "q75": 219.5,
+        "min": 2.0,
+        "max": 440.2
+      },
+      "median_corrected_displacement_px": {
+        "mean": 6.66,
+        "std": 11.26,
+        "median": 1.4,
+        "q25": 0.0,
+        "q75": 9.6,
+        "min": 0.0,
+        "max": 48.3
+      },
+      "independently_displaced_elements": {
+        "mean": 14.84,
+        "std": 21.07,
+        "median": 7.0,
+        "q25": 2.5,
+        "q75": 13.0,
+        "min": 0.0,
+        "max": 74.0
+      },
+      "max_alignment_divergence_px": {
+        "mean": 110.0,
+        "std": 131.02,
+        "median": 56.0,
+        "q25": 1.5,
+        "q75": 140.0,
+        "min": 0.0,
+        "max": 464.0
+      },
+      "match_rate_pct": {
+        "mean": 97.15,
+        "std": 3.44,
+        "median": 97.8,
+        "q25": 95.75,
+        "q75": 100.0,
+        "min": 87.5,
+        "max": 100.0
+      }
+    },
+    "Repeated hotkey": {
+      "count": 7,
+      "max_corrected_displacement_px": {
+        "mean": 103.54,
+        "std": 35.99,
+        "median": 103.9,
+        "q25": 77.25,
+        "q75": 125.1,
+        "min": 54.1,
+        "max": 162.1
+      },
+      "median_corrected_displacement_px": {
+        "mean": 3.87,
+        "std": 4.88,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 7.45,
+        "min": 0.0,
+        "max": 12.2
+      },
+      "independently_displaced_elements": {
+        "mean": 21.29,
+        "std": 14.91,
+        "median": 15.0,
+        "q25": 10.5,
+        "q75": 30.0,
+        "min": 5.0,
+        "max": 48.0
+      },
+      "max_alignment_divergence_px": {
+        "mean": 53.29,
+        "std": 47.73,
+        "median": 30.0,
+        "q25": 25.0,
+        "q75": 54.5,
+        "min": 20.0,
+        "max": 164.0
+      },
+      "match_rate_pct": {
+        "mean": 98.46,
+        "std": 1.7,
+        "median": 98.9,
+        "q25": 98.15,
+        "q75": 99.65,
+        "min": 94.7,
+        "max": 100.0
+      }
+    },
+    "Truncation": {
+      "count": 30,
+      "max_corrected_displacement_px": {
+        "mean": 135.46,
+        "std": 135.52,
+        "median": 96.35,
+        "q25": 34.88,
+        "q75": 150.75,
+        "min": 2.0,
+        "max": 555.4
+      },
+      "median_corrected_displacement_px": {
+        "mean": 2.49,
+        "std": 3.73,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 3.15,
+        "min": 0.0,
+        "max": 15.0
+      },
+      "independently_displaced_elements": {
+        "mean": 7.17,
+        "std": 7.44,
+        "median": 4.5,
+        "q25": 1.0,
+        "q75": 10.5,
+        "min": 0.0,
+        "max": 30.0
+      },
+      "max_alignment_divergence_px": {
+        "mean": 37.1,
+        "std": 59.88,
+        "median": 2.0,
+        "q25": 1.0,
+        "q75": 60.75,
+        "min": 0.0,
+        "max": 268.0
+      },
+      "match_rate_pct": {
+        "mean": 98.61,
+        "std": 3.46,
+        "median": 100.0,
+        "q25": 99.25,
+        "q75": 100.0,
+        "min": 83.3,
+        "max": 100.0
+      }
+    },
+    "Untranslation": {
+      "count": 26,
+      "max_corrected_displacement_px": {
+        "mean": 151.79,
+        "std": 135.83,
+        "median": 121.05,
+        "q25": 74.6,
+        "q75": 192.1,
+        "min": 4.0,
+        "max": 588.0
+      },
+      "median_corrected_displacement_px": {
+        "mean": 7.77,
+        "std": 13.76,
+        "median": 1.7,
+        "q25": 0.0,
+        "q75": 9.78,
+        "min": 0.0,
+        "max": 65.6
+      },
+      "independently_displaced_elements": {
+        "mean": 13.69,
+        "std": 24.42,
+        "median": 5.0,
+        "q25": 2.25,
+        "q75": 12.0,
+        "min": 0.0,
+        "max": 109.0
+      },
+      "max_alignment_divergence_px": {
+        "mean": 89.62,
+        "std": 148.57,
+        "median": 24.5,
+        "q25": 1.0,
+        "q75": 103.75,
+        "min": 0.0,
+        "max": 626.0
+      },
+      "match_rate_pct": {
+        "mean": 96.57,
+        "std": 4.93,
+        "median": 100.0,
+        "q25": 93.88,
+        "q75": 100.0,
+        "min": 84.6,
+        "max": 100.0
+      }
+    }
+  },
+  "high_displacement_non_misalignment_cases_count": 64,
+  "high_displacement_non_misalignment_cases": [
+    {
+      "case_id": 98,
+      "product": "Inventor",
+      "folder": "Inventor-04",
+      "lang": "KOR",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 121,
+      "match_rate_pct": 91.7,
+      "max_corrected_displacement_px": 588.0,
+      "median_corrected_displacement_px": 65.6,
+      "independently_displaced_elements": 109,
+      "max_alignment_divergence_px": 463.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 84,
+      "product": "Vault",
+      "folder": "Vault-24",
+      "lang": "CHT",
+      "gt_category": "Truncation",
+      "matched_elements_count": 29,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 555.4,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 12,
+      "max_alignment_divergence_px": 82.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 103,
+      "product": "Inventor",
+      "folder": "Inventor-22",
+      "lang": "KOR",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 106,
+      "match_rate_pct": 86.2,
+      "max_corrected_displacement_px": 511.0,
+      "median_corrected_displacement_px": 22.8,
+      "independently_displaced_elements": 76,
+      "max_alignment_divergence_px": 626.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 85,
+      "product": "Vault",
+      "folder": "Vault-26",
+      "lang": "FRA",
+      "gt_category": "Truncation",
+      "matched_elements_count": 30,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 471.0,
+      "median_corrected_displacement_px": 3.2,
+      "independently_displaced_elements": 8,
+      "max_alignment_divergence_px": 50.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 29,
+      "product": "Civil3d",
+      "folder": "Civil3d-06",
+      "lang": "RUS",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 77,
+      "match_rate_pct": 96.2,
+      "max_corrected_displacement_px": 440.2,
+      "median_corrected_displacement_px": 48.3,
+      "independently_displaced_elements": 69,
+      "max_alignment_divergence_px": 464.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 42,
+      "product": "Vault",
+      "folder": "Vault-12",
+      "lang": "CHT",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 45,
+      "match_rate_pct": 97.8,
+      "max_corrected_displacement_px": 359.2,
+      "median_corrected_displacement_px": 3.0,
+      "independently_displaced_elements": 13,
+      "max_alignment_divergence_px": 32.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 46,
+      "product": "Vault",
+      "folder": "Vault-33",
+      "lang": "PTB",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 55,
+      "match_rate_pct": 94.8,
+      "max_corrected_displacement_px": 342.1,
+      "median_corrected_displacement_px": 17.2,
+      "independently_displaced_elements": 36,
+      "max_alignment_divergence_px": 346.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 79,
+      "product": "Vault",
+      "folder": "Vault-11",
+      "lang": "ESP",
+      "gt_category": "Truncation",
+      "matched_elements_count": 64,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 339.0,
+      "median_corrected_displacement_px": 9.6,
+      "independently_displaced_elements": 30,
+      "max_alignment_divergence_px": 57.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 62,
+      "product": "Civil3d",
+      "folder": "Civil3d-17",
+      "lang": "HUN",
+      "gt_category": "Truncation",
+      "matched_elements_count": 25,
+      "match_rate_pct": 83.3,
+      "max_corrected_displacement_px": 316.3,
+      "median_corrected_displacement_px": 7.0,
+      "independently_displaced_elements": 7,
+      "max_alignment_divergence_px": 10.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 35,
+      "product": "Inventor",
+      "folder": "Inventor-08",
+      "lang": "JPN",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 43,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 311.6,
+      "median_corrected_displacement_px": 10.0,
+      "independently_displaced_elements": 17,
+      "max_alignment_divergence_px": 298.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 112,
+      "product": "Vault",
+      "folder": "Vault-25",
+      "lang": "CSY",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 11,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 290.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 2,
+      "max_alignment_divergence_px": 0.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 60,
+      "product": "Civil3d",
+      "folder": "Civil3d-05",
+      "lang": "DEU",
+      "gt_category": "Truncation",
+      "matched_elements_count": 108,
+      "match_rate_pct": 97.3,
+      "max_corrected_displacement_px": 268.3,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 22,
+      "max_alignment_divergence_px": 268.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 81,
+      "product": "Vault",
+      "folder": "Vault-20",
+      "lang": "PLK",
+      "gt_category": "Truncation",
+      "matched_elements_count": 44,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 252.0,
+      "median_corrected_displacement_px": 5.5,
+      "independently_displaced_elements": 6,
+      "max_alignment_divergence_px": 2.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 33,
+      "product": "Civil3d",
+      "folder": "Civil3d-30",
+      "lang": "CHT",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 33,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 233.7,
+      "median_corrected_displacement_px": 7.2,
+      "independently_displaced_elements": 12,
+      "max_alignment_divergence_px": 233.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 107,
+      "product": "Vault",
+      "folder": "Vault-13",
+      "lang": "CSY",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 10,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 230.0,
+      "median_corrected_displacement_px": 1.0,
+      "independently_displaced_elements": 3,
+      "max_alignment_divergence_px": 230.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 97,
+      "product": "Civil3d",
+      "folder": "Civil3d-35",
+      "lang": "ESP",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 89,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 226.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 15,
+      "max_alignment_divergence_px": 222.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 105,
+      "product": "Vault",
+      "folder": "Vault-07",
+      "lang": "KOR",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 32,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 206.9,
+      "median_corrected_displacement_px": 2.0,
+      "independently_displaced_elements": 4,
+      "max_alignment_divergence_px": 1.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 39,
+      "product": "Vault",
+      "folder": "Vault-04",
+      "lang": "HUN",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 34,
+      "match_rate_pct": 97.1,
+      "max_corrected_displacement_px": 205.3,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 4,
+      "max_alignment_divergence_px": 138.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 34,
+      "product": "Inventor",
+      "folder": "Inventor-07",
+      "lang": "PTB",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 15,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 198.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 1,
+      "max_alignment_divergence_px": 1.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 99,
+      "product": "Inventor",
+      "folder": "Inventor-06",
+      "lang": "PTB",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 72,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 198.0,
+      "median_corrected_displacement_px": 24.5,
+      "independently_displaced_elements": 38,
+      "max_alignment_divergence_px": 147.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 73,
+      "product": "Inventor",
+      "folder": "Inventor-32",
+      "lang": "DEU",
+      "gt_category": "Truncation",
+      "matched_elements_count": 4,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 176.8,
+      "median_corrected_displacement_px": 9.6,
+      "independently_displaced_elements": 1,
+      "max_alignment_divergence_px": 0.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 96,
+      "product": "Civil3d",
+      "folder": "Civil3d-34",
+      "lang": "CHS",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 14,
+      "match_rate_pct": 93.3,
+      "max_corrected_displacement_px": 174.4,
+      "median_corrected_displacement_px": 18.9,
+      "independently_displaced_elements": 14,
+      "max_alignment_divergence_px": 31.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 38,
+      "product": "Inventor",
+      "folder": "Inventor-39",
+      "lang": "ESP",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 110,
+      "match_rate_pct": 99.1,
+      "max_corrected_displacement_px": 172.1,
+      "median_corrected_displacement_px": 12.0,
+      "independently_displaced_elements": 74,
+      "max_alignment_divergence_px": 142.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 92,
+      "product": "Civil3d",
+      "folder": "Civil3d-11",
+      "lang": "ITA",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 61,
+      "match_rate_pct": 98.4,
+      "max_corrected_displacement_px": 165.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 5,
+      "max_alignment_divergence_px": 2.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 56,
+      "product": "Inventor",
+      "folder": "Inventor-36",
+      "lang": "PTB",
+      "gt_category": "Repeated hotkey",
+      "matched_elements_count": 130,
+      "match_rate_pct": 98.5,
+      "max_corrected_displacement_px": 162.1,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 22,
+      "max_alignment_divergence_px": 40.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 88,
+      "product": "Vault",
+      "folder": "Vault-39",
+      "lang": "DEU",
+      "gt_category": "Truncation",
+      "matched_elements_count": 12,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 151.0,
+      "median_corrected_displacement_px": 2.0,
+      "independently_displaced_elements": 3,
+      "max_alignment_divergence_px": 0.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 68,
+      "product": "Inventor",
+      "folder": "Inventor-03",
+      "lang": "CHS",
+      "gt_category": "Truncation",
+      "matched_elements_count": 32,
+      "match_rate_pct": 97.0,
+      "max_corrected_displacement_px": 150.0,
+      "median_corrected_displacement_px": 2.2,
+      "independently_displaced_elements": 2,
+      "max_alignment_divergence_px": 152.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 89,
+      "product": "Civil3d",
+      "folder": "Civil3d-02",
+      "lang": "CHS",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 34,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 149.0,
+      "median_corrected_displacement_px": 7.5,
+      "independently_displaced_elements": 13,
+      "max_alignment_divergence_px": 0.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 78,
+      "product": "Vault",
+      "folder": "Vault-08",
+      "lang": "PLK",
+      "gt_category": "Truncation",
+      "matched_elements_count": 35,
+      "match_rate_pct": 97.2,
+      "max_corrected_displacement_px": 148.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 3,
+      "max_alignment_divergence_px": 2.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 109,
+      "product": "Vault",
+      "folder": "Vault-16",
+      "lang": "HUN",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 51,
+      "match_rate_pct": 98.1,
+      "max_corrected_displacement_px": 147.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 9,
+      "max_alignment_divergence_px": 127.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 71,
+      "product": "Inventor",
+      "folder": "Inventor-19",
+      "lang": "CSY",
+      "gt_category": "Truncation",
+      "matched_elements_count": 41,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 146.3,
+      "median_corrected_displacement_px": 3.0,
+      "independently_displaced_elements": 9,
+      "max_alignment_divergence_px": 122.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 63,
+      "product": "Civil3d",
+      "folder": "Civil3d-19",
+      "lang": "ESP",
+      "gt_category": "Truncation",
+      "matched_elements_count": 19,
+      "match_rate_pct": 90.5,
+      "max_corrected_displacement_px": 146.0,
+      "median_corrected_displacement_px": 15.0,
+      "independently_displaced_elements": 11,
+      "max_alignment_divergence_px": 97.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 51,
+      "product": "Civil3d",
+      "folder": "Civil3d-22",
+      "lang": "FRA",
+      "gt_category": "Repeated hotkey",
+      "matched_elements_count": 87,
+      "match_rate_pct": 98.9,
+      "max_corrected_displacement_px": 141.2,
+      "median_corrected_displacement_px": 12.2,
+      "independently_displaced_elements": 48,
+      "max_alignment_divergence_px": 164.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 37,
+      "product": "Inventor",
+      "folder": "Inventor-34",
+      "lang": "KOR",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 82,
+      "match_rate_pct": 95.3,
+      "max_corrected_displacement_px": 138.3,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 10,
+      "max_alignment_divergence_px": 136.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 95,
+      "product": "Civil3d",
+      "folder": "Civil3d-31",
+      "lang": "CHT",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 35,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 136.1,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 1,
+      "max_alignment_divergence_px": 1.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 77,
+      "product": "Vault",
+      "folder": "Vault-03",
+      "lang": "DEU",
+      "gt_category": "Truncation",
+      "matched_elements_count": 21,
+      "match_rate_pct": 95.5,
+      "max_corrected_displacement_px": 132.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 8,
+      "max_alignment_divergence_px": 0.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 102,
+      "product": "Inventor",
+      "folder": "Inventor-16",
+      "lang": "JPN",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 12,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 122.1,
+      "median_corrected_displacement_px": 2.0,
+      "independently_displaced_elements": 2,
+      "max_alignment_divergence_px": 78.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 114,
+      "product": "Vault",
+      "folder": "Vault-38",
+      "lang": "FRA",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 34,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 120.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 5,
+      "max_alignment_divergence_px": 104.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 57,
+      "product": "Vault",
+      "folder": "Vault-09",
+      "lang": "PTB",
+      "gt_category": "Repeated hotkey",
+      "matched_elements_count": 39,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 109.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 5,
+      "max_alignment_divergence_px": 28.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 72,
+      "product": "Inventor",
+      "folder": "Inventor-21",
+      "lang": "CSY",
+      "gt_category": "Truncation",
+      "matched_elements_count": 120,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 106.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 16,
+      "max_alignment_divergence_px": 62.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 32,
+      "product": "Civil3d",
+      "folder": "Civil3d-29",
+      "lang": "FRA",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 40,
+      "match_rate_pct": 93.0,
+      "max_corrected_displacement_px": 104.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 7,
+      "max_alignment_divergence_px": 52.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 55,
+      "product": "Inventor",
+      "folder": "Inventor-30",
+      "lang": "FRA",
+      "gt_category": "Repeated hotkey",
+      "matched_elements_count": 133,
+      "match_rate_pct": 97.8,
+      "max_corrected_displacement_px": 103.9,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 38,
+      "max_alignment_divergence_px": 30.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 110,
+      "product": "Vault",
+      "folder": "Vault-19",
+      "lang": "KOR",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 18,
+      "match_rate_pct": 90.0,
+      "max_corrected_displacement_px": 103.0,
+      "median_corrected_displacement_px": 10.5,
+      "independently_displaced_elements": 8,
+      "max_alignment_divergence_px": 103.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 30,
+      "product": "Civil3d",
+      "folder": "Civil3d-18",
+      "lang": "CSY",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 21,
+      "match_rate_pct": 91.3,
+      "max_corrected_displacement_px": 102.0,
+      "median_corrected_displacement_px": 1.0,
+      "independently_displaced_elements": 4,
+      "max_alignment_divergence_px": 0.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 80,
+      "product": "Vault",
+      "folder": "Vault-17",
+      "lang": "ITA",
+      "gt_category": "Truncation",
+      "matched_elements_count": 44,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 96.7,
+      "median_corrected_displacement_px": 7.2,
+      "independently_displaced_elements": 16,
+      "max_alignment_divergence_px": 64.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 36,
+      "product": "Inventor",
+      "folder": "Inventor-33",
+      "lang": "ITA",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 40,
+      "match_rate_pct": 97.6,
+      "max_corrected_displacement_px": 96.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 1,
+      "max_alignment_divergence_px": 2.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 83,
+      "product": "Vault",
+      "folder": "Vault-23",
+      "lang": "ESP",
+      "gt_category": "Truncation",
+      "matched_elements_count": 17,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 96.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 1,
+      "max_alignment_divergence_px": 0.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 82,
+      "product": "Vault",
+      "folder": "Vault-21",
+      "lang": "PTB",
+      "gt_category": "Truncation",
+      "matched_elements_count": 44,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 95.5,
+      "median_corrected_displacement_px": 2.5,
+      "independently_displaced_elements": 16,
+      "max_alignment_divergence_px": 41.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 94,
+      "product": "Civil3d",
+      "folder": "Civil3d-25",
+      "lang": "JPN",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 59,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 95.4,
+      "median_corrected_displacement_px": 7.6,
+      "independently_displaced_elements": 15,
+      "max_alignment_divergence_px": 54.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 76,
+      "product": "Vault",
+      "folder": "Vault-02",
+      "lang": "FRA",
+      "gt_category": "Truncation",
+      "matched_elements_count": 47,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 92.1,
+      "median_corrected_displacement_px": 2.0,
+      "independently_displaced_elements": 19,
+      "max_alignment_divergence_px": 86.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 52,
+      "product": "Inventor",
+      "folder": "Inventor-02",
+      "lang": "ITA",
+      "gt_category": "Repeated hotkey",
+      "matched_elements_count": 137,
+      "match_rate_pct": 99.3,
+      "max_corrected_displacement_px": 90.7,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 15,
+      "max_alignment_divergence_px": 22.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 31,
+      "product": "Civil3d",
+      "folder": "Civil3d-28",
+      "lang": "PTB",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 40,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 88.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 10,
+      "max_alignment_divergence_px": 84.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 43,
+      "product": "Vault",
+      "folder": "Vault-14",
+      "lang": "FRA",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 58,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 86.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 13,
+      "max_alignment_divergence_px": 72.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 113,
+      "product": "Vault",
+      "folder": "Vault-30",
+      "lang": "JPN",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 6,
+      "match_rate_pct": 85.7,
+      "max_corrected_displacement_px": 83.0,
+      "median_corrected_displacement_px": 16.7,
+      "independently_displaced_elements": 3,
+      "max_alignment_divergence_px": 0.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 66,
+      "product": "Civil3d",
+      "folder": "Civil3d-26",
+      "lang": "ITA",
+      "gt_category": "Truncation",
+      "matched_elements_count": 15,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 81.0,
+      "median_corrected_displacement_px": 5.0,
+      "independently_displaced_elements": 6,
+      "max_alignment_divergence_px": 0.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 91,
+      "product": "Civil3d",
+      "folder": "Civil3d-08",
+      "lang": "DEU",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 40,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 80.2,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 5,
+      "max_alignment_divergence_px": 45.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 93,
+      "product": "Civil3d",
+      "folder": "Civil3d-24",
+      "lang": "KOR",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 11,
+      "match_rate_pct": 84.6,
+      "max_corrected_displacement_px": 76.1,
+      "median_corrected_displacement_px": 1.4,
+      "independently_displaced_elements": 2,
+      "max_alignment_divergence_px": 0.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 104,
+      "product": "Inventor",
+      "folder": "Inventor-23",
+      "lang": "KOR",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 30,
+      "match_rate_pct": 96.8,
+      "max_corrected_displacement_px": 74.1,
+      "median_corrected_displacement_px": 4.1,
+      "independently_displaced_elements": 8,
+      "max_alignment_divergence_px": 18.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 54,
+      "product": "Inventor",
+      "folder": "Inventor-29",
+      "lang": "CSY",
+      "gt_category": "Repeated hotkey",
+      "matched_elements_count": 36,
+      "match_rate_pct": 94.7,
+      "max_corrected_displacement_px": 63.8,
+      "median_corrected_displacement_px": 9.9,
+      "independently_displaced_elements": 14,
+      "max_alignment_divergence_px": 20.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 90,
+      "product": "Civil3d",
+      "folder": "Civil3d-07",
+      "lang": "JPN",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 16,
+      "match_rate_pct": 94.1,
+      "max_corrected_displacement_px": 62.2,
+      "median_corrected_displacement_px": 13.0,
+      "independently_displaced_elements": 9,
+      "max_alignment_divergence_px": 13.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 47,
+      "product": "Vault",
+      "folder": "Vault-34",
+      "lang": "CHS",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 25,
+      "match_rate_pct": 96.2,
+      "max_corrected_displacement_px": 56.0,
+      "median_corrected_displacement_px": 2.2,
+      "independently_displaced_elements": 3,
+      "max_alignment_divergence_px": 56.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 111,
+      "product": "Vault",
+      "folder": "Vault-22",
+      "lang": "CHS",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 30,
+      "match_rate_pct": 93.8,
+      "max_corrected_displacement_px": 55.0,
+      "median_corrected_displacement_px": 3.3,
+      "independently_displaced_elements": 4,
+      "max_alignment_divergence_px": 50.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 53,
+      "product": "Inventor",
+      "folder": "Inventor-28",
+      "lang": "JPN",
+      "gt_category": "Repeated hotkey",
+      "matched_elements_count": 37,
+      "match_rate_pct": 100.0,
+      "max_corrected_displacement_px": 54.1,
+      "median_corrected_displacement_px": 5.0,
+      "independently_displaced_elements": 7,
+      "max_alignment_divergence_px": 69.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    },
+    {
+      "case_id": 74,
+      "product": "Inventor",
+      "folder": "Inventor-35",
+      "lang": "PLK",
+      "gt_category": "Truncation",
+      "matched_elements_count": 69,
+      "match_rate_pct": 98.6,
+      "max_corrected_displacement_px": 50.0,
+      "median_corrected_displacement_px": 0.0,
+      "independently_displaced_elements": 4,
+      "max_alignment_divergence_px": 2.0,
+      "global_shift": {
+        "x": 0.0,
+        "y": 0.0
+      }
+    }
+  ]
+}

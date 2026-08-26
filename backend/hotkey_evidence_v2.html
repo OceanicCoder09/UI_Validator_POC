@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Repeated Hotkey Physical Evidence Report v2</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 24px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; background: #0f172a; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #020617; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #1e293b; }
+  .case-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; margin-bottom: 24px; padding: 18px; }
+  .case-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 12px; }
+  .gt-badge { background: #831843; border: 1px solid #f43f5e; color: #ffe4e6; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+  .status-pass { background: #064e3b; border: 1px solid #10b981; color: #a7f3d0; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+  .status-fail { background: #334155; color: #94a3b8; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+<h1>Repeated Hotkey Physical Evidence Report (v2)</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Direct duplicate mnemonic extraction, representation parsing (&amp;, (A), （A）, [A]), and scope conflict detection across all 7 Repeated hotkey benchmark cases.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Total Repeated Hotkey Cases</div>
+    <div class="card-val" style="color: #f8fafc;">7</div>
+    <div class="card-sub">ground truth benchmark cases</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Directly Supported Cases</div>
+    <div class="card-val" style="color: #4ade80;">0 / 7 (0.0%)</div>
+    <div class="card-sub">verified duplicate mnemonic targets</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Non-Hotkey Cases with Conflict</div>
+    <div class="card-val" style="color: #f59e0b;">1 / 94 (1.1%)</div>
+    <div class="card-sub">secondary compound defects</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Mean Conflicts per Case</div>
+    <div class="card-val" style="color: #38bdf8;">0.00</div>
+    <div class="card-sub">vs 0.28 in non-hotkey cases</div>
+  </div>
+</div>
+
+<h2>Case-by-Case Repeated Hotkey Audit (7 Cases)</h2>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #51: Civil3d / Civil3d-22 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class='status-fail'>[UNSUPPORTED]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Total Accelerators:</strong> 0</div>
+    <div><strong>Unique Accelerators:</strong> 0</div>
+    <div><strong>Duplicate Count:</strong> <span style="color:#f43f5e; font-weight:bold;">0</span></div>
+    <div><strong>Conflicting Chars:</strong> None</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Conflicting Sibling UI Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Char</th>
+        <th>Element ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Representation</th>
+        <th>OCR Conf</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='6' style='text-align:center; color:#94a3b8;'>No conflicting duplicate accelerators detected.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #52: Inventor / Inventor-02 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class='status-fail'>[UNSUPPORTED]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Total Accelerators:</strong> 0</div>
+    <div><strong>Unique Accelerators:</strong> 0</div>
+    <div><strong>Duplicate Count:</strong> <span style="color:#f43f5e; font-weight:bold;">0</span></div>
+    <div><strong>Conflicting Chars:</strong> None</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Conflicting Sibling UI Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Char</th>
+        <th>Element ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Representation</th>
+        <th>OCR Conf</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='6' style='text-align:center; color:#94a3b8;'>No conflicting duplicate accelerators detected.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #53: Inventor / Inventor-28 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class='status-fail'>[UNSUPPORTED]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Total Accelerators:</strong> 0</div>
+    <div><strong>Unique Accelerators:</strong> 0</div>
+    <div><strong>Duplicate Count:</strong> <span style="color:#f43f5e; font-weight:bold;">0</span></div>
+    <div><strong>Conflicting Chars:</strong> None</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Conflicting Sibling UI Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Char</th>
+        <th>Element ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Representation</th>
+        <th>OCR Conf</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='6' style='text-align:center; color:#94a3b8;'>No conflicting duplicate accelerators detected.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #54: Inventor / Inventor-29 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class='status-fail'>[UNSUPPORTED]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Total Accelerators:</strong> 0</div>
+    <div><strong>Unique Accelerators:</strong> 0</div>
+    <div><strong>Duplicate Count:</strong> <span style="color:#f43f5e; font-weight:bold;">0</span></div>
+    <div><strong>Conflicting Chars:</strong> None</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Conflicting Sibling UI Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Char</th>
+        <th>Element ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Representation</th>
+        <th>OCR Conf</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='6' style='text-align:center; color:#94a3b8;'>No conflicting duplicate accelerators detected.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #55: Inventor / Inventor-30 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class='status-fail'>[UNSUPPORTED]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Total Accelerators:</strong> 0</div>
+    <div><strong>Unique Accelerators:</strong> 0</div>
+    <div><strong>Duplicate Count:</strong> <span style="color:#f43f5e; font-weight:bold;">0</span></div>
+    <div><strong>Conflicting Chars:</strong> None</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Conflicting Sibling UI Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Char</th>
+        <th>Element ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Representation</th>
+        <th>OCR Conf</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='6' style='text-align:center; color:#94a3b8;'>No conflicting duplicate accelerators detected.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #56: Inventor / Inventor-36 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class='status-fail'>[UNSUPPORTED]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Total Accelerators:</strong> 0</div>
+    <div><strong>Unique Accelerators:</strong> 0</div>
+    <div><strong>Duplicate Count:</strong> <span style="color:#f43f5e; font-weight:bold;">0</span></div>
+    <div><strong>Conflicting Chars:</strong> None</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Conflicting Sibling UI Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Char</th>
+        <th>Element ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Representation</th>
+        <th>OCR Conf</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='6' style='text-align:center; color:#94a3b8;'>No conflicting duplicate accelerators detected.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #57: Vault / Vault-09 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class='status-fail'>[UNSUPPORTED]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Total Accelerators:</strong> 0</div>
+    <div><strong>Unique Accelerators:</strong> 0</div>
+    <div><strong>Duplicate Count:</strong> <span style="color:#f43f5e; font-weight:bold;">0</span></div>
+    <div><strong>Conflicting Chars:</strong> None</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Conflicting Sibling UI Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Char</th>
+        <th>Element ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Representation</th>
+        <th>OCR Conf</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='6' style='text-align:center; color:#94a3b8;'>No conflicting duplicate accelerators detected.</td></tr>
+    </tbody>
+  </table>
+</div>
+</body></html>

@@ -15,6 +15,7 @@ export default function ImageUploader({
   const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'url'
   const [englishUrl, setEnglishUrl] = useState('');
   const [localizedUrl, setLocalizedUrl] = useState('');
+  const [fullPage, setFullPage] = useState(false);
 
   const handleFile = (e, isEnglish) => {
     const file = e.target.files?.[0];
@@ -51,7 +52,7 @@ export default function ImageUploader({
     e.preventDefault();
     if (!englishUrl || !localizedUrl) return;
     if (onUrlAnalyze) {
-      onUrlAnalyze(englishUrl, localizedUrl);
+      onUrlAnalyze(englishUrl, localizedUrl, fullPage);
     }
   };
 
@@ -139,7 +140,7 @@ export default function ImageUploader({
                       <span>Change Baseline Image</span>
                       <input
                         type="file"
-                        accept="image/png, image/jpeg, image/webp"
+                        accept="image/*, .bmp, .png, .jpg, .jpeg, .webp, .tiff, .tif"
                         className="hidden"
                         onChange={(e) => handleFile(e, true)}
                       />
@@ -158,7 +159,7 @@ export default function ImageUploader({
                     </span>
                     <input
                       type="file"
-                      accept="image/png, image/jpeg, image/webp"
+                      accept="image/*, .bmp, .png, .jpg, .jpeg, .webp, .tiff, .tif"
                       className="hidden"
                       onChange={(e) => handleFile(e, true)}
                     />
@@ -199,7 +200,7 @@ export default function ImageUploader({
                       <span>Change Localized Image</span>
                       <input
                         type="file"
-                        accept="image/png, image/jpeg, image/webp"
+                        accept="image/*, .bmp, .png, .jpg, .jpeg, .webp, .tiff, .tif"
                         className="hidden"
                         onChange={(e) => handleFile(e, false)}
                       />
@@ -218,7 +219,7 @@ export default function ImageUploader({
                     </span>
                     <input
                       type="file"
-                      accept="image/png, image/jpeg, image/webp"
+                      accept="image/*, .bmp, .png, .jpg, .jpeg, .webp, .tiff, .tif"
                       className="hidden"
                       onChange={(e) => handleFile(e, false)}
                     />
@@ -304,10 +305,34 @@ export default function ImageUploader({
 
           </div>
 
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-3 bg-slate-50 border border-slate-200/80 rounded-xl">
+            <div className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                id="fullPageToggle"
+                checked={fullPage}
+                onChange={(e) => setFullPage(e.target.checked)}
+                className="w-4 h-4 text-[#0696D7] rounded border-slate-300 focus:ring-[#0696D7] cursor-pointer"
+              />
+              <label htmlFor="fullPageToggle" className="cursor-pointer text-xs">
+                <span className="font-bold text-slate-700">Capture Whole Page (Full Height Scroll)</span>
+                <span className="block text-[11px] text-slate-400">
+                  {fullPage
+                    ? 'Captures the entire scrollable webpage, rendering dynamic and lazy-loaded elements.'
+                    : 'Captures only the visible top-of-page viewport (1280x800).'}
+                </span>
+              </label>
+            </div>
+            
+            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${fullPage ? 'bg-sky-100 text-sky-700' : 'bg-slate-200 text-slate-600'}`}>
+              {fullPage ? 'Full Document' : 'Viewport Only'}
+            </span>
+          </div>
+
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-100">
             <div className="flex items-center gap-2 text-xs text-slate-500">
               <Sparkles className="w-4 h-4 text-[#0696D7]" />
-              <span>Headless browser will automatically navigate, capture both pages, and analyze layout consistency.</span>
+              <span>Headless browser will automatically navigate, scroll to render, capture both pages, and analyze layout consistency.</span>
             </div>
 
             <button

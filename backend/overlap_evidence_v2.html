@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Overlapping Physical Evidence Report v2</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 24px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; background: #0f172a; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #020617; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #1e293b; }
+  .case-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; margin-bottom: 24px; padding: 18px; }
+  .case-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 12px; }
+  .gt-badge { background: #831843; border: 1px solid #f43f5e; color: #ffe4e6; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+  .status-pass { background: #064e3b; border: 1px solid #10b981; color: #a7f3d0; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+  .status-fail { background: #334155; color: #94a3b8; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+<h1>Overlapping Physical Evidence Report (v2)</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Direct geometric intersection area, horizontal intrusion, and sibling gap collapse measurements across all 19 Overlapping benchmark cases.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Total Overlapping Cases</div>
+    <div class="card-val" style="color: #f8fafc;">19</div>
+    <div class="card-sub">ground truth benchmark cases</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Cases with New Geometric Collision</div>
+    <div class="card-val" style="color: #4ade80;">14 / 19 (73.7%)</div>
+    <div class="card-sub">measured non-zero intersection area</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Cases with Sibling Gap Collapse</div>
+    <div class="card-val" style="color: #38bdf8;">18 / 19 (94.7%)</div>
+    <div class="card-sub">gutter spacing collapsed &ge; 8px</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Mean Max Intersection Area</div>
+    <div class="card-val" style="color: #f59e0b;">5171 px&sup2;</div>
+    <div class="card-sub">median: 1242 px&sup2;</div>
+  </div>
+</div>
+
+<h2>Case-by-Case Physical Collision Audit (19 Overlapping Cases)</h2>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #29: Civil3d / Civil3d-06 (RUS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 18</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">1908 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 465 px</div>
+    <div><strong>Max Gap Collapse:</strong> 246 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('Incoming connections')</td>
+        <td><code>text</code> ('Pipes')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">1560 px&sup2;</td>
+        <td>78 px</td>
+        <td>-34 px &rarr; -78 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Columns')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">420 px&sup2;</td>
+        <td>30 px</td>
+        <td>-1 px &rarr; -30 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Operator')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">992 px&sup2;</td>
+        <td>62 px</td>
+        <td>7 px &rarr; -62 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Value')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">736 px&sup2;</td>
+        <td>46 px</td>
+        <td>31 px &rarr; -46 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('No channels connected')</td>
+        <td><code>text</code> ('Section type')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">1444 px&sup2;</td>
+        <td>76 px</td>
+        <td>-58 px &rarr; -76 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Help')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">768 px&sup2;</td>
+        <td>48 px</td>
+        <td>21 px &rarr; -48 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Cancel')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1260 px&sup2;</td>
+        <td>70 px</td>
+        <td>20 px &rarr; -70 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Apply')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">432 px&sup2;</td>
+        <td>24 px</td>
+        <td>20 px &rarr; -24 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>button</code> ('')</td>
+        <td><code>text</code> ('OK')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1265 px&sup2;</td>
+        <td>55 px</td>
+        <td>167 px &rarr; -55 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('At least one connected catchme')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">390 px&sup2;</td>
+        <td>195 px</td>
+        <td>-161 px &rarr; -195 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #30: Civil3d / Civil3d-18 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO COLLISION]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 0</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">0 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 0 px</div>
+    <div><strong>Max Gap Collapse:</strong> 103 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='7' style='text-align:center; color:#94a3b8;'>Zero newly created bounding box intersections.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #31: Civil3d / Civil3d-28 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO COLLISION]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 0</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">0 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 0 px</div>
+    <div><strong>Max Gap Collapse:</strong> 92 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='7' style='text-align:center; color:#94a3b8;'>Zero newly created bounding box intersections.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #32: Civil3d / Civil3d-29 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 4</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">1898 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 146 px</div>
+    <div><strong>Max Gap Collapse:</strong> 136 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('The milling')</td>
+        <td><code>text</code> ('corridon')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">70 px&sup2;</td>
+        <td>70 px</td>
+        <td>-48 px &rarr; -70 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Select baseline:')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1898 px&sup2;</td>
+        <td>146 px</td>
+        <td>-80 px &rarr; -146 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('width:')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">516 px&sup2;</td>
+        <td>43 px</td>
+        <td>-39 px &rarr; -43 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Start station:')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1300 px&sup2;</td>
+        <td>100 px</td>
+        <td>-70 px &rarr; -100 px</td>
+        <td><span style='color:#38bdf8;'>Yes (Reflow)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #33: Civil3d / Civil3d-30 (CHT)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 7</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">1404 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 78 px</div>
+    <div><strong>Max Gap Collapse:</strong> 225 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('Track gauge:')</td>
+        <td><code>dropdown</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">896 px&sup2;</td>
+        <td>56 px</td>
+        <td>-64 px &rarr; -56 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Calculation interval:')</td>
+        <td><code>dropdown</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">736 px&sup2;</td>
+        <td>46 px</td>
+        <td>-97 px &rarr; -46 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Length:')</td>
+        <td><code>dropdown</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1152 px&sup2;</td>
+        <td>72 px</td>
+        <td>-40 px &rarr; -72 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('C: ProgramData AutodeskIC3D Va')</td>
+        <td><code>dropdown</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">392 px&sup2;</td>
+        <td>28 px</td>
+        <td>-346 px &rarr; -28 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Design criteria file:')</td>
+        <td><code>dropdown</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">364 px&sup2;</td>
+        <td>26 px</td>
+        <td>-91 px &rarr; -26 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Property')</td>
+        <td><code>dropdown</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1404 px&sup2;</td>
+        <td>78 px</td>
+        <td>-47 px &rarr; -78 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Left side')</td>
+        <td><code>dropdown</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">308 px&sup2;</td>
+        <td>22 px</td>
+        <td>-48 px &rarr; -22 px</td>
+        <td><span style='color:#38bdf8;'>Yes (Reflow)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #34: Inventor / Inventor-07 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 2</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">1036 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 74 px</div>
+    <div><strong>Max Gap Collapse:</strong> 199 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('Point Size')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1036 px&sup2;</td>
+        <td>74 px</td>
+        <td>56 px &rarr; -74 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>container</code> ('')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">588 px&sup2;</td>
+        <td>28 px</td>
+        <td>6 px &rarr; -28 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #35: Inventor / Inventor-08 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 6</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">1957 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 103 px</div>
+    <div><strong>Max Gap Collapse:</strong> 201 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('-161218.024 mn')</td>
+        <td><code>text</code> ('X Offset:')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">1120 px&sup2;</td>
+        <td>80 px</td>
+        <td>94 px &rarr; -80 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('84170.682 mm')</td>
+        <td><code>text</code> ('Origin')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">756 px&sup2;</td>
+        <td>54 px</td>
+        <td>-38 px &rarr; -54 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('3.892')</td>
+        <td><code>container</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">360 px&sup2;</td>
+        <td>30 px</td>
+        <td>-38 px &rarr; -30 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>button</code> ('')</td>
+        <td><code>text</code> ('X Offset:')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1957 px&sup2;</td>
+        <td>103 px</td>
+        <td>89 px &rarr; -103 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>button</code> ('')</td>
+        <td><code>text</code> ('Origin')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1957 px&sup2;</td>
+        <td>103 px</td>
+        <td>-38 px &rarr; -103 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('OAdjust densiy manualy')</td>
+        <td><code>text</code> ('Densiy:')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">420 px&sup2;</td>
+        <td>30 px</td>
+        <td>-52 px &rarr; -30 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #36: Inventor / Inventor-33 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO COLLISION]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 0</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">0 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 0 px</div>
+    <div><strong>Max Gap Collapse:</strong> 96 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='7' style='text-align:center; color:#94a3b8;'>Zero newly created bounding box intersections.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #37: Inventor / Inventor-34 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 2</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">416 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 26 px</div>
+    <div><strong>Max Gap Collapse:</strong> 138 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('105.')</td>
+        <td><code>text</code> ('Faz')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">416 px&sup2;</td>
+        <td>26 px</td>
+        <td>106 px &rarr; -26 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('MPa')</td>
+        <td><code>text</code> ('Faz')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">364 px&sup2;</td>
+        <td>26 px</td>
+        <td>72 px &rarr; -26 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #38: Inventor / Inventor-39 (ESP)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 30</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">54918 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 339 px</div>
+    <div><strong>Max Gap Collapse:</strong> 204 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('Calculation')</td>
+        <td><code>card</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">992 px&sup2;</td>
+        <td>62 px</td>
+        <td>-64 px &rarr; -62 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Common')</td>
+        <td><code>text</code> ('Facewidth')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">216 px&sup2;</td>
+        <td>108 px</td>
+        <td>96 px &rarr; -108 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Common')</td>
+        <td><code>text</code> ('Gear Ratio')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">840 px&sup2;</td>
+        <td>60 px</td>
+        <td>-54 px &rarr; -60 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Gear2')</td>
+        <td><code>card</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">1024 px&sup2;</td>
+        <td>64 px</td>
+        <td>-38 px &rarr; -64 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Cylindrical Face')</td>
+        <td><code>card</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">1036 px&sup2;</td>
+        <td>74 px</td>
+        <td>-88 px &rarr; -74 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Component')</td>
+        <td><code>card</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">1036 px&sup2;</td>
+        <td>74 px</td>
+        <td>-72 px &rarr; -74 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Number of Teeth')</td>
+        <td><code>card</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">1540 px&sup2;</td>
+        <td>110 px</td>
+        <td>-108 px &rarr; -110 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Plane')</td>
+        <td><code>card</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">512 px&sup2;</td>
+        <td>32 px</td>
+        <td>-36 px &rarr; -32 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('57 ul')</td>
+        <td><code>card</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">648 px&sup2;</td>
+        <td>36 px</td>
+        <td>-34 px &rarr; -36 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Unit Correction')</td>
+        <td><code>card</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">1456 px&sup2;</td>
+        <td>104 px</td>
+        <td>-92 px &rarr; -104 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #39: Vault / Vault-04 (HUN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 4</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">18538 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 66 px</div>
+    <div><strong>Max Gap Collapse:</strong> 138 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('Opacity:')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1188 px&sup2;</td>
+        <td>66 px</td>
+        <td>9 px &rarr; -66 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> (']')</td>
+        <td><code>container</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">980 px&sup2;</td>
+        <td>14 px</td>
+        <td>0 px &rarr; -14 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Opacity-')</td>
+        <td><code>dropdown</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">945 px&sup2;</td>
+        <td>63 px</td>
+        <td>-44 px &rarr; -63 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>container</code> ('')</td>
+        <td><code>container</code> ('')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">18538 px&sup2;</td>
+        <td>62 px</td>
+        <td>75 px &rarr; -62 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #40: Vault / Vault-05 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO COLLISION]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 0</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">0 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 0 px</div>
+    <div><strong>Max Gap Collapse:</strong> 2 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='7' style='text-align:center; color:#94a3b8;'>Zero newly created bounding box intersections.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #41: Vault / Vault-06 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO COLLISION]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 0</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">0 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 0 px</div>
+    <div><strong>Max Gap Collapse:</strong> 8 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='7' style='text-align:center; color:#94a3b8;'>Zero newly created bounding box intersections.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #42: Vault / Vault-12 (CHT)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 7</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">11106 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 617 px</div>
+    <div><strong>Max Gap Collapse:</strong> 228 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>card</code> ('')</td>
+        <td><code>text</code> ('Thumbnail')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">11106 px&sup2;</td>
+        <td>617 px</td>
+        <td>-62 px &rarr; -617 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>button</code> ('')</td>
+        <td><code>text</code> ('emplateAssembly iam')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">22 px&sup2;</td>
+        <td>22 px</td>
+        <td>-120 px &rarr; -22 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>button</code> ('')</td>
+        <td><code>text</code> ('Latest (Noz')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">40 px&sup2;</td>
+        <td>40 px</td>
+        <td>-66 px &rarr; -40 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>card</code> ('')</td>
+        <td><code>text</code> ('Latest (Noz')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">40 px&sup2;</td>
+        <td>40 px</td>
+        <td>-66 px &rarr; -40 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>card</code> ('')</td>
+        <td><code>text</code> ('emplateAssembly iam')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">22 px&sup2;</td>
+        <td>22 px</td>
+        <td>-120 px &rarr; -22 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>card</code> ('')</td>
+        <td><code>text</code> ('Revision')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">34 px&sup2;</td>
+        <td>34 px</td>
+        <td>-46 px &rarr; -34 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>card</code> ('')</td>
+        <td><code>text</code> ('Thumbnail')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">617 px&sup2;</td>
+        <td>617 px</td>
+        <td>-62 px &rarr; -617 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #43: Vault / Vault-14 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 4</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">595 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 127 px</div>
+    <div><strong>Max Gap Collapse:</strong> 128 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('Enable cloud drive mapping')</td>
+        <td><code>text</code> ('Enable manual zync')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">127 px&sup2;</td>
+        <td>127 px</td>
+        <td>-109 px &rarr; -127 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Daily at:')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">595 px&sup2;</td>
+        <td>35 px</td>
+        <td>30 px &rarr; -35 px</td>
+        <td><span style='color:#38bdf8;'>Yes (Reflow)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Daily at:')</td>
+        <td><code>text</code> ('1200 AM')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">561 px&sup2;</td>
+        <td>33 px</td>
+        <td>34 px &rarr; -33 px</td>
+        <td><span style='color:#38bdf8;'>Yes (Reflow)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Upload')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">420 px&sup2;</td>
+        <td>28 px</td>
+        <td>1 px &rarr; -28 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #44: Vault / Vault-18 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 1</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">1242 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 69 px</div>
+    <div><strong>Max Gap Collapse:</strong> 73 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('Name')</td>
+        <td><code>dropdown</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1242 px&sup2;</td>
+        <td>69 px</td>
+        <td>4 px &rarr; -69 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #45: Vault / Vault-31 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 1</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">1242 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 69 px</div>
+    <div><strong>Max Gap Collapse:</strong> 73 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('Name')</td>
+        <td><code>dropdown</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1242 px&sup2;</td>
+        <td>69 px</td>
+        <td>4 px &rarr; -69 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #46: Vault / Vault-33 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 5</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">527 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 32 px</div>
+    <div><strong>Max Gap Collapse:</strong> 178 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('Backup Content Center librarie')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">512 px&sup2;</td>
+        <td>32 px</td>
+        <td>-108 px &rarr; -32 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Backup Content Center librarie')</td>
+        <td><code>dropdown</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">512 px&sup2;</td>
+        <td>32 px</td>
+        <td>-89 px &rarr; -32 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>card</code> ('')</td>
+        <td><code>text</code> ('OK')</td>
+        <td>text <-> container</td>
+        <td style="font-weight:bold; color:#4ade80;">527 px&sup2;</td>
+        <td>31 px</td>
+        <td>-22 px &rarr; -31 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>text</code> ('Validate the backed up files')</td>
+        <td><code>text</code> ('T1:00 PM')</td>
+        <td>text <-> text</td>
+        <td style="font-weight:bold; color:#4ade80;">14 px&sup2;</td>
+        <td>1 px</td>
+        <td>-34 px &rarr; -1 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+      <tr>
+        <td><code>input</code> ('')</td>
+        <td><code>text</code> ('OK')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">527 px&sup2;</td>
+        <td>31 px</td>
+        <td>-22 px &rarr; -31 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #47: Vault / Vault-34 (CHS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Collision Detected</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>New Collisions:</strong> 1</div>
+    <div><strong>Max Overlap Area:</strong> <span style="color:#4ade80; font-weight:bold;">1460 px&sup2;</span></div>
+    <div><strong>Max Horizontal Intrusion:</strong> 73 px</div>
+    <div><strong>Max Gap Collapse:</strong> 82 px</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Physical Collision Pairs:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Element 1</th>
+        <th>Element 2</th>
+        <th>Collision Type</th>
+        <th>Overlap Area</th>
+        <th>Intrusion</th>
+        <th>Gap Delta</th>
+        <th>Reflow Explained?</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>text</code> ('Qpacity:')</td>
+        <td><code>button</code> ('')</td>
+        <td>text <-> control</td>
+        <td style="font-weight:bold; color:#4ade80;">1460 px&sup2;</td>
+        <td>73 px</td>
+        <td>9 px &rarr; -73 px</td>
+        <td><span style='color:#f43f5e; font-weight:bold;'>No (Residual)</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</body></html>

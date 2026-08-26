@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Structural Movement Pattern Analysis Report</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 20px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 9px 12px; text-align: right; border-bottom: 1px solid #334155; }
+  th:first-child, td:first-child { text-align: left; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .badge-pos { color: #4ade80; font-weight: bold; }
+  .badge-neg { color: #f43f5e; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Structural Movement Pattern Analysis Report</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Distinguishing <strong>Misalignment defects</strong> from <strong>benign localization reflow</strong> across 101 benchmark cases via structural column consistency, direction coherence, and residual displacement.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Top Discriminative Metric</div>
+    <div class="card-val" style="font-size:16px;"><code>movement_direction_coherence</code></div>
+    <div class="card-sub">Fisher ratio: 0.2302</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Column Anchor Break (Misalignment)</div>
+    <div class="card-val" style="color: #4ade80;">95.0px (median)</div>
+    <div class="card-sub">mean: 116.74px</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Column Anchor Break (Reflow/Non-Mis)</div>
+    <div class="card-val" style="color: #cbd5e1;">2.0px / 25.0px</div>
+    <div class="card-sub">columns stay aligned in benign reflow</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Reflow Ratio (Non-Misalignment)</div>
+    <div class="card-val" style="color: #38bdf8;">34.0%</div>
+    <div class="card-sub">movement explained by text width growth</div>
+  </div>
+</div>
+
+<h2>1. Feature Discrimination Ranking (Movement Patterns vs Pure Displacement)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Movement Pattern Feature</th>
+      <th>Misalignment (Mean / Median)</th>
+      <th>Non-Misalignment (Mean / Median)</th>
+      <th>Separation Ratio (Fisher Criterion)</th>
+      <th>Physical Diagnostic Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>movement_direction_coherence</code></td>
+      <td style="color:#4ade80; font-weight:bold;">0.11 / 0.13</td>
+      <td style="color:#cbd5e1;">0.33 / 0.22</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.2302</td>
+      <td style="font-size:12px; color:#94a3b8;">Uniformity of movement direction across displaced elements.</td>
+    </tr>
+
+    <tr>
+      <td><code>mean_row_dx_std</code></td>
+      <td style="color:#4ade80; font-weight:bold;">23.49 / 17.08</td>
+      <td style="color:#cbd5e1;">14.36 / 9.47</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.1469</td>
+      <td style="font-size:12px; color:#94a3b8;">Standard deviation of horizontal displacement along same row.</td>
+    </tr>
+
+    <tr>
+      <td><code>fraction_independently_displaced</code></td>
+      <td style="color:#4ade80; font-weight:bold;">0.38 / 0.31</td>
+      <td style="color:#cbd5e1;">0.25 / 0.19</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.1468</td>
+      <td style="font-size:12px; color:#94a3b8;">Proportion of dialog elements moving independently.</td>
+    </tr>
+
+    <tr>
+      <td><code>max_column_dx_std</code></td>
+      <td style="color:#4ade80; font-weight:bold;">70.0 / 51.0</td>
+      <td style="color:#cbd5e1;">41.11 / 31.02</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.1336</td>
+      <td style="font-size:12px; color:#94a3b8;">Standard deviation of horizontal displacement within column peers.</td>
+    </tr>
+
+    <tr>
+      <td><code>mean_column_dx_std</code></td>
+      <td style="color:#4ade80; font-weight:bold;">21.58 / 15.52</td>
+      <td style="color:#cbd5e1;">13.21 / 8.02</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.1088</td>
+      <td style="font-size:12px; color:#94a3b8;">Mean intra-column variance in horizontal anchor shift.</td>
+    </tr>
+
+    <tr>
+      <td><code>max_column_anchor_break_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">116.74 / 95.0</td>
+      <td style="color:#cbd5e1;">71.73 / 29.0</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0764</td>
+      <td style="font-size:12px; color:#94a3b8;">Maximum anchor break for elements vertically aligned in baseline.</td>
+    </tr>
+
+    <tr>
+      <td><code>max_residual_disp_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">124.98 / 117.1</td>
+      <td style="color:#cbd5e1;">88.81 / 57.33</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0673</td>
+      <td style="font-size:12px; color:#94a3b8;">Displacement remaining after subtracting dominant column reflow vector.</td>
+    </tr>
+
+    <tr>
+      <td><code>mean_residual_disp_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">16.66 / 11.77</td>
+      <td style="color:#cbd5e1;">11.58 / 6.62</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0488</td>
+      <td style="font-size:12px; color:#94a3b8;">Mean residual unaligned movement across all structural groups.</td>
+    </tr>
+
+    <tr>
+      <td><code>mean_column_dy_std</code></td>
+      <td style="color:#4ade80; font-weight:bold;">7.04 / 3.77</td>
+      <td style="color:#cbd5e1;">5.47 / 3.57</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0274</td>
+      <td style="font-size:12px; color:#94a3b8;">Vertical anchor instability within column peers.</td>
+    </tr>
+
+    <tr>
+      <td><code>structurally_independent_displacements_count</code></td>
+      <td style="color:#4ade80; font-weight:bold;">5.84 / 4.0</td>
+      <td style="color:#cbd5e1;">4.55 / 2.0</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0229</td>
+      <td style="font-size:12px; color:#94a3b8;">Count of displaced elements not explained by upstream text growth.</td>
+    </tr>
+
+    <tr>
+      <td><code>reflow_displacement_ratio</code></td>
+      <td style="color:#4ade80; font-weight:bold;">0.22 / 0.17</td>
+      <td style="color:#cbd5e1;">0.27 / 0.2</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0160</td>
+      <td style="font-size:12px; color:#94a3b8;">Fraction of displacement directly preceded by text width expansion.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. Full Movement Pattern Metrics Across All 5 Target Categories</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Ground Truth Category</th>
+      <th>Max Column Anchor Break (Mean / Med)</th>
+      <th>Max Residual Disp (Mean / Med)</th>
+      <th>Max Column dx Std (Mean / Med)</th>
+      <th>Independent Elements Count</th>
+      <th>Reflow Ratio %</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr style="background: #1e3a5f; font-weight:bold;">
+      <td style="color: #38bdf8;">Misalignment (N=19)</td>
+      <td style="color:#4ade80;">116.7px / 95.0px</td>
+      <td>125.0px / 117.1px</td>
+      <td>70.0px / 51.0px</td>
+      <td>5.8 / 4.0</td>
+      <td>22.0%</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Overlapping (N=19)</td>
+      <td style="color:#4ade80;">105.0px / 56.0px</td>
+      <td>122.9px / 71.5px</td>
+      <td>46.9px / 32.6px</td>
+      <td>5.6 / 3.0</td>
+      <td>22.0%</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Repeated hotkey (N=7)</td>
+      <td style="color:#4ade80;">53.3px / 30.0px</td>
+      <td>87.7px / 70.0px</td>
+      <td>38.2px / 37.0px</td>
+      <td>6.0 / 3.0</td>
+      <td>55.0%</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Truncation (N=30)</td>
+      <td style="color:#4ade80;">39.4px / 2.0px</td>
+      <td>59.4px / 29.8px</td>
+      <td>35.4px / 26.5px</td>
+      <td>3.1 / 2.0</td>
+      <td>34.0%</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Untranslation (N=26)</td>
+      <td style="color:#4ade80;">89.7px / 25.0px</td>
+      <td>98.1px / 66.8px</td>
+      <td>44.3px / 24.8px</td>
+      <td>5.0 / 2.0</td>
+      <td>14.0%</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>3. Case Exemplars: Benign Reflow vs Structurally Independent Misalignment</h2>
+
+<h3 style="color:#38bdf8; font-size:15px;">A. Benign Localization Reflow (Large Displacement, but High Reflow Ratio & Columns Intact)</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Case ID</th>
+      <th>Product / Folder (Lang)</th>
+      <th>GT Category</th>
+      <th>Max Residual Disp</th>
+      <th>Reflow Ratio</th>
+      <th>Column Anchor Break</th>
+      <th>Physical Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold;">#75</td>
+      <td>Vault / Vault-01 (CSY)</td>
+      <td>Truncation</td>
+      <td>1.4px</td>
+      <td style="color:#4ade80; font-weight:bold;">100.0%</td>
+      <td>1.0px</td>
+      <td style="font-size:12px; color:#cbd5e1;">Buttons/inputs pushed downstream strictly due to translated string expansion.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#70</td>
+      <td>Inventor / Inventor-18 (FRA)</td>
+      <td>Truncation</td>
+      <td>2.0px</td>
+      <td style="color:#4ade80; font-weight:bold;">100.0%</td>
+      <td>1.0px</td>
+      <td style="font-size:12px; color:#cbd5e1;">Buttons/inputs pushed downstream strictly due to translated string expansion.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#64</td>
+      <td>Civil3d / Civil3d-20 (PTB)</td>
+      <td>Truncation</td>
+      <td>12.0px</td>
+      <td style="color:#4ade80; font-weight:bold;">100.0%</td>
+      <td>2.0px</td>
+      <td style="font-size:12px; color:#cbd5e1;">Buttons/inputs pushed downstream strictly due to translated string expansion.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#61</td>
+      <td>Civil3d / Civil3d-10 (PTB)</td>
+      <td>Truncation</td>
+      <td>17.0px</td>
+      <td style="color:#4ade80; font-weight:bold;">100.0%</td>
+      <td>2.0px</td>
+      <td style="font-size:12px; color:#cbd5e1;">Buttons/inputs pushed downstream strictly due to translated string expansion.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#59</td>
+      <td>Civil3d / Civil3d-04 (PLK)</td>
+      <td>Truncation</td>
+      <td>18.0px</td>
+      <td style="color:#4ade80; font-weight:bold;">100.0%</td>
+      <td>2.0px</td>
+      <td style="font-size:12px; color:#cbd5e1;">Buttons/inputs pushed downstream strictly due to translated string expansion.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="color:#38bdf8; font-size:15px; margin-top:20px;">B. True Structural Misalignment (High Anchor Break & Independent Displacements)</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Case ID</th>
+      <th>Product / Folder (Lang)</th>
+      <th>GT Category</th>
+      <th>Max Column Anchor Break</th>
+      <th>Max Column dx Std</th>
+      <th>Independent Count</th>
+      <th>Physical Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold;">#9</td>
+      <td>Civil3d / Civil3d-01 (RUS)</td>
+      <td>Misalignment</td>
+      <td style="color:#4ade80; font-weight:bold;">486.0px</td>
+      <td>189.8px</td>
+      <td>12</td>
+      <td style="font-size:12px; color:#cbd5e1;">Column anchor broken independently of text width growth.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#15</td>
+      <td>Inventor / Inventor-01 (JPN)</td>
+      <td>Misalignment</td>
+      <td style="color:#4ade80; font-weight:bold;">260.0px</td>
+      <td>134.5px</td>
+      <td>14</td>
+      <td style="font-size:12px; color:#cbd5e1;">Column anchor broken independently of text width growth.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#21</td>
+      <td>Inventor / Inventor-37 (RUS)</td>
+      <td>Misalignment</td>
+      <td style="color:#4ade80; font-weight:bold;">184.0px</td>
+      <td>58.2px</td>
+      <td>6</td>
+      <td style="font-size:12px; color:#cbd5e1;">Column anchor broken independently of text width growth.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#20</td>
+      <td>Inventor / Inventor-31 (DEU)</td>
+      <td>Misalignment</td>
+      <td style="color:#4ade80; font-weight:bold;">115.0px</td>
+      <td>60.5px</td>
+      <td>16</td>
+      <td style="font-size:12px; color:#cbd5e1;">Column anchor broken independently of text width growth.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#10</td>
+      <td>Civil3d / Civil3d-12 (FRA)</td>
+      <td>Misalignment</td>
+      <td style="color:#4ade80; font-weight:bold;">97.0px</td>
+      <td>51.0px</td>
+      <td>11</td>
+      <td style="font-size:12px; color:#cbd5e1;">Column anchor broken independently of text width growth.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,3343 @@
+{
+  "total_benchmark_cases": 101,
+  "untranslation_cases_count": 26,
+  "non_untranslation_cases_count": 75,
+  "questions_answered": {
+    "Q_A_untranslation_evidence_coverage": {
+      "directly_supported": "24 / 26 (92.3%)",
+      "ambiguous_technical_only": "0 / 26 (0.0%)",
+      "unsupported_no_english": "2 / 26 (7.7%)"
+    },
+    "Q_B_non_untranslation_cases_with_preserved_english": {
+      "with_genuine_user_facing_english": "51 / 75 (68.0%)",
+      "with_technical_brand_only": "9 / 75 (12.0%)"
+    },
+    "Q_C_technical_brand_tokens_vs_genuine_ui_strings": {
+      "total_genuine_untranslated_strings": 476,
+      "total_technical_brand_tokens": 144,
+      "technical_token_ratio_pct": "23.2%"
+    }
+  },
+  "discrimination_rankings": {
+    "vs_all_non_untranslation": [
+      {
+        "feature": "total_latin_words_preserved",
+        "untranslation_mean": 12.08,
+        "non_untranslation_mean": 5.59,
+        "separation_ratio": 0.1592
+      },
+      {
+        "feature": "total_english_chars_preserved",
+        "untranslation_mean": 97.65,
+        "non_untranslation_mean": 60.48,
+        "separation_ratio": 0.0719
+      },
+      {
+        "feature": "genuine_untranslated_strings_count",
+        "untranslation_mean": 6.88,
+        "non_untranslation_mean": 3.96,
+        "separation_ratio": 0.0714
+      },
+      {
+        "feature": "potential_fp_technical_brand_count",
+        "untranslation_mean": 0.73,
+        "non_untranslation_mean": 1.67,
+        "separation_ratio": 0.0467
+      }
+    ],
+    "vs_truncation": [
+      {
+        "feature": "total_latin_words_preserved",
+        "untranslation_mean": 12.08,
+        "truncation_mean": 5.77,
+        "separation_ratio": 0.1303
+      },
+      {
+        "feature": "total_english_chars_preserved",
+        "untranslation_mean": 97.65,
+        "truncation_mean": 62.83,
+        "separation_ratio": 0.0563
+      },
+      {
+        "feature": "genuine_untranslated_strings_count",
+        "untranslation_mean": 6.88,
+        "truncation_mean": 4.13,
+        "separation_ratio": 0.0534
+      },
+      {
+        "feature": "potential_fp_technical_brand_count",
+        "untranslation_mean": 0.73,
+        "truncation_mean": 1.13,
+        "separation_ratio": 0.0211
+      }
+    ],
+    "vs_misalignment": [
+      {
+        "feature": "total_latin_words_preserved",
+        "untranslation_mean": 12.08,
+        "misalignment_mean": 4.32,
+        "separation_ratio": 0.3007
+      },
+      {
+        "feature": "genuine_untranslated_strings_count",
+        "untranslation_mean": 6.88,
+        "misalignment_mean": 2.74,
+        "separation_ratio": 0.2152
+      },
+      {
+        "feature": "total_english_chars_preserved",
+        "untranslation_mean": 97.65,
+        "misalignment_mean": 51.26,
+        "separation_ratio": 0.1411
+      },
+      {
+        "feature": "potential_fp_technical_brand_count",
+        "untranslation_mean": 0.73,
+        "misalignment_mean": 0.89,
+        "separation_ratio": 0.0059
+      }
+    ]
+  },
+  "category_summary_distributions": {
+    "Untranslation": {
+      "count": 26,
+      "genuine_untranslated_strings_count": {
+        "mean": 6.88,
+        "std": 8.29,
+        "median": 3.5,
+        "q25": 2.0,
+        "q75": 8.0,
+        "min": 0.0,
+        "max": 37.0
+      },
+      "potential_fp_technical_brand_count": {
+        "mean": 0.73,
+        "std": 1.4,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 1.0,
+        "min": 0.0,
+        "max": 5.0
+      },
+      "total_english_chars_preserved": {
+        "mean": 97.65,
+        "std": 107.54,
+        "median": 43.5,
+        "q25": 25.25,
+        "q75": 169.25,
+        "min": 0.0,
+        "max": 405.0
+      },
+      "total_latin_words_preserved": {
+        "mean": 12.08,
+        "std": 13.23,
+        "median": 5.5,
+        "q25": 4.0,
+        "q75": 19.5,
+        "min": 0.0,
+        "max": 52.0
+      }
+    },
+    "Misalignment": {
+      "count": 19,
+      "genuine_untranslated_strings_count": {
+        "mean": 2.74,
+        "std": 3.34,
+        "median": 1.0,
+        "q25": 0.0,
+        "q75": 3.5,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "potential_fp_technical_brand_count": {
+        "mean": 0.89,
+        "std": 1.62,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 1.0,
+        "min": 0.0,
+        "max": 7.0
+      },
+      "total_english_chars_preserved": {
+        "mean": 51.26,
+        "std": 60.74,
+        "median": 18.0,
+        "q25": 0.0,
+        "q75": 88.0,
+        "min": 0.0,
+        "max": 180.0
+      },
+      "total_latin_words_preserved": {
+        "mean": 4.32,
+        "std": 5.02,
+        "median": 2.0,
+        "q25": 0.0,
+        "q75": 8.0,
+        "min": 0.0,
+        "max": 18.0
+      }
+    },
+    "Overlapping": {
+      "count": 19,
+      "genuine_untranslated_strings_count": {
+        "mean": 2.68,
+        "std": 4.13,
+        "median": 1.0,
+        "q25": 0.0,
+        "q75": 3.0,
+        "min": 0.0,
+        "max": 14.0
+      },
+      "potential_fp_technical_brand_count": {
+        "mean": 2.42,
+        "std": 6.65,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 1.5,
+        "min": 0.0,
+        "max": 30.0
+      },
+      "total_english_chars_preserved": {
+        "mean": 45.16,
+        "std": 79.15,
+        "median": 18.0,
+        "q25": 0.0,
+        "q75": 38.0,
+        "min": 0.0,
+        "max": 309.0
+      },
+      "total_latin_words_preserved": {
+        "mean": 3.68,
+        "std": 5.14,
+        "median": 1.0,
+        "q25": 0.0,
+        "q75": 3.5,
+        "min": 0.0,
+        "max": 16.0
+      }
+    },
+    "Truncation": {
+      "count": 30,
+      "genuine_untranslated_strings_count": {
+        "mean": 4.13,
+        "std": 8.55,
+        "median": 2.0,
+        "q25": 0.25,
+        "q75": 4.0,
+        "min": 0.0,
+        "max": 47.0
+      },
+      "potential_fp_technical_brand_count": {
+        "mean": 1.13,
+        "std": 2.39,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 1.0,
+        "min": 0.0,
+        "max": 11.0
+      },
+      "total_english_chars_preserved": {
+        "mean": 62.83,
+        "std": 99.91,
+        "median": 33.0,
+        "q25": 1.5,
+        "q75": 60.0,
+        "min": 0.0,
+        "max": 461.0
+      },
+      "total_latin_words_preserved": {
+        "mean": 5.77,
+        "std": 11.42,
+        "median": 2.5,
+        "q25": 0.25,
+        "q75": 5.0,
+        "min": 0.0,
+        "max": 62.0
+      }
+    },
+    "Repeated hotkey": {
+      "count": 7,
+      "genuine_untranslated_strings_count": {
+        "mean": 10.0,
+        "std": 10.61,
+        "median": 7.0,
+        "q25": 2.5,
+        "q75": 12.5,
+        "min": 0.0,
+        "max": 33.0
+      },
+      "potential_fp_technical_brand_count": {
+        "mean": 4.0,
+        "std": 4.28,
+        "median": 2.0,
+        "q25": 0.0,
+        "q75": 8.0,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "total_english_chars_preserved": {
+        "mean": 117.0,
+        "std": 90.51,
+        "median": 143.0,
+        "q25": 37.5,
+        "q75": 167.0,
+        "min": 0.0,
+        "max": 267.0
+      },
+      "total_latin_words_preserved": {
+        "mean": 13.43,
+        "std": 13.58,
+        "median": 12.0,
+        "q25": 3.5,
+        "q75": 16.0,
+        "min": 0.0,
+        "max": 43.0
+      }
+    }
+  },
+  "true_untranslation_exemplars": [
+    {
+      "case_id": 101,
+      "product": "Inventor",
+      "folder": "Inventor-13",
+      "lang": "RUS",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 81,
+      "matched_text_elements_count": 45,
+      "genuine_untranslated_strings_count": 37,
+      "potential_fp_technical_brand_count": 4,
+      "total_english_chars_preserved": 405,
+      "total_latin_words_preserved": 43,
+      "evidence_support_level": "DIRECTLY_SUPPORTED",
+      "genuine_untranslated_elements": [
+        {
+          "element_id": "L3",
+          "enu_text": "WALL:1S",
+          "loc_text": "WALL:1S",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "WALL"
+          ],
+          "latin_char_ratio": 0.714,
+          "ocr_confidence": 0.832,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L4",
+          "enu_text": "ACPset_RenovationAndPhasing",
+          "loc_text": "ACPset_RenovationAndPhasing",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "ACPset",
+            "RenovationAndPhasing"
+          ],
+          "latin_char_ratio": 0.963,
+          "ocr_confidence": 0.948,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L5",
+          "enu_text": "RenovationStatus",
+          "loc_text": "RenovationStatus",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "RenovationStatus"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.949,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L6",
+          "enu_text": "New'",
+          "loc_text": "New'",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "New"
+          ],
+          "latin_char_ratio": 0.75,
+          "ocr_confidence": 0.659,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L7",
+          "enu_text": "BaseQuantities",
+          "loc_text": "BaseQuantities",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "BaseQuantities"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.815,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L8",
+          "enu_text": "GrossFootprintArea",
+          "loc_text": "GrossFootprintArea",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "GrossFootprintArea"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.918,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L9",
+          "enu_text": "GrossSideArea",
+          "loc_text": "GrossSideArea",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "GrossSideArea"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.916,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L11",
+          "enu_text": "GrossVolume",
+          "loc_text": "GrossVolume",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "GrossVolume"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.995,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L13",
+          "enu_text": "Height",
+          "loc_text": "Height",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Height"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 1.0,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L14",
+          "enu_text": "Length",
+          "loc_text": "Length",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Length"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 1.0,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ],
+      "technical_brand_fp_elements": [
+        {
+          "element_id": "L10",
+          "enu_text": "1.600000 m^2",
+          "loc_text": "1,600000 m^2",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.091,
+          "ocr_confidence": 0.663,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L12",
+          "enu_text": "0.800000 m^3",
+          "loc_text": "0,800000 m^3",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.091,
+          "ocr_confidence": 0.819,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L19",
+          "enu_text": "1.600000 m^2",
+          "loc_text": "1,600000 m^2",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.091,
+          "ocr_confidence": 0.663,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L21",
+          "enu_text": "0.800000 m^3",
+          "loc_text": "0,800000 m^3",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.091,
+          "ocr_confidence": 0.834,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": 91,
+      "product": "Civil3d",
+      "folder": "Civil3d-08",
+      "lang": "DEU",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 40,
+      "matched_text_elements_count": 26,
+      "genuine_untranslated_strings_count": 20,
+      "potential_fp_technical_brand_count": 0,
+      "total_english_chars_preserved": 340,
+      "total_latin_words_preserved": 52,
+      "evidence_support_level": "DIRECTLY_SUPPORTED",
+      "genuine_untranslated_elements": [
+        {
+          "element_id": "L1",
+          "enu_text": "Create Reports",
+          "loc_text": "Create Reports",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Create",
+            "Reports"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.867,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L2",
+          "enu_text": "Station Offset to Points Report",
+          "loc_text": "Station Offset to Points Report",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Station",
+            "Offset",
+            "Points",
+            "Report"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.913,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L3",
+          "enu_text": "Points station offset to points report",
+          "loc_text": "Points station offset to points report",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Points",
+            "station",
+            "offset",
+            "points",
+            "report"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.965,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L4",
+          "enu_text": "The Station offset report option displays the station and offset",
+          "loc_text": "The Station offset report option displays the station and offset",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "The",
+            "Station",
+            "offset",
+            "report",
+            "option",
+            "displays",
+            "the",
+            "station",
+            "and",
+            "offset"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.69,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L5",
+          "enu_text": "the selected",
+          "loc_text": "values of the selected",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "the",
+            "selected"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.989,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L6",
+          "enu_text": "elative to the selected alignment",
+          "loc_text": "elative to the selected alignment",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "elative",
+            "the",
+            "selected",
+            "alignment"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.813,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L7",
+          "enu_text": "List of points",
+          "loc_text": "List of points",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "List",
+            "points"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.683,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L8",
+          "enu_text": "Select Aii",
+          "loc_text": "Select All",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Select"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.442,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L9",
+          "enu_text": "Deselect All",
+          "loc_text": "Deselect All",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Deselect",
+            "All"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.694,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L10",
+          "enu_text": "Report settings",
+          "loc_text": "Report settings",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Report",
+            "settings"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.933,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ],
+      "technical_brand_fp_elements": []
+    },
+    {
+      "case_id": 103,
+      "product": "Inventor",
+      "folder": "Inventor-22",
+      "lang": "KOR",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 106,
+      "matched_text_elements_count": 69,
+      "genuine_untranslated_strings_count": 11,
+      "potential_fp_technical_brand_count": 0,
+      "total_english_chars_preserved": 249,
+      "total_latin_words_preserved": 20,
+      "evidence_support_level": "DIRECTLY_SUPPORTED",
+      "genuine_untranslated_elements": [
+        {
+          "element_id": "L8",
+          "enu_text": "Threaded Ppe Wch Iron Fiongs",
+          "loc_text": "Tnreaded Ppe wath Iron",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Ppe",
+            "Iron"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.337,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L13",
+          "enu_text": "ASME BPE",
+          "loc_text": "ASME BPE",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "ASME",
+            "BPE"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.955,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L17",
+          "enu_text": "Butt Welded  Flanged Steel Pbe",
+          "loc_text": "Butr Welzed/flanged SteelPpe",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "flanged"
+          ],
+          "latin_char_ratio": 0.962,
+          "ocr_confidence": 0.304,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L28",
+          "enu_text": "Ppe (Custom Ebows)",
+          "loc_text": "Steel Butt Welded Ppe (Cus-om Ebowas)",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Ppe",
+            "Cus"
+          ],
+          "latin_char_ratio": 0.906,
+          "ocr_confidence": 0.522,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L34",
+          "enu_text": "Welded Steel",
+          "loc_text": "Welded SteelPbe",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Welded"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.609,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L39",
+          "enu_text": "Jonted PVC Ppe end Fittings",
+          "loc_text": "PVC Ppe and Frtings",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "PVC",
+            "Ppe"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.541,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L52",
+          "enu_text": "Jonted PVC-U Ppe and Fitongs",
+          "loc_text": "Fbnged Ductle Tron Ppe and Fittinas",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Ppe",
+            "and"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.23,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L57",
+          "enu_text": "Threaded Steel Ppe vath Ion Fctings",
+          "loc_text": "Treaded Steel Pipe with Iron Fitnos",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Steel"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.427,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L59",
+          "enu_text": "2301 Threaded Steel Ppe and ron Fitings",
+          "loc_text": "2301 Threaded Steel Pipe and Iron Frtings",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Threaded",
+            "Steel",
+            "and"
+          ],
+          "latin_char_ratio": 0.886,
+          "ocr_confidence": 0.571,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L62",
+          "enu_text": "we ded Steel Pipe and Fitings",
+          "loc_text": "Welded Steel Pipe anc Fttnos",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Steel",
+            "Pipe"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.673,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ],
+      "technical_brand_fp_elements": []
+    },
+    {
+      "case_id": 99,
+      "product": "Inventor",
+      "folder": "Inventor-06",
+      "lang": "PTB",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 72,
+      "matched_text_elements_count": 56,
+      "genuine_untranslated_strings_count": 16,
+      "potential_fp_technical_brand_count": 5,
+      "total_english_chars_preserved": 209,
+      "total_latin_words_preserved": 27,
+      "evidence_support_level": "DIRECTLY_SUPPORTED",
+      "genuine_untranslated_elements": [
+        {
+          "element_id": "L7",
+          "enu_text": "Templates",
+          "loc_text": "Templates",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Templates"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.999,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L18",
+          "enu_text": "Content Center Filles",
+          "loc_text": "Center F",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Center"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.821,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L20",
+          "enu_text": "English",
+          "loc_text": "English",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "English"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.639,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L23",
+          "enu_text": "Templates",
+          "loc_text": "Templates",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Templates"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.788,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L24",
+          "enu_text": "Sheeth letalPart",
+          "loc_text": "Sheeth letalPart",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Sheeth",
+            "letalPart"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.414,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L25",
+          "enu_text": "Metric",
+          "loc_text": "Metric",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Metric"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.825,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L29",
+          "enu_text": "Mold Design",
+          "loc_text": "Mold Design",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Mold",
+            "Design"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.992,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L32",
+          "enu_text": "OldTemplates",
+          "loc_text": "OldTemplates",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "OldTemplates"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.882,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L35",
+          "enu_text": "OldVersion:",
+          "loc_text": "OldVersion:",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "OldVersion"
+          ],
+          "latin_char_ratio": 0.909,
+          "ocr_confidence": 0.879,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L38",
+          "enu_text": "Blank",
+          "loc_text": "Blank - DVR Carousel pdf",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Blank"
+          ],
+          "latin_char_ratio": 0.95,
+          "ocr_confidence": 0.651,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ],
+      "technical_brand_fp_elements": [
+        {
+          "element_id": "L5",
+          "enu_text": "Autodesk",
+          "loc_text": "Autodesk",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Autodesk"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.849,
+          "text_semantic_category": "BRAND_OR_TECHNICAL_TERM",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L6",
+          "enu_text": "Inventor 2027",
+          "loc_text": "Inventor 2027",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Inventor"
+          ],
+          "latin_char_ratio": 0.667,
+          "ocr_confidence": 0.958,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L41",
+          "enu_text": "54 KB",
+          "loc_text": "54 KB",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.5,
+          "ocr_confidence": 0.834,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L46",
+          "enu_text": "31 KB",
+          "loc_text": "31 KB",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.5,
+          "ocr_confidence": 0.999,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L52",
+          "enu_text": "965 KB",
+          "loc_text": "965 KB",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.4,
+          "ocr_confidence": 0.809,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": 114,
+      "product": "Vault",
+      "folder": "Vault-38",
+      "lang": "FRA",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 34,
+      "matched_text_elements_count": 24,
+      "genuine_untranslated_strings_count": 8,
+      "potential_fp_technical_brand_count": 0,
+      "total_english_chars_preserved": 197,
+      "total_latin_words_preserved": 18,
+      "evidence_support_level": "DIRECTLY_SUPPORTED",
+      "genuine_untranslated_elements": [
+        {
+          "element_id": "L7",
+          "enu_text": "Create and manage access for users and",
+          "loc_text": "Creer et gerer 'acces des utilisateurs et",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "acces"
+          ],
+          "latin_char_ratio": 0.971,
+          "ocr_confidence": 0.629,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L8",
+          "enu_text": "Manage Access _",
+          "loc_text": "Gerer |'acces \"",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "acces"
+          ],
+          "latin_char_ratio": 0.769,
+          "ocr_confidence": 0.737,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L15",
+          "enu_text": "Roles and Permissions",
+          "loc_text": "Roles et autorisations",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Roles"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.89,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L16",
+          "enu_text": "Create and manage roles",
+          "loc_text": "Creer et gerer les roles",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "les",
+            "roles"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.742,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L17",
+          "enu_text": "Manage Roles _",
+          "loc_text": "Gerer les roles __",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "les",
+            "roles"
+          ],
+          "latin_char_ratio": 0.867,
+          "ocr_confidence": 0.598,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L21",
+          "enu_text": "Choose the background color forthe administrator access",
+          "loc_text": "arriere-plan pour |'acces administrateur",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "acces"
+          ],
+          "latin_char_ratio": 0.919,
+          "ocr_confidence": 0.648,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L27",
+          "enu_text": "Vault administrator contact details",
+          "loc_text": "Vault administrator contact details",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Vault",
+            "administrator",
+            "contact",
+            "details"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.978,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L28",
+          "enu_text": "Enter name; email address or phone number",
+          "loc_text": "Enter name; email address or phone number",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Enter",
+            "name",
+            "email",
+            "address",
+            "phone",
+            "number"
+          ],
+          "latin_char_ratio": 0.971,
+          "ocr_confidence": 0.697,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ],
+      "technical_brand_fp_elements": []
+    }
+  ],
+  "false_positive_exemplars": [
+    {
+      "case_id": 37,
+      "product": "Inventor",
+      "folder": "Inventor-34",
+      "lang": "KOR",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 82,
+      "matched_text_elements_count": 55,
+      "genuine_untranslated_strings_count": 12,
+      "potential_fp_technical_brand_count": 30,
+      "total_english_chars_preserved": 36,
+      "total_latin_words_preserved": 12,
+      "evidence_support_level": "DIRECTLY_SUPPORTED",
+      "genuine_untranslated_elements": [
+        {
+          "element_id": "L8",
+          "enu_text": "3.221 mps",
+          "loc_text": "3.221 mps",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "mps"
+          ],
+          "latin_char_ratio": 0.375,
+          "ocr_confidence": 0.966,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L10",
+          "enu_text": "0.980 kWv",
+          "loc_text": "0.980 kWv",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "kWv"
+          ],
+          "latin_char_ratio": 0.375,
+          "ocr_confidence": 0.462,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L11",
+          "enu_text": "18200.907 rpm",
+          "loc_text": "18200.907 rpm",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "rpm"
+          ],
+          "latin_char_ratio": 0.25,
+          "ocr_confidence": 0.858,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L13",
+          "enu_text": "1000.00_jpm",
+          "loc_text": "1000.00_jpm",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "jpm"
+          ],
+          "latin_char_ratio": 0.273,
+          "ocr_confidence": 0.25,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L14",
+          "enu_text": "403.51 rpm",
+          "loc_text": "403.51 rpm",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "rpm"
+          ],
+          "latin_char_ratio": 0.333,
+          "ocr_confidence": 0.946,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L33",
+          "enu_text": "105.0 MPa",
+          "loc_text": "105.0 MPa",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "MPa"
+          ],
+          "latin_char_ratio": 0.375,
+          "ocr_confidence": 0.997,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L35",
+          "enu_text": "MPa",
+          "loc_text": "MPa",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "MPa"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 1.0,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L38",
+          "enu_text": "GAc",
+          "loc_text": "GAc",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "GAc"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.587,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L39",
+          "enu_text": "34.0 MPa",
+          "loc_text": "34.0 MPa",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "MPa"
+          ],
+          "latin_char_ratio": 0.429,
+          "ocr_confidence": 0.859,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L40",
+          "enu_text": "34.0 MPa",
+          "loc_text": "34.0 MPa",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "MPa"
+          ],
+          "latin_char_ratio": 0.429,
+          "ocr_confidence": 0.778,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ],
+      "technical_brand_fp_elements": [
+        {
+          "element_id": "L3",
+          "enu_text": "310.465 N",
+          "loc_text": "310.465 N",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.125,
+          "ocr_confidence": 0.985,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L4",
+          "enu_text": "33",
+          "loc_text": "33",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.287,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L5",
+          "enu_text": "330.390 N",
+          "loc_text": "330.390 N",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.125,
+          "ocr_confidence": 0.999,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L6",
+          "enu_text": "710",
+          "loc_text": "710",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.58,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L7",
+          "enu_text": "710",
+          "loc_text": "710",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.58,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L12",
+          "enu_text": "42",
+          "loc_text": "42",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.898,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L15",
+          "enu_text": "0.000 ul",
+          "loc_text": "0.000 ul",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.286,
+          "ocr_confidence": 0.717,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L16",
+          "enu_text": "e3",
+          "loc_text": "e3",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.5,
+          "ocr_confidence": 0.491,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L18",
+          "enu_text": "23.192 Nm",
+          "loc_text": "23.192 Nm",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.25,
+          "ocr_confidence": 0.925,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L19",
+          "enu_text": "0.000 ul",
+          "loc_text": "0.000 ul",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.286,
+          "ocr_confidence": 0.717,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": 65,
+      "product": "Civil3d",
+      "folder": "Civil3d-21",
+      "lang": "ITA",
+      "gt_category": "Truncation",
+      "matched_elements_count": 46,
+      "matched_text_elements_count": 20,
+      "genuine_untranslated_strings_count": 0,
+      "potential_fp_technical_brand_count": 11,
+      "total_english_chars_preserved": 0,
+      "total_latin_words_preserved": 0,
+      "evidence_support_level": "AMBIGUOUS",
+      "genuine_untranslated_elements": [],
+      "technical_brand_fp_elements": [
+        {
+          "element_id": "L3",
+          "enu_text": "190-1.9 49",
+          "loc_text": "190-1.9 49",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.594,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L6",
+          "enu_text": "190-1.9",
+          "loc_text": "190-1.9",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.392,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L8",
+          "enu_text": "190-1;9",
+          "loc_text": "190-1;9",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.442,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L11",
+          "enu_text": "190,0",
+          "loc_text": "190,0",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.986,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L12",
+          "enu_text": "092",
+          "loc_text": "092",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 1.0,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L13",
+          "enu_text": "10.523176",
+          "loc_text": "10.523176",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.948,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L14",
+          "enu_text": "10.523176",
+          "loc_text": "10.523176",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.634,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L15",
+          "enu_text": "16,615176",
+          "loc_text": "16,615176",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.8,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L16",
+          "enu_text": "27.138352",
+          "loc_text": "27.138352",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.664,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L18",
+          "enu_text": "051",
+          "loc_text": "051",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.987,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": 52,
+      "product": "Inventor",
+      "folder": "Inventor-02",
+      "lang": "ITA",
+      "gt_category": "Repeated hotkey",
+      "matched_elements_count": 137,
+      "matched_text_elements_count": 110,
+      "genuine_untranslated_strings_count": 33,
+      "potential_fp_technical_brand_count": 10,
+      "total_english_chars_preserved": 267,
+      "total_latin_words_preserved": 43,
+      "evidence_support_level": "DIRECTLY_SUPPORTED",
+      "genuine_untranslated_elements": [
+        {
+          "element_id": "L12",
+          "enu_text": "Default (ISO) ]",
+          "loc_text": "Default (ISO) ]",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Default",
+            "ISO"
+          ],
+          "latin_char_ratio": 0.769,
+          "ocr_confidence": 0.598,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L24",
+          "enu_text": "m; cm (DIN)",
+          "loc_text": "m; cm (DIN)",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "DIN"
+          ],
+          "latin_char_ratio": 0.667,
+          "ocr_confidence": 0.749,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L33",
+          "enu_text": "Default",
+          "loc_text": "Default",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Default"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.792,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L36",
+          "enu_text": "Default",
+          "loc_text": "Default",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Default"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.792,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L40",
+          "enu_text": "Default",
+          "loc_text": "Default",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Default"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.792,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L42",
+          "enu_text": "Decimal Marker",
+          "loc_text": "Simbolo decimal",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "decimal"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.624,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L45",
+          "enu_text": "Default",
+          "loc_text": "Default",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Default"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.792,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L49",
+          "enu_text": "Default",
+          "loc_text": "Default",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Default"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.792,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L51",
+          "enu_text": "(BSI)",
+          "loc_text": "(BSI)",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "BSI"
+          ],
+          "latin_char_ratio": 0.6,
+          "ocr_confidence": 0.999,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L54",
+          "enu_text": "Default",
+          "loc_text": "Default",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "Default"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.792,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ],
+      "technical_brand_fp_elements": [
+        {
+          "element_id": "L43",
+          "enu_text": "2.12",
+          "loc_text": "2,12",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.923,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L52",
+          "enu_text": "7096",
+          "loc_text": "7096",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.387,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L72",
+          "enu_text": "mm (ANSI)",
+          "loc_text": "mm (ANSI)",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "ANSI"
+          ],
+          "latin_char_ratio": 0.75,
+          "ocr_confidence": 0.588,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L74",
+          "enu_text": "mm (ANSI)",
+          "loc_text": "mm (ANSI)",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "ANSI"
+          ],
+          "latin_char_ratio": 0.75,
+          "ocr_confidence": 0.603,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L75",
+          "enu_text": "3DA",
+          "loc_text": "3DA",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.667,
+          "ocr_confidence": 0.98,
+          "text_semantic_category": "ACRONYM_OR_SHORT_CODE",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L80",
+          "enu_text": "2.12",
+          "loc_text": "2,12",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.923,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L87",
+          "enu_text": "(GB)",
+          "loc_text": "(GB)",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.5,
+          "ocr_confidence": 0.999,
+          "text_semantic_category": "BRAND_OR_TECHNICAL_TERM",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L90",
+          "enu_text": "3DA",
+          "loc_text": "3DA",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.667,
+          "ocr_confidence": 0.98,
+          "text_semantic_category": "ACRONYM_OR_SHORT_CODE",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L94",
+          "enu_text": "3DA",
+          "loc_text": "3DA",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.667,
+          "ocr_confidence": 0.997,
+          "text_semantic_category": "ACRONYM_OR_SHORT_CODE",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L99",
+          "enu_text": "3DA",
+          "loc_text": "3DA",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.667,
+          "ocr_confidence": 0.997,
+          "text_semantic_category": "ACRONYM_OR_SHORT_CODE",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": 56,
+      "product": "Inventor",
+      "folder": "Inventor-36",
+      "lang": "PTB",
+      "gt_category": "Repeated hotkey",
+      "matched_elements_count": 130,
+      "matched_text_elements_count": 106,
+      "genuine_untranslated_strings_count": 7,
+      "potential_fp_technical_brand_count": 10,
+      "total_english_chars_preserved": 75,
+      "total_latin_words_preserved": 7,
+      "evidence_support_level": "DIRECTLY_SUPPORTED",
+      "genuine_untranslated_elements": [
+        {
+          "element_id": "L1",
+          "enu_text": "Style and Standard Editor [Library _",
+          "loc_text": "Editor de estilos",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Editor"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.933,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L50",
+          "enu_text": "Leading Zeros",
+          "loc_text": "Zeros",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Zeros"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.999,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L55",
+          "enu_text": "Irailing Zeros",
+          "loc_text": "Zeros finais",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Zeros"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.997,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L59",
+          "enu_text": "Included Zeros",
+          "loc_text": "Zeros incluidos",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Zeros"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.928,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L75",
+          "enu_text": "Leading Zeros",
+          "loc_text": "Zeros",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Zeros"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 1.0,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L81",
+          "enu_text": "Irailing Zeros",
+          "loc_text": "Zeros finais",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Zeros"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.997,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L84",
+          "enu_text": "Included Zeros",
+          "loc_text": "Zeros incluidos",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Zeros"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.973,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ],
+      "technical_brand_fp_elements": [
+        {
+          "element_id": "L33",
+          "enu_text": "2.12",
+          "loc_text": "2,12",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 1.0,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L40",
+          "enu_text": "2.12",
+          "loc_text": "2,12",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 1.0,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L44",
+          "enu_text": "0.00",
+          "loc_text": "0,00",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.998,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L54",
+          "enu_text": "0.00",
+          "loc_text": "0,00",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.998,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L66",
+          "enu_text": "mm (ANSI)",
+          "loc_text": "mm (ANSI)",
+          "is_identical_normalized": true,
+          "preserved_english_words": [
+            "ANSI"
+          ],
+          "latin_char_ratio": 0.75,
+          "ocr_confidence": 0.588,
+          "text_semantic_category": "UNKNOWN_OR_OTHER",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L71",
+          "enu_text": "3DA",
+          "loc_text": "3DA",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.667,
+          "ocr_confidence": 0.98,
+          "text_semantic_category": "ACRONYM_OR_SHORT_CODE",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L72",
+          "enu_text": "3.123",
+          "loc_text": "3,123",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 1.0,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L90",
+          "enu_text": "3DA",
+          "loc_text": "3DA",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.667,
+          "ocr_confidence": 0.98,
+          "text_semantic_category": "ACRONYM_OR_SHORT_CODE",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L94",
+          "enu_text": "3DA",
+          "loc_text": "3DA",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.667,
+          "ocr_confidence": 0.997,
+          "text_semantic_category": "ACRONYM_OR_SHORT_CODE",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L87",
+          "enu_text": "(GB)",
+          "loc_text": "(GB)",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.5,
+          "ocr_confidence": 0.999,
+          "text_semantic_category": "BRAND_OR_TECHNICAL_TERM",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": 14,
+      "product": "Civil3d",
+      "folder": "Civil3d-23",
+      "lang": "FRA",
+      "gt_category": "Misalignment",
+      "matched_elements_count": 60,
+      "matched_text_elements_count": 41,
+      "genuine_untranslated_strings_count": 8,
+      "potential_fp_technical_brand_count": 7,
+      "total_english_chars_preserved": 180,
+      "total_latin_words_preserved": 10,
+      "evidence_support_level": "DIRECTLY_SUPPORTED",
+      "genuine_untranslated_elements": [
+        {
+          "element_id": "L1",
+          "enu_text": "Create Earthwork Construction Plan",
+          "loc_text": "plan de construction Ce terrassement",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "plan",
+            "construction"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.548,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L6",
+          "enu_text": "Horizontal Intervabx",
+          "loc_text": "Intervalle horizontal",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "horizontal"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.97,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L8",
+          "enu_text": "Vertical",
+          "loc_text": "Intervalle vertical",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "vertical"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.951,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L11",
+          "enu_text": "Rotation Angle",
+          "loc_text": "Angle de rotation",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Angle",
+            "rotation"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.821,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L15",
+          "enu_text": "Grid point",
+          "loc_text": "Point de grille",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "Point"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.911,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L14",
+          "enu_text": "Distance",
+          "loc_text": "Etiquette de distance",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "distance"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.88,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L34",
+          "enu_text": "HorizontalInterval",
+          "loc_text": "Intervalle horizontal",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "horizontal"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.936,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L35",
+          "enu_text": "distance",
+          "loc_text": "specifier la distance de Iintervalle des lignes de",
+          "is_identical_normalized": false,
+          "preserved_english_words": [
+            "distance"
+          ],
+          "latin_char_ratio": 1.0,
+          "ocr_confidence": 0.648,
+          "text_semantic_category": "ORDINARY_USER_FACING_UI_WORDING",
+          "is_user_facing_ui_wording": true,
+          "is_genuine_untranslated_evidence": true,
+          "is_potential_false_positive": false,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ],
+      "technical_brand_fp_elements": [
+        {
+          "element_id": "L7",
+          "enu_text": "20.000\"",
+          "loc_text": "20.000\"",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.607,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L9",
+          "enu_text": "20.000\"",
+          "loc_text": "20.000\"",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.723,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L18",
+          "enu_text": "0.000",
+          "loc_text": "0.000",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.895,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L19",
+          "enu_text": "0.000",
+          "loc_text": "0.000",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.895,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L32",
+          "enu_text": "0.000",
+          "loc_text": "0.000",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.895,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L38",
+          "enu_text": "0.000",
+          "loc_text": "0.000",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.895,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        },
+        {
+          "element_id": "L39",
+          "enu_text": "0.000",
+          "loc_text": "0.000",
+          "is_identical_normalized": true,
+          "preserved_english_words": [],
+          "latin_char_ratio": 0.0,
+          "ocr_confidence": 0.888,
+          "text_semantic_category": "NUMERIC_OR_UNIT",
+          "is_user_facing_ui_wording": false,
+          "is_genuine_untranslated_evidence": false,
+          "is_potential_false_positive": true,
+          "provenance": {
+            "enu_text": "DIRECTLY_MEASURED",
+            "loc_text": "DIRECTLY_MEASURED",
+            "semantic_classification": "DERIVED_FROM_MEASUREMENT",
+            "ocr_confidence": "DIRECTLY_MEASURED"
+          }
+        }
+      ]
+    }
+  ]
+}

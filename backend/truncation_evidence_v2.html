@@ -1,0 +1,3985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Truncation Physical Evidence Report v2</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 24px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; background: #0f172a; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #020617; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #1e293b; }
+  .case-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; margin-bottom: 24px; padding: 18px; }
+  .case-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 12px; }
+  .gt-badge { background: #831843; border: 1px solid #f43f5e; color: #ffe4e6; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+  .status-pass { background: #064e3b; border: 1px solid #10b981; color: #a7f3d0; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+  .status-fail { background: #334155; color: #94a3b8; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+<h1>Truncation Physical Evidence Report (v2)</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Direct text-to-container boundary overflow, physical glyph clipping, and verified ellipsis measurements across all 30 Truncation benchmark cases.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Total Truncation Cases</div>
+    <div class="card-val" style="color: #f8fafc;">30</div>
+    <div class="card-sub">ground truth benchmark cases</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Direct Clipping / Overflow</div>
+    <div class="card-val" style="color: #4ade80;">3 / 30 (10.0%)</div>
+    <div class="card-sub">measured overflow past container</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Verified Ellipsis ('...')</div>
+    <div class="card-val" style="color: #38bdf8;">18 / 30 (60.0%)</div>
+    <div class="card-sub">new localized ellipsis detected</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Text Expansion Alone (No Trunc)</div>
+    <div class="card-val" style="color: #f59e0b;">10 / 30</div>
+    <div class="card-sub">growth without container boundary cut</div>
+  </div>
+</div>
+
+<h2>Case-by-Case Physical Truncation Audit (30 Truncation Cases)</h2>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #59: Civil3d / Civil3d-04 (PLK)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +68px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 1</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Alignment Prcperties' &rarr; 'Wtasciwoici linii trasowania'</td>
+        <td>116px &rarr; 150px (<strong>+34px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>646px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Connected Alignment' &rarr; 'Connected Alignment - (1)'</td>
+        <td>120px &rarr; 142px (<strong>+22px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>496px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Information' &rarr; 'Informacje'</td>
+        <td>62px &rarr; 59px (<strong>-3px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>758px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Station Control' &rarr; 'Kontrola pikiety'</td>
+        <td>76px &rarr; 80px (<strong>+4px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>672px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Masking' &rarr; 'Przystanianie'</td>
+        <td>44px &rarr; 68px (<strong>+24px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>598px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Point of Intersection' &rarr; 'Punkt przeciecia'</td>
+        <td>104px &rarr; 80px (<strong>-24px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>510px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Constraint' &rarr; 'Edycja wiazan'</td>
+        <td>54px &rarr; 72px (<strong>+18px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>428px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Design Criteria' &rarr; 'Kryteria projektowania'</td>
+        <td>74px &rarr; 114px (<strong>+40px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>308px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Connection in:' &rarr; 'Polaczenie'</td>
+        <td>72px &rarr; 54px (<strong>-18px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>748px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Curve group type:' &rarr; 'TYp grupy krzywych:'</td>
+        <td>94px &rarr; 106px (<strong>+12px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>414px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #60: Civil3d / Civil3d-05 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +166px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 4</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Create Report -' &rarr; 'Bericht erstellen -'</td>
+        <td>78px &rarr; 90px (<strong>+12px</strong>)</td>
+        <td>644px</td>
+        <td>0px</td>
+        <td>546px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Point Proximity Report' &rarr; 'Punktaostandsbericht'</td>
+        <td>122px &rarr; 120px (<strong>-2px</strong>)</td>
+        <td>644px</td>
+        <td>0px</td>
+        <td>420px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Create Report' &rarr; 'Bericht erstellen'</td>
+        <td>70px &rarr; 78px (<strong>+8px</strong>)</td>
+        <td>644px</td>
+        <td>0px</td>
+        <td>542px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Point Proximity Report' &rarr; 'Punktabstandsbercht'</td>
+        <td>106px &rarr; 106px (<strong>+0px</strong>)</td>
+        <td>644px</td>
+        <td>0px</td>
+        <td>430px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'The report' &rarr; 'Dieser'</td>
+        <td>54px &rarr; 30px (<strong>-24px</strong>)</td>
+        <td>644px</td>
+        <td>0px</td>
+        <td>590px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'designed' &rarr; 'einer Vermessungsdatenbank'</td>
+        <td>46px &rarr; 144px (<strong>+98px</strong>)</td>
+        <td>644px</td>
+        <td>0px</td>
+        <td>476px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'check for duplicate points bas' &rarr; 'Bericht ist fir die Prufung au'</td>
+        <td>272px &rarr; 438px (<strong>+166px</strong>)</td>
+        <td>644px</td>
+        <td>0px</td>
+        <td>148px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Enter' &rarr; 'Filterkriterien ein und klicke'</td>
+        <td>28px &rarr; 142px (<strong>+114px</strong>)</td>
+        <td>644px</td>
+        <td>0px</td>
+        <td>478px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'distance tolerance and an' &rarr; 'ie auf die'</td>
+        <td>128px &rarr; 50px (<strong>-78px</strong>)</td>
+        <td>644px</td>
+        <td>0px</td>
+        <td>422px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'optional filter criteria and t' &rarr; 'Geben Sie eine Toleranz fir de'</td>
+        <td>236px &rarr; 346px (<strong>+110px</strong>)</td>
+        <td>644px</td>
+        <td>0px</td>
+        <td>64px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #61: Civil3d / Civil3d-10 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +80px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 1</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Alignment Prcperties' &rarr; 'Propriecades de alinhamento'</td>
+        <td>116px &rarr; 158px (<strong>+42px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>638px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Connected Alignment' &rarr; 'Connected Alignment -'</td>
+        <td>120px &rarr; 123px (<strong>+3px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>508px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Information' &rarr; 'Informacao'</td>
+        <td>62px &rarr; 60px (<strong>-2px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>756px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Station Control' &rarr; 'Controle de estaca'</td>
+        <td>76px &rarr; 94px (<strong>+18px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>654px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Masking' &rarr; 'Mascara'</td>
+        <td>44px &rarr; 44px (<strong>+0px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>602px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Point of Intersection' &rarr; 'Ponto de interseccao'</td>
+        <td>104px &rarr; 106px (<strong>+2px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>488px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Constraint' &rarr; 'Edicao de restricoes'</td>
+        <td>54px &rarr; 100px (<strong>+46px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>380px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Design Criteria' &rarr; 'Criterios do projeto'</td>
+        <td>74px &rarr; 98px (<strong>+24px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>274px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Connection in:' &rarr; 'Entrada da'</td>
+        <td>72px &rarr; 56px (<strong>-16px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>746px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Curve group type:' &rarr; 'Tipo de grupo de curvas:'</td>
+        <td>94px &rarr; 124px (<strong>+30px</strong>)</td>
+        <td>826px</td>
+        <td>0px</td>
+        <td>396px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #62: Civil3d / Civil3d-17 (HUN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +260px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 1</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Feature Line Surface Reference' &rarr; 'Vezerlovonal feliletenek refer'</td>
+        <td>172px &rarr; 198px (<strong>+26px</strong>)</td>
+        <td>458px</td>
+        <td>0px</td>
+        <td>252px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Relative Elevation Points Off ' &rarr; 'relativ emelkedesi pontok kika'</td>
+        <td>218px &rarr; 205px (<strong>-13px</strong>)</td>
+        <td>458px</td>
+        <td>0px</td>
+        <td>40px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'[elevation point station] Rela' &rarr; '[magassagpont-szelveny]: relat'</td>
+        <td>234px &rarr; 232px (<strong>-2px</strong>)</td>
+        <td>458px</td>
+        <td>0px</td>
+        <td>174px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'[O.0o] Actual' &rarr; '[0,00O]: tenyleges magassag'</td>
+        <td>78px &rarr; 150px (<strong>+72px</strong>)</td>
+        <td>458px</td>
+        <td>0px</td>
+        <td>12px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'[elevation point station] Rela' &rarr; '[magassagpont-szelveny]: relat'</td>
+        <td>234px &rarr; 232px (<strong>-2px</strong>)</td>
+        <td>458px</td>
+        <td>0px</td>
+        <td>174px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'[O.000] Actua' &rarr; '[0,00O]: tenyleges magassag'</td>
+        <td>78px &rarr; 152px (<strong>+74px</strong>)</td>
+        <td>458px</td>
+        <td>0px</td>
+        <td>12px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'[0,000]' &rarr; '[O,000]'</td>
+        <td>40px &rarr; 40px (<strong>+0px</strong>)</td>
+        <td>458px</td>
+        <td>0px</td>
+        <td>356px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'[elevation point station] Rela' &rarr; '[magassagpont-szelveny]: relat'</td>
+        <td>234px &rarr; 232px (<strong>-2px</strong>)</td>
+        <td>458px</td>
+        <td>0px</td>
+        <td>174px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'[0,00o]' &rarr; '[O,000]'</td>
+        <td>40px &rarr; 40px (<strong>+0px</strong>)</td>
+        <td>458px</td>
+        <td>0px</td>
+        <td>356px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Use the elevation point's actu' &rarr; 'Az emelkedesi pont aktualis em'</td>
+        <td>298px &rarr; 308px (<strong>+10px</strong>)</td>
+        <td>458px</td>
+        <td>0px</td>
+        <td>66px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #63: Civil3d / Civil3d-19 (ESP)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +186px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 2</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'networks' &rarr; 'existentes_'</td>
+        <td>56px &rarr; 54px (<strong>-2px</strong>)</td>
+        <td>536px</td>
+        <td>0px</td>
+        <td>472px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Choose how you want' &rarr; 'Elija como se aplica'</td>
+        <td>130px &rarr; 94px (<strong>-36px</strong>)</td>
+        <td>536px</td>
+        <td>0px</td>
+        <td>432px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'apply the parameter' &rarr; 'asignacion de parametros'</td>
+        <td>114px &rarr; 126px (<strong>+12px</strong>)</td>
+        <td>536px</td>
+        <td>0px</td>
+        <td>294px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'mapping to parts thatwere Ceat' &rarr; 'generador de piezas:'</td>
+        <td>232px &rarr; 107px (<strong>-125px</strong>)</td>
+        <td>536px</td>
+        <td>0px</td>
+        <td>58px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Partinexizting pipenete' &rarr; 'todosloscamposdetodaslas pieza'</td>
+        <td>184px &rarr; 284px (<strong>+100px</strong>)</td>
+        <td>536px</td>
+        <td>0px</td>
+        <td>126px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'Apply mapping' &rarr; 'Aplique asignacion solo'</td>
+        <td>86px &rarr; 114px (<strong>+28px</strong>)</td>
+        <td>536px</td>
+        <td>0px</td>
+        <td>396px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'empty fields only.' &rarr; 'vacios,'</td>
+        <td>104px &rarr; 34px (<strong>-70px</strong>)</td>
+        <td>536px</td>
+        <td>0px</td>
+        <td>314px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Mapping Configuration' &rarr; 'Configuracion de asignacion'</td>
+        <td>133px &rarr; 138px (<strong>+5px</strong>)</td>
+        <td>536px</td>
+        <td>0px</td>
+        <td>380px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'OK' &rarr; 'Aceptar'</td>
+        <td>22px &rarr; 42px (<strong>+20px</strong>)</td>
+        <td>536px</td>
+        <td>0px</td>
+        <td>222px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Cancel' &rarr; 'Cancelar'</td>
+        <td>40px &rarr; 46px (<strong>+6px</strong>)</td>
+        <td>536px</td>
+        <td>0px</td>
+        <td>138px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #64: Civil3d / Civil3d-20 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO BOUNDARY CLIPPING]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +162px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Description:' &rarr; 'Descricao:'</td>
+        <td>60px &rarr; 54px (<strong>-6px</strong>)</td>
+        <td>406px</td>
+        <td>0px</td>
+        <td>332px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'190-19' &rarr; '190-1.9'</td>
+        <td>40px &rarr; 40px (<strong>+0px</strong>)</td>
+        <td>406px</td>
+        <td>0px</td>
+        <td>150px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Compose switch label:' &rarr; 'Criar legenda da'</td>
+        <td>110px &rarr; 82px (<strong>-28px</strong>)</td>
+        <td>406px</td>
+        <td>0px</td>
+        <td>304px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'190-1.9' &rarr; '190-1.9'</td>
+        <td>40px &rarr; 40px (<strong>+0px</strong>)</td>
+        <td>406px</td>
+        <td>0px</td>
+        <td>150px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Turnout sign direction:' &rarr; 'Direcao do sinal do aparelho d'</td>
+        <td>112px &rarr; 156px (<strong>+44px</strong>)</td>
+        <td>406px</td>
+        <td>0px</td>
+        <td>232px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Left' &rarr; 'Esquerda'</td>
+        <td>24px &rarr; 50px (<strong>+26px</strong>)</td>
+        <td>406px</td>
+        <td>0px</td>
+        <td>144px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Forward' &rarr; 'Para frente'</td>
+        <td>44px &rarr; 60px (<strong>+16px</strong>)</td>
+        <td>406px</td>
+        <td>0px</td>
+        <td>80px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Clearence point:' &rarr; 'Ponto de folga:'</td>
+        <td>82px &rarr; 78px (<strong>-4px</strong>)</td>
+        <td>406px</td>
+        <td>0px</td>
+        <td>308px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Cancel' &rarr; 'Cancelar'</td>
+        <td>34px &rarr; 46px (<strong>+12px</strong>)</td>
+        <td>406px</td>
+        <td>0px</td>
+        <td>36px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Turnout index:' &rarr; 'indice de aparelhos de mudanca'</td>
+        <td>74px &rarr; 174px (<strong>+100px</strong>)</td>
+        <td>406px</td>
+        <td>0px</td>
+        <td>212px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #65: Civil3d / Civil3d-21 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO BOUNDARY CLIPPING]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +8px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Turncut catalcgue' &rarr; 'Catalogo deviatoi'</td>
+        <td>100px &rarr; 97px (<strong>-3px</strong>)</td>
+        <td>404px</td>
+        <td>0px</td>
+        <td>298px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Turnout:' &rarr; 'Deviatoio:'</td>
+        <td>46px &rarr; 54px (<strong>+8px</strong>)</td>
+        <td>404px</td>
+        <td>0px</td>
+        <td>342px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'190-1.9 49' &rarr; '190-1.9 49'</td>
+        <td>56px &rarr; 56px (<strong>+0px</strong>)</td>
+        <td>404px</td>
+        <td>0px</td>
+        <td>164px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Parameters' &rarr; 'Parametri'</td>
+        <td>58px &rarr; 50px (<strong>-8px</strong>)</td>
+        <td>404px</td>
+        <td>0px</td>
+        <td>336px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Name:' &rarr; 'Nome:'</td>
+        <td>36px &rarr; 36px (<strong>+0px</strong>)</td>
+        <td>404px</td>
+        <td>0px</td>
+        <td>352px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'190-1.9' &rarr; '190-1.9'</td>
+        <td>40px &rarr; 40px (<strong>+0px</strong>)</td>
+        <td>404px</td>
+        <td>0px</td>
+        <td>176px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Description:' &rarr; 'Descrizione:'</td>
+        <td>60px &rarr; 62px (<strong>+2px</strong>)</td>
+        <td>404px</td>
+        <td>0px</td>
+        <td>324px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'190-1;9' &rarr; '190-1;9'</td>
+        <td>40px &rarr; 40px (<strong>+0px</strong>)</td>
+        <td>404px</td>
+        <td>0px</td>
+        <td>176px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Type:' &rarr; 'Tipo:'</td>
+        <td>32px &rarr; 28px (<strong>-4px</strong>)</td>
+        <td>404px</td>
+        <td>0px</td>
+        <td>358px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Straight-Line Switch' &rarr; 'Rettilineo'</td>
+        <td>100px &rarr; 48px (<strong>-52px</strong>)</td>
+        <td>404px</td>
+        <td>0px</td>
+        <td>172px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #66: Civil3d / Civil3d-26 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO BOUNDARY CLIPPING]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +40px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Output History [Drawing3.dwg]' &rarr; 'Cronologia di cutput [DisegnoS'</td>
+        <td>171px &rarr; 200px (<strong>+29px</strong>)</td>
+        <td>886px</td>
+        <td>0px</td>
+        <td>656px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Output File Name' &rarr; 'Nome file di output'</td>
+        <td>86px &rarr; 92px (<strong>+6px</strong>)</td>
+        <td>886px</td>
+        <td>0px</td>
+        <td>774px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'User Name' &rarr; 'Nome utente'</td>
+        <td>56px &rarr; 64px (<strong>+8px</strong>)</td>
+        <td>886px</td>
+        <td>0px</td>
+        <td>702px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Date Generated' &rarr; 'Data di creazione'</td>
+        <td>80px &rarr; 86px (<strong>+6px</strong>)</td>
+        <td>886px</td>
+        <td>0px</td>
+        <td>606px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Report Version' &rarr; 'Versione rapporto'</td>
+        <td>74px &rarr; 86px (<strong>+12px</strong>)</td>
+        <td>886px</td>
+        <td>0px</td>
+        <td>512px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Revision' &rarr; 'Revisione'</td>
+        <td>44px &rarr; 50px (<strong>+6px</strong>)</td>
+        <td>886px</td>
+        <td>0px</td>
+        <td>452px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Cunent Size' &rarr; 'Dimensione conente'</td>
+        <td>60px &rarr; 100px (<strong>+40px</strong>)</td>
+        <td>886px</td>
+        <td>0px</td>
+        <td>344px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Output Path' &rarr; 'Percorso'</td>
+        <td>62px &rarr; 44px (<strong>-18px</strong>)</td>
+        <td>886px</td>
+        <td>0px</td>
+        <td>290px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Object Set' &rarr; 'output'</td>
+        <td>54px &rarr; 36px (<strong>-18px</strong>)</td>
+        <td>886px</td>
+        <td>0px</td>
+        <td>244px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Clear History' &rarr; 'Cancella cronc'</td>
+        <td>70px &rarr; 76px (<strong>+6px</strong>)</td>
+        <td>886px</td>
+        <td>0px</td>
+        <td>788px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #67: Civil3d / Civil3d-32 (HUN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +94px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 1</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Create Corridor' &rarr; 'Nyomterv letrehozasa'</td>
+        <td>86px &rarr; 118px (<strong>+32px</strong>)</td>
+        <td>723px</td>
+        <td>0px</td>
+        <td>575px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Name:' &rarr; 'Nev:'</td>
+        <td>36px &rarr; 28px (<strong>-8px</strong>)</td>
+        <td>723px</td>
+        <td>0px</td>
+        <td>685px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Parking Lot' &rarr; 'Parking Lot'</td>
+        <td>56px &rarr; 56px (<strong>+0px</strong>)</td>
+        <td>723px</td>
+        <td>0px</td>
+        <td>651px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Alignments and' &rarr; 'Nyomvonalak es hossz-szelvenye'</td>
+        <td>76px &rarr; 170px (<strong>+94px</strong>)</td>
+        <td>723px</td>
+        <td>0px</td>
+        <td>249px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Description:' &rarr; 'Leiras:'</td>
+        <td>62px &rarr; 36px (<strong>-26px</strong>)</td>
+        <td>723px</td>
+        <td>0px</td>
+        <td>677px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Alignment' &rarr; 'Nyomvonal'</td>
+        <td>60px &rarr; 62px (<strong>+2px</strong>)</td>
+        <td>723px</td>
+        <td>0px</td>
+        <td>375px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Profile' &rarr; 'Hossz-szelveny'</td>
+        <td>38px &rarr; 84px (<strong>+46px</strong>)</td>
+        <td>723px</td>
+        <td>0px</td>
+        <td>209px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Assembly' &rarr; 'Mintakeresztszelveny'</td>
+        <td>54px &rarr; 116px (<strong>+62px</strong>)</td>
+        <td>723px</td>
+        <td>0px</td>
+        <td>35px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'~None*' &rarr; '~Nincs"'</td>
+        <td>42px &rarr; 38px (<strong>-4px</strong>)</td>
+        <td>723px</td>
+        <td>0px</td>
+        <td>401px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'None*' &rarr; '~Nincs*'</td>
+        <td>38px &rarr; 44px (<strong>+6px</strong>)</td>
+        <td>723px</td>
+        <td>0px</td>
+        <td>253px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #68: Inventor / Inventor-03 (CHS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> -2px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 1</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Model Origin' &rarr; 'IWRE'</td>
+        <td>70px &rarr; 52px (<strong>-18px</strong>)</td>
+        <td>580px</td>
+        <td>0px</td>
+        <td>404px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'-161255.056 mn' &rarr; '161256.056'</td>
+        <td>96px &rarr; 64px (<strong>-32px</strong>)</td>
+        <td>580px</td>
+        <td>0px</td>
+        <td>356px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'deg' &rarr; 'deg'</td>
+        <td>24px &rarr; 22px (<strong>-2px</strong>)</td>
+        <td>580px</td>
+        <td>0px</td>
+        <td>108px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'84209.842 mm' &rarr; '84209.842'</td>
+        <td>88px &rarr; 58px (<strong>-30px</strong>)</td>
+        <td>580px</td>
+        <td>0px</td>
+        <td>368px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'deg' &rarr; 'deg'</td>
+        <td>24px &rarr; 22px (<strong>-2px</strong>)</td>
+        <td>580px</td>
+        <td>0px</td>
+        <td>108px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'108.154 mm' &rarr; '108. 164'</td>
+        <td>74px &rarr; 46px (<strong>-28px</strong>)</td>
+        <td>580px</td>
+        <td>0px</td>
+        <td>380px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Density:' &rarr; 'Z0;'</td>
+        <td>48px &rarr; 32px (<strong>-16px</strong>)</td>
+        <td>580px</td>
+        <td>0px</td>
+        <td>528px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'892' &rarr; '892'</td>
+        <td>24px &rarr; 22px (<strong>-2px</strong>)</td>
+        <td>580px</td>
+        <td>0px</td>
+        <td>250px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'0.250' &rarr; '260'</td>
+        <td>36px &rarr; 22px (<strong>-14px</strong>)</td>
+        <td>580px</td>
+        <td>0px</td>
+        <td>250px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'.424' &rarr; '424'</td>
+        <td>28px &rarr; 22px (<strong>-6px</strong>)</td>
+        <td>580px</td>
+        <td>0px</td>
+        <td>250px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #69: Inventor / Inventor-05 (PLK)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO BOUNDARY CLIPPING]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +70px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Point Cloud Navigator' &rarr; 'Nawigator chmury punktow'</td>
+        <td>122px &rarr; 153px (<strong>+31px</strong>)</td>
+        <td>422px</td>
+        <td>0px</td>
+        <td>262px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'View' &rarr; 'Widok'</td>
+        <td>32px &rarr; 40px (<strong>+8px</strong>)</td>
+        <td>422px</td>
+        <td>0px</td>
+        <td>376px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Point Size' &rarr; 'Rozmiar'</td>
+        <td>56px &rarr; 46px (<strong>-10px</strong>)</td>
+        <td>422px</td>
+        <td>0px</td>
+        <td>226px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Name' &rarr; 'Nazwa'</td>
+        <td>34px &rarr; 38px (<strong>+4px</strong>)</td>
+        <td>422px</td>
+        <td>0px</td>
+        <td>354px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Status' &rarr; 'Stan'</td>
+        <td>40px &rarr; 28px (<strong>-12px</strong>)</td>
+        <td>422px</td>
+        <td>0px</td>
+        <td>244px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Type' &rarr; 'Typ'</td>
+        <td>30px &rarr; 22px (<strong>-8px</strong>)</td>
+        <td>422px</td>
+        <td>0px</td>
+        <td>168px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Point Cloud]' &rarr; 'Chmura pur'</td>
+        <td>66px &rarr; 66px (<strong>+0px</strong>)</td>
+        <td>422px</td>
+        <td>0px</td>
+        <td>6px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Unassigned Points' &rarr; 'Nieprzypisane pun'</td>
+        <td>102px &rarr; 102px (<strong>+0px</strong>)</td>
+        <td>422px</td>
+        <td>0px</td>
+        <td>274px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Unassigned Points' &rarr; 'Nieprzypisane punkty regions:1'</td>
+        <td>104px &rarr; 174px (<strong>+70px</strong>)</td>
+        <td>422px</td>
+        <td>0px</td>
+        <td>20px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'regions:1' &rarr; 'regions:1'</td>
+        <td>54px &rarr; 55px (<strong>+1px</strong>)</td>
+        <td>422px</td>
+        <td>0px</td>
+        <td>20px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #70: Inventor / Inventor-18 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +94px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 1</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Shape' &rarr; 'Forme'</td>
+        <td>38px &rarr; 38px (<strong>+0px</strong>)</td>
+        <td>362px</td>
+        <td>0px</td>
+        <td>268px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'Beam' &rarr; 'Poutre'</td>
+        <td>34px &rarr; 40px (<strong>+6px</strong>)</td>
+        <td>362px</td>
+        <td>0px</td>
+        <td>220px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Hook' &rarr; 'Crochet'</td>
+        <td>32px &rarr; 46px (<strong>+14px</strong>)</td>
+        <td>362px</td>
+        <td>0px</td>
+        <td>164px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Placement' &rarr; 'Positionnement'</td>
+        <td>60px &rarr; 88px (<strong>+28px</strong>)</td>
+        <td>362px</td>
+        <td>0px</td>
+        <td>206px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'On Point' &rarr; 'Sur'</td>
+        <td>52px &rarr; 22px (<strong>-30px</strong>)</td>
+        <td>362px</td>
+        <td>0px</td>
+        <td>242px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Centers' &rarr; 'Centres'</td>
+        <td>46px &rarr; 46px (<strong>+0px</strong>)</td>
+        <td>362px</td>
+        <td>0px</td>
+        <td>208px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Solid' &rarr; 'Solide'</td>
+        <td>30px &rarr; 36px (<strong>+6px</strong>)</td>
+        <td>362px</td>
+        <td>0px</td>
+        <td>80px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Direction' &rarr; 'Direction'</td>
+        <td>52px &rarr; 52px (<strong>+0px</strong>)</td>
+        <td>362px</td>
+        <td>0px</td>
+        <td>202px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Hook Direction' &rarr; 'Direction du'</td>
+        <td>84px &rarr; 70px (<strong>-14px</strong>)</td>
+        <td>362px</td>
+        <td>0px</td>
+        <td>154px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Extend' &rarr; 'Prolonger'</td>
+        <td>42px &rarr; 56px (<strong>+14px</strong>)</td>
+        <td>362px</td>
+        <td>0px</td>
+        <td>220px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #71: Inventor / Inventor-19 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +128px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 5</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Hole Table Column Chooser' &rarr; 'Vyber slcupce tabulky ctvoru'</td>
+        <td>158px &rarr; 158px (<strong>+0px</strong>)</td>
+        <td>665px</td>
+        <td>0px</td>
+        <td>497px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Select available properties fr' &rarr; 'Lybrat dostupne vlastnosti z:'</td>
+        <td>184px &rarr; 162px (<strong>-22px</strong>)</td>
+        <td>665px</td>
+        <td>0px</td>
+        <td>497px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Ayaiable Properties:' &rarr; 'Dostupng vlastnosti:'</td>
+        <td>116px &rarr; 114px (<strong>-2px</strong>)</td>
+        <td>665px</td>
+        <td>0px</td>
+        <td>545px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Selected Properties:' &rarr; 'Vybrane vlastnosti:'</td>
+        <td>120px &rarr; 108px (<strong>-12px</strong>)</td>
+        <td>665px</td>
+        <td>0px</td>
+        <td>179px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'CBORE DEP IH' &rarr; 'DELKA DR'</td>
+        <td>88px &rarr; 58px (<strong>-30px</strong>)</td>
+        <td>665px</td>
+        <td>0px</td>
+        <td>597px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'HOLE' &rarr; 'DIRA'</td>
+        <td>34px &rarr; 30px (<strong>-4px</strong>)</td>
+        <td>665px</td>
+        <td>0px</td>
+        <td>253px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'BORE DEPTH (AF)' &rarr; 'ELKA DRAZKY'</td>
+        <td>108px &rarr; 80px (<strong>-28px</strong>)</td>
+        <td>665px</td>
+        <td>0px</td>
+        <td>567px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'XDMM' &rarr; 'KOTAX'</td>
+        <td>34px &rarr; 44px (<strong>+10px</strong>)</td>
+        <td>665px</td>
+        <td>0px</td>
+        <td>239px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'YDMM' &rarr; 'KOTAY'</td>
+        <td>34px &rarr; 44px (<strong>+10px</strong>)</td>
+        <td>665px</td>
+        <td>0px</td>
+        <td>239px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'BORE DIAMETER (Ak)' &rarr; 'ZAHLOUBENi DRA'</td>
+        <td>128px &rarr; 100px (<strong>-28px</strong>)</td>
+        <td>665px</td>
+        <td>0px</td>
+        <td>435px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #72: Inventor / Inventor-21 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +110px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 2</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Style and Standard Editor' &rarr; 'Editor'</td>
+        <td>139px &rarr; 35px (<strong>-104px</strong>)</td>
+        <td>1089px</td>
+        <td>0px</td>
+        <td>1025px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Reud Only]' &rarr; '[Knihovna'</td>
+        <td>64px &rarr; 57px (<strong>-7px</strong>)</td>
+        <td>1089px</td>
+        <td>0px</td>
+        <td>895px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Standard' &rarr; 'Noia'</td>
+        <td>53px &rarr; 40px (<strong>-13px</strong>)</td>
+        <td>1089px</td>
+        <td>0px</td>
+        <td>998px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Bac' &rarr; 'Zoet'</td>
+        <td>29px &rarr; 33px (<strong>+4px</strong>)</td>
+        <td>1089px</td>
+        <td>0px</td>
+        <td>694px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>''Save' &rarr; 'Viozit'</td>
+        <td>31px &rarr; 35px (<strong>+4px</strong>)</td>
+        <td>1089px</td>
+        <td>0px</td>
+        <td>498px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'Reset' &rarr; 'Vychozi'</td>
+        <td>38px &rarr; 48px (<strong>+10px</strong>)</td>
+        <td>1089px</td>
+        <td>0px</td>
+        <td>392px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Scyles' &rarr; 'VSechny sN'</td>
+        <td>38px &rarr; 77px (<strong>+39px</strong>)</td>
+        <td>1089px</td>
+        <td>0px</td>
+        <td>74px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Defau: Standard (ANSI-mm)' &rarr; 'Vychozi norma (ANSImm)'</td>
+        <td>161px &rarr; 148px (<strong>-13px</strong>)</td>
+        <td>1089px</td>
+        <td>0px</td>
+        <td>870px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Defaur Standard (ANSI-mm)' &rarr; 'Vychozi norma (ANSI-mm)'</td>
+        <td>161px &rarr; 148px (<strong>-13px</strong>)</td>
+        <td>1089px</td>
+        <td>0px</td>
+        <td>870px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'3DA' &rarr; '3DA'</td>
+        <td>29px &rarr; 29px (<strong>+0px</strong>)</td>
+        <td>1089px</td>
+        <td>0px</td>
+        <td>835px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #73: Inventor / Inventor-32 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +36px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">100px</span></div>
+    <div><strong>Clipping Elements:</strong> 2</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Recording Performance' &rarr; 'Leistung wird aufgezeichnet .'</td>
+        <td>127px &rarr; 161px (<strong>+34px</strong>)</td>
+        <td>59px</td>
+        <td>100px</td>
+        <td>-100px</td>
+        <td>No</td>
+        <td style="color:#4ade80; font-weight:bold;">GENUINE_TEXT_CLIPPING</td>
+      </tr>
+
+      <tr>
+        <td>'0C,06 (limit 10.00)' &rarr; '0C,02 (limit 10.00)'</td>
+        <td>98px &rarr; 98px (<strong>+0px</strong>)</td>
+        <td>59px</td>
+        <td>38px</td>
+        <td>-38px</td>
+        <td>No</td>
+        <td style="color:#4ade80; font-weight:bold;">GENUINE_TEXT_CLIPPING</td>
+      </tr>
+
+      <tr>
+        <td>'Stop Recording' &rarr; 'Aufzeichnung beende'</td>
+        <td>84px &rarr; 120px (<strong>+36px</strong>)</td>
+        <td>N/Apx</td>
+        <td>N/Apx</td>
+        <td>N/Apx</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #74: Inventor / Inventor-35 (PLK)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +90px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 3</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Derived Part' &rarr; 'Czesc pochodna'</td>
+        <td>70px &rarr; 90px (<strong>+20px</strong>)</td>
+        <td>786px</td>
+        <td>0px</td>
+        <td>688px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Representation' &rarr; 'Reprezentagja'</td>
+        <td>86px &rarr; 80px (<strong>-6px</strong>)</td>
+        <td>786px</td>
+        <td>0px</td>
+        <td>642px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Options' &rarr; 'Opgje'</td>
+        <td>46px &rarr; 34px (<strong>-12px</strong>)</td>
+        <td>786px</td>
+        <td>0px</td>
+        <td>598px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Derive style:' &rarr; 'Styl wyprowadzenia:'</td>
+        <td>72px &rarr; 116px (<strong>+44px</strong>)</td>
+        <td>786px</td>
+        <td>0px</td>
+        <td>656px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Status:' &rarr; 'Stan:'</td>
+        <td>44px &rarr; 34px (<strong>-10px</strong>)</td>
+        <td>786px</td>
+        <td>0px</td>
+        <td>738px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'User Parameters' &rarr; 'Paramety Uzyiownka'</td>
+        <td>86px &rarr; 116px (<strong>+30px</strong>)</td>
+        <td>786px</td>
+        <td>0px</td>
+        <td>580px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'Reference Parameters' &rarr; 'Paramety Odresenia'</td>
+        <td>114px &rarr; 110px (<strong>-4px</strong>)</td>
+        <td>786px</td>
+        <td>0px</td>
+        <td>586px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'Externa Parameters' &rarr; 'Paramety zewnetzne'</td>
+        <td>102px &rarr; 112px (<strong>+10px</strong>)</td>
+        <td>786px</td>
+        <td>0px</td>
+        <td>584px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'Finish Parameters' &rarr; 'Parametry wykonczenia'</td>
+        <td>100px &rarr; 132px (<strong>+32px</strong>)</td>
+        <td>786px</td>
+        <td>0px</td>
+        <td>566px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Finishl_' &rarr; 'Finishl_'</td>
+        <td>38px &rarr; 38px (<strong>+0px</strong>)</td>
+        <td>786px</td>
+        <td>0px</td>
+        <td>640px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #75: Vault / Vault-01 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO BOUNDARY CLIPPING]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +29px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Global Settings' &rarr; 'Globalni nastaveni'</td>
+        <td>92px &rarr; 112px (<strong>+20px</strong>)</td>
+        <td>559px</td>
+        <td>0px</td>
+        <td>418px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Security' &rarr; 'Zabezpeceni'</td>
+        <td>46px &rarr; 72px (<strong>+26px</strong>)</td>
+        <td>559px</td>
+        <td>0px</td>
+        <td>468px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Change Orders' &rarr; 'Zmenove prikazy'</td>
+        <td>83px &rarr; 94px (<strong>+11px</strong>)</td>
+        <td>559px</td>
+        <td>0px</td>
+        <td>364px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Integrations' &rarr; 'Integrace'</td>
+        <td>69px &rarr; 54px (<strong>-15px</strong>)</td>
+        <td>559px</td>
+        <td>0px</td>
+        <td>298px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Client Configuration' &rarr; 'Konfigurace klienta'</td>
+        <td>112px &rarr; 106px (<strong>-6px</strong>)</td>
+        <td>559px</td>
+        <td>0px</td>
+        <td>180px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Manage Distributed Options' &rarr; 'Spravovat distribuovane moznos'</td>
+        <td>155px &rarr; 184px (<strong>+29px</strong>)</td>
+        <td>559px</td>
+        <td>0px</td>
+        <td>352px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Select the optionsyou want to ' &rarr; 'Vyberte moznosti; ktere chcete'</td>
+        <td>204px &rarr; 222px (<strong>+18px</strong>)</td>
+        <td>559px</td>
+        <td>0px</td>
+        <td>314px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Manage Distributed Options_' &rarr; 'ravovat distribuovane moznosl]'</td>
+        <td>163px &rarr; 166px (<strong>+3px</strong>)</td>
+        <td>559px</td>
+        <td>0px</td>
+        <td>26px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'distributed options' &rarr; 'distribuovane moznosti;'</td>
+        <td>104px &rarr; 130px (<strong>+26px</strong>)</td>
+        <td>559px</td>
+        <td>0px</td>
+        <td>406px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Close' &rarr; 'Zavrit'</td>
+        <td>34px &rarr; 36px (<strong>+2px</strong>)</td>
+        <td>559px</td>
+        <td>0px</td>
+        <td>144px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #76: Vault / Vault-02 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +82px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 7</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'New Role' &rarr; 'Ncuveau role'</td>
+        <td>54px &rarr; 76px (<strong>+22px</strong>)</td>
+        <td>477px</td>
+        <td>0px</td>
+        <td>374px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Name' &rarr; 'Nom'</td>
+        <td>38px &rarr; 32px (<strong>-6px</strong>)</td>
+        <td>477px</td>
+        <td>0px</td>
+        <td>432px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'opy of autotesti' &rarr; 'opie de autotesti'</td>
+        <td>86px &rarr; 90px (<strong>+4px</strong>)</td>
+        <td>477px</td>
+        <td>0px</td>
+        <td>280px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Description' &rarr; 'Description'</td>
+        <td>62px &rarr; 62px (<strong>+0px</strong>)</td>
+        <td>477px</td>
+        <td>0px</td>
+        <td>400px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Assign Permissions' &rarr; 'Attribuer des autorisations'</td>
+        <td>122px &rarr; 158px (<strong>+36px</strong>)</td>
+        <td>477px</td>
+        <td>0px</td>
+        <td>302px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Search' &rarr; 'Rechercher'</td>
+        <td>38px &rarr; 64px (<strong>+26px</strong>)</td>
+        <td>477px</td>
+        <td>0px</td>
+        <td>78px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'ermissions:' &rarr; 'Autorisations disponibles:'</td>
+        <td>62px &rarr; 138px (<strong>+76px</strong>)</td>
+        <td>477px</td>
+        <td>0px</td>
+        <td>324px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Selected Permissions:' &rarr; 'Autorisations selectionnees:'</td>
+        <td>118px &rarr; 150px (<strong>+32px</strong>)</td>
+        <td>477px</td>
+        <td>0px</td>
+        <td>38px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Read' &rarr; 'Archivage de fichier'</td>
+        <td>28px &rarr; 110px (<strong>+82px</strong>)</td>
+        <td>477px</td>
+        <td>0px</td>
+        <td>350px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'Rename' &rarr; 'Archivage de fichier'</td>
+        <td>47px &rarr; 111px (<strong>+64px</strong>)</td>
+        <td>477px</td>
+        <td>0px</td>
+        <td>350px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #77: Vault / Vault-03 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO BOUNDARY CLIPPING]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +102px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'ECO-OCDDOI' &rarr; 'ECO-OCDDOI'</td>
+        <td>70px &rarr; 70px (<strong>+0px</strong>)</td>
+        <td>1225px</td>
+        <td>0px</td>
+        <td>1128px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Action:' &rarr; 'Datei'</td>
+        <td>47px &rarr; 32px (<strong>-15px</strong>)</td>
+        <td>1225px</td>
+        <td>0px</td>
+        <td>1180px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'General' &rarr; 'Allgemcin'</td>
+        <td>42px &rarr; 57px (<strong>+15px</strong>)</td>
+        <td>1225px</td>
+        <td>0px</td>
+        <td>1163px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Comments' &rarr; 'Datensitc'</td>
+        <td>63px &rarr; 60px (<strong>-3px</strong>)</td>
+        <td>1225px</td>
+        <td>0px</td>
+        <td>1097px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Files   Routing' &rarr; 'Kommentare'</td>
+        <td>77px &rarr; 72px (<strong>-5px</strong>)</td>
+        <td>1225px</td>
+        <td>0px</td>
+        <td>1019px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Status' &rarr; 'Dateicn   Verteiler   Status'</td>
+        <td>37px &rarr; 139px (<strong>+102px</strong>)</td>
+        <td>1225px</td>
+        <td>0px</td>
+        <td>875px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Associated Records:' &rarr; 'Veknuplte Datensetze:'</td>
+        <td>109px &rarr; 124px (<strong>+15px</strong>)</td>
+        <td>1222px</td>
+        <td>0px</td>
+        <td>1077px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Look For:' &rarr; 'Suchen nach:'</td>
+        <td>52px &rarr; 75px (<strong>+23px</strong>)</td>
+        <td>1222px</td>
+        <td>0px</td>
+        <td>149px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Name' &rarr; 'Name'</td>
+        <td>37px &rarr; 37px (<strong>+0px</strong>)</td>
+        <td>1222px</td>
+        <td>0px</td>
+        <td>1104px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Revision' &rarr; 'Revision'</td>
+        <td>50px &rarr; 52px (<strong>+2px</strong>)</td>
+        <td>1222px</td>
+        <td>0px</td>
+        <td>812px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #78: Vault / Vault-08 (PLK)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO BOUNDARY CLIPPING]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +62px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Profile' &rarr; 'Profil uzytkownika'</td>
+        <td>36px &rarr; 98px (<strong>+62px</strong>)</td>
+        <td>510px</td>
+        <td>0px</td>
+        <td>383px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Administrator' &rarr; 'Administrator'</td>
+        <td>78px &rarr; 78px (<strong>+0px</strong>)</td>
+        <td>510px</td>
+        <td>0px</td>
+        <td>271px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Display Name' &rarr; 'Nazwa wyswietlana'</td>
+        <td>76px &rarr; 106px (<strong>+30px</strong>)</td>
+        <td>510px</td>
+        <td>0px</td>
+        <td>391px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Administrator' &rarr; 'Administrator'</td>
+        <td>78px &rarr; 78px (<strong>+0px</strong>)</td>
+        <td>510px</td>
+        <td>0px</td>
+        <td>271px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Email Alias' &rarr; 'Alias'</td>
+        <td>60px &rarr; 30px (<strong>-30px</strong>)</td>
+        <td>510px</td>
+        <td>0px</td>
+        <td>467px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Profile Attributes' &rarr; 'Atrybuty profilu'</td>
+        <td>92px &rarr; 87px (<strong>-5px</strong>)</td>
+        <td>510px</td>
+        <td>0px</td>
+        <td>409px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'First Name' &rarr; 'Imie'</td>
+        <td>60px &rarr; 28px (<strong>-32px</strong>)</td>
+        <td>510px</td>
+        <td>0px</td>
+        <td>469px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Last Name' &rarr; 'Nazwisko'</td>
+        <td>62px &rarr; 54px (<strong>-8px</strong>)</td>
+        <td>510px</td>
+        <td>0px</td>
+        <td>443px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Administrator' &rarr; 'Administrator'</td>
+        <td>78px &rarr; 78px (<strong>+0px</strong>)</td>
+        <td>510px</td>
+        <td>0px</td>
+        <td>271px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Accounts' &rarr; 'Konta'</td>
+        <td>54px &rarr; 36px (<strong>-18px</strong>)</td>
+        <td>510px</td>
+        <td>0px</td>
+        <td>461px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #79: Vault / Vault-11 (ESP)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +114px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 2</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Options' &rarr; 'Opciones'</td>
+        <td>54px &rarr; 54px (<strong>+0px</strong>)</td>
+        <td>699px</td>
+        <td>0px</td>
+        <td>615px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Options' &rarr; 'Opciones'</td>
+        <td>52px &rarr; 54px (<strong>+2px</strong>)</td>
+        <td>699px</td>
+        <td>0px</td>
+        <td>623px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Use large status icons' &rarr; 'Utilizar iconos de estado gran'</td>
+        <td>136px &rarr; 178px (<strong>+42px</strong>)</td>
+        <td>699px</td>
+        <td>0px</td>
+        <td>473px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Show working folder location' &rarr; 'Mostrar Ia ubicacion de la car'</td>
+        <td>186px &rarr; 238px (<strong>+52px</strong>)</td>
+        <td>699px</td>
+        <td>0px</td>
+        <td>413px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Show hidden files' &rarr; 'Mostrar archivos ocultos'</td>
+        <td>114px &rarr; 134px (<strong>+20px</strong>)</td>
+        <td>699px</td>
+        <td>0px</td>
+        <td>517px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Enable Item user interface fea' &rarr; 'Activar operaciones de interfa'</td>
+        <td>216px &rarr; 290px (<strong>+74px</strong>)</td>
+        <td>699px</td>
+        <td>0px</td>
+        <td>361px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Aute-select first_duplicate_te' &rarr; 'Eelecciona_automaticamenteeLpr'</td>
+        <td>200px &rarr; 250px (<strong>+50px</strong>)</td>
+        <td>699px</td>
+        <td>0px</td>
+        <td>403px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'Enable Change Order user inter' &rarr; 'Activar operaciones de interfa'</td>
+        <td>276px &rarr; 332px (<strong>+56px</strong>)</td>
+        <td>699px</td>
+        <td>0px</td>
+        <td>317px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Focus location for move operat' &rarr; 'Ubicacion de enfoque para'</td>
+        <td>216px &rarr; 144px (<strong>-72px</strong>)</td>
+        <td>699px</td>
+        <td>0px</td>
+        <td>525px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Target Location' &rarr; 'Ubicacion de destino'</td>
+        <td>101px &rarr; 114px (<strong>+13px</strong>)</td>
+        <td>699px</td>
+        <td>0px</td>
+        <td>131px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #80: Vault / Vault-17 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO BOUNDARY CLIPPING]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +74px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Watermarks' &rarr; 'Filigrane'</td>
+        <td>66px &rarr; 48px (<strong>-18px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>921px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Text Settings' &rarr; 'Impostazioni testo'</td>
+        <td>72px &rarr; 100px (<strong>+28px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>659px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Picture Settings' &rarr; 'Impostazioni immagine'</td>
+        <td>86px &rarr; 128px (<strong>+42px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>525px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Watermarkl' &rarr; 'Watermarkl'</td>
+        <td>68px &rarr; 68px (<strong>+0px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>893px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Load image:' &rarr; 'Carica immagine:'</td>
+        <td>70px &rarr; 98px (<strong>+28px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>645px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Browse; ;.' &rarr; 'Sfoglia _'</td>
+        <td>48px &rarr; 48px (<strong>+0px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>419px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Size mode:' &rarr; 'Modalita dimensione:'</td>
+        <td>62px &rarr; 120px (<strong>+58px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>623px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Clip' &rarr; 'Ritaglia'</td>
+        <td>24px &rarr; 42px (<strong>+18px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>553px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Tiling' &rarr; 'Affianc'</td>
+        <td>34px &rarr; 42px (<strong>+8px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>289px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Horizontal alignment:' &rarr; 'Allineamento grizzontale:'</td>
+        <td>118px &rarr; 136px (<strong>+18px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>605px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #81: Vault / Vault-20 (PLK)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +73px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">450px</span></div>
+    <div><strong>Clipping Elements:</strong> 10</div>
+    <div><strong>Verified Ellipsis:</strong> 1</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Watermarks' &rarr; 'Znaki wodne'</td>
+        <td>66px &rarr; 70px (<strong>+4px</strong>)</td>
+        <td>N/Apx</td>
+        <td>N/Apx</td>
+        <td>N/Apx</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Text Settings' &rarr; 'Ustawienia tekstu'</td>
+        <td>72px &rarr; 96px (<strong>+24px</strong>)</td>
+        <td>26px</td>
+        <td>273px</td>
+        <td>-273px</td>
+        <td>No</td>
+        <td style="color:#4ade80; font-weight:bold;">GENUINE_TEXT_CLIPPING</td>
+      </tr>
+
+      <tr>
+        <td>'Picture Settings' &rarr; 'Ustawienia obrazu'</td>
+        <td>86px &rarr; 98px (<strong>+12px</strong>)</td>
+        <td>26px</td>
+        <td>377px</td>
+        <td>-377px</td>
+        <td>No</td>
+        <td style="color:#4ade80; font-weight:bold;">GENUINE_TEXT_CLIPPING</td>
+      </tr>
+
+      <tr>
+        <td>'Watermarkl' &rarr; 'Watermarkl'</td>
+        <td>68px &rarr; 68px (<strong>+0px</strong>)</td>
+        <td>190px</td>
+        <td>0px</td>
+        <td>120px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Load image:' &rarr; 'Kczytaj obraz:'</td>
+        <td>70px &rarr; 80px (<strong>+10px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>392px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Browse; ;.' &rarr; 'Przegladaj-'</td>
+        <td>48px &rarr; 64px (<strong>+16px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>150px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Size mode:' &rarr; 'Tryb rozmiaru:'</td>
+        <td>62px &rarr; 80px (<strong>+18px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>390px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Clip' &rarr; 'Przytnij'</td>
+        <td>24px &rarr; 44px (<strong>+20px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>296px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Tiling' &rarr; 'Rozmie'</td>
+        <td>34px &rarr; 44px (<strong>+10px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>18px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Horizontal alignment:' &rarr; 'Wyrownanie poziome:'</td>
+        <td>118px &rarr; 122px (<strong>+4px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>350px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #82: Vault / Vault-21 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +78px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">460px</span></div>
+    <div><strong>Clipping Elements:</strong> 10</div>
+    <div><strong>Verified Ellipsis:</strong> 1</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Watermarks' &rarr; 'Marcas'</td>
+        <td>66px &rarr; 42px (<strong>-24px</strong>)</td>
+        <td>N/Apx</td>
+        <td>N/Apx</td>
+        <td>N/Apx</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Text Settings' &rarr; 'Configuracoes de texto'</td>
+        <td>72px &rarr; 126px (<strong>+54px</strong>)</td>
+        <td>26px</td>
+        <td>303px</td>
+        <td>-303px</td>
+        <td>No</td>
+        <td style="color:#4ade80; font-weight:bold;">GENUINE_TEXT_CLIPPING</td>
+      </tr>
+
+      <tr>
+        <td>'Picture Settings' &rarr; 'Configuracoes de imagem'</td>
+        <td>86px &rarr; 142px (<strong>+56px</strong>)</td>
+        <td>26px</td>
+        <td>451px</td>
+        <td>-451px</td>
+        <td>No</td>
+        <td style="color:#4ade80; font-weight:bold;">GENUINE_TEXT_CLIPPING</td>
+      </tr>
+
+      <tr>
+        <td>'Watermarkl' &rarr; 'Watermarkl'</td>
+        <td>68px &rarr; 68px (<strong>+0px</strong>)</td>
+        <td>190px</td>
+        <td>0px</td>
+        <td>120px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Load image:' &rarr; 'Carregar imagem:'</td>
+        <td>70px &rarr; 98px (<strong>+28px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>372px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Browse; ;.' &rarr; 'procurar u'</td>
+        <td>48px &rarr; 56px (<strong>+8px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>148px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'Size mode:' &rarr; 'Modo de tamanho:'</td>
+        <td>62px &rarr; 108px (<strong>+46px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>364px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Clip' &rarr; 'Recortar'</td>
+        <td>24px &rarr; 48px (<strong>+24px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>282px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Tiling' &rarr; 'Lado'</td>
+        <td>34px &rarr; 30px (<strong>-4px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>30px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Horizontal alignment:' &rarr; 'Alinhamento horizontal:'</td>
+        <td>118px &rarr; 135px (<strong>+17px</strong>)</td>
+        <td>493px</td>
+        <td>0px</td>
+        <td>338px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #83: Vault / Vault-23 (ESP)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO BOUNDARY CLIPPING]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +148px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Current File Store Location:' &rarr; 'Ubicacion actual:'</td>
+        <td>148px &rarr; 96px (<strong>-52px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>575px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'CiProgramData Autodesk VaultSe' &rarr; 'CiProgramData Autodesk VaultSe'</td>
+        <td>290px &rarr; 290px (<strong>+0px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>117px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'New File Store Location:' &rarr; 'Nueva ubicacion:'</td>
+        <td>132px &rarr; 96px (<strong>-36px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>575px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Current Archive File Store Loc' &rarr; 'Ubicacion actual del almacen d'</td>
+        <td>190px &rarr; 176px (<strong>-14px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>495px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'New Archive File Store Locatio' &rarr; 'Nueva ubicacion del almacen de'</td>
+        <td>174px &rarr; 176px (<strong>+2px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>495px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Cancel' &rarr; 'Aceptar'</td>
+        <td>36px &rarr; 46px (<strong>+10px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>217px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Help' &rarr; 'Ayuda'</td>
+        <td>28px &rarr; 36px (<strong>+8px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>37px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'No file store validation' &rarr; 'No hay validacion de almacenam'</td>
+        <td>122px &rarr; 270px (<strong>+148px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>121px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Move File Store' &rarr; 'Desplazar almacenamiento de ar'</td>
+        <td>86px &rarr; 209px (<strong>+123px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>445px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #84: Vault / Vault-24 (CHT)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +10px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 1</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Watermarks' &rarr; '#x7]'</td>
+        <td>66px &rarr; 38px (<strong>-28px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>929px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Watermarkl' &rarr; 'Watermarki'</td>
+        <td>68px &rarr; 72px (<strong>+4px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>889px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Browse; ;.' &rarr; '4R(_'</td>
+        <td>48px &rarr; 48px (<strong>+0px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>453px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'Size mode:' &rarr; 'Ttis:'</td>
+        <td>62px &rarr; 72px (<strong>+10px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>671px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'In front' &rarr; '#E()'</td>
+        <td>46px &rarr; 40px (<strong>-6px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>527px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Watermarkl' &rarr; 'Watermarki'</td>
+        <td>68px &rarr; 72px (<strong>+4px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>673px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'Pages:' &rarr; '#r0'</td>
+        <td>38px &rarr; 46px (<strong>+8px</strong>)</td>
+        <td>977px</td>
+        <td>0px</td>
+        <td>431px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #85: Vault / Vault-26 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +56px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 1</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Display Name Template for Wind' &rarr; 'affichage pour les comptes Win'</td>
+        <td>270px &rarr; 200px (<strong>-70px</strong>)</td>
+        <td>697px</td>
+        <td>0px</td>
+        <td>372px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Specify thetemplate here; You ' &rarr; 'Specifiez le gabarit ici. Vous'</td>
+        <td>566px &rarr; 435px (<strong>-131px</strong>)</td>
+        <td>697px</td>
+        <td>0px</td>
+        <td>254px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Double-click to insert AD attr' &rarr; 'Double-cliquez pour inserer un'</td>
+        <td>298px &rarr; 254px (<strong>-44px</strong>)</td>
+        <td>697px</td>
+        <td>0px</td>
+        <td>50px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Acccunt-Expires' &rarr; 'ccount-Expires'</td>
+        <td>94px &rarr; 80px (<strong>-14px</strong>)</td>
+        <td>697px</td>
+        <td>0px</td>
+        <td>210px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Preview' &rarr; 'Apercu'</td>
+        <td>48px &rarr; 42px (<strong>-6px</strong>)</td>
+        <td>697px</td>
+        <td>0px</td>
+        <td>646px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'ccount' &rarr; 'ccount-Name'</td>
+        <td>44px &rarr; 78px (<strong>+34px</strong>)</td>
+        <td>697px</td>
+        <td>0px</td>
+        <td>212px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">CONTAINER_EXPANSION_ACCOMMODATED</td>
+      </tr>
+
+      <tr>
+        <td>'-Name-History' &rarr; 'History'</td>
+        <td>89px &rarr; 43px (<strong>-46px</strong>)</td>
+        <td>697px</td>
+        <td>0px</td>
+        <td>170px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'CS-Policy-Name' &rarr; 'CS-Policy-Name'</td>
+        <td>98px &rarr; 90px (<strong>-8px</strong>)</td>
+        <td>697px</td>
+        <td>0px</td>
+        <td>200px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Addres;' &rarr; 'Addres;'</td>
+        <td>50px &rarr; 44px (<strong>-6px</strong>)</td>
+        <td>697px</td>
+        <td>0px</td>
+        <td>254px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Address-Home' &rarr; 'ddress-Home'</td>
+        <td>90px &rarr; 76px (<strong>-14px</strong>)</td>
+        <td>697px</td>
+        <td>0px</td>
+        <td>214px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #86: Vault / Vault-27 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Genuine Truncation Evidence</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +118px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 1</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Related Files' &rarr; 'Zugehorige Dateien'</td>
+        <td>68px &rarr; 110px (<strong>+42px</strong>)</td>
+        <td>382px</td>
+        <td>0px</td>
+        <td>243px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Primary File Links' &rarr; 'Primare Dateiverknupfungen'</td>
+        <td>97px &rarr; 157px (<strong>+60px</strong>)</td>
+        <td>382px</td>
+        <td>0px</td>
+        <td>205px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Secondary File Links' &rarr; 'Sekundare Dateiverknupfungen'</td>
+        <td>111px &rarr; 170px (<strong>+59px</strong>)</td>
+        <td>372px</td>
+        <td>0px</td>
+        <td>186px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Standard Component Links' &rarr; 'Standardkomponentenverknupfung'</td>
+        <td>148px &rarr; 206px (<strong>+58px</strong>)</td>
+        <td>372px</td>
+        <td>0px</td>
+        <td>150px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Design Documents' &rarr; 'Konstruktionsdokumente'</td>
+        <td>104px &rarr; 138px (<strong>+34px</strong>)</td>
+        <td>372px</td>
+        <td>0px</td>
+        <td>218px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Cance' &rarr; 'reched'</td>
+        <td>34px &rarr; 40px (<strong>+6px</strong>)</td>
+        <td>382px</td>
+        <td>0px</td>
+        <td>9px</td>
+        <td>Yes</td>
+        <td style="color:#4ade80; font-weight:bold;">ELLIPSIS_TRUNCATION</td>
+      </tr>
+
+      <tr>
+        <td>'Primary Subcomponent File Link' &rarr; 'Verknupfungen'</td>
+        <td>183px &rarr; 87px (<strong>-96px</strong>)</td>
+        <td>372px</td>
+        <td>0px</td>
+        <td>270px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Secondary Subcomponent File Li' &rarr; 'Verknupfungen zu Datei mit sek'</td>
+        <td>196px &rarr; 314px (<strong>+118px</strong>)</td>
+        <td>372px</td>
+        <td>0px</td>
+        <td>42px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #87: Vault / Vault-29 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO BOUNDARY CLIPPING]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +86px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Redirect File Store' &rarr; 'Reindirizza archivio dei file'</td>
+        <td>98px &rarr; 142px (<strong>+44px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>511px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Current File Store Location:' &rarr; 'Posizione archivio dei file co'</td>
+        <td>148px &rarr; 188px (<strong>+40px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>483px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'CiProgramData Autodesk VaultSe' &rarr; 'CiProgramData Autodesk VaultSe'</td>
+        <td>290px &rarr; 290px (<strong>+0px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>117px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'New File Store Location:' &rarr; 'Nuova posizione archivio dei f'</td>
+        <td>132px &rarr; 178px (<strong>+46px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>493px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Current Archive File Store Loc' &rarr; 'Posizione attuale archivio fil'</td>
+        <td>190px &rarr; 158px (<strong>-32px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>513px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'New Archive File Store Locatio' &rarr; 'Nuova posizione archivio file'</td>
+        <td>174px &rarr; 156px (<strong>-18px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>515px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'No file store validation' &rarr; 'Nessuna convalida dell'archivi'</td>
+        <td>122px &rarr; 208px (<strong>+86px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>183px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Cancel' &rarr; 'Annulla'</td>
+        <td>36px &rarr; 44px (<strong>+8px</strong>)</td>
+        <td>683px</td>
+        <td>0px</td>
+        <td>125px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #88: Vault / Vault-39 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[NO BOUNDARY CLIPPING]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Max Text Expansion:</strong> +193px</div>
+    <div><strong>Max Measured Overflow:</strong> <span style="color:#4ade80; font-weight:bold;">0px</span></div>
+    <div><strong>Clipping Elements:</strong> 0</div>
+    <div><strong>Verified Ellipsis:</strong> 0</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Directly Measured Text-to-Container Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Label (ENU &rarr; Localized)</th>
+        <th>Text Width (ENU &rarr; LOC)</th>
+        <th>Container Width</th>
+        <th>Overflow</th>
+        <th>Right Margin</th>
+        <th>Ellipsis?</th>
+        <th>Classification State</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>'Global Settings' &rarr; 'Globale Einstellungen'</td>
+        <td>84px &rarr; 118px (<strong>+34px</strong>)</td>
+        <td>543px</td>
+        <td>0px</td>
+        <td>395px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Manage Distributed Options' &rarr; 'Verteilte Optionen verwalten "'</td>
+        <td>155px &rarr; 160px (<strong>+5px</strong>)</td>
+        <td>543px</td>
+        <td>0px</td>
+        <td>357px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Select the optionsYou want to ' &rarr; 'Optionen auswahlen, die Sie al'</td>
+        <td>308px &rarr; 268px (<strong>-40px</strong>)</td>
+        <td>543px</td>
+        <td>0px</td>
+        <td>249px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Manage Distributed Options' &rarr; 'Verteilte Optionen verwalten_'</td>
+        <td>162px &rarr; 160px (<strong>-2px</strong>)</td>
+        <td>543px</td>
+        <td>0px</td>
+        <td>31px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Close' &rarr; 'SchlieBen'</td>
+        <td>32px &rarr; 56px (<strong>+24px</strong>)</td>
+        <td>543px</td>
+        <td>0px</td>
+        <td>135px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+      <tr>
+        <td>'Help' &rarr; 'Hilfe'</td>
+        <td>31px &rarr; 30px (<strong>-1px</strong>)</td>
+        <td>543px</td>
+        <td>0px</td>
+        <td>47px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">UNCHANGED_OR_SHRUNK</td>
+      </tr>
+
+      <tr>
+        <td>'Client Configuration' &rarr; 'Anderungsauftrage   Integratio'</td>
+        <td>110px &rarr; 303px (<strong>+193px</strong>)</td>
+        <td>543px</td>
+        <td>0px</td>
+        <td>161px</td>
+        <td>No</td>
+        <td style="color:#94a3b8; font-weight:bold;">NORMAL_TEXT_GROWTH_PRESERVED</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</body></html>

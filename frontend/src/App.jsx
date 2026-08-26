@@ -80,7 +80,7 @@ export default function App() {
   };
 
   // Handle Live URL Auto-Capture Analysis
-  const handleUrlAnalyze = async (englishUrl, localizedUrl) => {
+  const handleUrlAnalyze = async (englishUrl, localizedUrl, fullPage = false) => {
     setIsUrlAnalyzing(true);
     setError(null);
 
@@ -93,7 +93,8 @@ export default function App() {
           localized_url: localizedUrl,
           viewport_width: 1280,
           viewport_height: 800,
-          wait_seconds: 1.5
+          wait_seconds: 1.5,
+          full_page: fullPage
         })
       });
 

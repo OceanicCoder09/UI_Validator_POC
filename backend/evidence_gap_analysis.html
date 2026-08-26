@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Evidence Gap Analysis Report (77 Unsupported Cases)</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 26px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .badge-reason { background: #1e3a5f; color: #38bdf8; padding: 3px 8px; border-radius: 4px; font-family: monospace; font-size: 12px; font-weight: bold; }
+  .badge-sec { background: #334155; color: #cbd5e1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 11px; }
+  .case-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; margin-bottom: 20px; padding: 16px; }
+  .case-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 10px; }
+  .gt-badge { background: #831843; border: 1px solid #f43f5e; color: #ffe4e6; font-weight: 600; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>Evidence Gap Analysis Report</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Deep-dive root-cause classification for the <strong>77 benchmark cases</strong> lacking genuine physical Ground Truth evidence in <code>cv_engine.py</code>.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Total Gap Cases Analyzed</div>
+    <div class="card-val">77</div>
+    <div class="card-sub">out of 101 benchmark cases (76.2%)</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Leading Gap Cause</div>
+    <div class="card-val" style="font-size: 20px; color: #f43f5e;">DETECTOR_MISSED</div>
+    <div class="card-sub">59 cases (76.6%)</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Cases with Supporting Findings</div>
+    <div class="card-val" style="color: #4ade80;">24 / 101</div>
+    <div class="card-sub">already have genuine measured GT evidence</div>
+  </div>
+</div>
+
+<h2>1. Aggregate Gap Distribution (N = 77)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Primary Gap Classification</th>
+      <th>Case Count</th>
+      <th>Percentage of Gap Cases</th>
+      <th>Description / Root Cause</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><span class="badge-reason">DETECTOR_MISSED</span></td>
+      <td style="font-weight:bold; font-size:14px;">59</td>
+      <td>76.6%</td>
+      <td style="color:#cbd5e1; font-size:12px;">Detector did not flag the defect region or text bounding box due to rigid OCR/heuristic search windows.</td>
+    </tr>
+
+    <tr>
+      <td><span class="badge-reason">ELEMENT_MATCHING_FAILED</span></td>
+      <td style="font-weight:bold; font-size:14px;">0</td>
+      <td>0.0%</td>
+      <td style="color:#cbd5e1; font-size:12px;">Spatial/OCR correspondence matcher failed to match localized element to its English baseline counterpart.</td>
+    </tr>
+
+    <tr>
+      <td><span class="badge-reason">EVIDENCE_EXTRACTION_MISSING</span></td>
+      <td style="font-weight:bold; font-size:14px;">0</td>
+      <td>0.0%</td>
+      <td style="color:#cbd5e1; font-size:12px;">Detector flagged the visual change but did not extract/record the underlying physical delta measurement.</td>
+    </tr>
+
+    <tr>
+      <td><span class="badge-reason">EVIDENCE_REPRESENTATION_PROBLEM</span></td>
+      <td style="font-weight:bold; font-size:14px;">7</td>
+      <td>9.1%</td>
+      <td style="color:#cbd5e1; font-size:12px;">Finding was emitted but its physical measurement could not be calculated (set to null instead of guessed).</td>
+    </tr>
+
+    <tr>
+      <td><span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span></td>
+      <td style="font-weight:bold; font-size:14px;">11</td>
+      <td>14.3%</td>
+      <td style="color:#cbd5e1; font-size:12px;">Defect manifests in non-standard UI controls (tables, tree views, canvas graphics) unsupported by current detectors.</td>
+    </tr>
+
+    <tr>
+      <td><span class="badge-reason">COMPOUND_OR_AMBIGUOUS_GT</span></td>
+      <td style="font-weight:bold; font-size:14px;">0</td>
+      <td>0.0%</td>
+      <td style="color:#cbd5e1; font-size:12px;">Case involves multiple overlapping defect categories or ambiguous visual phenomena.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. Breakdown by Ground Truth Category</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Ground Truth Category</th>
+      <th>DETECTOR_MISSED</th>
+      <th>EVIDENCE_REPRESENTATION_PROBLEM</th>
+      <th>UNSUPPORTED_BY_CURRENT_DETECTORS</th>
+      <th>ELEMENT_MATCHING_FAILED</th>
+      <th>EVIDENCE_EXTRACTION_MISSING</th>
+      <th>Total Gaps</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Misalignment</td>
+      <td>17</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td style="font-weight:bold;">17</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Overlapping</td>
+      <td>8</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td style="font-weight:bold;">12</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Repeated hotkey</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td style="font-weight:bold;">7</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Truncation</td>
+      <td>18</td>
+      <td>7</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td style="font-weight:bold;">28</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Untranslation</td>
+      <td>9</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td style="font-weight:bold;">13</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>3. Case-by-Case Gap Diagnostics (77 Cases)</h2>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #10: Civil3d / Civil3d-12 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)<br>• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'AutoCAD Map(R) 3...)<br>• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Drafting layout ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #12: Civil3d / Civil3d-14 (CHT)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• HOTKEY_DEFECT (ERR-0019: HOTKEY_DEFECT: Invalid Hotkey Mnemonic '(&1)'...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #13: Civil3d / Civil3d-16 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• HOTKEY_DEFECT (ERR-0019: HOTKEY_DEFECT: Invalid Hotkey Mnemonic '(&1)'...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #14: Civil3d / Civil3d-23 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #15: Inventor / Inventor-01 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('+'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #16: Inventor / Inventor-12 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #17: Inventor / Inventor-17 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #18: Inventor / Inventor-25 (ESP)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• TRUNCATION (ERR-0009: TRUNCATION: Text Cut Short with Ellipsis ('.....)<br>• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Defaul ipj' Reta...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #19: Inventor / Inventor-27 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Content Center F...)<br>• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Visual Studio 20...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #20: Inventor / Inventor-31 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #21: Inventor / Inventor-37 (RUS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #22: Vault / Vault-28 (HUN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #23: Vault / Vault-32 (PLK)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'CiProgramData Au...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #24: Vault / Vault-35 (ESP)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• MISC (ERR-0006: MISC: Extraneous Localized String ('seguridad...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #25: Vault / Vault-36 (CHT)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #26: Vault / Vault-37 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #27: Vault / Vault-40 (HUN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Misalignment</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• MISC (ERR-0006: MISC: Extraneous Localized String ('osszes fa...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #32: Civil3d / Civil3d-29 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Bounding box horizontal intrusion distance (Box1_right - Box2_left).</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #33: Civil3d / Civil3d-30 (CHT)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Bounding box horizontal intrusion distance (Box1_right - Box2_left).</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Platform Height'...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #34: Inventor / Inventor-07 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Bounding box horizontal intrusion distance (Box1_right - Box2_left).</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)<br>• COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (26p...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #35: Inventor / Inventor-08 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Bounding box horizontal intrusion distance (Box1_right - Box2_left).</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #37: Inventor / Inventor-34 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Bounding box horizontal intrusion distance (Box1_right - Box2_left).</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (24p...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #39: Vault / Vault-04 (HUN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Bounding box horizontal intrusion distance (Box1_right - Box2_left).</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;"><em>None</em></span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #40: Vault / Vault-05 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Complex z-order overlap or text over icon/background bitmap collision.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Foreground text pixel mask overlap with background icon/border contour.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Extraneous Localized String ('contenuto...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('|'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #41: Vault / Vault-06 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Complex z-order overlap or text over icon/background bitmap collision.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Foreground text pixel mask overlap with background icon/border contour.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #42: Vault / Vault-12 (CHT)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Bounding box horizontal intrusion distance (Box1_right - Box2_left).</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• HOTKEY_DEFECT (ERR-0019: HOTKEY_DEFECT: Duplicate Accelerator Shortcut...)<br>• HOTKEY_DEFECT (ERR-0019: HOTKEY_DEFECT: Invalid Hotkey Mnemonic '(&A)'...)<br>• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Microsoft Print ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #44: Vault / Vault-18 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Complex z-order overlap or text over icon/background bitmap collision.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Foreground text pixel mask overlap with background icon/border contour.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Project Files' R...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #45: Vault / Vault-31 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Complex z-order overlap or text over icon/background bitmap collision.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Foreground text pixel mask overlap with background icon/border contour.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Project Files' R...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #47: Vault / Vault-34 (CHS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Overlapping</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Bounding box horizontal intrusion distance (Box1_right - Box2_left).</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('%'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #51: Civil3d / Civil3d-22 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)<br>• MISC (ERR-0006: MISC: Extraneous Localized String ('raster')...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #52: Inventor / Inventor-02 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol (']'...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #53: Inventor / Inventor-28 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('{'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #54: Inventor / Inventor-29 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('$'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #55: Inventor / Inventor-30 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• TRUNCATION (ERR-0009: TRUNCATION: Text Cut Short with Ellipsis ('.....)<br>• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Options' Retaine...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #56: Inventor / Inventor-36 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol (']'...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #57: Vault / Vault-09 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Repeated hotkey</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Program Files  M...)<br>• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Program Files  M...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #59: Civil3d / Civil3d-04 (PLK)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• HOTKEY_DEFECT (ERR-0019: HOTKEY_DEFECT: Invalid Hotkey Mnemonic '(&1)'...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #60: Civil3d / Civil3d-05 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">EVIDENCE_REPRESENTATION_PROBLEM</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Enclosing dialog control bounding box width minus rendered font string width.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Control Text Spilling into Adjac...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #61: Civil3d / Civil3d-10 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #62: Civil3d / Civil3d-17 (HUN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">EVIDENCE_REPRESENTATION_PROBLEM</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Enclosing dialog control bounding box width minus rendered font string width.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #63: Civil3d / Civil3d-19 (ESP)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Extraneous Localized String ('Gavedag')...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #64: Civil3d / Civil3d-20 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;"><em>None</em></span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #65: Civil3d / Civil3d-21 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Truncation occurs inside dynamic custom control (grid, tree, or table column header) not recognized by standard button/input heuristics.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Column cell width constraint vs text line length.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>DETECTOR_MISSED</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #66: Civil3d / Civil3d-26 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;"><em>None</em></span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #67: Civil3d / Civil3d-32 (HUN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Parking Lot' Ret...)<br>• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'AJl Codes with H...)<br>• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Grading Daylight...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #68: Inventor / Inventor-03 (CHS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Truncation occurs inside dynamic custom control (grid, tree, or table column header) not recognized by standard button/input heuristics.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Column cell width constraint vs text line length.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>DETECTOR_MISSED</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #69: Inventor / Inventor-05 (PLK)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">EVIDENCE_REPRESENTATION_PROBLEM</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Enclosing dialog control bounding box width minus rendered font string width.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #70: Inventor / Inventor-18 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;"><em>None</em></span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #71: Inventor / Inventor-19 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">EVIDENCE_REPRESENTATION_PROBLEM</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Enclosing dialog control bounding box width minus rendered font string width.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #72: Inventor / Inventor-21 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">EVIDENCE_REPRESENTATION_PROBLEM</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Enclosing dialog control bounding box width minus rendered font string width.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #74: Inventor / Inventor-35 (PLK)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;"><em>None</em></span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #75: Vault / Vault-01 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">EVIDENCE_REPRESENTATION_PROBLEM</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Enclosing dialog control bounding box width minus rendered font string width.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol (']'...)<br>• TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)<br>• TRUNCATION (ERR-0009: TRUNCATION: Button Text Exceeding Border Marg...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #76: Vault / Vault-02 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #77: Vault / Vault-03 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Name' Retained i...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol (']'...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #78: Vault / Vault-08 (PLK)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #79: Vault / Vault-11 (ESP)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">EVIDENCE_REPRESENTATION_PROBLEM</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Enclosing dialog control bounding box width minus rendered font string width.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #80: Vault / Vault-17 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #81: Vault / Vault-20 (PLK)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #82: Vault / Vault-21 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;"><em>None</em></span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #83: Vault / Vault-23 (ESP)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;"><em>None</em></span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #84: Vault / Vault-24 (CHT)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Truncation occurs inside dynamic custom control (grid, tree, or table column header) not recognized by standard button/input heuristics.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Column cell width constraint vs text line length.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>DETECTOR_MISSED</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #85: Vault / Vault-26 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• MISC (ERR-0006: MISC: Extraneous Localized String ('gabari')...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #87: Vault / Vault-29 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'CiProgramData Au...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #88: Vault / Vault-39 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Truncation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Character terminal bounding edge vs parent clip rect.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;"><em>None</em></span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #89: Civil3d / Civil3d-02 (CHS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Case-insensitive dictionary lookup matching localized token against English baseline vocabulary.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #93: Civil3d / Civil3d-24 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Untranslated text is embedded inside a pre-rendered graphic image or icon label.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">OCR extraction on embedded raster graphics/icons.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>COMPOUND_OR_AMBIGUOUS_GT</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #98: Inventor / Inventor-04 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Case-insensitive dictionary lookup matching localized token against English baseline vocabulary.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #100: Inventor / Inventor-09 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Case-insensitive dictionary lookup matching localized token against English baseline vocabulary.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)<br>• LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #101: Inventor / Inventor-13 (RUS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Case-insensitive dictionary lookup matching localized token against English baseline vocabulary.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;"><em>None</em></span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #102: Inventor / Inventor-16 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Case-insensitive dictionary lookup matching localized token against English baseline vocabulary.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #104: Inventor / Inventor-23 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Untranslated text is embedded inside a pre-rendered graphic image or icon label.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">OCR extraction on embedded raster graphics/icons.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>COMPOUND_OR_AMBIGUOUS_GT</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #105: Vault / Vault-07 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Case-insensitive dictionary lookup matching localized token against English baseline vocabulary.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)<br>• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('='...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #107: Vault / Vault-13 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Case-insensitive dictionary lookup matching localized token against English baseline vocabulary.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Control Text Spilling into Adjac...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #108: Vault / Vault-15 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Case-insensitive dictionary lookup matching localized token against English baseline vocabulary.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('{'...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #110: Vault / Vault-19 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Untranslated text is embedded inside a pre-rendered graphic image or icon label.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">OCR extraction on embedded raster graphics/icons.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)<br>• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>COMPOUND_OR_AMBIGUOUS_GT</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #112: Vault / Vault-25 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">DETECTOR_MISSED</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">Case-insensitive dictionary lookup matching localized token against English baseline vocabulary.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;"><em>None</em></span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>EVIDENCE_EXTRACTION_MISSING</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:15px; font-weight:600;">Case #113: Vault / Vault-30 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class="badge-reason">UNSUPPORTED_BY_CURRENT_DETECTORS</span>
+    </div>
+  </div>
+  
+  <div style="font-size:13px; display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px;">
+    <div>
+      <strong>Missing Evidence:</strong><br>
+      <span style="color:#cbd5e1;">Untranslated text is embedded inside a pre-rendered graphic image or icon label.</span><br><br>
+      <strong>Required Physical Measurement:</strong><br>
+      <code style="color:#4ade80;">OCR extraction on embedded raster graphics/icons.</code>
+    </div>
+    <div>
+      <strong>Current Detector Findings:</strong><br>
+      <span style="color:#94a3b8; font-size:12px;">• MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)</span><br><br>
+      <strong>Secondary Gap Reason:</strong> <span class='badge-sec'>COMPOUND_OR_AMBIGUOUS_GT</span>
+    </div>
+  </div>
+</div>
+</body></html>

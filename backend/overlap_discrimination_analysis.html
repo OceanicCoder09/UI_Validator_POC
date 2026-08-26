@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Overlapping Physical Discrimination Analysis</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 20px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 9px 12px; text-align: right; border-bottom: 1px solid #334155; }
+  th:first-child, td:first-child { text-align: left; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+</style>
+</head>
+<body>
+<h1>Overlapping Physical Discrimination Analysis</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Evaluating the selectivity of geometric collision, bounding-box intrusion, and sibling gap collapse across all 101 benchmark cases (19 Overlapping vs. 82 Non-Overlapping).
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Overlapping with Geometric Collision</div>
+    <div class="card-val" style="color: #4ade80;">14 / 19 (73.7%)</div>
+    <div class="card-sub">new non-zero intersection area</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Non-Overlapping with Collision</div>
+    <div class="card-val" style="color: #f43f5e;">49 / 82 (59.8%)</div>
+    <div class="card-sub">spurious / reflow bounding box collisions</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Overlapping with Gap Collapse</div>
+    <div class="card-val" style="color: #38bdf8;">18 / 19 (94.7%)</div>
+    <div class="card-sub">gutter spacing shrunk &ge; 8px</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Top Separating Feature</div>
+    <div class="card-val" style="font-size:15px;"><code>max_vertical_intrusion_px</code></div>
+    <div class="card-sub">Fisher ratio: 0.0798</div>
+  </div>
+</div>
+
+<h2>1. Physical Feature Discrimination Power</h2>
+
+<h3 style="color:#38bdf8; font-size:15px;">A. Overlapping vs All Non-Overlapping (N = 82)</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Measurement</th>
+      <th>Overlapping Mean</th>
+      <th>Non-Overlapping Mean</th>
+      <th>Separation Ratio (Fisher Criterion)</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>max_vertical_intrusion_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">35.74</td>
+      <td>14.15</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0798</td>
+    </tr>
+
+    <tr>
+      <td><code>residual_unexplained_collisions_count</code></td>
+      <td style="color:#4ade80; font-weight:bold;">4.58</td>
+      <td>2.45</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0676</td>
+    </tr>
+
+    <tr>
+      <td><code>max_horizontal_intrusion_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">120.21</td>
+      <td>76.94</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0490</td>
+    </tr>
+
+    <tr>
+      <td><code>max_gap_collapse_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">134.21</td>
+      <td>113.24</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0413</td>
+    </tr>
+
+    <tr>
+      <td><code>num_newly_created_intersections</code></td>
+      <td style="color:#4ade80; font-weight:bold;">4.84</td>
+      <td>3.15</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0350</td>
+    </tr>
+
+    <tr>
+      <td><code>max_residual_collision_area_px2</code></td>
+      <td style="color:#4ade80; font-weight:bold;">5161.68</td>
+      <td>2539.78</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0202</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="color:#38bdf8; font-size:15px; margin-top:20px;">B. Overlapping vs Misalignment (N = 19 vs N = 19)</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Measurement</th>
+      <th>Overlapping Mean</th>
+      <th>Misalignment Mean</th>
+      <th>Separation Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>residual_unexplained_collisions_count</code></td>
+      <td style="color:#4ade80; font-weight:bold;">4.58</td>
+      <td>1.95</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.1261</td>
+    </tr>
+
+    <tr>
+      <td><code>max_vertical_intrusion_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">35.74</td>
+      <td>14.53</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0870</td>
+    </tr>
+
+    <tr>
+      <td><code>num_newly_created_intersections</code></td>
+      <td style="color:#4ade80; font-weight:bold;">4.84</td>
+      <td>2.68</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0797</td>
+    </tr>
+
+    <tr>
+      <td><code>max_residual_collision_area_px2</code></td>
+      <td style="color:#4ade80; font-weight:bold;">5161.68</td>
+      <td>1613.63</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0748</td>
+    </tr>
+
+    <tr>
+      <td><code>max_intersection_area_px2</code></td>
+      <td style="color:#4ade80; font-weight:bold;">5170.89</td>
+      <td>1704.32</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0716</td>
+    </tr>
+
+    <tr>
+      <td><code>total_intersection_area_px2</code></td>
+      <td style="color:#4ade80; font-weight:bold;">8829.68</td>
+      <td>3411.68</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0627</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="color:#38bdf8; font-size:15px; margin-top:20px;">C. Overlapping vs Truncation (N = 19 vs N = 30)</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Measurement</th>
+      <th>Overlapping Mean</th>
+      <th>Truncation Mean</th>
+      <th>Separation Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>residual_unexplained_collisions_count</code></td>
+      <td style="color:#4ade80; font-weight:bold;">4.58</td>
+      <td>2.03</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.1019</td>
+    </tr>
+
+    <tr>
+      <td><code>max_gap_collapse_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">134.21</td>
+      <td>104.67</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0947</td>
+    </tr>
+
+    <tr>
+      <td><code>max_horizontal_intrusion_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">120.21</td>
+      <td>68.2</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0718</td>
+    </tr>
+
+    <tr>
+      <td><code>num_newly_created_intersections</code></td>
+      <td style="color:#4ade80; font-weight:bold;">4.84</td>
+      <td>2.63</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0653</td>
+    </tr>
+
+    <tr>
+      <td><code>max_vertical_intrusion_px</code></td>
+      <td style="color:#4ade80; font-weight:bold;">35.74</td>
+      <td>16.77</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0514</td>
+    </tr>
+
+    <tr>
+      <td><code>num_gaps_became_non_positive</code></td>
+      <td style="color:#4ade80; font-weight:bold;">15.95</td>
+      <td>11.0</td>
+      <td style="color:#38bdf8; font-weight:bold;">0.0456</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. Full Physical Metrics Across All 5 Categories</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Total Inter Area (Mean/Med)</th>
+      <th>Max Inter Area (Mean/Med)</th>
+      <th>Max Intrusion (Mean/Med)</th>
+      <th>Max Gap Collapse (Mean/Med)</th>
+      <th>Gaps &le; 0 Count</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr style="background: #1e3a5f; font-weight:bold;">
+      <td style="color: #38bdf8;">Overlapping (N=19)</td>
+      <td>8830 px&sup2; / 1624 px&sup2;</td>
+      <td>5171 px&sup2; / 1242 px&sup2;</td>
+      <td>120.2 px / 69.0 px</td>
+      <td>134.2 px / 136.0 px</td>
+      <td>15.9</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Misalignment (N=19)</td>
+      <td>3412 px&sup2; / 1284 px&sup2;</td>
+      <td>1704 px&sup2; / 672 px&sup2;</td>
+      <td>74.7 px / 64.0 px</td>
+      <td>142.3 px / 138.0 px</td>
+      <td>14.7</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Truncation (N=30)</td>
+      <td>8501 px&sup2; / 69 px&sup2;</td>
+      <td>4747 px&sup2; / 63 px&sup2;</td>
+      <td>68.2 px / 24.0 px</td>
+      <td>104.7 px / 94.5 px</td>
+      <td>11.0</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Untranslation (N=26)</td>
+      <td>3926 px&sup2; / 1184 px&sup2;</td>
+      <td>1276 px&sup2; / 596 px&sup2;</td>
+      <td>89.5 px / 36.5 px</td>
+      <td>90.7 px / 61.5 px</td>
+      <td>16.2</td>
+    </tr>
+
+    <tr style="">
+      <td style="color: #f8fafc;">Repeated hotkey (N=7)</td>
+      <td>1894 px&sup2; / 532 px&sup2;</td>
+      <td>1085 px&sup2; / 504 px&sup2;</td>
+      <td>73.7 px / 38.0 px</td>
+      <td>154.7 px / 126.0 px</td>
+      <td>45.9</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

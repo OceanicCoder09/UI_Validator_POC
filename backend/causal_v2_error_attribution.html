@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Post-v2 Error Attribution Analysis Report</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 22px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .badge-arb { background: #0369a1; color: #e0f2fe; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+  .badge-cov { background: #831843; color: #ffe4e6; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+  .badge-unobs { background: #334155; color: #94a3b8; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+  .badge-pass { background: #064e3b; color: #a7f3d0; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+</style>
+</head>
+<body>
+<h1>Post-v2 Error Attribution Analysis Report</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  In-depth attribution audit of remaining errors under Causal Precedence Arbitrator v2 across all 101 benchmark cases.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Arbitration Fixable Errors</div>
+    <div class="card-val" style="color: #38bdf8;">37 cases</div>
+    <div class="card-sub">GT in secondary (52.1% of errors)</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Evidence Coverage Gaps</div>
+    <div class="card-val" style="color: #f43f5e;">27 cases</div>
+    <div class="card-sub">GT absent / sub-pixel noise (38.0%)</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Fundamentally Unobservable</div>
+    <div class="card-val" style="color: #94a3b8;">7 cases</div>
+    <div class="card-sub">Repeated Hotkey native font underlines</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Total Top-2 Captures</div>
+    <div class="card-val" style="color: #4ade80;">67 / 101</div>
+    <div class="card-sub">66.3% full / 71.3% observable</div>
+  </div>
+</div>
+
+<h2>1. Category-Specific Error Analysis</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Ground Truth Category</th>
+      <th>Benchmark N</th>
+      <th>Correct Top-1</th>
+      <th>GT in Secondary</th>
+      <th>GT Absent</th>
+      <th>Most Common Wrong Winner</th>
+      <th>Dominant Failure Mechanism</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>19</td>
+      <td style="color:#4ade80; font-weight:bold;">6</td>
+      <td style="color:#38bdf8; font-weight:bold;">8</td>
+      <td style="color:#f43f5e; font-weight:bold;">5</td>
+      <td style="font-weight:bold;">Truncation (8x)</td>
+      <td style="font-size:12px; color:#cbd5e1;">Displacement accompanied by downstream clipping/intrusion.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>19</td>
+      <td style="color:#4ade80; font-weight:bold;">6</td>
+      <td style="color:#38bdf8; font-weight:bold;">7</td>
+      <td style="color:#f43f5e; font-weight:bold;">6</td>
+      <td style="font-weight:bold;">Misalignment (5x)</td>
+      <td style="font-size:12px; color:#cbd5e1;">Sibling intrusion vs container boundary balance.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Repeated hotkey</td>
+      <td>7</td>
+      <td style="color:#4ade80; font-weight:bold;">0</td>
+      <td style="color:#38bdf8; font-weight:bold;">0</td>
+      <td style="color:#f43f5e; font-weight:bold;">7</td>
+      <td style="font-weight:bold;">Truncation (4x)</td>
+      <td style="font-size:12px; color:#cbd5e1;">Fundamentally unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Truncation</td>
+      <td>30</td>
+      <td style="color:#4ade80; font-weight:bold;">12</td>
+      <td style="color:#38bdf8; font-weight:bold;">7</td>
+      <td style="color:#f43f5e; font-weight:bold;">11</td>
+      <td style="font-weight:bold;">Untranslation (8x)</td>
+      <td style="font-size:12px; color:#cbd5e1;">Sibling intrusion vs container boundary balance.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Untranslation</td>
+      <td>26</td>
+      <td style="color:#4ade80; font-weight:bold;">6</td>
+      <td style="color:#38bdf8; font-weight:bold;">15</td>
+      <td style="color:#f43f5e; font-weight:bold;">5</td>
+      <td style="font-weight:bold;">Overlapping (8x)</td>
+      <td style="font-size:12px; color:#cbd5e1;">Text expansion triggers collision/clipping dominance.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. Case Error Trace Sample (Sample of 30 Cases)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Ground Truth</th>
+      <th>v2 Prediction</th>
+      <th>GT Status</th>
+      <th>GT vs Winner Strength</th>
+      <th>Resolution Path</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold;">#9</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td>PRIMARY</td>
+      <td style="font-size:12px;">GT: <code>1.0</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-pass'>CORRECT</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#10</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>0.756</code> vs Win: <code>0.6</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#11</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td>ABSENT</td>
+      <td style="font-size:12px;">GT: <code>0.019</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-cov'>EVIDENCE GAPS</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#12</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td>PRIMARY</td>
+      <td style="font-size:12px;">GT: <code>0.987</code> vs Win: <code>0.987</code></td>
+      <td><span class='badge-pass'>CORRECT</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#13</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>0.687</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#14</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>1.0</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#15</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td>PRIMARY</td>
+      <td style="font-size:12px;">GT: <code>1.0</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-pass'>CORRECT</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#16</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>0.519</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#17</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>0.786</code> vs Win: <code>0.912</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#18</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>0.534</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#19</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td>ABSENT</td>
+      <td style="font-size:12px;">GT: <code>0.159</code> vs Win: <code>0.6</code></td>
+      <td><span class='badge-cov'>EVIDENCE GAPS</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#20</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td>PRIMARY</td>
+      <td style="font-size:12px;">GT: <code>0.779</code> vs Win: <code>0.779</code></td>
+      <td><span class='badge-pass'>CORRECT</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#21</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td>PRIMARY</td>
+      <td style="font-size:12px;">GT: <code>1.0</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-pass'>CORRECT</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#22</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>0.735</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#23</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Untranslation</td>
+      <td>ABSENT</td>
+      <td style="font-size:12px;">GT: <code>0.315</code> vs Win: <code>0.35</code></td>
+      <td><span class='badge-cov'>EVIDENCE GAPS</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#24</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>0.541</code> vs Win: <code>0.6</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#25</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td>ABSENT</td>
+      <td style="font-size:12px;">GT: <code>0.073</code> vs Win: <code>0.6</code></td>
+      <td><span class='badge-cov'>EVIDENCE GAPS</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#26</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td>ABSENT</td>
+      <td style="font-size:12px;">GT: <code>0.164</code> vs Win: <code>0.6</code></td>
+      <td><span class='badge-cov'>EVIDENCE GAPS</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#27</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td>PRIMARY</td>
+      <td style="font-size:12px;">GT: <code>1.0</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-pass'>CORRECT</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#29</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>1.0</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#30</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>NO_STRONG_OBSERVABLE_DEFECT</td>
+      <td>ABSENT</td>
+      <td style="font-size:12px;">GT: <code>0.0</code> vs Win: <code>0.0</code></td>
+      <td><span class='badge-cov'>EVIDENCE GAPS</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#31</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Truncation</td>
+      <td>ABSENT</td>
+      <td style="font-size:12px;">GT: <code>0.0</code> vs Win: <code>0.6</code></td>
+      <td><span class='badge-cov'>EVIDENCE GAPS</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#32</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Overlapping</td>
+      <td>PRIMARY</td>
+      <td style="font-size:12px;">GT: <code>1.0</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-pass'>CORRECT</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#33</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>1.0</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#34</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Overlapping</td>
+      <td>PRIMARY</td>
+      <td style="font-size:12px;">GT: <code>0.565</code> vs Win: <code>0.565</code></td>
+      <td><span class='badge-pass'>CORRECT</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#35</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>1.0</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#36</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Truncation</td>
+      <td>ABSENT</td>
+      <td style="font-size:12px;">GT: <code>0.0</code> vs Win: <code>0.6</code></td>
+      <td><span class='badge-cov'>EVIDENCE GAPS</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#37</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Truncation</td>
+      <td>ABSENT</td>
+      <td style="font-size:12px;">GT: <code>0.224</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-cov'>EVIDENCE GAPS</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#38</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>1.0</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#39</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td>SECONDARY</td>
+      <td style="font-size:12px;">GT: <code>1.0</code> vs Win: <code>1.0</code></td>
+      <td><span class='badge-arb'>ARBITRATION FIXABLE</span></td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

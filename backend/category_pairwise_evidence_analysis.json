@@ -1,0 +1,98 @@
+{
+  "Misalignment vs Overlapping": {
+    "category_1": "Misalignment",
+    "category_2": "Overlapping",
+    "distinguishing_physical_mechanism": "Misalignment is characterized by column anchor breaks and asynchronous lateral drift without bounding box intersection; Overlapping is defined by positive pixel intrusion and sibling boundary collision.",
+    "shared_or_overlapping_mechanisms": "Both exhibit high raw displacement due to layout reflow.",
+    "complementary_discriminative_features": [
+      "max_column_anchor_break_px (Misalignment)",
+      "max_vertical_intrusion_px & max_intersection_area_px2 (Overlapping)"
+    ]
+  },
+  "Misalignment vs Truncation": {
+    "category_1": "Misalignment",
+    "category_2": "Truncation",
+    "distinguishing_physical_mechanism": "Misalignment displaces controls laterally off-grid while preserving text visibility; Truncation clips text at rigid container edges or appends ellipsis.",
+    "shared_or_overlapping_mechanisms": "Both can be triggered by text length expansion.",
+    "complementary_discriminative_features": [
+      "max_residual_disp_px (Misalignment)",
+      "verified_ellipsis_count & clipping_elements_count (Truncation)"
+    ]
+  },
+  "Misalignment vs Untranslation": {
+    "category_1": "Misalignment",
+    "category_2": "Untranslation",
+    "distinguishing_physical_mechanism": "Misalignment shows large spatial displacement with fully localized text; Untranslation shows near-zero spatial displacement but heavy English lexical retention.",
+    "shared_or_overlapping_mechanisms": "None (Spatial vs Lexical orthogonality).",
+    "complementary_discriminative_features": [
+      "max_column_dx_std (Misalignment)",
+      "total_latin_words_preserved (Untranslation)"
+    ]
+  },
+  "Misalignment vs Repeated hotkey": {
+    "category_1": "Misalignment",
+    "category_2": "Repeated hotkey",
+    "distinguishing_physical_mechanism": "Misalignment has rich structural geometric evidence; Repeated hotkey is visually unobservable via plain OCR.",
+    "shared_or_overlapping_mechanisms": "None.",
+    "complementary_discriminative_features": [
+      "Structural displacement vs Win32 resource metadata."
+    ]
+  },
+  "Overlapping vs Truncation": {
+    "category_1": "Overlapping",
+    "category_2": "Truncation",
+    "distinguishing_physical_mechanism": "Overlapping penetrates into sibling control boundaries; Truncation is confined inside rigid container boundaries.",
+    "shared_or_overlapping_mechanisms": "Both result from text expansion exceeding allocated horizontal space.",
+    "complementary_discriminative_features": [
+      "total_intersection_area_px2 (Overlapping)",
+      "verified_ellipsis_count (Truncation)"
+    ]
+  },
+  "Overlapping vs Untranslation": {
+    "category_1": "Overlapping",
+    "category_2": "Untranslation",
+    "distinguishing_physical_mechanism": "Overlapping is geometric collision; Untranslation is lexical preservation.",
+    "shared_or_overlapping_mechanisms": "None.",
+    "complementary_discriminative_features": [
+      "max_horizontal_intrusion_px (Overlapping)",
+      "genuine_untranslated_strings_count (Untranslation)"
+    ]
+  },
+  "Overlapping vs Repeated hotkey": {
+    "category_1": "Overlapping",
+    "category_2": "Repeated hotkey",
+    "distinguishing_physical_mechanism": "Overlapping is physical collision; Repeated hotkey is unobservable mnemonic conflict.",
+    "shared_or_overlapping_mechanisms": "None.",
+    "complementary_discriminative_features": [
+      "Geometric intrusion vs Resource table parsing."
+    ]
+  },
+  "Truncation vs Untranslation": {
+    "category_1": "Truncation",
+    "category_2": "Untranslation",
+    "distinguishing_physical_mechanism": "Truncation expands and gets clipped; Untranslation stays in English and does not expand.",
+    "shared_or_overlapping_mechanisms": "Both involve text content.",
+    "complementary_discriminative_features": [
+      "verified_ellipsis_count (Truncation)",
+      "total_latin_words_preserved (Untranslation)"
+    ]
+  },
+  "Truncation vs Repeated hotkey": {
+    "category_1": "Truncation",
+    "category_2": "Repeated hotkey",
+    "distinguishing_physical_mechanism": "Truncation is visible boundary clipping/ellipsis; Repeated hotkey is unobservable via OCR.",
+    "shared_or_overlapping_mechanisms": "None.",
+    "complementary_discriminative_features": [
+      "Ellipsis/clipping vs Resource table parsing."
+    ]
+  },
+  "Untranslation vs Repeated hotkey": {
+    "category_1": "Untranslation",
+    "category_2": "Repeated hotkey",
+    "distinguishing_physical_mechanism": "Untranslation retains user-facing English words; Repeated hotkey involves duplicate accelerator keys.",
+    "shared_or_overlapping_mechanisms": "Both are text/symbol level defects.",
+    "complementary_discriminative_features": [
+      "Preserved Latin dictionary words vs Accelerator mnemonics."
+    ]
+  }
+}

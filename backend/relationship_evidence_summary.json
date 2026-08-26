@@ -1,0 +1,1042 @@
+[
+  {
+    "case_id": 9,
+    "product": "Civil3d",
+    "folder": "Civil3d-01",
+    "lang": "RUS",
+    "gt_category": "Misalignment",
+    "total_relationships_evaluated": 29,
+    "median_global_shift": {
+      "dx": 23.0,
+      "dy": 4.0
+    },
+    "has_clear_independent_displacement": true,
+    "has_newly_created_intersection": true,
+    "ranked_evidence": [
+      {
+        "element": "E24 (Create)",
+        "neighbor": "E_C5 ()",
+        "mechanism": "NEW_OVERLAP_COLLISION",
+        "relationship": "Bounding-Box Intersection Area",
+        "before": "0px\u00b2 (Clean)",
+        "after": "1600px\u00b2 (Colliding)",
+        "delta": "+1600px\u00b2 intersection",
+        "evidence_strength": 1600.0,
+        "evidence_type": "OVERLAP_INTERSECTION"
+      },
+      {
+        "element": "E12 (Parent Feature Line)",
+        "neighbor": "E9 (C-TOPO-FEAT)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (433.0px rel)",
+        "delta": "433.0px delta",
+        "evidence_strength": 433.04,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E_C4 ()",
+        "neighbor": "E21 (Grade to Distance)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (430.0px rel)",
+        "delta": "430.0px delta",
+        "evidence_strength": 430.03,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E12 (Parent Feature Line)",
+        "neighbor": "E14 (Side)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (395.0px rel)",
+        "delta": "395.0px delta",
+        "evidence_strength": 394.99,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E12 (Parent Feature Line)",
+        "neighbor": "E14 (Side)",
+        "mechanism": "INDEPENDENT_COLUMN_DISPLACEMENT",
+        "relationship": "Left-Anchor Column Alignment",
+        "before": "2px aligned",
+        "after": "392px shifted",
+        "delta": "+390px divergence",
+        "evidence_strength": 392.0,
+        "evidence_type": "COLUMN_MISALIGNMENT"
+      },
+      {
+        "element": "E12 (Parent Feature Line)",
+        "neighbor": "E15 (Start station)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (391.5px rel)",
+        "delta": "391.5px delta",
+        "evidence_strength": 391.48,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E12 (Parent Feature Line)",
+        "neighbor": "E17 (Critera)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (390.0px rel)",
+        "delta": "390.0px delta",
+        "evidence_strength": 390.01,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E12 (Parent Feature Line)",
+        "neighbor": "E17 (Critera)",
+        "mechanism": "INDEPENDENT_COLUMN_DISPLACEMENT",
+        "relationship": "Left-Anchor Column Alignment",
+        "before": "0px aligned",
+        "after": "390px shifted",
+        "delta": "+390px divergence",
+        "evidence_strength": 390.0,
+        "evidence_type": "COLUMN_MISALIGNMENT"
+      }
+    ]
+  },
+  {
+    "case_id": 10,
+    "product": "Civil3d",
+    "folder": "Civil3d-12",
+    "lang": "FRA",
+    "gt_category": "Misalignment",
+    "total_relationships_evaluated": 37,
+    "median_global_shift": {
+      "dx": 18.0,
+      "dy": 0.0
+    },
+    "has_clear_independent_displacement": true,
+    "has_newly_created_intersection": false,
+    "ranked_evidence": [
+      {
+        "element": "E4 (Color Books)",
+        "neighbor": "E_C7 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (103.0px rel)",
+        "delta": "103.0px delta",
+        "evidence_strength": 103.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E4 (Color Books)",
+        "neighbor": "E8 (RGB Equivalent:)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (102.0px rel)",
+        "delta": "102.0px delta",
+        "evidence_strength": 102.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E4 (Color Books)",
+        "neighbor": "E12 (Green:)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (100.0px rel)",
+        "delta": "100.0px delta",
+        "evidence_strength": 100.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E4 (Color Books)",
+        "neighbor": "E_C7 ()",
+        "mechanism": "INDEPENDENT_COLUMN_DISPLACEMENT",
+        "relationship": "Left-Anchor Column Alignment",
+        "before": "3px aligned",
+        "after": "100px shifted",
+        "delta": "+97px divergence",
+        "evidence_strength": 100.0,
+        "evidence_type": "COLUMN_MISALIGNMENT"
+      },
+      {
+        "element": "E4 (Color Books)",
+        "neighbor": "E9 (Red:)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (100.0px rel)",
+        "delta": "100.0px delta",
+        "evidence_strength": 100.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E4 (Color Books)",
+        "neighbor": "E14 (Blue:)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (100.0px rel)",
+        "delta": "100.0px delta",
+        "evidence_strength": 100.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E4 (Color Books)",
+        "neighbor": "E10 (255)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (90.0px rel)",
+        "delta": "90.0px delta",
+        "evidence_strength": 90.02,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (True Color)",
+        "neighbor": "E_C7 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (79.0px rel)",
+        "delta": "79.0px delta",
+        "evidence_strength": 79.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      }
+    ]
+  },
+  {
+    "case_id": 11,
+    "product": "Civil3d",
+    "folder": "Civil3d-13",
+    "lang": "ESP",
+    "gt_category": "Misalignment",
+    "total_relationships_evaluated": 28,
+    "median_global_shift": {
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "has_clear_independent_displacement": true,
+    "has_newly_created_intersection": false,
+    "ranked_evidence": [
+      {
+        "element": "E5 (Counter(CP)]>)",
+        "neighbor": "E1 (Create Daylight Feat)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (78.0px rel)",
+        "delta": "78.0px delta",
+        "evidence_strength": 78.01,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E5 (Counter(CP)]>)",
+        "neighbor": "E3 (Name)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (77.0px rel)",
+        "delta": "77.0px delta",
+        "evidence_strength": 77.03,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E5 (Counter(CP)]>)",
+        "neighbor": "E6 (Style)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (77.0px rel)",
+        "delta": "77.0px delta",
+        "evidence_strength": 77.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E5 (Counter(CP)]>)",
+        "neighbor": "E7 (Basic Feature Line)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (77.0px rel)",
+        "delta": "77.0px delta",
+        "evidence_strength": 77.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E5 (Counter(CP)]>)",
+        "neighbor": "E9 (C-TOPO-FEAT)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (77.0px rel)",
+        "delta": "77.0px delta",
+        "evidence_strength": 77.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E_C2 ()",
+        "neighbor": "E16 (End station)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (38.1px rel)",
+        "delta": "38.1px delta",
+        "evidence_strength": 38.05,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E_C2 ()",
+        "neighbor": "E19 (Criteria)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (38.0px rel)",
+        "delta": "38.0px delta",
+        "evidence_strength": 38.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E_C2 ()",
+        "neighbor": "E_C1 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (38.0px rel)",
+        "delta": "38.0px delta",
+        "evidence_strength": 38.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      }
+    ]
+  },
+  {
+    "case_id": 15,
+    "product": "Inventor",
+    "folder": "Inventor-01",
+    "lang": "JPN",
+    "gt_category": "Misalignment",
+    "total_relationships_evaluated": 37,
+    "median_global_shift": {
+      "dx": -17.0,
+      "dy": -4.0
+    },
+    "has_clear_independent_displacement": true,
+    "has_newly_created_intersection": true,
+    "ranked_evidence": [
+      {
+        "element": "E17 (2 Angle:)",
+        "neighbor": "E_C13 ()",
+        "mechanism": "NEW_OVERLAP_COLLISION",
+        "relationship": "Bounding-Box Intersection Area",
+        "before": "0px\u00b2 (Clean)",
+        "after": "1957px\u00b2 (Colliding)",
+        "delta": "+1957px\u00b2 intersection",
+        "evidence_strength": 1957.0,
+        "evidence_type": "OVERLAP_INTERSECTION"
+      },
+      {
+        "element": "E17 (2 Angle:)",
+        "neighbor": "E16 (-113385.000 mn)",
+        "mechanism": "NEW_OVERLAP_COLLISION",
+        "relationship": "Bounding-Box Intersection Area",
+        "before": "0px\u00b2 (Clean)",
+        "after": "1280px\u00b2 (Colliding)",
+        "delta": "+1280px\u00b2 intersection",
+        "evidence_strength": 1280.0,
+        "evidence_type": "OVERLAP_INTERSECTION"
+      },
+      {
+        "element": "E_C18 ()",
+        "neighbor": "E_C24 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (269.4px rel)",
+        "delta": "269.4px delta",
+        "evidence_strength": 269.42,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E19 (Density gradient:)",
+        "neighbor": "E11 (Y Offset:)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (263.1px rel)",
+        "delta": "263.1px delta",
+        "evidence_strength": 263.1,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E19 (Density gradient:)",
+        "neighbor": "E15 (2 Offset:)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (261.1px rel)",
+        "delta": "261.1px delta",
+        "evidence_strength": 261.11,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E19 (Density gradient:)",
+        "neighbor": "E26 (Scale:)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (260.5px rel)",
+        "delta": "260.5px delta",
+        "evidence_strength": 260.49,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E19 (Density gradient:)",
+        "neighbor": "E_C23 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (260.4px rel)",
+        "delta": "260.4px delta",
+        "evidence_strength": 260.43,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E19 (Density gradient:)",
+        "neighbor": "E26 (Scale:)",
+        "mechanism": "INDEPENDENT_COLUMN_DISPLACEMENT",
+        "relationship": "Left-Anchor Column Alignment",
+        "before": "0px aligned",
+        "after": "260px shifted",
+        "delta": "+260px divergence",
+        "evidence_strength": 260.0,
+        "evidence_type": "COLUMN_MISALIGNMENT"
+      }
+    ]
+  },
+  {
+    "case_id": 22,
+    "product": "Vault",
+    "folder": "Vault-28",
+    "lang": "HUN",
+    "gt_category": "Misalignment",
+    "total_relationships_evaluated": 60,
+    "median_global_shift": {
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "has_clear_independent_displacement": true,
+    "has_newly_created_intersection": true,
+    "ranked_evidence": [
+      {
+        "element": "E2 (Files)",
+        "neighbor": "E3 (Visualization)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (472.0px rel)",
+        "delta": "472.0px delta",
+        "evidence_strength": 472.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E2 (Files)",
+        "neighbor": "E1 (Vault Settings)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (440.0px rel)",
+        "delta": "440.0px delta",
+        "evidence_strength": 440.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E2 (Files)",
+        "neighbor": "E8 (File Options)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (440.0px rel)",
+        "delta": "440.0px delta",
+        "evidence_strength": 440.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E2 (Files)",
+        "neighbor": "E9 (Define Unique File N)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (440.0px rel)",
+        "delta": "440.0px delta",
+        "evidence_strength": 440.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E2 (Files)",
+        "neighbor": "E13 (Working Folder)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (440.0px rel)",
+        "delta": "440.0px delta",
+        "evidence_strength": 440.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E2 (Files)",
+        "neighbor": "E_C4 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (440.0px rel)",
+        "delta": "440.0px delta",
+        "evidence_strength": 440.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E2 (Files)",
+        "neighbor": "E_C7 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (440.0px rel)",
+        "delta": "440.0px delta",
+        "evidence_strength": 440.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E2 (Files)",
+        "neighbor": "E4 (Behaviors)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (438.0px rel)",
+        "delta": "438.0px delta",
+        "evidence_strength": 438.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      }
+    ]
+  },
+  {
+    "case_id": 30,
+    "product": "Civil3d",
+    "folder": "Civil3d-18",
+    "lang": "CSY",
+    "gt_category": "Overlapping",
+    "total_relationships_evaluated": 21,
+    "median_global_shift": {
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "has_clear_independent_displacement": true,
+    "has_newly_created_intersection": false,
+    "ranked_evidence": [
+      {
+        "element": "E3 (this surface)",
+        "neighbor": "E6 (point groups and fig)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (191.2px rel)",
+        "delta": "191.2px delta",
+        "evidence_strength": 191.17,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (this surface)",
+        "neighbor": "E8 (Use these survey que)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (104.1px rel)",
+        "delta": "104.1px delta",
+        "evidence_strength": 104.08,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (this surface)",
+        "neighbor": "E5 (Insert query results)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (102.3px rel)",
+        "delta": "102.3px delta",
+        "evidence_strength": 102.31,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (this surface)",
+        "neighbor": "E7 (Reference the survey)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (102.3px rel)",
+        "delta": "102.3px delta",
+        "evidence_strength": 102.31,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (this surface)",
+        "neighbor": "E_C4 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (102.1px rel)",
+        "delta": "102.1px delta",
+        "evidence_strength": 102.08,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (this surface)",
+        "neighbor": "E1 (Add Survey Query Res)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (102.0px rel)",
+        "delta": "102.0px delta",
+        "evidence_strength": 102.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (this surface)",
+        "neighbor": "E_C2 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (102.0px rel)",
+        "delta": "102.0px delta",
+        "evidence_strength": 102.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (this surface)",
+        "neighbor": "E4 (Query Results)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (101.2px rel)",
+        "delta": "101.2px delta",
+        "evidence_strength": 101.18,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      }
+    ]
+  },
+  {
+    "case_id": 31,
+    "product": "Civil3d",
+    "folder": "Civil3d-28",
+    "lang": "PTB",
+    "gt_category": "Overlapping",
+    "total_relationships_evaluated": 40,
+    "median_global_shift": {
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "has_clear_independent_displacement": true,
+    "has_newly_created_intersection": true,
+    "ranked_evidence": [
+      {
+        "element": "E1 (Create Reports - Cro)",
+        "neighbor": "E2 (Crossing Breakine)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (90.0px rel)",
+        "delta": "90.0px delta",
+        "evidence_strength": 90.01,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E1 (Create Reports - Cro)",
+        "neighbor": "E9 (pointsandthe)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (89.3px rel)",
+        "delta": "89.3px delta",
+        "evidence_strength": 89.27,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E5 (breaklines inthe cur)",
+        "neighbor": "E1 (Create Reports - Cro)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (89.0px rel)",
+        "delta": "89.0px delta",
+        "evidence_strength": 88.96,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E1 (Create Reports - Cro)",
+        "neighbor": "E11 (List of Objects)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (88.1px rel)",
+        "delta": "88.1px delta",
+        "evidence_strength": 88.05,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E1 (Create Reports - Cro)",
+        "neighbor": "E_C2 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (88.0px rel)",
+        "delta": "88.0px delta",
+        "evidence_strength": 88.01,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E1 (Create Reports - Cro)",
+        "neighbor": "E12 (Survey databases)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (86.0px rel)",
+        "delta": "86.0px delta",
+        "evidence_strength": 86.01,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E1 (Create Reports - Cro)",
+        "neighbor": "E_C2 ()",
+        "mechanism": "INDEPENDENT_COLUMN_DISPLACEMENT",
+        "relationship": "Left-Anchor Column Alignment",
+        "before": "2px aligned",
+        "after": "86px shifted",
+        "delta": "+84px divergence",
+        "evidence_strength": 86.0,
+        "evidence_type": "COLUMN_MISALIGNMENT"
+      },
+      {
+        "element": "E3 (The Crossing Breakli)",
+        "neighbor": "E9 (pointsandthe)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (84.8px rel)",
+        "delta": "84.8px delta",
+        "evidence_strength": 84.76,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      }
+    ]
+  },
+  {
+    "case_id": 32,
+    "product": "Civil3d",
+    "folder": "Civil3d-29",
+    "lang": "FRA",
+    "gt_category": "Overlapping",
+    "total_relationships_evaluated": 40,
+    "median_global_shift": {
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "has_clear_independent_displacement": true,
+    "has_newly_created_intersection": true,
+    "ranked_evidence": [
+      {
+        "element": "E9 (Select baseline:)",
+        "neighbor": "E_C6 ()",
+        "mechanism": "NEW_OVERLAP_COLLISION",
+        "relationship": "Bounding-Box Intersection Area",
+        "before": "0px\u00b2 (Clean)",
+        "after": "1898px\u00b2 (Colliding)",
+        "delta": "+1898px\u00b2 intersection",
+        "evidence_strength": 1898.0,
+        "evidence_type": "OVERLAP_INTERSECTION"
+      },
+      {
+        "element": "E17 (Start station:)",
+        "neighbor": "E_C11 ()",
+        "mechanism": "NEW_OVERLAP_COLLISION",
+        "relationship": "Bounding-Box Intersection Area",
+        "before": "0px\u00b2 (Clean)",
+        "after": "1300px\u00b2 (Colliding)",
+        "delta": "+1300px\u00b2 intersection",
+        "evidence_strength": 1300.0,
+        "evidence_type": "OVERLAP_INTERSECTION"
+      },
+      {
+        "element": "E_C9 ()",
+        "neighbor": "E12 (width:)",
+        "mechanism": "NEW_OVERLAP_COLLISION",
+        "relationship": "Bounding-Box Intersection Area",
+        "before": "0px\u00b2 (Clean)",
+        "after": "516px\u00b2 (Colliding)",
+        "delta": "+516px\u00b2 intersection",
+        "evidence_strength": 516.0,
+        "evidence_type": "OVERLAP_INTERSECTION"
+      },
+      {
+        "element": "E23 (DMINI~1!AppData Loca)",
+        "neighbor": "E19 (Save)",
+        "mechanism": "SIBLING_GAP_COLLAPSED",
+        "relationship": "Horizontal Sibling Gutter Gap",
+        "before": "30px gap",
+        "after": "-66px gap (Collapsed)",
+        "delta": "-96px gap change",
+        "evidence_strength": 224.0,
+        "evidence_type": "GAP_COLLAPSE"
+      },
+      {
+        "element": "E5 (portdisplays the mil)",
+        "neighbor": "E_C6 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (105.1px rel)",
+        "delta": "105.1px delta",
+        "evidence_strength": 105.08,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E5 (portdisplays the mil)",
+        "neighbor": "E_C3 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (104.0px rel)",
+        "delta": "104.0px delta",
+        "evidence_strength": 104.04,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E5 (portdisplays the mil)",
+        "neighbor": "E7 (Select report compon)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (104.0px rel)",
+        "delta": "104.0px delta",
+        "evidence_strength": 104.02,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E5 (portdisplays the mil)",
+        "neighbor": "E9 (Select baseline:)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (104.0px rel)",
+        "delta": "104.0px delta",
+        "evidence_strength": 104.02,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      }
+    ]
+  },
+  {
+    "case_id": 37,
+    "product": "Inventor",
+    "folder": "Inventor-34",
+    "lang": "KOR",
+    "gt_category": "Overlapping",
+    "total_relationships_evaluated": 82,
+    "median_global_shift": {
+      "dx": 0.0,
+      "dy": 0.0
+    },
+    "has_clear_independent_displacement": true,
+    "has_newly_created_intersection": true,
+    "ranked_evidence": [
+      {
+        "element": "E32 (Faz)",
+        "neighbor": "E_C14 ()",
+        "mechanism": "SIBLING_GAP_COLLAPSED",
+        "relationship": "Horizontal Sibling Gutter Gap",
+        "before": "13px gap",
+        "after": "-122px gap (Collapsed)",
+        "delta": "-135px gap change",
+        "evidence_strength": 748.64,
+        "evidence_type": "GAP_COLLAPSE"
+      },
+      {
+        "element": "E32 (Faz)",
+        "neighbor": "E36 (105.)",
+        "mechanism": "SIBLING_GAP_COLLAPSED",
+        "relationship": "Horizontal Sibling Gutter Gap",
+        "before": "106px gap",
+        "after": "-26px gap (Collapsed)",
+        "delta": "-132px gap change",
+        "evidence_strength": 732.0,
+        "evidence_type": "GAP_COLLAPSE"
+      },
+      {
+        "element": "E32 (Faz)",
+        "neighbor": "E37 (MPa)",
+        "mechanism": "SIBLING_GAP_COLLAPSED",
+        "relationship": "Horizontal Sibling Gutter Gap",
+        "before": "72px gap",
+        "after": "-26px gap (Collapsed)",
+        "delta": "-98px gap change",
+        "evidence_strength": 543.45,
+        "evidence_type": "GAP_COLLAPSE"
+      },
+      {
+        "element": "E32 (Faz)",
+        "neighbor": "E36 (105.)",
+        "mechanism": "NEW_OVERLAP_COLLISION",
+        "relationship": "Bounding-Box Intersection Area",
+        "before": "0px\u00b2 (Clean)",
+        "after": "416px\u00b2 (Colliding)",
+        "delta": "+416px\u00b2 intersection",
+        "evidence_strength": 416.0,
+        "evidence_type": "OVERLAP_INTERSECTION"
+      },
+      {
+        "element": "E32 (Faz)",
+        "neighbor": "E37 (MPa)",
+        "mechanism": "NEW_OVERLAP_COLLISION",
+        "relationship": "Bounding-Box Intersection Area",
+        "before": "0px\u00b2 (Clean)",
+        "after": "364px\u00b2 (Colliding)",
+        "delta": "+364px\u00b2 intersection",
+        "evidence_strength": 364.0,
+        "evidence_type": "OVERLAP_INTERSECTION"
+      },
+      {
+        "element": "E32 (Faz)",
+        "neighbor": "E_C14 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (142.9px rel)",
+        "delta": "142.9px delta",
+        "evidence_strength": 142.86,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E32 (Faz)",
+        "neighbor": "E36 (105.)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (138.4px rel)",
+        "delta": "138.4px delta",
+        "evidence_strength": 138.44,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E32 (Faz)",
+        "neighbor": "E_C8 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (138.3px rel)",
+        "delta": "138.3px delta",
+        "evidence_strength": 138.29,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      }
+    ]
+  },
+  {
+    "case_id": 44,
+    "product": "Vault",
+    "folder": "Vault-18",
+    "lang": "JPN",
+    "gt_category": "Overlapping",
+    "total_relationships_evaluated": 8,
+    "median_global_shift": {
+      "dx": -0.5,
+      "dy": -3.0
+    },
+    "has_clear_independent_displacement": true,
+    "has_newly_created_intersection": false,
+    "ranked_evidence": [
+      {
+        "element": "E_C2 ()",
+        "neighbor": "E_C4 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (44.6px rel)",
+        "delta": "44.6px delta",
+        "evidence_strength": 44.64,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (Volantis Testing(pro)",
+        "neighbor": "E_C4 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (43.7px rel)",
+        "delta": "43.7px delta",
+        "evidence_strength": 43.68,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (Volantis Testing(pro)",
+        "neighbor": "E_C4 ()",
+        "mechanism": "INDEPENDENT_COLUMN_DISPLACEMENT",
+        "relationship": "Left-Anchor Column Alignment",
+        "before": "4px aligned",
+        "after": "38px shifted",
+        "delta": "+34px divergence",
+        "evidence_strength": 38.0,
+        "evidence_type": "COLUMN_MISALIGNMENT"
+      },
+      {
+        "element": "E_C2 ()",
+        "neighbor": "E_C1 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (32.6px rel)",
+        "delta": "32.6px delta",
+        "evidence_strength": 32.56,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (Volantis Testing(pro)",
+        "neighbor": "E_C1 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (31.6px rel)",
+        "delta": "31.6px delta",
+        "evidence_strength": 31.58,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E_C4 ()",
+        "neighbor": "E_C1 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (21.1px rel)",
+        "delta": "21.1px delta",
+        "evidence_strength": 21.1,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E_C3 ()",
+        "neighbor": "E_C1 ()",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (14.0px rel)",
+        "delta": "14.0px delta",
+        "evidence_strength": 14.0,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      },
+      {
+        "element": "E3 (Volantis Testing(pro)",
+        "neighbor": "E4 (Name)",
+        "mechanism": "INDEPENDENT_RELATIVE_MOVEMENT",
+        "relationship": "Relative Movement (\u0394dx, \u0394dy)",
+        "before": "Synchronized (0px rel)",
+        "after": "Displaced (12.1px rel)",
+        "delta": "12.1px delta",
+        "evidence_strength": 12.08,
+        "evidence_type": "INDEPENDENT_MOVEMENT"
+      }
+    ]
+  }
+]

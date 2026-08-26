@@ -1,0 +1,2266 @@
+{
+  "benchmark_comparison": {
+    "full_5_category": {
+      "baseline_top1_pct": 26.73,
+      "v2_top1_pct": 29.7,
+      "v3_top1_pct": 29.7,
+      "v3_vs_v2_top1_delta_pct": 0.0,
+      "baseline_top2_pct": 65.35,
+      "v2_top2_pct": 66.34,
+      "v3_top2_pct": 68.32,
+      "v3_vs_v2_top2_delta_pct": 1.98,
+      "v3_macro_f1": 24.99,
+      "v3_balanced_acc_pct": 25.07
+    },
+    "observable_4_category": {
+      "baseline_top1_pct": 28.72,
+      "v2_top1_pct": 31.91,
+      "v3_top1_pct": 31.91,
+      "v3_vs_v2_top1_delta_pct": 0.0,
+      "baseline_top2_pct": 70.21,
+      "v2_top2_pct": 71.28,
+      "v3_top2_pct": 73.4,
+      "v3_vs_v2_top2_delta_pct": 2.12,
+      "v3_macro_f1": 31.24,
+      "v3_balanced_acc_pct": 31.33
+    }
+  },
+  "v3_controlled_diff_summary": {
+    "corrections_over_v2_count": 8,
+    "regressions_over_v2_count": 8,
+    "net_v3_gain_cases": 0,
+    "remaining_arbitration_errors_gt_in_secondary": 39,
+    "remaining_coverage_errors_gt_absent": 32,
+    "total_remaining_errors": 71
+  },
+  "per_category_metrics_v3": {
+    "Misalignment": {
+      "ground_truth_count": 19,
+      "predicted_count": 18,
+      "true_positives": 7,
+      "precision_pct": 38.89,
+      "recall_pct": 36.84,
+      "f1_score": 37.84
+    },
+    "Overlapping": {
+      "ground_truth_count": 19,
+      "predicted_count": 11,
+      "true_positives": 4,
+      "precision_pct": 36.36,
+      "recall_pct": 21.05,
+      "f1_score": 26.67
+    },
+    "Truncation": {
+      "ground_truth_count": 30,
+      "predicted_count": 39,
+      "true_positives": 11,
+      "precision_pct": 28.21,
+      "recall_pct": 36.67,
+      "f1_score": 31.88
+    },
+    "Untranslation": {
+      "ground_truth_count": 26,
+      "predicted_count": 30,
+      "true_positives": 8,
+      "precision_pct": 26.67,
+      "recall_pct": 30.77,
+      "f1_score": 28.57
+    },
+    "Repeated hotkey": {
+      "ground_truth_count": 7,
+      "predicted_count": 0,
+      "true_positives": 0,
+      "precision_pct": 0.0,
+      "recall_pct": 0.0,
+      "f1_score": 0.0
+    }
+  },
+  "confusion_matrix_v3": {
+    "Misalignment": {
+      "Misalignment": 7,
+      "Untranslation": 2,
+      "Truncation": 10,
+      "Overlapping": 0,
+      "Repeated hotkey": 0
+    },
+    "Overlapping": {
+      "Misalignment": 4,
+      "Truncation": 4,
+      "Untranslation": 6,
+      "Overlapping": 4,
+      "NO_STRONG_OBSERVABLE_DEFECT": 1,
+      "Repeated hotkey": 0
+    },
+    "Repeated hotkey": {
+      "Misalignment": 1,
+      "Truncation": 5,
+      "Untranslation": 1,
+      "Overlapping": 0,
+      "Repeated hotkey": 0
+    },
+    "Truncation": {
+      "Untranslation": 13,
+      "Truncation": 11,
+      "NO_STRONG_OBSERVABLE_DEFECT": 2,
+      "Misalignment": 3,
+      "Overlapping": 1,
+      "Repeated hotkey": 0
+    },
+    "Untranslation": {
+      "Overlapping": 6,
+      "Untranslation": 8,
+      "Truncation": 9,
+      "Misalignment": 3,
+      "Repeated hotkey": 0
+    }
+  },
+  "case_diffs": [
+    {
+      "case_id": 9,
+      "product": "Civil3d",
+      "folder": "Civil3d-01",
+      "language": "RUS",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "v3_secondary": [
+        "Overlapping",
+        "Truncation",
+        "Untranslation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (486.0px anchor break, 393.5px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.720), Truncation (strength: 0.450), Untranslation (strength: 0.292). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 10,
+      "product": "Civil3d",
+      "folder": "Civil3d-12",
+      "language": "FRA",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Truncation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (10 untranslated strings, 18 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650), Misalignment (strength: 0.640). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 11,
+      "product": "Civil3d",
+      "folder": "Civil3d-13",
+      "language": "ESP",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 120px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 12,
+      "product": "Civil3d",
+      "folder": "Civil3d-14",
+      "language": "CHT",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping",
+        "Truncation",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Untranslation",
+        "Overlapping"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (187.0px anchor break, 93.6px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.900), Untranslation (strength: 0.708), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 13,
+      "product": "Civil3d",
+      "folder": "Civil3d-16",
+      "language": "KOR",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Misalignment",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Overlapping",
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": true,
+      "corrected": true,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (95.0px anchor break, 92.0px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 1.000), Untranslation (strength: 0.458). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 14,
+      "product": "Civil3d",
+      "folder": "Civil3d-23",
+      "language": "FRA",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation",
+        "Overlapping",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (7 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Misalignment (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 15,
+      "product": "Inventor",
+      "folder": "Inventor-01",
+      "language": "JPN",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Overlapping"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (260.0px anchor break, 260.9px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 1.000), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 16,
+      "product": "Inventor",
+      "folder": "Inventor-12",
+      "language": "FRA",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Truncation",
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Overlapping",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Overlapping (strength: 0.700), Misalignment (strength: 0.685). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 17,
+      "product": "Inventor",
+      "folder": "Inventor-17",
+      "language": "CSY",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Truncation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Misalignment",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (4 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 1.000), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 18,
+      "product": "Inventor",
+      "folder": "Inventor-25",
+      "language": "ESP",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Truncation",
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Overlapping",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (9 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Overlapping (strength: 0.700), Misalignment (strength: 0.531). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 19,
+      "product": "Inventor",
+      "folder": "Inventor-27",
+      "language": "JPN",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Overlapping",
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.651), Untranslation (strength: 0.354). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 20,
+      "product": "Inventor",
+      "folder": "Inventor-31",
+      "language": "DEU",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Overlapping"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 0.935) driven by Structural Column Grid Break (115.0px anchor break, 60.5px residual drift). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 0.808), Overlapping (strength: 0.361). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 21,
+      "product": "Inventor",
+      "folder": "Inventor-37",
+      "language": "RUS",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (184.0px anchor break, 184.0px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 22,
+      "product": "Vault",
+      "folder": "Vault-28",
+      "language": "HUN",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (5 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.940). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 23,
+      "product": "Vault",
+      "folder": "Vault-32",
+      "language": "PLK",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.829) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 5 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 24,
+      "product": "Vault",
+      "folder": "Vault-35",
+      "language": "ESP",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.712). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 25,
+      "product": "Vault",
+      "folder": "Vault-36",
+      "language": "CHT",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.293). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 26,
+      "product": "Vault",
+      "folder": "Vault-37",
+      "language": "CSY",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 27,
+      "product": "Vault",
+      "folder": "Vault-40",
+      "language": "HUN",
+      "ground_truth": "Misalignment",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Truncation",
+        "Overlapping",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Untranslation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (227.0px anchor break, 208.0px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.900), Untranslation (strength: 0.458). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 29,
+      "product": "Civil3d",
+      "folder": "Civil3d-06",
+      "language": "RUS",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (464.0px anchor break, 438.3px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 30,
+      "product": "Civil3d",
+      "folder": "Civil3d-18",
+      "language": "CSY",
+      "ground_truth": "Overlapping",
+      "v2_primary": "NO_STRONG_OBSERVABLE_DEFECT",
+      "v3_primary": "Truncation",
+      "v2_secondary": [],
+      "v3_secondary": [
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 0.400) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.350). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 31,
+      "product": "Civil3d",
+      "folder": "Civil3d-28",
+      "language": "PTB",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Truncation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (3 untranslated strings, 9 Latin words). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.900), Misalignment (strength: 0.734). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 32,
+      "product": "Civil3d",
+      "folder": "Civil3d-29",
+      "language": "FRA",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Overlapping",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (3784px\u00b2 overlap area, 146.0px intrusion). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 33,
+      "product": "Civil3d",
+      "folder": "Civil3d-30",
+      "language": "CHT",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (233.0px anchor break, 232.4px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 34,
+      "product": "Inventor",
+      "folder": "Inventor-07",
+      "language": "PTB",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Overlapping"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": true,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (3 untranslated strings, 3 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.725). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 35,
+      "product": "Inventor",
+      "folder": "Inventor-08",
+      "language": "JPN",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (307.0px anchor break, 309.1px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.900), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 36,
+      "product": "Inventor",
+      "folder": "Inventor-33",
+      "language": "ITA",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Truncation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Truncation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (3 untranslated strings, 3 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 37,
+      "product": "Inventor",
+      "folder": "Inventor-34",
+      "language": "KOR",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (9 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 38,
+      "product": "Inventor",
+      "folder": "Inventor-39",
+      "language": "ESP",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (142.0px anchor break, 142.0px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 39,
+      "product": "Vault",
+      "folder": "Vault-04",
+      "language": "HUN",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Overlapping",
+      "v2_secondary": [
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": true,
+      "corrected": true,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (21651px\u00b2 overlap area, 66.0px intrusion). Causal Precedence: Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.875). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 40,
+      "product": "Vault",
+      "folder": "Vault-05",
+      "language": "ITA",
+      "ground_truth": "Overlapping",
+      "v2_primary": "NO_STRONG_OBSERVABLE_DEFECT",
+      "v3_primary": "NO_STRONG_OBSERVABLE_DEFECT",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "No single visual defect mechanism exhibited strong physical evidence (top candidate was Misalignment with strength 0.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 41,
+      "product": "Vault",
+      "folder": "Vault-06",
+      "language": "JPN",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 42,
+      "product": "Vault",
+      "folder": "Vault-12",
+      "language": "CHT",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Truncation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Misalignment",
+        "Overlapping",
+        "Untranslation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": true,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (3 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.731), Overlapping (strength: 0.700), Untranslation (strength: 0.354). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 43,
+      "product": "Vault",
+      "folder": "Vault-14",
+      "language": "FRA",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Overlapping",
+        "Truncation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (9 untranslated strings, 16 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650), Misalignment (strength: 0.319). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 44,
+      "product": "Vault",
+      "folder": "Vault-18",
+      "language": "JPN",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Overlapping"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": true,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.767) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 4 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.648). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 45,
+      "product": "Vault",
+      "folder": "Vault-31",
+      "language": "KOR",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Overlapping",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.898) driven by Geometric Boundary Collision (1242px\u00b2 overlap area, 69.0px intrusion). Causal Precedence: Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 46,
+      "product": "Vault",
+      "folder": "Vault-33",
+      "language": "PTB",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Truncation",
+        "Misalignment",
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Misalignment",
+        "Truncation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (14 untranslated strings, 15 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.700), Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 47,
+      "product": "Vault",
+      "folder": "Vault-34",
+      "language": "CHS",
+      "ground_truth": "Overlapping",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Overlapping",
+      "v2_secondary": [
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Misalignment"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.942) driven by Geometric Boundary Collision (1460px\u00b2 overlap area, 73.0px intrusion). Causal Precedence: Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.472). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 51,
+      "product": "Civil3d",
+      "folder": "Civil3d-22",
+      "language": "FRA",
+      "ground_truth": "Repeated hotkey",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping",
+        "Truncation",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Untranslation",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (164.0px anchor break, 136.0px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 1.000), Untranslation (strength: 1.000), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 52,
+      "product": "Inventor",
+      "folder": "Inventor-02",
+      "language": "ITA",
+      "ground_truth": "Repeated hotkey",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation",
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (4 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 53,
+      "product": "Inventor",
+      "folder": "Inventor-28",
+      "language": "JPN",
+      "ground_truth": "Repeated hotkey",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 377px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.497). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 54,
+      "product": "Inventor",
+      "folder": "Inventor-29",
+      "language": "CSY",
+      "ground_truth": "Repeated hotkey",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Truncation"
+      ],
+      "v3_secondary": [
+        "Overlapping",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.700), Misalignment (strength: 0.358). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 55,
+      "product": "Inventor",
+      "folder": "Inventor-30",
+      "language": "FRA",
+      "ground_truth": "Repeated hotkey",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (5 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 56,
+      "product": "Inventor",
+      "folder": "Inventor-36",
+      "language": "PTB",
+      "ground_truth": "Repeated hotkey",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Misalignment (strength: 0.284). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 57,
+      "product": "Vault",
+      "folder": "Vault-09",
+      "language": "PTB",
+      "ground_truth": "Repeated hotkey",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Truncation"
+      ],
+      "v3_secondary": [
+        "Truncation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (5 untranslated strings, 16 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 59,
+      "product": "Civil3d",
+      "folder": "Civil3d-04",
+      "language": "PLK",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Truncation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": true,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (4 untranslated strings, 5 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 60,
+      "product": "Civil3d",
+      "folder": "Civil3d-05",
+      "language": "DEU",
+      "ground_truth": "Truncation",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Truncation",
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": true,
+      "corrected": true,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (4 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 0.829), Misalignment (strength: 0.508), Overlapping (strength: 0.450). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 61,
+      "product": "Civil3d",
+      "folder": "Civil3d-10",
+      "language": "PTB",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Truncation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": true,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (5 untranslated strings, 6 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 62,
+      "product": "Civil3d",
+      "folder": "Civil3d-17",
+      "language": "HUN",
+      "ground_truth": "Truncation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Truncation",
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Truncation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (5 untranslated strings, 5 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 63,
+      "product": "Civil3d",
+      "folder": "Civil3d-19",
+      "language": "ESP",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Misalignment"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.746). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 64,
+      "product": "Civil3d",
+      "folder": "Civil3d-20",
+      "language": "PTB",
+      "ground_truth": "Truncation",
+      "v2_primary": "NO_STRONG_OBSERVABLE_DEFECT",
+      "v3_primary": "Truncation",
+      "v2_secondary": [],
+      "v3_secondary": [
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": true,
+      "corrected": true,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 0.400) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.350). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 65,
+      "product": "Civil3d",
+      "folder": "Civil3d-21",
+      "language": "ITA",
+      "ground_truth": "Truncation",
+      "v2_primary": "NO_STRONG_OBSERVABLE_DEFECT",
+      "v3_primary": "NO_STRONG_OBSERVABLE_DEFECT",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "No single visual defect mechanism exhibited strong physical evidence (top candidate was Overlapping with strength 0.117). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 66,
+      "product": "Civil3d",
+      "folder": "Civil3d-26",
+      "language": "ITA",
+      "ground_truth": "Truncation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.642) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 2 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 67,
+      "product": "Civil3d",
+      "folder": "Civil3d-32",
+      "language": "HUN",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Truncation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": true,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (5 untranslated strings, 14 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 68,
+      "product": "Inventor",
+      "folder": "Inventor-03",
+      "language": "CHS",
+      "ground_truth": "Truncation",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (152.0px anchor break, 150.0px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.900), Overlapping (strength: 0.495). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 69,
+      "product": "Inventor",
+      "folder": "Inventor-05",
+      "language": "PLK",
+      "ground_truth": "Truncation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (3 untranslated strings, 3 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 70,
+      "product": "Inventor",
+      "folder": "Inventor-18",
+      "language": "FRA",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Truncation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": true,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.808) driven by Preserved User-Facing English Lexicon (2 untranslated strings, 2 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 71,
+      "product": "Inventor",
+      "folder": "Inventor-19",
+      "language": "CSY",
+      "ground_truth": "Truncation",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (122.0px anchor break, 146.3px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 1.000), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 72,
+      "product": "Inventor",
+      "folder": "Inventor-21",
+      "language": "CSY",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation",
+        "Misalignment",
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 73,
+      "product": "Inventor",
+      "folder": "Inventor-32",
+      "language": "DEU",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 100px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 74,
+      "product": "Inventor",
+      "folder": "Inventor-35",
+      "language": "PLK",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (3 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 75,
+      "product": "Vault",
+      "folder": "Vault-01",
+      "language": "CSY",
+      "ground_truth": "Truncation",
+      "v2_primary": "NO_STRONG_OBSERVABLE_DEFECT",
+      "v3_primary": "NO_STRONG_OBSERVABLE_DEFECT",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "No single visual defect mechanism exhibited strong physical evidence (top candidate was Truncation with strength 0.145). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 76,
+      "product": "Vault",
+      "folder": "Vault-02",
+      "language": "FRA",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Overlapping",
+        "Misalignment",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment",
+        "Overlapping"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (7 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 0.808), Misalignment (strength: 0.487), Overlapping (strength: 0.450). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 77,
+      "product": "Vault",
+      "folder": "Vault-03",
+      "language": "DEU",
+      "ground_truth": "Truncation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [],
+      "v3_secondary": [
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (4 untranslated strings, 5 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.250). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 78,
+      "product": "Vault",
+      "folder": "Vault-08",
+      "language": "PLK",
+      "ground_truth": "Truncation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (8 untranslated strings, 8 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 79,
+      "product": "Vault",
+      "folder": "Vault-11",
+      "language": "ESP",
+      "ground_truth": "Truncation",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Truncation",
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Overlapping",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": true,
+      "corrected": true,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Overlapping (strength: 0.700), Misalignment (strength: 0.658). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 80,
+      "product": "Vault",
+      "folder": "Vault-17",
+      "language": "ITA",
+      "ground_truth": "Truncation",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Overlapping",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Misalignment",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.808) driven by Preserved User-Facing English Lexicon (2 untranslated strings, 2 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.446), Overlapping (strength: 0.303). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 81,
+      "product": "Vault",
+      "folder": "Vault-20",
+      "language": "PLK",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Overlapping",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 450px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 0.808). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 82,
+      "product": "Vault",
+      "folder": "Vault-21",
+      "language": "PTB",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation",
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 460px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 83,
+      "product": "Vault",
+      "folder": "Vault-23",
+      "language": "ESP",
+      "ground_truth": "Truncation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.767) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 4 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.497). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 84,
+      "product": "Vault",
+      "folder": "Vault-24",
+      "language": "CHT",
+      "ground_truth": "Truncation",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 0.920) driven by Structural Column Grid Break (82.0px anchor break, 277.7px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.900), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 85,
+      "product": "Vault",
+      "folder": "Vault-26",
+      "language": "FRA",
+      "ground_truth": "Truncation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Truncation"
+      ],
+      "v3_secondary": [
+        "Truncation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (15 untranslated strings, 22 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 86,
+      "product": "Vault",
+      "folder": "Vault-27",
+      "language": "DEU",
+      "ground_truth": "Truncation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Overlapping"
+      ],
+      "v3_secondary": [],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 87,
+      "product": "Vault",
+      "folder": "Vault-29",
+      "language": "ITA",
+      "ground_truth": "Truncation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.829) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 5 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 88,
+      "product": "Vault",
+      "folder": "Vault-39",
+      "language": "DEU",
+      "ground_truth": "Truncation",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Overlapping",
+      "v2_secondary": [
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (3560px\u00b2 overlap area, 178.0px intrusion). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.782). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 89,
+      "product": "Civil3d",
+      "folder": "Civil3d-02",
+      "language": "CHS",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Overlapping",
+      "v2_secondary": [
+        "Overlapping",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": true,
+      "changed": true,
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (2840px\u00b2 overlap area, 50.0px intrusion). Causal Precedence: Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Misalignment (strength: 0.533). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 90,
+      "product": "Civil3d",
+      "folder": "Civil3d-07",
+      "language": "JPN",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": true,
+      "corrected": true,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.642) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 2 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 91,
+      "product": "Civil3d",
+      "folder": "Civil3d-08",
+      "language": "DEU",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Misalignment"
+      ],
+      "v3_secondary": [],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (20 untranslated strings, 52 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 92,
+      "product": "Civil3d",
+      "folder": "Civil3d-11",
+      "language": "ITA",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Overlapping",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (9022px\u00b2 overlap area, 214.0px intrusion). Causal Precedence: Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Misalignment (strength: 0.415). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 93,
+      "product": "Civil3d",
+      "folder": "Civil3d-24",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Overlapping",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.862) driven by Geometric Boundary Collision (1422px\u00b2 overlap area, 41.0px intrusion). Causal Precedence: Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 94,
+      "product": "Civil3d",
+      "folder": "Civil3d-25",
+      "language": "JPN",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Truncation",
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 264px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Misalignment (strength: 0.609), Overlapping (strength: 0.549). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 95,
+      "product": "Civil3d",
+      "folder": "Civil3d-31",
+      "language": "CHT",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (3 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 96,
+      "product": "Civil3d",
+      "folder": "Civil3d-34",
+      "language": "CHS",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Overlapping",
+      "v2_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (15165px\u00b2 overlap area, 398.0px intrusion). Causal Precedence: Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Misalignment (strength: 0.505). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 97,
+      "product": "Civil3d",
+      "folder": "Civil3d-35",
+      "language": "ESP",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Untranslation",
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Overlapping",
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (222.0px anchor break, 226.0px residual drift). Causal Precedence: Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 1.000), Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 98,
+      "product": "Inventor",
+      "folder": "Inventor-04",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Truncation",
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (3 verified ellipsis, 545px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Misalignment (strength: 0.700), Overlapping (strength: 0.450). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 99,
+      "product": "Inventor",
+      "folder": "Inventor-06",
+      "language": "PTB",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Overlapping",
+        "Truncation",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (11 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Misalignment (strength: 0.791), Overlapping (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 100,
+      "product": "Inventor",
+      "folder": "Inventor-09",
+      "language": "DEU",
+      "ground_truth": "Untranslation",
+      "v2_primary": "NO_STRONG_OBSERVABLE_DEFECT",
+      "v3_primary": "Truncation",
+      "v2_secondary": [],
+      "v3_secondary": [
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 0.330) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.268). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 101,
+      "product": "Inventor",
+      "folder": "Inventor-13",
+      "language": "RUS",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 221px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 102,
+      "product": "Inventor",
+      "folder": "Inventor-16",
+      "language": "JPN",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Overlapping",
+        "Truncation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Overlapping",
+        "Truncation",
+        "Misalignment"
+      ],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (4 untranslated strings, 4 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 0.851), Truncation (strength: 0.500), Misalignment (strength: 0.284). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 103,
+      "product": "Inventor",
+      "folder": "Inventor-22",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Overlapping",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Overlapping",
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (626.0px anchor break, 490.4px residual drift). Causal Precedence: Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Overlapping (strength: 1.000), Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 104,
+      "product": "Inventor",
+      "folder": "Inventor-23",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Overlapping",
+      "v2_secondary": [],
+      "v3_secondary": [
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.884) driven by Geometric Boundary Collision (1329px\u00b2 overlap area, 46.0px intrusion). Causal Precedence: Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.342). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 105,
+      "product": "Vault",
+      "folder": "Vault-07",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Untranslation",
+        "Overlapping"
+      ],
+      "v3_secondary": [
+        "Truncation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": true,
+      "corrected": true,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (3 untranslated strings, 5 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 106,
+      "product": "Vault",
+      "folder": "Vault-10",
+      "language": "CHS",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Truncation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": true,
+      "corrected": true,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.996) driven by Preserved User-Facing English Lexicon (2 untranslated strings, 5 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 107,
+      "product": "Vault",
+      "folder": "Vault-13",
+      "language": "CSY",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Overlapping",
+      "v2_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (3360px\u00b2 overlap area, 120.0px intrusion). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 2: Structural column grid break outranks downstream viewport edge clipping. Causal Rule 3: Positive inter-sibling intrusion outranks internal boundary clipping. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Misalignment (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 108,
+      "product": "Vault",
+      "folder": "Vault-15",
+      "language": "DEU",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.808) driven by Preserved User-Facing English Lexicon (2 untranslated strings, 2 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 109,
+      "product": "Vault",
+      "folder": "Vault-16",
+      "language": "HUN",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Misalignment",
+      "v3_primary": "Misalignment",
+      "v2_secondary": [
+        "Truncation",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Truncation",
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (127.0px anchor break, 145.9px residual drift). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Truncation (strength: 1.000), Untranslation (strength: 0.417). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 110,
+      "product": "Vault",
+      "folder": "Vault-19",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Overlapping",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Truncation",
+        "Misalignment",
+        "Untranslation"
+      ],
+      "v3_secondary": [
+        "Misalignment",
+        "Untranslation",
+        "Overlapping"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": true,
+      "explanation": "Primary diagnosis is Truncation (strength: 0.900) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Misalignment (strength: 0.820), Untranslation (strength: 0.750), Overlapping (strength: 0.433). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 111,
+      "product": "Vault",
+      "folder": "Vault-22",
+      "language": "CHS",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (8 untranslated strings, 10 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 112,
+      "product": "Vault",
+      "folder": "Vault-25",
+      "language": "CSY",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Untranslation",
+      "v3_primary": "Untranslation",
+      "v2_secondary": [],
+      "v3_secondary": [],
+      "is_v2_top1": true,
+      "is_v3_top1": true,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.933) driven by Preserved User-Facing English Lexicon (2 untranslated strings, 4 Latin words). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 113,
+      "product": "Vault",
+      "folder": "Vault-30",
+      "language": "JPN",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [],
+      "v3_secondary": [
+        "Untranslation"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 0.650) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 1: Untranslated English text outranks downstream layout reflow/contact. Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 0.642). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    },
+    {
+      "case_id": 114,
+      "product": "Vault",
+      "folder": "Vault-38",
+      "language": "FRA",
+      "ground_truth": "Untranslation",
+      "v2_primary": "Truncation",
+      "v3_primary": "Truncation",
+      "v2_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "v3_secondary": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "is_v2_top1": false,
+      "is_v3_top1": false,
+      "corrected": false,
+      "regression": false,
+      "changed": false,
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Causal Precedence: Causal Rule 3: Verified localized ellipsis / rigid container overflow outranks incidental contact. Coexisting secondary defect mechanisms preserved: Untranslation (strength: 1.000), Misalignment (strength: 0.861). Repeated hotkey remains VISUALLY_UNSUPPORTED via plain OCR."
+    }
+  ]
+}

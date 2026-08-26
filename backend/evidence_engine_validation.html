@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Evidence Engine Validation Report</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 22px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .badge-pass { background: #064e3b; color: #a7f3d0; border: 1px solid #10b981; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+  .status-strong { color: #4ade80; font-weight: bold; }
+  .status-mod { color: #38bdf8; font-weight: bold; }
+  .status-weak { color: #f59e0b; }
+  .status-none { color: #64748b; }
+  .status-unsup { color: #94a3b8; font-style: italic; }
+</style>
+</head>
+<body>
+<h1>Evidence Engine Validation Report</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Automated validation suite of <code>backend/evidence_engine.py</code> across all 101 benchmark cases, ensuring zero synthetic values, explicit provenance, and multi-stream preservation.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Total Cases Validated</div>
+    <div class="card-val" style="color: #f8fafc;">101 / 101</div>
+    <div class="card-sub"><span class="badge-pass">100% EXECUTED</span></div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Fabricated Values Check</div>
+    <div class="card-val" style="color: #4ade80;">0 Found</div>
+    <div class="card-sub"><span class="badge-pass">CLEAN PROVENANCE</span></div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Discrepancies vs Inventory</div>
+    <div class="card-val" style="color: #4ade80;">0 Discrepancies</div>
+    <div class="card-sub"><span class="badge-pass">100% CONSISTENT</span></div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Multi-Stream Coexistence</div>
+    <div class="card-val" style="color: #38bdf8;">99 / 101 (98.0%)</div>
+    <div class="card-sub">cases with &ge;2 active streams</div>
+  </div>
+</div>
+
+<h2>1. Category Evidence Status Distribution (All 101 Cases)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Evaluator Category</th>
+      <th>Strong Evidence</th>
+      <th>Moderate Evidence</th>
+      <th>Weak Evidence</th>
+      <th>No Evidence</th>
+      <th>Visually Unsupported</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td class="status-strong">36</td>
+      <td class="status-mod">41</td>
+      <td class="status-weak">20</td>
+      <td class="status-none">4</td>
+      <td class="status-unsup">0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td class="status-strong">63</td>
+      <td class="status-mod">30</td>
+      <td class="status-weak">5</td>
+      <td class="status-none">3</td>
+      <td class="status-unsup">0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Truncation</td>
+      <td class="status-strong">61</td>
+      <td class="status-mod">34</td>
+      <td class="status-weak">6</td>
+      <td class="status-none">0</td>
+      <td class="status-unsup">0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Untranslation</td>
+      <td class="status-strong">69</td>
+      <td class="status-mod">6</td>
+      <td class="status-weak">9</td>
+      <td class="status-none">17</td>
+      <td class="status-unsup">0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Repeated hotkey</td>
+      <td class="status-strong">0</td>
+      <td class="status-mod">0</td>
+      <td class="status-weak">0</td>
+      <td class="status-none">0</td>
+      <td class="status-unsup">101</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. Case Sample: Multi-Stream Evidence Evaluation</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Product / Folder (Lang)</th>
+      <th>Ground Truth</th>
+      <th>Misalignment Status (Strength)</th>
+      <th>Overlapping Status (Strength)</th>
+      <th>Truncation Status (Strength)</th>
+      <th>Untranslation Status (Strength)</th>
+      <th>Repeated Hotkey</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold;">#9</td>
+      <td>Civil3d / Civil3d-01 (RUS)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (0.692)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (0.2)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#10</td>
+      <td>Civil3d / Civil3d-12 (FRA)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>STRONG_EVIDENCE (0.756)</td>
+      <td>MODERATE_EVIDENCE (0.0)</td>
+      <td>STRONG_EVIDENCE (0.6)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#11</td>
+      <td>Civil3d / Civil3d-13 (ESP)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>WEAK_EVIDENCE (0.019)</td>
+      <td>MODERATE_EVIDENCE (0.0)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#12</td>
+      <td>Civil3d / Civil3d-14 (CHT)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>MODERATE_EVIDENCE (0.987)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (0.6)</td>
+      <td>STRONG_EVIDENCE (0.5)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#13</td>
+      <td>Civil3d / Civil3d-16 (KOR)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>STRONG_EVIDENCE (0.687)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>MODERATE_EVIDENCE (0.0)</td>
+      <td>STRONG_EVIDENCE (0.3)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#14</td>
+      <td>Civil3d / Civil3d-23 (FRA)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (0.65)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#15</td>
+      <td>Inventor / Inventor-01 (JPN)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>NO_EVIDENCE (0.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#16</td>
+      <td>Inventor / Inventor-12 (FRA)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>STRONG_EVIDENCE (0.519)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#17</td>
+      <td>Inventor / Inventor-17 (CSY)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>STRONG_EVIDENCE (0.786)</td>
+      <td>STRONG_EVIDENCE (0.912)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>WEAK_EVIDENCE (0.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#18</td>
+      <td>Inventor / Inventor-25 (ESP)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>STRONG_EVIDENCE (0.534)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#19</td>
+      <td>Inventor / Inventor-27 (JPN)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>MODERATE_EVIDENCE (0.159)</td>
+      <td>STRONG_EVIDENCE (0.6)</td>
+      <td>STRONG_EVIDENCE (0.6)</td>
+      <td>STRONG_EVIDENCE (0.25)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#20</td>
+      <td>Inventor / Inventor-31 (DEU)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>STRONG_EVIDENCE (0.779)</td>
+      <td>STRONG_EVIDENCE (0.447)</td>
+      <td>MODERATE_EVIDENCE (0.0)</td>
+      <td>STRONG_EVIDENCE (0.3)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#21</td>
+      <td>Inventor / Inventor-37 (RUS)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>MODERATE_EVIDENCE (0.0)</td>
+      <td>MODERATE_EVIDENCE (0.0)</td>
+      <td>WEAK_EVIDENCE (0.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#22</td>
+      <td>Vault / Vault-28 (HUN)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>MODERATE_EVIDENCE (0.735)</td>
+      <td>STRONG_EVIDENCE (0.007)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>MODERATE_EVIDENCE (0.15)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#23</td>
+      <td>Vault / Vault-32 (PLK)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>MODERATE_EVIDENCE (0.315)</td>
+      <td>MODERATE_EVIDENCE (0.0)</td>
+      <td>MODERATE_EVIDENCE (0.0)</td>
+      <td>STRONG_EVIDENCE (0.35)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#24</td>
+      <td>Vault / Vault-35 (ESP)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>MODERATE_EVIDENCE (0.541)</td>
+      <td>MODERATE_EVIDENCE (0.0)</td>
+      <td>STRONG_EVIDENCE (0.6)</td>
+      <td>NO_EVIDENCE (0.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#25</td>
+      <td>Vault / Vault-36 (CHT)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>WEAK_EVIDENCE (0.073)</td>
+      <td>STRONG_EVIDENCE (0.364)</td>
+      <td>STRONG_EVIDENCE (0.6)</td>
+      <td>NO_EVIDENCE (0.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#26</td>
+      <td>Vault / Vault-37 (CSY)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>MODERATE_EVIDENCE (0.164)</td>
+      <td>STRONG_EVIDENCE (0.02)</td>
+      <td>STRONG_EVIDENCE (0.6)</td>
+      <td>NO_EVIDENCE (0.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#27</td>
+      <td>Vault / Vault-40 (HUN)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (0.338)</td>
+      <td>STRONG_EVIDENCE (0.6)</td>
+      <td>STRONG_EVIDENCE (0.3)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#29</td>
+      <td>Civil3d / Civil3d-06 (RUS)</td>
+      <td style="font-weight:600;">Overlapping</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>STRONG_EVIDENCE (1.0)</td>
+      <td>MODERATE_EVIDENCE (0.0)</td>
+      <td>NO_EVIDENCE (0.0)</td>
+      <td style="color:#94a3b8; font-style:italic;">VISUALLY_UNSUPPORTED</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

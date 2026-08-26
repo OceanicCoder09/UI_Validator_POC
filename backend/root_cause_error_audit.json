@@ -1,0 +1,2770 @@
+{
+  "total_benchmark_cases": 101,
+  "correct_primary_cases": 27,
+  "total_error_cases": 74,
+  "error_classification_breakdown": {
+    "arbitration_errors_gt_in_secondary": "39 / 74 (52.7%)",
+    "evidence_coverage_errors_gt_absent": "35 / 74 (47.3%)"
+  },
+  "downstream_thief_distribution_by_gt": {
+    "Misalignment": {
+      "Untranslation": 2,
+      "Truncation": 6,
+      "Overlapping": 4
+    },
+    "Overlapping": {
+      "Misalignment": 6,
+      "NO_STRONG_OBSERVABLE_DEFECT": 2,
+      "Untranslation": 2,
+      "Truncation": 3
+    },
+    "Repeated hotkey": {
+      "Misalignment": 1,
+      "Truncation": 4,
+      "Overlapping": 1,
+      "Untranslation": 1
+    },
+    "Truncation": {
+      "Untranslation": 10,
+      "Overlapping": 5,
+      "NO_STRONG_OBSERVABLE_DEFECT": 3,
+      "Misalignment": 3
+    },
+    "Untranslation": {
+      "Misalignment": 6,
+      "Overlapping": 7,
+      "Truncation": 7,
+      "NO_STRONG_OBSERVABLE_DEFECT": 1
+    }
+  },
+  "causal_chain_frequency": {
+    "Misalignment -> Downstream Collision": 3,
+    "Overlapping -> Downstream Truncation/Clipping": 1,
+    "Repeated Hotkey -> Visual OCR Blindspot": 7,
+    "Truncation -> Sibling Boundary Collision": 2,
+    "Untranslation -> Downstream Displacement/Overlap": 10
+  },
+  "questions_answered": {
+    "Q1_arbitration_errors_count": 39,
+    "Q2_evidence_coverage_errors_count": 35,
+    "Q3_plausible_causal_chains_count": 23,
+    "Q4_strongest_causal_relationship": "Untranslation/Text Expansion -> Downstream Sibling Collision & Downstream Truncation",
+    "Q5_speculative_relationships": "Sub-pixel column drift causing text truncation without positive intersection"
+  },
+  "cases": [
+    {
+      "case_id": 9,
+      "product": "Civil3d",
+      "folder": "Civil3d-01",
+      "language": "RUS",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Truncation",
+        "Overlapping"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.692,
+        "Truncation": 1.0,
+        "Untranslation": 0.2,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Truncation",
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Structural Column Grid Break (486.0px anchor break, 393.5px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (486.0px anchor break, 393.5px residual drift). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Overlapping (strength: 0.842). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 10,
+      "product": "Civil3d",
+      "folder": "Civil3d-12",
+      "language": "FRA",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [
+        "Misalignment",
+        "Truncation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.756,
+        "Overlapping": 0.0,
+        "Truncation": 0.6,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (10 untranslated strings, 18 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (10 untranslated strings, 18 Latin words). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.956), Truncation (strength: 0.850). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 11,
+      "product": "Civil3d",
+      "folder": "Civil3d-13",
+      "language": "ESP",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.019,
+        "Overlapping": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 120px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 120px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000). Reflow compensation noted: 100.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 12,
+      "product": "Civil3d",
+      "folder": "Civil3d-14",
+      "language": "CHT",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping",
+        "Truncation",
+        "Untranslation"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.987,
+        "Overlapping": 1.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.5,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Overlapping",
+        "Truncation",
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Structural Column Grid Break (187.0px anchor break, 93.6px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (187.0px anchor break, 93.6px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000), Truncation (strength: 0.850), Untranslation (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 13,
+      "product": "Civil3d",
+      "folder": "Civil3d-16",
+      "language": "KOR",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.687,
+        "Overlapping": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.3,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Structural Column Drift -> Downstream Sibling Collision",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (8311px\u00b2 overlap area, 223.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (8311px\u00b2 overlap area, 223.0px intrusion). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.887). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 14,
+      "product": "Civil3d",
+      "folder": "Civil3d-23",
+      "language": "FRA",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Truncation",
+        "Untranslation",
+        "Overlapping"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.65,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Truncation",
+        "Untranslation",
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Structural Column Grid Break (165.0px anchor break, 165.0px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (165.0px anchor break, 165.0px residual drift). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Untranslation (strength: 1.000), Overlapping (strength: 0.800). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 15,
+      "product": "Inventor",
+      "folder": "Inventor-01",
+      "language": "JPN",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 1.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Structural Column Grid Break (260.0px anchor break, 260.9px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (260.0px anchor break, 260.9px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000), Truncation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 16,
+      "product": "Inventor",
+      "folder": "Inventor-12",
+      "language": "FRA",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Truncation",
+        "Untranslation",
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.519,
+        "Overlapping": 1.0,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (5392px\u00b2 overlap area, 118.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (5392px\u00b2 overlap area, 118.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Untranslation (strength: 1.000), Misalignment (strength: 0.513). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 17,
+      "product": "Inventor",
+      "folder": "Inventor-17",
+      "language": "CSY",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Truncation",
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.786,
+        "Overlapping": 0.912,
+        "Truncation": 1.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Structural Column Drift -> Downstream Sibling Collision",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (3350px\u00b2 overlap area, 102.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (3350px\u00b2 overlap area, 102.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Misalignment (strength: 0.986). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 18,
+      "product": "Inventor",
+      "folder": "Inventor-25",
+      "language": "ESP",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Truncation",
+        "Untranslation",
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.534,
+        "Overlapping": 1.0,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Structural Column Drift -> Downstream Sibling Collision",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (5335px\u00b2 overlap area, 193.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (5335px\u00b2 overlap area, 193.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Untranslation (strength: 1.000), Misalignment (strength: 0.578). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 19,
+      "product": "Inventor",
+      "folder": "Inventor-27",
+      "language": "JPN",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Overlapping"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.159,
+        "Overlapping": 0.6,
+        "Truncation": 0.6,
+        "Untranslation": 0.25,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.750). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 20,
+      "product": "Inventor",
+      "folder": "Inventor-31",
+      "language": "DEU",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.779,
+        "Overlapping": 0.447,
+        "Truncation": 0.0,
+        "Untranslation": 0.3,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Structural Column Grid Break (115.0px anchor break, 60.5px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 0.979) driven by Structural Column Grid Break (115.0px anchor break, 60.5px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.597). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 21,
+      "product": "Inventor",
+      "folder": "Inventor-37",
+      "language": "RUS",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "None",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Structural Column Grid Break (184.0px anchor break, 184.0px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (184.0px anchor break, 184.0px residual drift). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 22,
+      "product": "Vault",
+      "folder": "Vault-28",
+      "language": "HUN",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.735,
+        "Overlapping": 0.007,
+        "Truncation": 1.0,
+        "Untranslation": 0.15,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (5 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (5 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.635). Reflow compensation noted: 60.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 23,
+      "product": "Vault",
+      "folder": "Vault-32",
+      "language": "PLK",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.315,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.35,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (1 untranslated strings, 5 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.350) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 5 Latin words). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 24,
+      "product": "Vault",
+      "folder": "Vault-35",
+      "language": "ESP",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.541,
+        "Overlapping": 0.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.741). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 25,
+      "product": "Vault",
+      "folder": "Vault-36",
+      "language": "CHT",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Overlapping"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.073,
+        "Overlapping": 0.364,
+        "Truncation": 0.6,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.514). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 26,
+      "product": "Vault",
+      "folder": "Vault-37",
+      "language": "CSY",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.164,
+        "Overlapping": 0.02,
+        "Truncation": 0.6,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 27,
+      "product": "Vault",
+      "folder": "Vault-40",
+      "language": "HUN",
+      "ground_truth": "Misalignment",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Truncation"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.338,
+        "Truncation": 0.6,
+        "Untranslation": 0.3,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Misalignment",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Structural Column Grid Break (227.0px anchor break, 208.0px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (227.0px anchor break, 208.0px residual drift). Coexisting secondary defect mechanisms identified: Truncation (strength: 0.850). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 29,
+      "product": "Civil3d",
+      "folder": "Civil3d-06",
+      "language": "RUS",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Structural Column Grid Break (464.0px anchor break, 438.3px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (464.0px anchor break, 438.3px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 30,
+      "product": "Civil3d",
+      "folder": "Civil3d-18",
+      "language": "CSY",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "NO_STRONG_OBSERVABLE_DEFECT",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.127,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.15,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "NO_STRONG_OBSERVABLE_DEFECT",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "NO_STRONG_OBSERVABLE_DEFECT"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "INSUFFICIENT_OBSERVABLE_PHYSICAL_EVIDENCE",
+      "explanation": "No single visual defect mechanism exhibited strong physical evidence (top candidate was Untranslation with strength 0.150). Reflow compensation noted: 100.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 31,
+      "product": "Civil3d",
+      "folder": "Civil3d-28",
+      "language": "PTB",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [
+        "Truncation",
+        "Misalignment"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.576,
+        "Overlapping": 0.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.75,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (3 untranslated strings, 9 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.950) driven by Preserved User-Facing English Lexicon (3 untranslated strings, 9 Latin words). Coexisting secondary defect mechanisms identified: Truncation (strength: 0.850), Misalignment (strength: 0.772). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 32,
+      "product": "Civil3d",
+      "folder": "Civil3d-29",
+      "language": "FRA",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.356,
+        "Overlapping": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.45,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (3784px\u00b2 overlap area, 146.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (3784px\u00b2 overlap area, 146.0px intrusion). Coexisting secondary defect mechanisms identified: Untranslation (strength: 0.450). Reflow compensation noted: 66.7% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 33,
+      "product": "Civil3d",
+      "folder": "Civil3d-30",
+      "language": "CHT",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Structural Column Grid Break (233.0px anchor break, 232.4px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (233.0px anchor break, 232.4px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 34,
+      "product": "Inventor",
+      "folder": "Inventor-07",
+      "language": "PTB",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.022,
+        "Overlapping": 0.565,
+        "Truncation": 0.0,
+        "Untranslation": 0.45,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (1624px\u00b2 overlap area, 74.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.715) driven by Geometric Boundary Collision (1624px\u00b2 overlap area, 74.0px intrusion). Coexisting secondary defect mechanisms identified: Untranslation (strength: 0.450). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 35,
+      "product": "Inventor",
+      "folder": "Inventor-08",
+      "language": "JPN",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 1.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Structural Column Grid Break (307.0px anchor break, 309.1px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (307.0px anchor break, 309.1px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000), Truncation (strength: 0.850). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 36,
+      "product": "Inventor",
+      "folder": "Inventor-33",
+      "language": "ITA",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.019,
+        "Overlapping": 0.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.45,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 0.450). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 37,
+      "product": "Inventor",
+      "folder": "Inventor-34",
+      "language": "KOR",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.309,
+        "Overlapping": 0.224,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Boundary Intrusion -> Downstream Container Clipping",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (9 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (9 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 38,
+      "product": "Inventor",
+      "folder": "Inventor-39",
+      "language": "ESP",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Structural Column Grid Break (142.0px anchor break, 142.0px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (142.0px anchor break, 142.0px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 39,
+      "product": "Vault",
+      "folder": "Vault-04",
+      "language": "HUN",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Structural Column Grid Break (138.0px anchor break, 205.3px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (138.0px anchor break, 205.3px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 40,
+      "product": "Vault",
+      "folder": "Vault-05",
+      "language": "ITA",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "NO_STRONG_OBSERVABLE_DEFECT",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "NO_STRONG_OBSERVABLE_DEFECT",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "NO_STRONG_OBSERVABLE_DEFECT"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "INSUFFICIENT_OBSERVABLE_PHYSICAL_EVIDENCE",
+      "explanation": "No single visual defect mechanism exhibited strong physical evidence (top candidate was Misalignment with strength 0.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 41,
+      "product": "Vault",
+      "folder": "Vault-06",
+      "language": "JPN",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.092,
+        "Overlapping": 0.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 42,
+      "product": "Vault",
+      "folder": "Vault-12",
+      "language": "CHT",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Truncation",
+        "Misalignment"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.556,
+        "Overlapping": 1.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.25,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Truncation",
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (11881px\u00b2 overlap area, 617.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (11881px\u00b2 overlap area, 617.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Misalignment (strength: 0.556). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 43,
+      "product": "Vault",
+      "folder": "Vault-14",
+      "language": "FRA",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [
+        "Overlapping",
+        "Truncation",
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.488,
+        "Overlapping": 0.839,
+        "Truncation": 0.6,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (9 untranslated strings, 16 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (9 untranslated strings, 16 Latin words). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.989), Truncation (strength: 0.850), Misalignment (strength: 0.688). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 44,
+      "product": "Vault",
+      "folder": "Vault-18",
+      "language": "JPN",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.285,
+        "Overlapping": 0.494,
+        "Truncation": 0.0,
+        "Untranslation": 0.3,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "None",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (1242px\u00b2 overlap area, 69.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.644) driven by Geometric Boundary Collision (1242px\u00b2 overlap area, 69.0px intrusion). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 45,
+      "product": "Vault",
+      "folder": "Vault-31",
+      "language": "KOR",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.088,
+        "Overlapping": 0.494,
+        "Truncation": 0.0,
+        "Untranslation": 0.15,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "None",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (1242px\u00b2 overlap area, 69.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.644) driven by Geometric Boundary Collision (1242px\u00b2 overlap area, 69.0px intrusion). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 46,
+      "product": "Vault",
+      "folder": "Vault-33",
+      "language": "PTB",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Untranslation",
+        "Truncation",
+        "Overlapping"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.411,
+        "Truncation": 0.6,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Structural Column Grid Break (348.0px anchor break, 348.4px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (348.0px anchor break, 348.4px residual drift). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000), Truncation (strength: 0.850), Overlapping (strength: 0.561). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 47,
+      "product": "Vault",
+      "folder": "Vault-34",
+      "language": "CHS",
+      "ground_truth": "Overlapping",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Misalignment"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.369,
+        "Overlapping": 0.54,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Overlapping",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (1460px\u00b2 overlap area, 73.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.690) driven by Geometric Boundary Collision (1460px\u00b2 overlap area, 73.0px intrusion). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.369). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 51,
+      "product": "Civil3d",
+      "folder": "Civil3d-22",
+      "language": "FRA",
+      "ground_truth": "Repeated hotkey",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping",
+        "Truncation",
+        "Untranslation"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_VISUALLY_UNSUPPORTED",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 1.0,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Repeated hotkey (Unobservable)",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Mnemonic Underlines Invisible -> Downstream Untranslation/Reflow Artifacts",
+      "dominant_mechanism_trace": "Structural Column Grid Break (164.0px anchor break, 136.0px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (164.0px anchor break, 136.0px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000), Truncation (strength: 1.000), Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 52,
+      "product": "Inventor",
+      "folder": "Inventor-02",
+      "language": "ITA",
+      "ground_truth": "Repeated hotkey",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation",
+        "Overlapping"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_VISUALLY_UNSUPPORTED",
+      "evidence_strengths_all": {
+        "Misalignment": 0.295,
+        "Overlapping": 0.373,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Repeated hotkey (Unobservable)",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Mnemonic Underlines Invisible -> Downstream Untranslation/Reflow Artifacts",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (4 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (4 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000), Overlapping (strength: 0.373). Reflow compensation noted: 87.5% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 53,
+      "product": "Inventor",
+      "folder": "Inventor-28",
+      "language": "JPN",
+      "ground_truth": "Repeated hotkey",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Misalignment"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_VISUALLY_UNSUPPORTED",
+      "evidence_strengths_all": {
+        "Misalignment": 0.401,
+        "Overlapping": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Repeated hotkey (Unobservable)",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Mnemonic Underlines Invisible -> Downstream Untranslation/Reflow Artifacts",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 377px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 377px overflow). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.401). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 54,
+      "product": "Inventor",
+      "folder": "Inventor-29",
+      "language": "CSY",
+      "ground_truth": "Repeated hotkey",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Truncation"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_VISUALLY_UNSUPPORTED",
+      "evidence_strengths_all": {
+        "Misalignment": 0.281,
+        "Overlapping": 1.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Repeated hotkey (Unobservable)",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Mnemonic Underlines Invisible -> Downstream Untranslation/Reflow Artifacts",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (6595px\u00b2 overlap area, 143.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (6595px\u00b2 overlap area, 143.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 55,
+      "product": "Inventor",
+      "folder": "Inventor-30",
+      "language": "FRA",
+      "ground_truth": "Repeated hotkey",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_VISUALLY_UNSUPPORTED",
+      "evidence_strengths_all": {
+        "Misalignment": 0.322,
+        "Overlapping": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Repeated hotkey (Unobservable)",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Mnemonic Underlines Invisible -> Downstream Untranslation/Reflow Artifacts",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (5 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (5 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000). Reflow compensation noted: 81.5% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 56,
+      "product": "Inventor",
+      "folder": "Inventor-36",
+      "language": "PTB",
+      "ground_truth": "Repeated hotkey",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_VISUALLY_UNSUPPORTED",
+      "evidence_strengths_all": {
+        "Misalignment": 0.525,
+        "Overlapping": 0.254,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Repeated hotkey (Unobservable)",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Mnemonic Underlines Invisible -> Downstream Untranslation/Reflow Artifacts",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000). Reflow compensation noted: 72.7% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 57,
+      "product": "Vault",
+      "folder": "Vault-09",
+      "language": "PTB",
+      "ground_truth": "Repeated hotkey",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [
+        "Truncation"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_VISUALLY_UNSUPPORTED",
+      "evidence_strengths_all": {
+        "Misalignment": 0.257,
+        "Overlapping": 0.036,
+        "Truncation": 0.6,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Repeated hotkey (Unobservable)",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Mnemonic Underlines Invisible -> Downstream Untranslation/Reflow Artifacts",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (5 untranslated strings, 16 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (5 untranslated strings, 16 Latin words). Coexisting secondary defect mechanisms identified: Truncation (strength: 0.850). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 59,
+      "product": "Civil3d",
+      "folder": "Civil3d-04",
+      "language": "PLK",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [
+        "Truncation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.056,
+        "Overlapping": 0.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.65,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (4 untranslated strings, 5 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.850) driven by Preserved User-Facing English Lexicon (4 untranslated strings, 5 Latin words). Coexisting secondary defect mechanisms identified: Truncation (strength: 0.850). Reflow compensation noted: 100.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 60,
+      "product": "Civil3d",
+      "folder": "Civil3d-05",
+      "language": "DEU",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Truncation",
+        "Misalignment",
+        "Untranslation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 1.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.35,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Text Boundary Overflow -> Sibling Penetration (Overlap)",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (9329px\u00b2 overlap area, 110.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (9329px\u00b2 overlap area, 110.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Misalignment (strength: 0.774), Untranslation (strength: 0.350). Reflow compensation noted: 60.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 61,
+      "product": "Civil3d",
+      "folder": "Civil3d-10",
+      "language": "PTB",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [
+        "Truncation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.062,
+        "Overlapping": 0.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.8,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (5 untranslated strings, 6 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (5 untranslated strings, 6 Latin words). Coexisting secondary defect mechanisms identified: Truncation (strength: 0.850). Reflow compensation noted: 100.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 62,
+      "product": "Civil3d",
+      "folder": "Civil3d-17",
+      "language": "HUN",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [
+        "Truncation",
+        "Overlapping"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.145,
+        "Overlapping": 0.594,
+        "Truncation": 0.6,
+        "Untranslation": 0.75,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (5 untranslated strings, 5 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.950) driven by Preserved User-Facing English Lexicon (5 untranslated strings, 5 Latin words). Coexisting secondary defect mechanisms identified: Truncation (strength: 0.850), Overlapping (strength: 0.744). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 63,
+      "product": "Civil3d",
+      "folder": "Civil3d-19",
+      "language": "ESP",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Misalignment"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.617,
+        "Overlapping": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.617). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 64,
+      "product": "Civil3d",
+      "folder": "Civil3d-20",
+      "language": "PTB",
+      "ground_truth": "Truncation",
+      "primary_prediction": "NO_STRONG_OBSERVABLE_DEFECT",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.041,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "NO_STRONG_OBSERVABLE_DEFECT",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "NO_STRONG_OBSERVABLE_DEFECT"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "INSUFFICIENT_OBSERVABLE_PHYSICAL_EVIDENCE",
+      "explanation": "No single visual defect mechanism exhibited strong physical evidence (top candidate was Misalignment with strength 0.000). Reflow compensation noted: 100.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 65,
+      "product": "Civil3d",
+      "folder": "Civil3d-21",
+      "language": "ITA",
+      "ground_truth": "Truncation",
+      "primary_prediction": "NO_STRONG_OBSERVABLE_DEFECT",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.017,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "NO_STRONG_OBSERVABLE_DEFECT",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "NO_STRONG_OBSERVABLE_DEFECT"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "INSUFFICIENT_OBSERVABLE_PHYSICAL_EVIDENCE",
+      "explanation": "No single visual defect mechanism exhibited strong physical evidence (top candidate was Misalignment with strength 0.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 66,
+      "product": "Civil3d",
+      "folder": "Civil3d-26",
+      "language": "ITA",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.087,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.2,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (1 untranslated strings, 2 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.200) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 2 Latin words). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 67,
+      "product": "Civil3d",
+      "folder": "Civil3d-32",
+      "language": "HUN",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [
+        "Truncation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.025,
+        "Overlapping": 0.0,
+        "Truncation": 0.6,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (5 untranslated strings, 14 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (5 untranslated strings, 14 Latin words). Coexisting secondary defect mechanisms identified: Truncation (strength: 0.850). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 68,
+      "product": "Inventor",
+      "folder": "Inventor-03",
+      "language": "CHS",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.946,
+        "Overlapping": 0.737,
+        "Truncation": 0.6,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Structural Column Grid Break (152.0px anchor break, 150.0px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (152.0px anchor break, 150.0px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.887), Truncation (strength: 0.850). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 69,
+      "product": "Inventor",
+      "folder": "Inventor-05",
+      "language": "PLK",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.038,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.45,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (3 untranslated strings, 3 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.450) driven by Preserved User-Facing English Lexicon (3 untranslated strings, 3 Latin words). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 70,
+      "product": "Inventor",
+      "folder": "Inventor-18",
+      "language": "FRA",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.008,
+        "Overlapping": 0.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.3,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "None",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Reflow compensation noted: 100.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 71,
+      "product": "Inventor",
+      "folder": "Inventor-19",
+      "language": "CSY",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.845,
+        "Overlapping": 1.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Structural Column Grid Break (122.0px anchor break, 146.3px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (122.0px anchor break, 146.3px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000), Truncation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 72,
+      "product": "Inventor",
+      "folder": "Inventor-21",
+      "language": "CSY",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.416,
+        "Overlapping": 0.349,
+        "Truncation": 1.0,
+        "Untranslation": 0.6,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 0.800), Misalignment (strength: 0.616). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 73,
+      "product": "Inventor",
+      "folder": "Inventor-32",
+      "language": "DEU",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.05,
+        "Overlapping": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.15,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "None",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 100px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 100px overflow). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 74,
+      "product": "Inventor",
+      "folder": "Inventor-35",
+      "language": "PLK",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.07,
+        "Overlapping": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (3 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (3 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000). Reflow compensation noted: 66.7% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 75,
+      "product": "Vault",
+      "folder": "Vault-01",
+      "language": "CSY",
+      "ground_truth": "Truncation",
+      "primary_prediction": "NO_STRONG_OBSERVABLE_DEFECT",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.06,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "NO_STRONG_OBSERVABLE_DEFECT",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "NO_STRONG_OBSERVABLE_DEFECT"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "INSUFFICIENT_OBSERVABLE_PHYSICAL_EVIDENCE",
+      "explanation": "No single visual defect mechanism exhibited strong physical evidence (top candidate was Misalignment with strength 0.000). Reflow compensation noted: 100.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 76,
+      "product": "Vault",
+      "folder": "Vault-02",
+      "language": "FRA",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Overlapping",
+        "Misalignment"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.623,
+        "Overlapping": 0.723,
+        "Truncation": 1.0,
+        "Untranslation": 0.3,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Overlapping",
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (7 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (7 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.873), Misalignment (strength: 0.823). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 77,
+      "product": "Vault",
+      "folder": "Vault-03",
+      "language": "DEU",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.286,
+        "Overlapping": 0.014,
+        "Truncation": 0.0,
+        "Untranslation": 0.65,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (4 untranslated strings, 5 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.850) driven by Preserved User-Facing English Lexicon (4 untranslated strings, 5 Latin words). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 78,
+      "product": "Vault",
+      "folder": "Vault-08",
+      "language": "PLK",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.19,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (8 untranslated strings, 8 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (8 untranslated strings, 8 Latin words). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 79,
+      "product": "Vault",
+      "folder": "Vault-11",
+      "language": "ESP",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Truncation",
+        "Untranslation",
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.519,
+        "Overlapping": 1.0,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Text Boundary Overflow -> Sibling Penetration (Overlap)",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (8665px\u00b2 overlap area, 224.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (8665px\u00b2 overlap area, 224.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Untranslation (strength: 1.000), Misalignment (strength: 0.497). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 80,
+      "product": "Vault",
+      "folder": "Vault-17",
+      "language": "ITA",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Misalignment"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.467,
+        "Overlapping": 0.572,
+        "Truncation": 0.0,
+        "Untranslation": 0.3,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (766px\u00b2 overlap area, 96.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.572) driven by Geometric Boundary Collision (766px\u00b2 overlap area, 96.0px intrusion). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.536). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 81,
+      "product": "Vault",
+      "folder": "Vault-20",
+      "language": "PLK",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Overlapping"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.288,
+        "Overlapping": 0.834,
+        "Truncation": 1.0,
+        "Untranslation": 0.3,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 450px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 450px overflow). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.984). Reflow compensation noted: 66.7% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 82,
+      "product": "Vault",
+      "folder": "Vault-21",
+      "language": "PTB",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Overlapping",
+        "Untranslation"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.339,
+        "Overlapping": 0.906,
+        "Truncation": 1.0,
+        "Untranslation": 0.6,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Overlapping",
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 460px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 460px overflow). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.906), Untranslation (strength: 0.800). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 83,
+      "product": "Vault",
+      "folder": "Vault-23",
+      "language": "ESP",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.018,
+        "Overlapping": 0.307,
+        "Truncation": 0.0,
+        "Untranslation": 0.3,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (644px\u00b2 overlap area, 46.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.307) driven by Geometric Boundary Collision (644px\u00b2 overlap area, 46.0px intrusion). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 84,
+      "product": "Vault",
+      "folder": "Vault-24",
+      "language": "CHT",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping",
+        "Truncation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.98,
+        "Overlapping": 1.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Structural Column Grid Break (82.0px anchor break, 277.7px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (82.0px anchor break, 277.7px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000), Truncation (strength: 0.850). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 85,
+      "product": "Vault",
+      "folder": "Vault-26",
+      "language": "FRA",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [
+        "Truncation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.36,
+        "Overlapping": 0.253,
+        "Truncation": 0.6,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (15 untranslated strings, 22 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (15 untranslated strings, 22 Latin words). Coexisting secondary defect mechanisms identified: Truncation (strength: 0.850). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 86,
+      "product": "Vault",
+      "folder": "Vault-27",
+      "language": "DEU",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Overlapping"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.008,
+        "Overlapping": 0.717,
+        "Truncation": 0.6,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.717). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 87,
+      "product": "Vault",
+      "folder": "Vault-29",
+      "language": "ITA",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.008,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.35,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Untranslation",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Untranslation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (1 untranslated strings, 5 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.350) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 5 Latin words). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 88,
+      "product": "Vault",
+      "folder": "Vault-39",
+      "language": "DEU",
+      "ground_truth": "Truncation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Misalignment"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.406,
+        "Overlapping": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.15,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Truncation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (3560px\u00b2 overlap area, 178.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (3560px\u00b2 overlap area, 178.0px intrusion). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.373). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 89,
+      "product": "Civil3d",
+      "folder": "Civil3d-02",
+      "language": "CHS",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [
+        "Overlapping",
+        "Misalignment"
+      ],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.383,
+        "Overlapping": 0.591,
+        "Truncation": 0.0,
+        "Untranslation": 0.75,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Overlapping",
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (5 untranslated strings, 5 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.950) driven by Preserved User-Facing English Lexicon (5 untranslated strings, 5 Latin words). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.741), Misalignment (strength: 0.380). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 90,
+      "product": "Civil3d",
+      "folder": "Civil3d-07",
+      "language": "JPN",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.295,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.2,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Structural Column Grid Break (13.0px anchor break, 64.0px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 0.295) driven by Structural Column Grid Break (13.0px anchor break, 64.0px residual drift). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 91,
+      "product": "Civil3d",
+      "folder": "Civil3d-08",
+      "language": "DEU",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.327,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "None",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (20 untranslated strings, 52 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (20 untranslated strings, 52 Latin words). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 92,
+      "product": "Civil3d",
+      "folder": "Civil3d-11",
+      "language": "ITA",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.348,
+        "Overlapping": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Untranslation -> Text Growth -> Downstream Displacement/Overlap",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (9022px\u00b2 overlap area, 214.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (9022px\u00b2 overlap area, 214.0px intrusion). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 93,
+      "product": "Civil3d",
+      "folder": "Civil3d-24",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.039,
+        "Overlapping": 0.376,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (1422px\u00b2 overlap area, 41.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.526) driven by Geometric Boundary Collision (1422px\u00b2 overlap area, 41.0px intrusion). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 94,
+      "product": "Civil3d",
+      "folder": "Civil3d-25",
+      "language": "JPN",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Truncation",
+        "Untranslation",
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.468,
+        "Overlapping": 1.0,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Untranslation -> Text Growth -> Downstream Displacement/Overlap",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (2245px\u00b2 overlap area, 369.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (2245px\u00b2 overlap area, 369.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Untranslation (strength: 1.000), Misalignment (strength: 0.468). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 95,
+      "product": "Civil3d",
+      "folder": "Civil3d-31",
+      "language": "CHT",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.03,
+        "Overlapping": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (3 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (3 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 96,
+      "product": "Civil3d",
+      "folder": "Civil3d-34",
+      "language": "CHS",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.43,
+        "Overlapping": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Untranslation -> Text Growth -> Downstream Displacement/Overlap",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (15165px\u00b2 overlap area, 398.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (15165px\u00b2 overlap area, 398.0px intrusion). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000), Misalignment (strength: 0.430). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 97,
+      "product": "Civil3d",
+      "folder": "Civil3d-35",
+      "language": "ESP",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Untranslation",
+        "Overlapping"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.544,
+        "Truncation": 0.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Untranslation -> Text Growth -> Downstream Displacement/Overlap",
+      "dominant_mechanism_trace": "Structural Column Grid Break (222.0px anchor break, 226.0px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (222.0px anchor break, 226.0px residual drift). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000), Overlapping (strength: 0.694). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 98,
+      "product": "Inventor",
+      "folder": "Inventor-04",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping",
+        "Truncation",
+        "Untranslation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 1.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.6,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Untranslation -> Text Growth -> Downstream Displacement/Overlap",
+      "dominant_mechanism_trace": "Structural Column Grid Break (463.0px anchor break, 330.0px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (463.0px anchor break, 330.0px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000), Truncation (strength: 1.000), Untranslation (strength: 0.800). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 99,
+      "product": "Inventor",
+      "folder": "Inventor-06",
+      "language": "PTB",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping",
+        "Truncation",
+        "Untranslation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.911,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Untranslation -> Text Growth -> Downstream Displacement/Overlap",
+      "dominant_mechanism_trace": "Structural Column Grid Break (147.0px anchor break, 147.0px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (147.0px anchor break, 147.0px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000), Truncation (strength: 1.000), Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 100,
+      "product": "Inventor",
+      "folder": "Inventor-09",
+      "language": "DEU",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "NO_STRONG_OBSERVABLE_DEFECT",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.099,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.15,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "NO_STRONG_OBSERVABLE_DEFECT",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "NO_STRONG_OBSERVABLE_DEFECT"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "INSUFFICIENT_OBSERVABLE_PHYSICAL_EVIDENCE",
+      "explanation": "No single visual defect mechanism exhibited strong physical evidence (top candidate was Untranslation with strength 0.150). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 101,
+      "product": "Inventor",
+      "folder": "Inventor-13",
+      "language": "RUS",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.015,
+        "Overlapping": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 221px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 221px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 102,
+      "product": "Inventor",
+      "folder": "Inventor-16",
+      "language": "JPN",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation",
+        "Overlapping",
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.603,
+        "Overlapping": 0.646,
+        "Truncation": 1.0,
+        "Untranslation": 0.6,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 278px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 278px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 0.800), Overlapping (strength: 0.796), Misalignment (strength: 0.618). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 103,
+      "product": "Inventor",
+      "folder": "Inventor-22",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Overlapping",
+        "Untranslation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Untranslation -> Text Growth -> Downstream Displacement/Overlap",
+      "dominant_mechanism_trace": "Structural Column Grid Break (626.0px anchor break, 490.4px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (626.0px anchor break, 490.4px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000), Untranslation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 104,
+      "product": "Inventor",
+      "folder": "Inventor-23",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.268,
+        "Overlapping": 0.389,
+        "Truncation": 0.0,
+        "Untranslation": 0.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (1329px\u00b2 overlap area, 46.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 0.539) driven by Geometric Boundary Collision (1329px\u00b2 overlap area, 46.0px intrusion). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 105,
+      "product": "Vault",
+      "folder": "Vault-07",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation",
+        "Overlapping"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.11,
+        "Overlapping": 0.285,
+        "Truncation": 0.6,
+        "Untranslation": 0.55,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 0.750), Overlapping (strength: 0.435). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 106,
+      "product": "Vault",
+      "folder": "Vault-10",
+      "language": "CHS",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.004,
+        "Overlapping": 0.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.45,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 0.650). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 107,
+      "product": "Vault",
+      "folder": "Vault-13",
+      "language": "CSY",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Misalignment",
+        "Untranslation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 1.0,
+        "Overlapping": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.5,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Untranslation -> Text Growth -> Downstream Displacement/Overlap",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (3360px\u00b2 overlap area, 120.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (3360px\u00b2 overlap area, 120.0px intrusion). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.900), Untranslation (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 108,
+      "product": "Vault",
+      "folder": "Vault-15",
+      "language": "DEU",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.01,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.3,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "None",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (2 untranslated strings, 2 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.300) driven by Preserved User-Facing English Lexicon (2 untranslated strings, 2 Latin words). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 109,
+      "product": "Vault",
+      "folder": "Vault-16",
+      "language": "HUN",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Misalignment",
+      "secondary_categories": [
+        "Truncation"
+      ],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.856,
+        "Overlapping": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.3,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Misalignment",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Misalignment"
+      ],
+      "identified_causal_chain": "Untranslation -> Text Growth -> Downstream Displacement/Overlap",
+      "dominant_mechanism_trace": "Structural Column Grid Break (127.0px anchor break, 145.9px residual drift)",
+      "explanation": "Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (127.0px anchor break, 145.9px residual drift). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 110,
+      "product": "Vault",
+      "folder": "Vault-19",
+      "language": "KOR",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Overlapping",
+      "secondary_categories": [
+        "Truncation",
+        "Misalignment",
+        "Untranslation"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.72,
+        "Overlapping": 1.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.5,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Overlapping",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Overlapping"
+      ],
+      "identified_causal_chain": "Untranslation -> Text Growth -> Downstream Displacement/Overlap",
+      "dominant_mechanism_trace": "Geometric Boundary Collision (1666px\u00b2 overlap area, 304.0px intrusion)",
+      "explanation": "Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (1666px\u00b2 overlap area, 304.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 0.850), Misalignment (strength: 0.830), Untranslation (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 111,
+      "product": "Vault",
+      "folder": "Vault-22",
+      "language": "CHS",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.337,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "None",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (8 untranslated strings, 10 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (8 untranslated strings, 10 Latin words). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 112,
+      "product": "Vault",
+      "folder": "Vault-25",
+      "language": "CSY",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Untranslation",
+      "secondary_categories": [],
+      "error_classification": "CORRECT_PRIMARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.036,
+        "Overlapping": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.4,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "None",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [],
+      "identified_causal_chain": "Direct Ground-Truth Mechanism Alignment",
+      "dominant_mechanism_trace": "Preserved User-Facing English Lexicon (2 untranslated strings, 4 Latin words)",
+      "explanation": "Primary diagnosis is Untranslation (strength: 0.600) driven by Preserved User-Facing English Lexicon (2 untranslated strings, 4 Latin words). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 113,
+      "product": "Vault",
+      "folder": "Vault-30",
+      "language": "JPN",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [],
+      "error_classification": "EVIDENCE_COVERAGE_GT_ABSENT",
+      "evidence_strengths_all": {
+        "Misalignment": 0.1,
+        "Overlapping": 0.0,
+        "Truncation": 0.6,
+        "Untranslation": 0.2,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    },
+    {
+      "case_id": 114,
+      "product": "Vault",
+      "folder": "Vault-38",
+      "language": "FRA",
+      "ground_truth": "Untranslation",
+      "primary_prediction": "Truncation",
+      "secondary_categories": [
+        "Untranslation",
+        "Misalignment"
+      ],
+      "error_classification": "ARBITRATION_ERROR_GT_IN_SECONDARY",
+      "evidence_strengths_all": {
+        "Misalignment": 0.671,
+        "Overlapping": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 1.0,
+        "Repeated hotkey": -1.0
+      },
+      "dominant_competing_category": "Truncation",
+      "likely_initiating_defect": "Untranslation",
+      "likely_downstream_consequences": [
+        "Truncation"
+      ],
+      "identified_causal_chain": "Cross-Defect Feature Precedence Competition",
+      "dominant_mechanism_trace": "Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow)",
+      "explanation": "Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (2 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000), Misalignment (strength: 0.871). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR."
+    }
+  ]
+}

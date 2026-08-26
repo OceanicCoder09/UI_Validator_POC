@@ -1,0 +1,1533 @@
+{
+  "total_gap_cases": 77,
+  "aggregate_summary": [
+    {
+      "gap_reason": "DETECTOR_MISSED",
+      "count": 59,
+      "percentage": 76.6
+    },
+    {
+      "gap_reason": "ELEMENT_MATCHING_FAILED",
+      "count": 0,
+      "percentage": 0.0
+    },
+    {
+      "gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "count": 0,
+      "percentage": 0.0
+    },
+    {
+      "gap_reason": "EVIDENCE_REPRESENTATION_PROBLEM",
+      "count": 7,
+      "percentage": 9.1
+    },
+    {
+      "gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "count": 11,
+      "percentage": 14.3
+    },
+    {
+      "gap_reason": "COMPOUND_OR_AMBIGUOUS_GT",
+      "count": 0,
+      "percentage": 0.0
+    }
+  ],
+  "breakdown_by_category": {
+    "Misalignment": {
+      "DETECTOR_MISSED": 17
+    },
+    "Overlapping": {
+      "DETECTOR_MISSED": 8,
+      "UNSUPPORTED_BY_CURRENT_DETECTORS": 4
+    },
+    "Repeated hotkey": {
+      "DETECTOR_MISSED": 7
+    },
+    "Truncation": {
+      "DETECTOR_MISSED": 18,
+      "EVIDENCE_REPRESENTATION_PROBLEM": 7,
+      "UNSUPPORTED_BY_CURRENT_DETECTORS": 3
+    },
+    "Untranslation": {
+      "DETECTOR_MISSED": 9,
+      "UNSUPPORTED_BY_CURRENT_DETECTORS": 4
+    }
+  },
+  "cases": [
+    {
+      "case_id": 10,
+      "product": "Civil3d",
+      "folder": "Civil3d-12",
+      "lang": "FRA",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'AutoCAD Map(R) 3...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Drafting layout ...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Application back...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'ESW background' ...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Inactive titleba...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Active titlebar'...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 284px",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 2 tokens",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 2 tokens",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 2 tokens",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 2 tokens",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 2 tokens",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 2 tokens"
+      ],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 12,
+      "product": "Civil3d",
+      "folder": "Civil3d-14",
+      "lang": "CHT",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "HOTKEY_DEFECT (ERR-0019: HOTKEY_DEFECT: Invalid Hotkey Mnemonic '(&1)'...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (23p...)"
+      ],
+      "genuine_evidence_available": [
+        "HOTKEY_DEFECT: hotkey=DIRECTLY_MEASURED"
+      ],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 13,
+      "product": "Civil3d",
+      "folder": "Civil3d-16",
+      "lang": "KOR",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "HOTKEY_DEFECT (ERR-0019: HOTKEY_DEFECT: Invalid Hotkey Mnemonic '(&1)'...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (26p...)",
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (22p...)"
+      ],
+      "genuine_evidence_available": [
+        "HOTKEY_DEFECT: hotkey=DIRECTLY_MEASURED"
+      ],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 14,
+      "product": "Civil3d",
+      "folder": "Civil3d-23",
+      "lang": "FRA",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 15,
+      "product": "Inventor",
+      "folder": "Inventor-01",
+      "lang": "JPN",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('+'...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 16,
+      "product": "Inventor",
+      "folder": "Inventor-12",
+      "lang": "FRA",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 253px"
+      ],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 17,
+      "product": "Inventor",
+      "folder": "Inventor-17",
+      "lang": "CSY",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 18,
+      "product": "Inventor",
+      "folder": "Inventor-25",
+      "lang": "ESP",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Cut Short with Ellipsis ('.....)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Defaul ipj' Reta...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)"
+      ],
+      "genuine_evidence_available": [
+        "TRUNCATION: overflow=DIRECTLY_MEASURED (Ellipsis '...' detected): Nonepx",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens"
+      ],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 19,
+      "product": "Inventor",
+      "folder": "Inventor-27",
+      "lang": "JPN",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Content Center F...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Visual Studio 20...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)"
+      ],
+      "genuine_evidence_available": [
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens"
+      ],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 20,
+      "product": "Inventor",
+      "folder": "Inventor-31",
+      "lang": "DEU",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 21,
+      "product": "Inventor",
+      "folder": "Inventor-37",
+      "lang": "RUS",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 22,
+      "product": "Vault",
+      "folder": "Vault-28",
+      "lang": "HUN",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 23,
+      "product": "Vault",
+      "folder": "Vault-32",
+      "lang": "PLK",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'CiProgramData Au...)"
+      ],
+      "genuine_evidence_available": [
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens"
+      ],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 24,
+      "product": "Vault",
+      "folder": "Vault-35",
+      "lang": "ESP",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "MISC (ERR-0006: MISC: Extraneous Localized String ('seguridad...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('{'...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 363px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 57px"
+      ],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 25,
+      "product": "Vault",
+      "folder": "Vault-36",
+      "lang": "CHT",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 26,
+      "product": "Vault",
+      "folder": "Vault-37",
+      "lang": "CSY",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 40px"
+      ],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 27,
+      "product": "Vault",
+      "folder": "Vault-40",
+      "lang": "HUN",
+      "ground_truth_category": "Misalignment",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "MISC (ERR-0006: MISC: Extraneous Localized String ('osszes fa...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('='...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 126px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 32px"
+      ],
+      "missing_evidence": "Physical relationship analyzer observed column divergence, but cv_engine line extractor did not link them as vertical column siblings.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Multi-row left-edge alignment variance (std_dev(X_anchors)) across vertical sibling group."
+    },
+    {
+      "case_id": 32,
+      "product": "Civil3d",
+      "folder": "Civil3d-29",
+      "lang": "FRA",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('~'...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (23p...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Bounding box horizontal intrusion distance (Box1_right - Box2_left)."
+    },
+    {
+      "case_id": 33,
+      "product": "Civil3d",
+      "folder": "Civil3d-30",
+      "lang": "CHT",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Platform Height'...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('+'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('+'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('='...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)"
+      ],
+      "genuine_evidence_available": [
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens"
+      ],
+      "missing_evidence": "Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Bounding box horizontal intrusion distance (Box1_right - Box2_left)."
+    },
+    {
+      "case_id": 34,
+      "product": "Inventor",
+      "folder": "Inventor-07",
+      "lang": "PTB",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (26p...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Bounding box horizontal intrusion distance (Box1_right - Box2_left)."
+    },
+    {
+      "case_id": 35,
+      "product": "Inventor",
+      "folder": "Inventor-08",
+      "lang": "JPN",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Bounding box horizontal intrusion distance (Box1_right - Box2_left)."
+    },
+    {
+      "case_id": 37,
+      "product": "Inventor",
+      "folder": "Inventor-34",
+      "lang": "KOR",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (24p...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Bounding box horizontal intrusion distance (Box1_right - Box2_left)."
+    },
+    {
+      "case_id": 39,
+      "product": "Vault",
+      "folder": "Vault-04",
+      "lang": "HUN",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Bounding box horizontal intrusion distance (Box1_right - Box2_left)."
+    },
+    {
+      "case_id": 40,
+      "product": "Vault",
+      "folder": "Vault-05",
+      "lang": "ITA",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Extraneous Localized String ('contenuto...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('|'...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Complex z-order overlap or text over icon/background bitmap collision.",
+      "primary_gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Foreground text pixel mask overlap with background icon/border contour."
+    },
+    {
+      "case_id": 41,
+      "product": "Vault",
+      "folder": "Vault-06",
+      "lang": "JPN",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('+'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Complex z-order overlap or text over icon/background bitmap collision.",
+      "primary_gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Foreground text pixel mask overlap with background icon/border contour."
+    },
+    {
+      "case_id": 42,
+      "product": "Vault",
+      "folder": "Vault-12",
+      "lang": "CHT",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [
+        "HOTKEY_DEFECT (ERR-0019: HOTKEY_DEFECT: Duplicate Accelerator Shortcut...)",
+        "HOTKEY_DEFECT (ERR-0019: HOTKEY_DEFECT: Invalid Hotkey Mnemonic '(&A)'...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Microsoft Print ...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('='...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('*'...)"
+      ],
+      "genuine_evidence_available": [
+        "HOTKEY_DEFECT: hotkey=DIRECTLY_MEASURED",
+        "HOTKEY_DEFECT: hotkey=DIRECTLY_MEASURED",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens"
+      ],
+      "missing_evidence": "Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Bounding box horizontal intrusion distance (Box1_right - Box2_left)."
+    },
+    {
+      "case_id": 44,
+      "product": "Vault",
+      "folder": "Vault-18",
+      "lang": "JPN",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Project Files' R...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)"
+      ],
+      "genuine_evidence_available": [
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens"
+      ],
+      "missing_evidence": "Complex z-order overlap or text over icon/background bitmap collision.",
+      "primary_gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Foreground text pixel mask overlap with background icon/border contour."
+    },
+    {
+      "case_id": 45,
+      "product": "Vault",
+      "folder": "Vault-31",
+      "lang": "KOR",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Project Files' R...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('+'...)",
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (22p...)"
+      ],
+      "genuine_evidence_available": [
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens"
+      ],
+      "missing_evidence": "Complex z-order overlap or text over icon/background bitmap collision.",
+      "primary_gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Foreground text pixel mask overlap with background icon/border contour."
+    },
+    {
+      "case_id": 47,
+      "product": "Vault",
+      "folder": "Vault-34",
+      "lang": "CHS",
+      "ground_truth_category": "Overlapping",
+      "current_findings": [
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('%'...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Physical bounding boxes collided in localized view, but cv_engine container detector did not register both bounding boxes simultaneously.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Bounding box horizontal intrusion distance (Box1_right - Box2_left)."
+    },
+    {
+      "case_id": 51,
+      "product": "Civil3d",
+      "folder": "Civil3d-22",
+      "lang": "FRA",
+      "ground_truth_category": "Repeated hotkey",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "MISC (ERR-0006: MISC: Extraneous Localized String ('raster')...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('<'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('='...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('|'...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('|'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('}'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('|'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('|'...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Button Text Exceeding Border Marg...)",
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (22p...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 46px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 148px"
+      ],
+      "missing_evidence": "Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators."
+    },
+    {
+      "case_id": 52,
+      "product": "Inventor",
+      "folder": "Inventor-02",
+      "lang": "ITA",
+      "ground_truth_category": "Repeated hotkey",
+      "current_findings": [
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol (']'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Button Text Exceeding Border Marg...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators."
+    },
+    {
+      "case_id": 53,
+      "product": "Inventor",
+      "folder": "Inventor-28",
+      "lang": "JPN",
+      "ground_truth_category": "Repeated hotkey",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('{'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('}'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('}'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators."
+    },
+    {
+      "case_id": 54,
+      "product": "Inventor",
+      "folder": "Inventor-29",
+      "lang": "CSY",
+      "ground_truth_category": "Repeated hotkey",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('$'...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 434px"
+      ],
+      "missing_evidence": "Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators."
+    },
+    {
+      "case_id": 55,
+      "product": "Inventor",
+      "folder": "Inventor-30",
+      "lang": "FRA",
+      "ground_truth_category": "Repeated hotkey",
+      "current_findings": [
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Cut Short with Ellipsis ('.....)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Options' Retaine...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol (']'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Button Text Exceeding Border Marg...)"
+      ],
+      "genuine_evidence_available": [
+        "TRUNCATION: overflow=DIRECTLY_MEASURED (Ellipsis '...' detected): Nonepx",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 2 tokens"
+      ],
+      "missing_evidence": "Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators."
+    },
+    {
+      "case_id": 56,
+      "product": "Inventor",
+      "folder": "Inventor-36",
+      "lang": "PTB",
+      "ground_truth_category": "Repeated hotkey",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol (']'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Button Text Exceeding Border Marg...)",
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (24p...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 129px"
+      ],
+      "missing_evidence": "Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators."
+    },
+    {
+      "case_id": 57,
+      "product": "Vault",
+      "folder": "Vault-09",
+      "lang": "PTB",
+      "ground_truth_category": "Repeated hotkey",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Program Files  M...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Program Files  M...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 36px",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens"
+      ],
+      "missing_evidence": "Hotkey accelerator markup (e.g. (&A) or &File) was omitted by OCR engine or formatted with non-standard brackets.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Extended regex parser supporting full-width parentheses, CJK mnemonics, and underline accelerators."
+    },
+    {
+      "case_id": 59,
+      "product": "Civil3d",
+      "folder": "Civil3d-04",
+      "lang": "PLK",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "HOTKEY_DEFECT (ERR-0019: HOTKEY_DEFECT: Invalid Hotkey Mnemonic '(&1)'...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('<'...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [
+        "HOTKEY_DEFECT: hotkey=DIRECTLY_MEASURED"
+      ],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 60,
+      "product": "Civil3d",
+      "folder": "Civil3d-05",
+      "lang": "DEU",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Control Text Spilling into Adjac...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Name' Retained i...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 188px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 262px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 130px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 198px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 102px",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 2 tokens"
+      ],
+      "missing_evidence": "Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).",
+      "primary_gap_reason": "EVIDENCE_REPRESENTATION_PROBLEM",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Enclosing dialog control bounding box width minus rendered font string width."
+    },
+    {
+      "case_id": 61,
+      "product": "Civil3d",
+      "folder": "Civil3d-10",
+      "lang": "PTB",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 62,
+      "product": "Civil3d",
+      "folder": "Civil3d-17",
+      "lang": "HUN",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('}'...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 138px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 138px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 138px"
+      ],
+      "missing_evidence": "Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).",
+      "primary_gap_reason": "EVIDENCE_REPRESENTATION_PROBLEM",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Enclosing dialog control bounding box width minus rendered font string width."
+    },
+    {
+      "case_id": 63,
+      "product": "Civil3d",
+      "folder": "Civil3d-19",
+      "lang": "ESP",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Extraneous Localized String ('Gavedag')...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 64,
+      "product": "Civil3d",
+      "folder": "Civil3d-20",
+      "lang": "PTB",
+      "ground_truth_category": "Truncation",
+      "current_findings": [],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 65,
+      "product": "Civil3d",
+      "folder": "Civil3d-21",
+      "lang": "ITA",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Truncation occurs inside dynamic custom control (grid, tree, or table column header) not recognized by standard button/input heuristics.",
+      "primary_gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "secondary_gap_reason": "DETECTOR_MISSED",
+      "required_physical_measurement": "Column cell width constraint vs text line length."
+    },
+    {
+      "case_id": 66,
+      "product": "Civil3d",
+      "folder": "Civil3d-26",
+      "lang": "ITA",
+      "ground_truth_category": "Truncation",
+      "current_findings": [],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 67,
+      "product": "Civil3d",
+      "folder": "Civil3d-32",
+      "lang": "HUN",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Parking Lot' Ret...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'AJl Codes with H...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Grading Daylight...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('~'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('~'...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('<'...)"
+      ],
+      "genuine_evidence_available": [
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 2 tokens"
+      ],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 68,
+      "product": "Inventor",
+      "folder": "Inventor-03",
+      "lang": "CHS",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Truncation occurs inside dynamic custom control (grid, tree, or table column header) not recognized by standard button/input heuristics.",
+      "primary_gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "secondary_gap_reason": "DETECTOR_MISSED",
+      "required_physical_measurement": "Column cell width constraint vs text line length."
+    },
+    {
+      "case_id": 69,
+      "product": "Inventor",
+      "folder": "Inventor-05",
+      "lang": "PLK",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).",
+      "primary_gap_reason": "EVIDENCE_REPRESENTATION_PROBLEM",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Enclosing dialog control bounding box width minus rendered font string width."
+    },
+    {
+      "case_id": 70,
+      "product": "Inventor",
+      "folder": "Inventor-18",
+      "lang": "FRA",
+      "ground_truth_category": "Truncation",
+      "current_findings": [],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 71,
+      "product": "Inventor",
+      "folder": "Inventor-19",
+      "lang": "CSY",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 126px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 151px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 13px"
+      ],
+      "missing_evidence": "Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).",
+      "primary_gap_reason": "EVIDENCE_REPRESENTATION_PROBLEM",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Enclosing dialog control bounding box width minus rendered font string width."
+    },
+    {
+      "case_id": 72,
+      "product": "Inventor",
+      "folder": "Inventor-21",
+      "lang": "CSY",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol (']'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('>'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('<'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('<'...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Button Text Exceeding Border Marg...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Button Text Exceeding Border Marg...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 34px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 37px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 223px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 55px"
+      ],
+      "missing_evidence": "Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).",
+      "primary_gap_reason": "EVIDENCE_REPRESENTATION_PROBLEM",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Enclosing dialog control bounding box width minus rendered font string width."
+    },
+    {
+      "case_id": 74,
+      "product": "Inventor",
+      "folder": "Inventor-35",
+      "lang": "PLK",
+      "ground_truth_category": "Truncation",
+      "current_findings": [],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 75,
+      "product": "Vault",
+      "folder": "Vault-01",
+      "lang": "CSY",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol (']'...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Button Text Exceeding Border Marg...)",
+        "MISSALIGNMENT (ERR-0004: MISSALIGNMENT: Control Left Anchor Shift...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).",
+      "primary_gap_reason": "EVIDENCE_REPRESENTATION_PROBLEM",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Enclosing dialog control bounding box width minus rendered font string width."
+    },
+    {
+      "case_id": 76,
+      "product": "Vault",
+      "folder": "Vault-02",
+      "lang": "FRA",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Description' Ret...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('>'...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 71px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 74px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 50px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 36px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 28px",
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens"
+      ],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 77,
+      "product": "Vault",
+      "folder": "Vault-03",
+      "lang": "DEU",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'Name' Retained i...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol (']'...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens"
+      ],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 78,
+      "product": "Vault",
+      "folder": "Vault-08",
+      "lang": "PLK",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 79,
+      "product": "Vault",
+      "folder": "Vault-11",
+      "lang": "ESP",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "MISC (ERR-0006: MISC: Extraneous Localized String ('desactiva...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Button Text Exceeding Border Marg...)",
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (23p...)",
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (23p...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 95px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 45px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 155px"
+      ],
+      "missing_evidence": "Detector flagged text line but could not establish rigid parent container boundary (overflow_px was set to null).",
+      "primary_gap_reason": "EVIDENCE_REPRESENTATION_PROBLEM",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Enclosing dialog control bounding box width minus rendered font string width."
+    },
+    {
+      "case_id": 80,
+      "product": "Vault",
+      "folder": "Vault-17",
+      "lang": "ITA",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 81,
+      "product": "Vault",
+      "folder": "Vault-20",
+      "lang": "PLK",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 82,
+      "product": "Vault",
+      "folder": "Vault-21",
+      "lang": "PTB",
+      "ground_truth_category": "Truncation",
+      "current_findings": [],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 83,
+      "product": "Vault",
+      "folder": "Vault-23",
+      "lang": "ESP",
+      "ground_truth_category": "Truncation",
+      "current_findings": [],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 84,
+      "product": "Vault",
+      "folder": "Vault-24",
+      "lang": "CHT",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Truncation occurs inside dynamic custom control (grid, tree, or table column header) not recognized by standard button/input heuristics.",
+      "primary_gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "secondary_gap_reason": "DETECTOR_MISSED",
+      "required_physical_measurement": "Column cell width constraint vs text line length."
+    },
+    {
+      "case_id": 85,
+      "product": "Vault",
+      "folder": "Vault-26",
+      "lang": "FRA",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "MISC (ERR-0006: MISC: Extraneous Localized String ('gabari')...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 30px"
+      ],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 87,
+      "product": "Vault",
+      "folder": "Vault-29",
+      "lang": "ITA",
+      "ground_truth_category": "Truncation",
+      "current_findings": [
+        "UNTRANSLATION (ERR-0018: UNTRANSLATION: English Text 'CiProgramData Au...)"
+      ],
+      "genuine_evidence_available": [
+        "UNTRANSLATION: untranslation=DIRECTLY_MEASURED: 1 tokens"
+      ],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 88,
+      "product": "Vault",
+      "folder": "Vault-39",
+      "lang": "DEU",
+      "ground_truth_category": "Truncation",
+      "current_findings": [],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Text expanded beyond boundary or had terminal ellipsis but was not captured by morphological line extractor.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Character terminal bounding edge vs parent clip rect."
+    },
+    {
+      "case_id": 89,
+      "product": "Civil3d",
+      "folder": "Civil3d-02",
+      "lang": "CHS",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Case-insensitive dictionary lookup matching localized token against English baseline vocabulary."
+    },
+    {
+      "case_id": 93,
+      "product": "Civil3d",
+      "folder": "Civil3d-24",
+      "lang": "KOR",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Untranslated text is embedded inside a pre-rendered graphic image or icon label.",
+      "primary_gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "secondary_gap_reason": "COMPOUND_OR_AMBIGUOUS_GT",
+      "required_physical_measurement": "OCR extraction on embedded raster graphics/icons."
+    },
+    {
+      "case_id": 98,
+      "product": "Inventor",
+      "folder": "Inventor-04",
+      "lang": "KOR",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Label Colliding with Adjace...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('['...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol (']'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('*'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('*'...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('*'...)",
+        "TRUNCATION (ERR-0009: TRUNCATION: Text Exceeding Container Boundary...)",
+        "COMBO_BOX_HEIGHT (ERR-0012: COMBO_BOX_HEIGHT: Dropdown Height Defect (24p...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 40px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 54px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 367px",
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 175px"
+      ],
+      "missing_evidence": "English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Case-insensitive dictionary lookup matching localized token against English baseline vocabulary."
+    },
+    {
+      "case_id": 100,
+      "product": "Inventor",
+      "folder": "Inventor-09",
+      "lang": "DEU",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)",
+        "LEAD_TRAIL (ERR-0005: LEAD_TRAIL: Unexpected Trailing Punctuation (...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Case-insensitive dictionary lookup matching localized token against English baseline vocabulary."
+    },
+    {
+      "case_id": 101,
+      "product": "Inventor",
+      "folder": "Inventor-13",
+      "lang": "RUS",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [],
+      "genuine_evidence_available": [],
+      "missing_evidence": "English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Case-insensitive dictionary lookup matching localized token against English baseline vocabulary."
+    },
+    {
+      "case_id": 102,
+      "product": "Inventor",
+      "folder": "Inventor-16",
+      "lang": "JPN",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Case-insensitive dictionary lookup matching localized token against English baseline vocabulary."
+    },
+    {
+      "case_id": 104,
+      "product": "Inventor",
+      "folder": "Inventor-23",
+      "lang": "KOR",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('#'...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Untranslated text is embedded inside a pre-rendered graphic image or icon label.",
+      "primary_gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "secondary_gap_reason": "COMPOUND_OR_AMBIGUOUS_GT",
+      "required_physical_measurement": "OCR extraction on embedded raster graphics/icons."
+    },
+    {
+      "case_id": 105,
+      "product": "Vault",
+      "folder": "Vault-07",
+      "lang": "KOR",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)",
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('='...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 28px"
+      ],
+      "missing_evidence": "English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Case-insensitive dictionary lookup matching localized token against English baseline vocabulary."
+    },
+    {
+      "case_id": 107,
+      "product": "Vault",
+      "folder": "Vault-13",
+      "lang": "CSY",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Control Text Spilling into Adjac...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 232px"
+      ],
+      "missing_evidence": "English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Case-insensitive dictionary lookup matching localized token against English baseline vocabulary."
+    },
+    {
+      "case_id": 108,
+      "product": "Vault",
+      "folder": "Vault-15",
+      "lang": "DEU",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [
+        "SPEC_CHARACTERS (ERR-0008: SPEC_CHARACTERS: Unexpected Rogue Symbol ('{'...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Case-insensitive dictionary lookup matching localized token against English baseline vocabulary."
+    },
+    {
+      "case_id": 110,
+      "product": "Vault",
+      "folder": "Vault-19",
+      "lang": "KOR",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [
+        "OVERLAPPING (ERR-0001: OVERLAPPING: Text Collides with Adjacent Labe...)",
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)"
+      ],
+      "genuine_evidence_available": [
+        "OVERLAPPING: overlap=DIRECTLY_MEASURED: 30px"
+      ],
+      "missing_evidence": "Untranslated text is embedded inside a pre-rendered graphic image or icon label.",
+      "primary_gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "secondary_gap_reason": "COMPOUND_OR_AMBIGUOUS_GT",
+      "required_physical_measurement": "OCR extraction on embedded raster graphics/icons."
+    },
+    {
+      "case_id": 112,
+      "product": "Vault",
+      "folder": "Vault-25",
+      "lang": "CSY",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [],
+      "genuine_evidence_available": [],
+      "missing_evidence": "English tokens exist in localized screen but were skipped by cv_engine whitelist or OCR failed to recognize Latin characters in non-Latin UI context.",
+      "primary_gap_reason": "DETECTOR_MISSED",
+      "secondary_gap_reason": "EVIDENCE_EXTRACTION_MISSING",
+      "required_physical_measurement": "Case-insensitive dictionary lookup matching localized token against English baseline vocabulary."
+    },
+    {
+      "case_id": 113,
+      "product": "Vault",
+      "folder": "Vault-30",
+      "lang": "JPN",
+      "ground_truth_category": "Untranslation",
+      "current_findings": [
+        "MISC (ERR-0006: MISC: Header Control / Tab Count Discrepancy ...)"
+      ],
+      "genuine_evidence_available": [],
+      "missing_evidence": "Untranslated text is embedded inside a pre-rendered graphic image or icon label.",
+      "primary_gap_reason": "UNSUPPORTED_BY_CURRENT_DETECTORS",
+      "secondary_gap_reason": "COMPOUND_OR_AMBIGUOUS_GT",
+      "required_physical_measurement": "OCR extraction on embedded raster graphics/icons."
+    }
+  ]
+}

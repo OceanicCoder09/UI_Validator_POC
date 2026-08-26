@@ -1,0 +1,372 @@
+{
+  "total_benchmark_cases": 101,
+  "repeated_hotkey_cases_count": 7,
+  "non_repeated_hotkey_cases_count": 94,
+  "questions_answered": {
+    "Q_A_hotkey_evidence_coverage": {
+      "directly_supported": "0 / 7 (0.0%)",
+      "ambiguous_low_conf": "0 / 7 (0.0%)",
+      "unsupported_no_conflict": "7 / 7 (100.0%)"
+    },
+    "Q_B_non_hotkey_cases_with_conflicts": "1 / 94 (1.1%)",
+    "Q_C_conflict_distribution": {
+      "total_conflicts_in_hotkey_cases": 0,
+      "total_conflicts_in_non_hotkey_cases": 1,
+      "total_conflicts_all_cases": 1
+    }
+  },
+  "discrimination_rankings": {
+    "vs_all_non_repeated_hotkey": [
+      {
+        "feature": "unique_accelerators_count",
+        "repeated_hotkey_mean": 0.0,
+        "non_repeated_hotkey_mean": 0.13,
+        "separation_ratio": 0.1463
+      },
+      {
+        "feature": "total_accelerators_detected",
+        "repeated_hotkey_mean": 0.0,
+        "non_repeated_hotkey_mean": 0.14,
+        "separation_ratio": 0.1362
+      },
+      {
+        "feature": "hotkey_conflict_count",
+        "repeated_hotkey_mean": 0.0,
+        "non_repeated_hotkey_mean": 0.01,
+        "separation_ratio": 0.0108
+      },
+      {
+        "feature": "duplicate_accelerators_count",
+        "repeated_hotkey_mean": 0.0,
+        "non_repeated_hotkey_mean": 0.01,
+        "separation_ratio": 0.0108
+      }
+    ],
+    "vs_truncation": [
+      {
+        "feature": "total_accelerators_detected",
+        "repeated_hotkey_mean": 0.0,
+        "truncation_mean": 0.03,
+        "separation_ratio": 0.0345
+      },
+      {
+        "feature": "unique_accelerators_count",
+        "repeated_hotkey_mean": 0.0,
+        "truncation_mean": 0.03,
+        "separation_ratio": 0.0345
+      },
+      {
+        "feature": "hotkey_conflict_count",
+        "repeated_hotkey_mean": 0.0,
+        "truncation_mean": 0.0,
+        "separation_ratio": 0.0
+      },
+      {
+        "feature": "duplicate_accelerators_count",
+        "repeated_hotkey_mean": 0.0,
+        "truncation_mean": 0.0,
+        "separation_ratio": 0.0
+      }
+    ],
+    "vs_untranslation": [
+      {
+        "feature": "total_accelerators_detected",
+        "repeated_hotkey_mean": 0.0,
+        "untranslation_mean": 0.23,
+        "separation_ratio": 0.3
+      },
+      {
+        "feature": "unique_accelerators_count",
+        "repeated_hotkey_mean": 0.0,
+        "untranslation_mean": 0.23,
+        "separation_ratio": 0.3
+      },
+      {
+        "feature": "hotkey_conflict_count",
+        "repeated_hotkey_mean": 0.0,
+        "untranslation_mean": 0.0,
+        "separation_ratio": 0.0
+      },
+      {
+        "feature": "duplicate_accelerators_count",
+        "repeated_hotkey_mean": 0.0,
+        "untranslation_mean": 0.0,
+        "separation_ratio": 0.0
+      }
+    ]
+  },
+  "category_summary_distributions": {
+    "Repeated hotkey": {
+      "count": 7,
+      "hotkey_conflict_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "duplicate_accelerators_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "total_accelerators_detected": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "unique_accelerators_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "Misalignment": {
+      "count": 19,
+      "hotkey_conflict_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "duplicate_accelerators_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "total_accelerators_detected": {
+        "mean": 0.16,
+        "std": 0.36,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "unique_accelerators_count": {
+        "mean": 0.16,
+        "std": 0.36,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      }
+    },
+    "Overlapping": {
+      "count": 19,
+      "hotkey_conflict_count": {
+        "mean": 0.05,
+        "std": 0.22,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "duplicate_accelerators_count": {
+        "mean": 0.05,
+        "std": 0.22,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "total_accelerators_detected": {
+        "mean": 0.16,
+        "std": 0.49,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 2.0
+      },
+      "unique_accelerators_count": {
+        "mean": 0.11,
+        "std": 0.31,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      }
+    },
+    "Truncation": {
+      "count": 30,
+      "hotkey_conflict_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "duplicate_accelerators_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "total_accelerators_detected": {
+        "mean": 0.03,
+        "std": 0.18,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "unique_accelerators_count": {
+        "mean": 0.03,
+        "std": 0.18,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      }
+    },
+    "Untranslation": {
+      "count": 26,
+      "hotkey_conflict_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "duplicate_accelerators_count": {
+        "mean": 0.0,
+        "std": 0.0,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "total_accelerators_detected": {
+        "mean": 0.23,
+        "std": 0.42,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "unique_accelerators_count": {
+        "mean": 0.23,
+        "std": 0.42,
+        "median": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      }
+    }
+  },
+  "true_repeated_hotkey_exemplars": [],
+  "false_positive_exemplars": [
+    {
+      "case_id": 42,
+      "product": "Vault",
+      "folder": "Vault-12",
+      "lang": "CHT",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 45,
+      "total_accelerators_detected": 2,
+      "unique_accelerators_count": 1,
+      "duplicate_accelerators_count": 1,
+      "hotkey_conflict_count": 1,
+      "conflicting_mnemonic_chars": [
+        "A"
+      ],
+      "avg_conflict_ocr_confidence": 0.477,
+      "evidence_support_level": "AMBIGUOUS_LOW_CONFIDENCE",
+      "detailed_conflicts": [
+        {
+          "mnemonic_char": "A",
+          "conflict_count": 2,
+          "conflicting_elements": [
+            {
+              "element_id": "L2",
+              "loc_text": "MIT(A)",
+              "enu_text": "Actions",
+              "representation": "FULL_OR_HALF_PARENTHESES",
+              "ocr_conf": 0.348
+            },
+            {
+              "element_id": "L4",
+              "loc_text": "#A(A)",
+              "enu_text": "Add",
+              "representation": "FULL_OR_HALF_PARENTHESES",
+              "ocr_conf": 0.606
+            }
+          ],
+          "provenance": "DIRECTLY_MEASURED"
+        }
+      ],
+      "all_detected_accelerators": [
+        {
+          "element_id": "L2",
+          "enu_id": "E5",
+          "enu_text": "Actions",
+          "loc_text": "MIT(A)",
+          "char": "A",
+          "rep": "FULL_OR_HALF_PARENTHESES",
+          "existed_in_enu": false,
+          "conf": 0.348,
+          "box": [
+            175,
+            37,
+            46,
+            18
+          ]
+        },
+        {
+          "element_id": "L4",
+          "enu_id": "E8",
+          "enu_text": "Add",
+          "loc_text": "#A(A)",
+          "char": "A",
+          "rep": "FULL_OR_HALF_PARENTHESES",
+          "existed_in_enu": false,
+          "conf": 0.606,
+          "box": [
+            243,
+            58,
+            47,
+            24
+          ]
+        }
+      ]
+    }
+  ]
+}

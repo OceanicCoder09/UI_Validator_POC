@@ -1,0 +1,2022 @@
+[
+  {
+    "case_id": 9,
+    "product": "Civil3d",
+    "folder": "Civil3d-01",
+    "lang": "RUS",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 1.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Misalignment",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 10,
+    "product": "Civil3d",
+    "folder": "Civil3d-12",
+    "lang": "FRA",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.00014800000644754618,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.9998509883880615,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.9998509883880615,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 11,
+    "product": "Civil3d",
+    "folder": "Civil3d-13",
+    "lang": "ESP",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 12,
+    "product": "Civil3d",
+    "folder": "Civil3d-14",
+    "lang": "CHT",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.0008960000122897327,
+      "Overlapping": 0.9894580245018005,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.009314999915659428,
+      "Untranslation": 0.00033099998836405575
+    },
+    "top1_predicted": "Overlapping",
+    "top1_confidence": 0.9894580245018005,
+    "top2_predicted": [
+      "Overlapping",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 13,
+    "product": "Civil3d",
+    "folder": "Civil3d-16",
+    "lang": "KOR",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.11730699986219406,
+      "Overlapping": 0.13565799593925476,
+      "Repeated hotkey": 0.7470340132713318,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 0.7470340132713318,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 14,
+    "product": "Civil3d",
+    "folder": "Civil3d-23",
+    "lang": "FRA",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.00796900037676096,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.9920309782028198,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.9920309782028198,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 15,
+    "product": "Inventor",
+    "folder": "Inventor-01",
+    "lang": "JPN",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.9943010210990906,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.005698999855667353,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Overlapping",
+    "top1_confidence": 0.9943010210990906,
+    "top2_predicted": [
+      "Overlapping",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 16,
+    "product": "Inventor",
+    "folder": "Inventor-12",
+    "lang": "FRA",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.9820200204849243,
+      "Overlapping": 0.017980000004172325,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 0.9820200204849243,
+    "top2_predicted": [
+      "Misalignment",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 17,
+    "product": "Inventor",
+    "folder": "Inventor-17",
+    "lang": "CSY",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.038318999111652374,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.9616810083389282,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.9616810083389282,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 18,
+    "product": "Inventor",
+    "folder": "Inventor-25",
+    "lang": "ESP",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.06789399683475494,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.9321060180664062,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.9321060180664062,
+    "top2_predicted": [
+      "Truncation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 19,
+    "product": "Inventor",
+    "folder": "Inventor-27",
+    "lang": "JPN",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.0011129999766126275,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.9988870024681091,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 0.9988870024681091,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 20,
+    "product": "Inventor",
+    "folder": "Inventor-31",
+    "lang": "DEU",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.9960539937019348,
+      "Truncation": 0.0,
+      "Untranslation": 0.003945999778807163
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 0.9960539937019348,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 21,
+    "product": "Inventor",
+    "folder": "Inventor-37",
+    "lang": "RUS",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.9999939799308777,
+      "Repeated hotkey": 0.0,
+      "Truncation": 6.000000212225132e-06,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Overlapping",
+    "top1_confidence": 0.9999939799308777,
+    "top2_predicted": [
+      "Overlapping",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 22,
+    "product": "Vault",
+    "folder": "Vault-28",
+    "lang": "HUN",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.00673400005325675,
+      "Overlapping": 1.8000000636675395e-05,
+      "Repeated hotkey": 2.2000000171829015e-05,
+      "Truncation": 0.9932249784469604,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.9932249784469604,
+    "top2_predicted": [
+      "Truncation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 23,
+    "product": "Vault",
+    "folder": "Vault-32",
+    "lang": "PLK",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.017111999914050102,
+      "Untranslation": 0.9828879833221436
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 0.9828879833221436,
+    "top2_predicted": [
+      "Untranslation",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 24,
+    "product": "Vault",
+    "folder": "Vault-35",
+    "lang": "ESP",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 1.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Misalignment",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 25,
+    "product": "Vault",
+    "folder": "Vault-36",
+    "lang": "CHT",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.21823500096797943,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.7817649841308594,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 0.7817649841308594,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 26,
+    "product": "Vault",
+    "folder": "Vault-37",
+    "lang": "CSY",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 1.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Misalignment",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 27,
+    "product": "Vault",
+    "folder": "Vault-40",
+    "lang": "HUN",
+    "gt_category": "Misalignment",
+    "probabilities": {
+      "Misalignment": 0.9702330231666565,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.029766999185085297,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 0.9702330231666565,
+    "top2_predicted": [
+      "Misalignment",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 29,
+    "product": "Civil3d",
+    "folder": "Civil3d-06",
+    "lang": "RUS",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 1.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Misalignment",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 30,
+    "product": "Civil3d",
+    "folder": "Civil3d-18",
+    "lang": "CSY",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 1.4000000192027073e-05,
+      "Truncation": 0.9999179840087891,
+      "Untranslation": 6.800000119255856e-05
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.9999179840087891,
+    "top2_predicted": [
+      "Truncation",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 31,
+    "product": "Civil3d",
+    "folder": "Civil3d-28",
+    "lang": "PTB",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 3.999999989900971e-06,
+      "Overlapping": 0.1281609982252121,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.8718349933624268,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.8718349933624268,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 32,
+    "product": "Civil3d",
+    "folder": "Civil3d-29",
+    "lang": "FRA",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 33,
+    "product": "Civil3d",
+    "folder": "Civil3d-30",
+    "lang": "CHT",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.9999399781227112,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 9.000000318337698e-06,
+      "Truncation": 0.0,
+      "Untranslation": 5.0999999075429514e-05
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 0.9999399781227112,
+    "top2_predicted": [
+      "Misalignment",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 34,
+    "product": "Inventor",
+    "folder": "Inventor-07",
+    "lang": "PTB",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 35,
+    "product": "Inventor",
+    "folder": "Inventor-08",
+    "lang": "JPN",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 1.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Misalignment",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 36,
+    "product": "Inventor",
+    "folder": "Inventor-33",
+    "lang": "ITA",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 1.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Misalignment",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 37,
+    "product": "Inventor",
+    "folder": "Inventor-34",
+    "lang": "KOR",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 38,
+    "product": "Inventor",
+    "folder": "Inventor-39",
+    "lang": "ESP",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.9901880025863647,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.009812000207602978,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 0.9901880025863647,
+    "top2_predicted": [
+      "Misalignment",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 39,
+    "product": "Vault",
+    "folder": "Vault-04",
+    "lang": "HUN",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 1.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Overlapping",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Overlapping",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 40,
+    "product": "Vault",
+    "folder": "Vault-05",
+    "lang": "ITA",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.002558999927714467,
+      "Untranslation": 0.9974409937858582
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 0.9974409937858582,
+    "top2_predicted": [
+      "Untranslation",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 41,
+    "product": "Vault",
+    "folder": "Vault-06",
+    "lang": "JPN",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.03650100156664848,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.9634990096092224
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 0.9634990096092224,
+    "top2_predicted": [
+      "Untranslation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 42,
+    "product": "Vault",
+    "folder": "Vault-12",
+    "lang": "CHT",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.9986860156059265,
+      "Truncation": 0.0,
+      "Untranslation": 0.0013139999937266111
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 0.9986860156059265,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 43,
+    "product": "Vault",
+    "folder": "Vault-14",
+    "lang": "FRA",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 1.9999999949504854e-06,
+      "Overlapping": 0.00016999999934341758,
+      "Repeated hotkey": 4.5000000682193786e-05,
+      "Truncation": 7.000000096013537e-06,
+      "Untranslation": 0.9997760057449341
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 0.9997760057449341,
+    "top2_predicted": [
+      "Untranslation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 44,
+    "product": "Vault",
+    "folder": "Vault-18",
+    "lang": "JPN",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 1.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Overlapping",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Overlapping",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 45,
+    "product": "Vault",
+    "folder": "Vault-31",
+    "lang": "KOR",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 1.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Overlapping",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Overlapping",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 46,
+    "product": "Vault",
+    "folder": "Vault-33",
+    "lang": "PTB",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 1.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 47,
+    "product": "Vault",
+    "folder": "Vault-34",
+    "lang": "CHS",
+    "gt_category": "Overlapping",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 1.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 51,
+    "product": "Civil3d",
+    "folder": "Civil3d-22",
+    "lang": "FRA",
+    "gt_category": "Repeated hotkey",
+    "probabilities": {
+      "Misalignment": 0.9894499778747559,
+      "Overlapping": 0.01054999977350235,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 0.9894499778747559,
+    "top2_predicted": [
+      "Misalignment",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 52,
+    "product": "Inventor",
+    "folder": "Inventor-02",
+    "lang": "ITA",
+    "gt_category": "Repeated hotkey",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.00048499999684281647,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.9995149970054626,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.9995149970054626,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 53,
+    "product": "Inventor",
+    "folder": "Inventor-28",
+    "lang": "JPN",
+    "gt_category": "Repeated hotkey",
+    "probabilities": {
+      "Misalignment": 0.9995859861373901,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0004130000015720725,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 0.9995859861373901,
+    "top2_predicted": [
+      "Misalignment",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 54,
+    "product": "Inventor",
+    "folder": "Inventor-29",
+    "lang": "CSY",
+    "gt_category": "Repeated hotkey",
+    "probabilities": {
+      "Misalignment": 0.00866399984806776,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 1.4999999621068127e-05,
+      "Truncation": 0.991320013999939,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.991320013999939,
+    "top2_predicted": [
+      "Truncation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 55,
+    "product": "Inventor",
+    "folder": "Inventor-30",
+    "lang": "FRA",
+    "gt_category": "Repeated hotkey",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 1.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 56,
+    "product": "Inventor",
+    "folder": "Inventor-36",
+    "lang": "PTB",
+    "gt_category": "Repeated hotkey",
+    "probabilities": {
+      "Misalignment": 0.9121699929237366,
+      "Overlapping": 9.40000027185306e-05,
+      "Repeated hotkey": 0.08773600310087204,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 0.9121699929237366,
+    "top2_predicted": [
+      "Misalignment",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 57,
+    "product": "Vault",
+    "folder": "Vault-09",
+    "lang": "PTB",
+    "gt_category": "Repeated hotkey",
+    "probabilities": {
+      "Misalignment": 0.9943950176239014,
+      "Overlapping": 0.0056050000712275505,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 0.9943950176239014,
+    "top2_predicted": [
+      "Misalignment",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 59,
+    "product": "Civil3d",
+    "folder": "Civil3d-04",
+    "lang": "PLK",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 60,
+    "product": "Civil3d",
+    "folder": "Civil3d-05",
+    "lang": "DEU",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 61,
+    "product": "Civil3d",
+    "folder": "Civil3d-10",
+    "lang": "PTB",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 62,
+    "product": "Civil3d",
+    "folder": "Civil3d-17",
+    "lang": "HUN",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 3.000000106112566e-06,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.9999970197677612
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 0.9999970197677612,
+    "top2_predicted": [
+      "Untranslation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 63,
+    "product": "Civil3d",
+    "folder": "Civil3d-19",
+    "lang": "ESP",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.026009999215602875,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.9739900231361389,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.9739900231361389,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 64,
+    "product": "Civil3d",
+    "folder": "Civil3d-20",
+    "lang": "PTB",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 65,
+    "product": "Civil3d",
+    "folder": "Civil3d-21",
+    "lang": "ITA",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 66,
+    "product": "Civil3d",
+    "folder": "Civil3d-26",
+    "lang": "ITA",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 67,
+    "product": "Civil3d",
+    "folder": "Civil3d-32",
+    "lang": "HUN",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 68,
+    "product": "Inventor",
+    "folder": "Inventor-03",
+    "lang": "CHS",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 1.9999999949504854e-06,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.9999979734420776
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 0.9999979734420776,
+    "top2_predicted": [
+      "Untranslation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 69,
+    "product": "Inventor",
+    "folder": "Inventor-05",
+    "lang": "PLK",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 70,
+    "product": "Inventor",
+    "folder": "Inventor-18",
+    "lang": "FRA",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 71,
+    "product": "Inventor",
+    "folder": "Inventor-19",
+    "lang": "CSY",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 1.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 72,
+    "product": "Inventor",
+    "folder": "Inventor-21",
+    "lang": "CSY",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 1.2000000424450263e-05,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.9999880194664001,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 0.9999880194664001,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 73,
+    "product": "Inventor",
+    "folder": "Inventor-32",
+    "lang": "DEU",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.9998549818992615,
+      "Untranslation": 0.0001449999981559813
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.9998549818992615,
+    "top2_predicted": [
+      "Truncation",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 74,
+    "product": "Inventor",
+    "folder": "Inventor-35",
+    "lang": "PLK",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.12616600096225739,
+      "Truncation": 0.0,
+      "Untranslation": 0.8738340139389038
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 0.8738340139389038,
+    "top2_predicted": [
+      "Untranslation",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 75,
+    "product": "Vault",
+    "folder": "Vault-01",
+    "lang": "CSY",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.9999849796295166,
+      "Untranslation": 1.4999999621068127e-05
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.9999849796295166,
+    "top2_predicted": [
+      "Truncation",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 76,
+    "product": "Vault",
+    "folder": "Vault-02",
+    "lang": "FRA",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 77,
+    "product": "Vault",
+    "folder": "Vault-03",
+    "lang": "DEU",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 78,
+    "product": "Vault",
+    "folder": "Vault-08",
+    "lang": "PLK",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.9997199773788452,
+      "Overlapping": 0.00022600000374950469,
+      "Repeated hotkey": 5.2999999752501026e-05,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 0.9997199773788452,
+    "top2_predicted": [
+      "Misalignment",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 79,
+    "product": "Vault",
+    "folder": "Vault-11",
+    "lang": "ESP",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 1.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Misalignment",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 80,
+    "product": "Vault",
+    "folder": "Vault-17",
+    "lang": "ITA",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 81,
+    "product": "Vault",
+    "folder": "Vault-20",
+    "lang": "PLK",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 82,
+    "product": "Vault",
+    "folder": "Vault-21",
+    "lang": "PTB",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 83,
+    "product": "Vault",
+    "folder": "Vault-23",
+    "lang": "ESP",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 84,
+    "product": "Vault",
+    "folder": "Vault-24",
+    "lang": "CHT",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 85,
+    "product": "Vault",
+    "folder": "Vault-26",
+    "lang": "FRA",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 86,
+    "product": "Vault",
+    "folder": "Vault-27",
+    "lang": "DEU",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.9997749924659729,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.00022499999613501132,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Overlapping",
+    "top1_confidence": 0.9997749924659729,
+    "top2_predicted": [
+      "Overlapping",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 87,
+    "product": "Vault",
+    "folder": "Vault-29",
+    "lang": "ITA",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.6363450288772583,
+      "Untranslation": 0.3636550009250641
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.6363450288772583,
+    "top2_predicted": [
+      "Truncation",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 88,
+    "product": "Vault",
+    "folder": "Vault-39",
+    "lang": "DEU",
+    "gt_category": "Truncation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 89,
+    "product": "Civil3d",
+    "folder": "Civil3d-02",
+    "lang": "CHS",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 90,
+    "product": "Civil3d",
+    "folder": "Civil3d-07",
+    "lang": "JPN",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 91,
+    "product": "Civil3d",
+    "folder": "Civil3d-08",
+    "lang": "DEU",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.005154000129550695,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.994845986366272,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.994845986366272,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 92,
+    "product": "Civil3d",
+    "folder": "Civil3d-11",
+    "lang": "ITA",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.9645119905471802,
+      "Overlapping": 0.03548799827694893,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 0.9645119905471802,
+    "top2_predicted": [
+      "Misalignment",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 93,
+    "product": "Civil3d",
+    "folder": "Civil3d-24",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.9999960064888,
+      "Truncation": 1.9999999949504854e-06,
+      "Untranslation": 1.9999999949504854e-06
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 0.9999960064888,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 94,
+    "product": "Civil3d",
+    "folder": "Civil3d-25",
+    "lang": "JPN",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 95,
+    "product": "Civil3d",
+    "folder": "Civil3d-31",
+    "lang": "CHT",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 7.000000096013537e-06,
+      "Overlapping": 0.0038300000596791506,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.996163010597229,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.996163010597229,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 96,
+    "product": "Civil3d",
+    "folder": "Civil3d-34",
+    "lang": "CHS",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.8025100231170654,
+      "Untranslation": 0.19749000668525696
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.8025100231170654,
+    "top2_predicted": [
+      "Truncation",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 97,
+    "product": "Civil3d",
+    "folder": "Civil3d-35",
+    "lang": "ESP",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 1.8999999156221747e-05,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.9999809861183167,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.9999809861183167,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 98,
+    "product": "Inventor",
+    "folder": "Inventor-04",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.9995110034942627,
+      "Truncation": 0.0,
+      "Untranslation": 0.0004889999981969595
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 0.9995110034942627,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 99,
+    "product": "Inventor",
+    "folder": "Inventor-06",
+    "lang": "PTB",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.3136720061302185,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.6863279938697815,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Repeated hotkey",
+    "top1_confidence": 0.6863279938697815,
+    "top2_predicted": [
+      "Repeated hotkey",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 100,
+    "product": "Inventor",
+    "folder": "Inventor-09",
+    "lang": "DEU",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 101,
+    "product": "Inventor",
+    "folder": "Inventor-13",
+    "lang": "RUS",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 1.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Truncation",
+      "Misalignment"
+    ]
+  },
+  {
+    "case_id": 102,
+    "product": "Inventor",
+    "folder": "Inventor-16",
+    "lang": "JPN",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 9.999999974752427e-07,
+      "Truncation": 0.0,
+      "Untranslation": 0.9999989867210388
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 0.9999989867210388,
+    "top2_predicted": [
+      "Untranslation",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 103,
+    "product": "Inventor",
+    "folder": "Inventor-22",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 1.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Overlapping",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Overlapping",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 104,
+    "product": "Inventor",
+    "folder": "Inventor-23",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.985306978225708,
+      "Overlapping": 0.014655999839305878,
+      "Repeated hotkey": 0.0,
+      "Truncation": 3.7999998312443495e-05,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 0.985306978225708,
+    "top2_predicted": [
+      "Misalignment",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 105,
+    "product": "Vault",
+    "folder": "Vault-07",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 1.9999999949504854e-06,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.010021000169217587,
+      "Truncation": 0.0,
+      "Untranslation": 0.9899770021438599
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 0.9899770021438599,
+    "top2_predicted": [
+      "Untranslation",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 106,
+    "product": "Vault",
+    "folder": "Vault-10",
+    "lang": "CHS",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0031210000161081553,
+      "Truncation": 0.0,
+      "Untranslation": 0.996878981590271
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 0.996878981590271,
+    "top2_predicted": [
+      "Untranslation",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 107,
+    "product": "Vault",
+    "folder": "Vault-13",
+    "lang": "CSY",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 108,
+    "product": "Vault",
+    "folder": "Vault-15",
+    "lang": "DEU",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 9.000000318337698e-06,
+      "Overlapping": 0.29325801134109497,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.7067319750785828,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Truncation",
+    "top1_confidence": 0.7067319750785828,
+    "top2_predicted": [
+      "Truncation",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 109,
+    "product": "Vault",
+    "folder": "Vault-16",
+    "lang": "HUN",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 1.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Misalignment",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Misalignment",
+      "Overlapping"
+    ]
+  },
+  {
+    "case_id": 110,
+    "product": "Vault",
+    "folder": "Vault-19",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 3.999999989900971e-06,
+      "Truncation": 0.0,
+      "Untranslation": 0.9999960064888
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 0.9999960064888,
+    "top2_predicted": [
+      "Untranslation",
+      "Repeated hotkey"
+    ]
+  },
+  {
+    "case_id": 111,
+    "product": "Vault",
+    "folder": "Vault-22",
+    "lang": "CHS",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.9999979734420776,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.9999999949504854e-06
+    },
+    "top1_predicted": "Overlapping",
+    "top1_confidence": 0.9999979734420776,
+    "top2_predicted": [
+      "Overlapping",
+      "Untranslation"
+    ]
+  },
+  {
+    "case_id": 112,
+    "product": "Vault",
+    "folder": "Vault-25",
+    "lang": "CSY",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 113,
+    "product": "Vault",
+    "folder": "Vault-30",
+    "lang": "JPN",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 0.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 1.0
+    },
+    "top1_predicted": "Untranslation",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Untranslation",
+      "Truncation"
+    ]
+  },
+  {
+    "case_id": 114,
+    "product": "Vault",
+    "folder": "Vault-38",
+    "lang": "FRA",
+    "gt_category": "Untranslation",
+    "probabilities": {
+      "Misalignment": 0.0,
+      "Overlapping": 1.0,
+      "Repeated hotkey": 0.0,
+      "Truncation": 0.0,
+      "Untranslation": 0.0
+    },
+    "top1_predicted": "Overlapping",
+    "top1_confidence": 1.0,
+    "top2_predicted": [
+      "Overlapping",
+      "Misalignment"
+    ]
+  }
+]

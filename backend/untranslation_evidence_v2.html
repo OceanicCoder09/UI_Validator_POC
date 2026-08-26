@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Untranslation Physical Evidence Report v2</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 24px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; background: #0f172a; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #020617; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #1e293b; }
+  .case-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; margin-bottom: 24px; padding: 18px; }
+  .case-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 12px; }
+  .gt-badge { background: #831843; border: 1px solid #f43f5e; color: #ffe4e6; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+  .status-pass { background: #064e3b; border: 1px solid #10b981; color: #a7f3d0; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+  .status-ambig { background: #78350f; border: 1px solid #f59e0b; color: #fef3c7; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+  .status-fail { background: #334155; color: #94a3b8; font-weight: 600; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+<h1>Untranslation Physical Evidence Report (v2)</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Direct lexical preservation audit across all 26 Untranslation benchmark cases, differentiating user-facing UI text from universal technical terms.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Total Untranslation Cases</div>
+    <div class="card-val" style="color: #f8fafc;">26</div>
+    <div class="card-sub">ground truth benchmark cases</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Directly Supported Cases</div>
+    <div class="card-val" style="color: #4ade80;">24 / 26 (92.3%)</div>
+    <div class="card-sub">user-facing English words retained</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Ambiguous (Tech/Brand Only)</div>
+    <div class="card-val" style="color: #f59e0b;">0 / 26 (0.0%)</div>
+    <div class="card-sub">acronyms, OK/Cancel, DWG, etc.</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Unsupported (No English)</div>
+    <div class="card-val" style="color: #94a3b8;">2 / 26 (7.7%)</div>
+    <div class="card-sub">OCR missed or subtle punctuation</div>
+  </div>
+</div>
+
+<h2>Case-by-Case Untranslation Evidence Audit (26 Cases)</h2>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #89: Civil3d / Civil3d-02 (CHS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">5</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 1</div>
+    <div><strong>Total English Chars Preserved:</strong> 25</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L2</code></td>
+        <td>'Basic'</td>
+        <td><strong style='color:#4ade80;'>'Basic'</strong></td>
+        <td>Basic</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L3</code></td>
+        <td>'Basic'</td>
+        <td><strong style='color:#4ade80;'>'Basic'</strong></td>
+        <td>Basic</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L4</code></td>
+        <td>'Basic'</td>
+        <td><strong style='color:#4ade80;'>'Basic'</strong></td>
+        <td>Basic</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L5</code></td>
+        <td>'Basic'</td>
+        <td><strong style='color:#4ade80;'>'Basic'</strong></td>
+        <td>Basic</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L6</code></td>
+        <td>'Basic'</td>
+        <td><strong style='color:#4ade80;'>'Basic'</strong></td>
+        <td>Basic</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L7</code></td>
+        <td>'100.000'</td>
+        <td><span style='color:#f59e0b;'>'100.000'</span></td>
+        <td>100.000</td>
+        <td>0%</td>
+        <td><span style='color:#94a3b8;'>NUMERIC_OR_UNIT</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #90: Civil3d / Civil3d-07 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">1</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 18</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L1</code></td>
+        <td>'Underground Storage'</td>
+        <td><strong style='color:#4ade80;'>'Underground Storage'</strong></td>
+        <td>Underground, Storage</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #91: Civil3d / Civil3d-08 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">20</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 340</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L1</code></td>
+        <td>'Create Reports'</td>
+        <td><strong style='color:#4ade80;'>'Create Reports'</strong></td>
+        <td>Create, Reports</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L2</code></td>
+        <td>'Station Offset to Points Report'</td>
+        <td><strong style='color:#4ade80;'>'Station Offset to Points Report'</strong></td>
+        <td>Station, Offset, Points, Report</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L3</code></td>
+        <td>'Points station offset to points report'</td>
+        <td><strong style='color:#4ade80;'>'Points station offset to points report'</strong></td>
+        <td>Points, station, offset, points, report</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L4</code></td>
+        <td>'The Station offset report option displays the station and offset'</td>
+        <td><strong style='color:#4ade80;'>'The Station offset report option displays the station and offset'</strong></td>
+        <td>The, Station, offset, report, option, displays, the, station, and, offset</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L5</code></td>
+        <td>'the selected'</td>
+        <td><strong style='color:#4ade80;'>'values of the selected'</strong></td>
+        <td>the, selected</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L6</code></td>
+        <td>'elative to the selected alignment'</td>
+        <td><strong style='color:#4ade80;'>'elative to the selected alignment'</strong></td>
+        <td>elative, the, selected, alignment</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L7</code></td>
+        <td>'List of points'</td>
+        <td><strong style='color:#4ade80;'>'List of points'</strong></td>
+        <td>List, points</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L8</code></td>
+        <td>'Select Aii'</td>
+        <td><strong style='color:#4ade80;'>'Select All'</strong></td>
+        <td>Select</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L9</code></td>
+        <td>'Deselect All'</td>
+        <td><strong style='color:#4ade80;'>'Deselect All'</strong></td>
+        <td>Deselect, All</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L10</code></td>
+        <td>'Report settings'</td>
+        <td><strong style='color:#4ade80;'>'Report settings'</strong></td>
+        <td>Report, settings</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #92: Civil3d / Civil3d-11 (ITA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">5</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 2</div>
+    <div><strong>Total English Chars Preserved:</strong> 53</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L4</code></td>
+        <td>'Double Line (Storm)'</td>
+        <td><strong style='color:#4ade80;'>'Double Line (Storm)'</strong></td>
+        <td>Double, Line, Storm</td>
+        <td>88%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L8</code></td>
+        <td>'12 inch Concrete Pipe'</td>
+        <td><strong style='color:#4ade80;'>'12 inch Concrete Pipe'</strong></td>
+        <td>inch, Concrete, Pipe</td>
+        <td>89%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L9</code></td>
+        <td>'Material'</td>
+        <td><strong style='color:#4ade80;'>'Material'</strong></td>
+        <td>Material</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L15</code></td>
+        <td>'Layer'</td>
+        <td><strong style='color:#4ade80;'>'Layer'</strong></td>
+        <td>Layer</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L16</code></td>
+        <td>'C-STRM-PIPE'</td>
+        <td><strong style='color:#4ade80;'>'C-STRM-PIPE'</strong></td>
+        <td>STRM, PIPE</td>
+        <td>82%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L20</code></td>
+        <td>'1,0000'</td>
+        <td><span style='color:#f59e0b;'>'1,0000'</span></td>
+        <td>1,0000</td>
+        <td>0%</td>
+        <td><span style='color:#94a3b8;'>NUMERIC_OR_UNIT</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L31</code></td>
+        <td>'12,000''</td>
+        <td><span style='color:#f59e0b;'>'12,000''</span></td>
+        <td>12,000'</td>
+        <td>0%</td>
+        <td><span style='color:#94a3b8;'>NUMERIC_OR_UNIT</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #93: Civil3d / Civil3d-24 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[UNSUPPORTED]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">0</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 0</div>
+    <div><strong>Support Level:</strong> UNSUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='6' style='text-align:center; color:#94a3b8;'>No preserved English text elements found by OCR.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #94: Civil3d / Civil3d-25 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">11</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 137</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L1</code></td>
+        <td>'Pressure Pipe Properties'</td>
+        <td><strong style='color:#4ade80;'>'Pressure Pipe - (1)'</strong></td>
+        <td>Pressure, Pipe</td>
+        <td>75%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L3</code></td>
+        <td>'Reference Surface'</td>
+        <td><strong style='color:#4ade80;'>'Reference Surface'</strong></td>
+        <td>Reference, Surface</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L4</code></td>
+        <td>'Reference Alignment'</td>
+        <td><strong style='color:#4ade80;'>'Reference Alignment'</strong></td>
+        <td>Reference, Alignment</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L5</code></td>
+        <td>'Bearing'</td>
+        <td><strong style='color:#4ade80;'>'Bearing'</strong></td>
+        <td>Bearing</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L7</code></td>
+        <td>'Start Station'</td>
+        <td><strong style='color:#4ade80;'>'Start Station'</strong></td>
+        <td>Start, Station</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L8</code></td>
+        <td>'End Station'</td>
+        <td><strong style='color:#4ade80;'>'End Station'</strong></td>
+        <td>End, Station</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L9</code></td>
+        <td>'Start Offset'</td>
+        <td><strong style='color:#4ade80;'>'Start Omset'</strong></td>
+        <td>Start</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L19</code></td>
+        <td>'Slope'</td>
+        <td><strong style='color:#4ade80;'>'slope'</strong></td>
+        <td>slope</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L12</code></td>
+        <td>'Pipe Start Easting'</td>
+        <td><strong style='color:#4ade80;'>'Pipe Start Easting'</strong></td>
+        <td>Pipe, Start, Easting</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L14</code></td>
+        <td>'Pipe Start Northing'</td>
+        <td><strong style='color:#4ade80;'>'Pipe Start Northing'</strong></td>
+        <td>Pipe, Start, Northing</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #95: Civil3d / Civil3d-31 (CHT)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">21</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 180</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L2</code></td>
+        <td>'Beam'</td>
+        <td><strong style='color:#4ade80;'>'Beam'</strong></td>
+        <td>Beam</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L3</code></td>
+        <td>'Roof'</td>
+        <td><strong style='color:#4ade80;'>'Roof'</strong></td>
+        <td>Roof</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L5</code></td>
+        <td>'Building Element Proxy'</td>
+        <td><strong style='color:#4ade80;'>'Building Element Proxy'</strong></td>
+        <td>Building, Element, Proxy</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L6</code></td>
+        <td>'Slab'</td>
+        <td><strong style='color:#4ade80;'>'Slab'</strong></td>
+        <td>Slab</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L7</code></td>
+        <td>'Column'</td>
+        <td><strong style='color:#4ade80;'>'Column'</strong></td>
+        <td>Column</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L8</code></td>
+        <td>'Space'</td>
+        <td><strong style='color:#4ade80;'>'Space'</strong></td>
+        <td>Space</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L9</code></td>
+        <td>'Covering'</td>
+        <td><strong style='color:#4ade80;'>'Covering'</strong></td>
+        <td>Covering</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L10</code></td>
+        <td>'Stair'</td>
+        <td><strong style='color:#4ade80;'>'Stair'</strong></td>
+        <td>Stair</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L11</code></td>
+        <td>'CurtainWall'</td>
+        <td><strong style='color:#4ade80;'>'CurtainWall'</strong></td>
+        <td>CurtainWall</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L12</code></td>
+        <td>'Structural Member'</td>
+        <td><strong style='color:#4ade80;'>'Structural Member'</strong></td>
+        <td>Structural, Member</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #96: Civil3d / Civil3d-34 (CHS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">6</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 187</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L3</code></td>
+        <td>'Reduce the Level of Surface Detail display for these surfaces'</td>
+        <td><strong style='color:#4ade80;'>'To edit these surfaces, zoom in for greater detail; You can return to their'</strong></td>
+        <td>these, surfaces, for, detail</td>
+        <td>97%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L7</code></td>
+        <td>'Maintain the High Level of Detail display'</td>
+        <td><strong style='color:#4ade80;'>'Maintain the High Level of Detail display'</strong></td>
+        <td>Maintain, the, High, Level, Detail, display</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L8</code></td>
+        <td>'These surfaces will always be drawn at'</td>
+        <td><strong style='color:#4ade80;'>'These surfaces will always be drawn at'</strong></td>
+        <td>These, surfaces, will, always, drawn</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L9</code></td>
+        <td>'high level of detail:'</td>
+        <td><strong style='color:#4ade80;'>'high level of detail;'</strong></td>
+        <td>high, level, detail</td>
+        <td>94%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L5</code></td>
+        <td>'Prospector; the command line;'</td>
+        <td><strong style='color:#4ade80;'>'state in the Prospector; the command line'</strong></td>
+        <td>the, Prospector, the, command, line</td>
+        <td>97%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L6</code></td>
+        <td>'the ribbon:'</td>
+        <td><strong style='color:#4ade80;'>'the ribbon;'</strong></td>
+        <td>the, ribbon</td>
+        <td>90%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #97: Civil3d / Civil3d-35 (ESP)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">6</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 1</div>
+    <div><strong>Total English Chars Preserved:</strong> 125</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L27</code></td>
+        <td>'HorizontalTolerance:'</td>
+        <td><strong style='color:#4ade80;'>'Tolerancia horizontal:'</strong></td>
+        <td>horizontal</td>
+        <td>95%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L28</code></td>
+        <td>'Vertical Tolerance:'</td>
+        <td><strong style='color:#4ade80;'>'Tolerancia vertical:'</strong></td>
+        <td>vertical</td>
+        <td>95%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L44</code></td>
+        <td>'Total:'</td>
+        <td><strong style='color:#4ade80;'>'Total:'</strong></td>
+        <td>Total</td>
+        <td>83%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L54</code></td>
+        <td>'Closest Point Number'</td>
+        <td><strong style='color:#4ade80;'>'Closest Point Number'</strong></td>
+        <td>Closest, Point, Number</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L58</code></td>
+        <td>'Closest Point Name'</td>
+        <td><strong style='color:#4ade80;'>'Closest Point Name'</strong></td>
+        <td>Closest, Point, Name</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L61</code></td>
+        <td>'C Users Administrator Documents Civil Report html'</td>
+        <td><strong style='color:#4ade80;'>'CiUsers  Administrator Documents Informe de Civillhtml'</strong></td>
+        <td>Administrator, Documents</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L29</code></td>
+        <td>'0.0001'</td>
+        <td><span style='color:#f59e0b;'>'0.0001'</span></td>
+        <td>0.0001</td>
+        <td>0%</td>
+        <td><span style='color:#94a3b8;'>NUMERIC_OR_UNIT</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #98: Inventor / Inventor-04 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">3</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 78</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L14</code></td>
+        <td>'Fusion'</td>
+        <td><strong style='color:#4ade80;'>'Fusion'</strong></td>
+        <td>Fusion</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L56</code></td>
+        <td>'Dravang_Dimension_Line_Sum idut'</td>
+        <td><strong style='color:#4ade80;'>'Drawirg_Dimension_Line_Sum idw *'</strong></td>
+        <td>Dimension, Line, Sum</td>
+        <td>87%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L43</code></td>
+        <td>'is automatically saved on the'</td>
+        <td><strong style='color:#4ade80;'>'The current conversation is0 utometically saved on thc'</strong></td>
+        <td>The, saved</td>
+        <td>98%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #99: Inventor / Inventor-06 (PTB)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">16</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 5</div>
+    <div><strong>Total English Chars Preserved:</strong> 209</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L7</code></td>
+        <td>'Templates'</td>
+        <td><strong style='color:#4ade80;'>'Templates'</strong></td>
+        <td>Templates</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L18</code></td>
+        <td>'Content Center Filles'</td>
+        <td><strong style='color:#4ade80;'>'Center F'</strong></td>
+        <td>Center</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L20</code></td>
+        <td>'English'</td>
+        <td><strong style='color:#4ade80;'>'English'</strong></td>
+        <td>English</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L23</code></td>
+        <td>'Templates'</td>
+        <td><strong style='color:#4ade80;'>'Templates'</strong></td>
+        <td>Templates</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L24</code></td>
+        <td>'Sheeth letalPart'</td>
+        <td><strong style='color:#4ade80;'>'Sheeth letalPart'</strong></td>
+        <td>Sheeth, letalPart</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L25</code></td>
+        <td>'Metric'</td>
+        <td><strong style='color:#4ade80;'>'Metric'</strong></td>
+        <td>Metric</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L29</code></td>
+        <td>'Mold Design'</td>
+        <td><strong style='color:#4ade80;'>'Mold Design'</strong></td>
+        <td>Mold, Design</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L32</code></td>
+        <td>'OldTemplates'</td>
+        <td><strong style='color:#4ade80;'>'OldTemplates'</strong></td>
+        <td>OldTemplates</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L35</code></td>
+        <td>'OldVersion:'</td>
+        <td><strong style='color:#4ade80;'>'OldVersion:'</strong></td>
+        <td>OldVersion</td>
+        <td>91%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L38</code></td>
+        <td>'Blank'</td>
+        <td><strong style='color:#4ade80;'>'Blank - DVR Carousel pdf'</strong></td>
+        <td>Blank</td>
+        <td>95%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L5</code></td>
+        <td>'Autodesk'</td>
+        <td><span style='color:#f59e0b;'>'Autodesk'</span></td>
+        <td>Autodesk</td>
+        <td>100%</td>
+        <td><span style='color:#94a3b8;'>BRAND_OR_TECHNICAL_TERM</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L6</code></td>
+        <td>'Inventor 2027'</td>
+        <td><span style='color:#f59e0b;'>'Inventor 2027'</span></td>
+        <td>Inventor</td>
+        <td>67%</td>
+        <td><span style='color:#94a3b8;'>UNKNOWN_OR_OTHER</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L41</code></td>
+        <td>'54 KB'</td>
+        <td><span style='color:#f59e0b;'>'54 KB'</span></td>
+        <td>54 KB</td>
+        <td>50%</td>
+        <td><span style='color:#94a3b8;'>NUMERIC_OR_UNIT</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L46</code></td>
+        <td>'31 KB'</td>
+        <td><span style='color:#f59e0b;'>'31 KB'</span></td>
+        <td>31 KB</td>
+        <td>50%</td>
+        <td><span style='color:#94a3b8;'>NUMERIC_OR_UNIT</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L52</code></td>
+        <td>'965 KB'</td>
+        <td><span style='color:#f59e0b;'>'965 KB'</span></td>
+        <td>965 KB</td>
+        <td>40%</td>
+        <td><span style='color:#94a3b8;'>NUMERIC_OR_UNIT</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #100: Inventor / Inventor-09 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">1</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 4</div>
+    <div><strong>Total English Chars Preserved:</strong> 8</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L2</code></td>
+        <td>'Position'</td>
+        <td><strong style='color:#4ade80;'>'Position'</strong></td>
+        <td>Position</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L14</code></td>
+        <td>'108.154 mm'</td>
+        <td><span style='color:#f59e0b;'>'108,154 mm'</span></td>
+        <td>108,154 mm</td>
+        <td>22%</td>
+        <td><span style='color:#94a3b8;'>NUMERIC_OR_UNIT</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L21</code></td>
+        <td>'0.250'</td>
+        <td><span style='color:#f59e0b;'>'0,250'</span></td>
+        <td>0,250</td>
+        <td>0%</td>
+        <td><span style='color:#94a3b8;'>NUMERIC_OR_UNIT</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L24</code></td>
+        <td>'.424'</td>
+        <td><span style='color:#f59e0b;'>'424'</span></td>
+        <td>424</td>
+        <td>0%</td>
+        <td><span style='color:#94a3b8;'>NUMERIC_OR_UNIT</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L27</code></td>
+        <td>'1.0'</td>
+        <td><span style='color:#f59e0b;'>'1,0'</span></td>
+        <td>1,0</td>
+        <td>0%</td>
+        <td><span style='color:#94a3b8;'>NUMERIC_OR_UNIT</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #101: Inventor / Inventor-13 (RUS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">37</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 4</div>
+    <div><strong>Total English Chars Preserved:</strong> 405</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L3</code></td>
+        <td>'WALL:1S'</td>
+        <td><strong style='color:#4ade80;'>'WALL:1S'</strong></td>
+        <td>WALL</td>
+        <td>71%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L4</code></td>
+        <td>'ACPset_RenovationAndPhasing'</td>
+        <td><strong style='color:#4ade80;'>'ACPset_RenovationAndPhasing'</strong></td>
+        <td>ACPset, RenovationAndPhasing</td>
+        <td>96%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L5</code></td>
+        <td>'RenovationStatus'</td>
+        <td><strong style='color:#4ade80;'>'RenovationStatus'</strong></td>
+        <td>RenovationStatus</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L6</code></td>
+        <td>'New''</td>
+        <td><strong style='color:#4ade80;'>'New''</strong></td>
+        <td>New</td>
+        <td>75%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L7</code></td>
+        <td>'BaseQuantities'</td>
+        <td><strong style='color:#4ade80;'>'BaseQuantities'</strong></td>
+        <td>BaseQuantities</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L8</code></td>
+        <td>'GrossFootprintArea'</td>
+        <td><strong style='color:#4ade80;'>'GrossFootprintArea'</strong></td>
+        <td>GrossFootprintArea</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L9</code></td>
+        <td>'GrossSideArea'</td>
+        <td><strong style='color:#4ade80;'>'GrossSideArea'</strong></td>
+        <td>GrossSideArea</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L11</code></td>
+        <td>'GrossVolume'</td>
+        <td><strong style='color:#4ade80;'>'GrossVolume'</strong></td>
+        <td>GrossVolume</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L13</code></td>
+        <td>'Height'</td>
+        <td><strong style='color:#4ade80;'>'Height'</strong></td>
+        <td>Height</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L14</code></td>
+        <td>'Length'</td>
+        <td><strong style='color:#4ade80;'>'Length'</strong></td>
+        <td>Length</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L10</code></td>
+        <td>'1.600000 m^2'</td>
+        <td><span style='color:#f59e0b;'>'1,600000 m^2'</span></td>
+        <td>1,600000 m^2</td>
+        <td>9%</td>
+        <td><span style='color:#94a3b8;'>UNKNOWN_OR_OTHER</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L12</code></td>
+        <td>'0.800000 m^3'</td>
+        <td><span style='color:#f59e0b;'>'0,800000 m^3'</span></td>
+        <td>0,800000 m^3</td>
+        <td>9%</td>
+        <td><span style='color:#94a3b8;'>UNKNOWN_OR_OTHER</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L19</code></td>
+        <td>'1.600000 m^2'</td>
+        <td><span style='color:#f59e0b;'>'1,600000 m^2'</span></td>
+        <td>1,600000 m^2</td>
+        <td>9%</td>
+        <td><span style='color:#94a3b8;'>UNKNOWN_OR_OTHER</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L21</code></td>
+        <td>'0.800000 m^3'</td>
+        <td><span style='color:#f59e0b;'>'0,800000 m^3'</span></td>
+        <td>0,800000 m^3</td>
+        <td>9%</td>
+        <td><span style='color:#94a3b8;'>UNKNOWN_OR_OTHER</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #102: Inventor / Inventor-16 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">4</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 28</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L3</code></td>
+        <td>'Classic'</td>
+        <td><strong style='color:#4ade80;'>'Classic'</strong></td>
+        <td>Classic</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L4</code></td>
+        <td>'Tahoma'</td>
+        <td><strong style='color:#4ade80;'>'Tahoma'</strong></td>
+        <td>Tahoma</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L5</code></td>
+        <td>'Consolas'</td>
+        <td><strong style='color:#4ade80;'>'Consolas'</strong></td>
+        <td>Consolas</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L6</code></td>
+        <td>'Regular'</td>
+        <td><strong style='color:#4ade80;'>'Regular'</strong></td>
+        <td>Regular</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #103: Inventor / Inventor-22 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">11</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 249</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L8</code></td>
+        <td>'Threaded Ppe Wch Iron Fiongs'</td>
+        <td><strong style='color:#4ade80;'>'Tnreaded Ppe wath Iron'</strong></td>
+        <td>Ppe, Iron</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L13</code></td>
+        <td>'ASME BPE'</td>
+        <td><strong style='color:#4ade80;'>'ASME BPE'</strong></td>
+        <td>ASME, BPE</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L17</code></td>
+        <td>'Butt Welded  Flanged Steel Pbe'</td>
+        <td><strong style='color:#4ade80;'>'Butr Welzed/flanged SteelPpe'</strong></td>
+        <td>flanged</td>
+        <td>96%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L28</code></td>
+        <td>'Ppe (Custom Ebows)'</td>
+        <td><strong style='color:#4ade80;'>'Steel Butt Welded Ppe (Cus-om Ebowas)'</strong></td>
+        <td>Ppe, Cus</td>
+        <td>91%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L34</code></td>
+        <td>'Welded Steel'</td>
+        <td><strong style='color:#4ade80;'>'Welded SteelPbe'</strong></td>
+        <td>Welded</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L39</code></td>
+        <td>'Jonted PVC Ppe end Fittings'</td>
+        <td><strong style='color:#4ade80;'>'PVC Ppe and Frtings'</strong></td>
+        <td>PVC, Ppe</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L52</code></td>
+        <td>'Jonted PVC-U Ppe and Fitongs'</td>
+        <td><strong style='color:#4ade80;'>'Fbnged Ductle Tron Ppe and Fittinas'</strong></td>
+        <td>Ppe, and</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L57</code></td>
+        <td>'Threaded Steel Ppe vath Ion Fctings'</td>
+        <td><strong style='color:#4ade80;'>'Treaded Steel Pipe with Iron Fitnos'</strong></td>
+        <td>Steel</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L59</code></td>
+        <td>'2301 Threaded Steel Ppe and ron Fitings'</td>
+        <td><strong style='color:#4ade80;'>'2301 Threaded Steel Pipe and Iron Frtings'</strong></td>
+        <td>Threaded, Steel, and</td>
+        <td>89%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L62</code></td>
+        <td>'we ded Steel Pipe and Fitings'</td>
+        <td><strong style='color:#4ade80;'>'Welded Steel Pipe anc Fttnos'</strong></td>
+        <td>Steel, Pipe</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #104: Inventor / Inventor-23 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-fail'>[UNSUPPORTED]</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">0</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 0</div>
+    <div><strong>Support Level:</strong> UNSUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan='6' style='text-align:center; color:#94a3b8;'>No preserved English text elements found by OCR.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #105: Vault / Vault-07 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">3</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 34</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L2</code></td>
+        <td>'Vault Client 2026'</td>
+        <td><strong style='color:#4ade80;'>'Vault Client 2026'</strong></td>
+        <td>Vault, Client</td>
+        <td>73%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L6</code></td>
+        <td>'Search Report Templates'</td>
+        <td><strong style='color:#4ade80;'>'Report Templates = 4'</strong></td>
+        <td>Report, Templates</td>
+        <td>88%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L12</code></td>
+        <td>'OneDrive'</td>
+        <td><strong style='color:#4ade80;'>'OneDrive'</strong></td>
+        <td>OneDrive</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #106: Vault / Vault-10 (CHS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">2</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 32</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L2</code></td>
+        <td>'Error'</td>
+        <td><strong style='color:#4ade80;'>'Error'</strong></td>
+        <td>Error</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L3</code></td>
+        <td>'There is an error in XML document (0, 0).'</td>
+        <td><strong style='color:#4ade80;'>'There is an error in XML document (0, 0).'</strong></td>
+        <td>There, error, XML, document</td>
+        <td>82%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #107: Vault / Vault-13 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">2</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 53</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L1</code></td>
+        <td>'Autodesk Data Management Server Console 2026'</td>
+        <td><strong style='color:#4ade80;'>'Autodesk Data Management Server Console 2026'</strong></td>
+        <td>Autodesk, Data, Management, Server, Console</td>
+        <td>90%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L3</code></td>
+        <td>'Console_'</td>
+        <td><strong style='color:#4ade80;'>'konzoly ADMS Console_'</strong></td>
+        <td>Console</td>
+        <td>95%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #108: Vault / Vault-15 (DEU)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">2</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 1</div>
+    <div><strong>Total English Chars Preserved:</strong> 26</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L1</code></td>
+        <td>'Insert Hyperlink'</td>
+        <td><strong style='color:#4ade80;'>'Hyperlink einfigen'</strong></td>
+        <td>Hyperlink</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L3</code></td>
+        <td>'ScreenTip:'</td>
+        <td><strong style='color:#4ade80;'>'ScreenTip:'</strong></td>
+        <td>ScreenTip</td>
+        <td>90%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L8</code></td>
+        <td>'http:f {'</td>
+        <td><span style='color:#f59e0b;'>'http:f {'</span></td>
+        <td>http</td>
+        <td>71%</td>
+        <td><span style='color:#94a3b8;'>UNKNOWN_OR_OTHER</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #109: Vault / Vault-16 (HUN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">1</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 26</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L25</code></td>
+        <td>'Apply rules on object creation'</td>
+        <td><strong style='color:#4ade80;'>'Apply rules on object creation'</strong></td>
+        <td>Apply, rules, object, creation</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #110: Vault / Vault-19 (KOR)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">3</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 29</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L1</code></td>
+        <td>'Create PDF _'</td>
+        <td><strong style='color:#4ade80;'>'Create PDF'</strong></td>
+        <td>Create, PDF</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L2</code></td>
+        <td>'Submission'</td>
+        <td><strong style='color:#4ade80;'>'Job Submission'</strong></td>
+        <td>Submission</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L5</code></td>
+        <td>'Drawing dwg'</td>
+        <td><strong style='color:#4ade80;'>'Drawing'</strong></td>
+        <td>Drawing</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #111: Vault / Vault-22 (CHS)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">8</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 1</div>
+    <div><strong>Total English Chars Preserved:</strong> 65</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L8</code></td>
+        <td>'Administrator'</td>
+        <td><strong style='color:#4ade80;'>'Administrator'</strong></td>
+        <td>Administrator</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L9</code></td>
+        <td>'Basic'</td>
+        <td><strong style='color:#4ade80;'>'Basic'</strong></td>
+        <td>Basic</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L10</code></td>
+        <td>'Advanced'</td>
+        <td><strong style='color:#4ade80;'>'Advanced'</strong></td>
+        <td>Advanced</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L11</code></td>
+        <td>'Options'</td>
+        <td><strong style='color:#4ade80;'>'Options'</strong></td>
+        <td>Options</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L12</code></td>
+        <td>'Search for;'</td>
+        <td><strong style='color:#4ade80;'>'Search for:'</strong></td>
+        <td>Search, for</td>
+        <td>90%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L13</code></td>
+        <td>'Search Text;'</td>
+        <td><strong style='color:#4ade80;'>'Search Text:'</strong></td>
+        <td>Search, Text</td>
+        <td>91%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L19</code></td>
+        <td>'State'</td>
+        <td><strong style='color:#4ade80;'>'State'</strong></td>
+        <td>State</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L18</code></td>
+        <td>'Ignore "Obsolete''</td>
+        <td><strong style='color:#4ade80;'>'Obsolete"'</strong></td>
+        <td>Obsolete</td>
+        <td>89%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L7</code></td>
+        <td>'Vault'</td>
+        <td><span style='color:#f59e0b;'>'Vault'</span></td>
+        <td>Vault</td>
+        <td>100%</td>
+        <td><span style='color:#94a3b8;'>BRAND_OR_TECHNICAL_TERM</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #112: Vault / Vault-25 (CSY)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">2</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 22</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L1</code></td>
+        <td>'Create DXF'</td>
+        <td><strong style='color:#4ade80;'>'Create DXF'</strong></td>
+        <td>Create, DXF</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L2</code></td>
+        <td>'Job Submission'</td>
+        <td><strong style='color:#4ade80;'>'Job Submission'</strong></td>
+        <td>Job, Submission</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #113: Vault / Vault-30 (JPN)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">1</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 13</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L2</code></td>
+        <td>'Create STEP _ Job Submission'</td>
+        <td><strong style='color:#4ade80;'>'Job Submission'</strong></td>
+        <td>Job, Submission</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="case-card">
+  <div class="case-header">
+    <div>
+      <span style="font-size:16px; font-weight:600;">Case #114: Vault / Vault-38 (FRA)</span>
+      <span class="gt-badge" style="margin-left:10px;">GT: Untranslation</span>
+    </div>
+    <div>
+      <span class='status-pass'>[PASS] Directly Supported</span>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; font-size:13px; background:#0f172a; padding:12px; border-radius:6px; margin-bottom:12px;">
+    <div><strong>Genuine Untranslated Strings:</strong> <span style="color:#4ade80; font-weight:bold;">8</span></div>
+    <div><strong>Technical/Brand Tokens:</strong> 0</div>
+    <div><strong>Total English Chars Preserved:</strong> 197</div>
+    <div><strong>Support Level:</strong> DIRECTLY_SUPPORTED</div>
+  </div>
+
+  <div style="font-size:13px; margin-bottom:6px;"><strong>Preserved English Text Elements:</strong></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ENU Text</th>
+        <th>Localized Text</th>
+        <th>Preserved Words</th>
+        <th>Latin Char %</th>
+        <th>Semantic Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>L7</code></td>
+        <td>'Create and manage access for users and'</td>
+        <td><strong style='color:#4ade80;'>'Creer et gerer 'acces des utilisateurs et'</strong></td>
+        <td>acces</td>
+        <td>97%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L8</code></td>
+        <td>'Manage Access _'</td>
+        <td><strong style='color:#4ade80;'>'Gerer |'acces "'</strong></td>
+        <td>acces</td>
+        <td>77%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L15</code></td>
+        <td>'Roles and Permissions'</td>
+        <td><strong style='color:#4ade80;'>'Roles et autorisations'</strong></td>
+        <td>Roles</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L16</code></td>
+        <td>'Create and manage roles'</td>
+        <td><strong style='color:#4ade80;'>'Creer et gerer les roles'</strong></td>
+        <td>les, roles</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L17</code></td>
+        <td>'Manage Roles _'</td>
+        <td><strong style='color:#4ade80;'>'Gerer les roles __'</strong></td>
+        <td>les, roles</td>
+        <td>87%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L21</code></td>
+        <td>'Choose the background color forthe administrator access'</td>
+        <td><strong style='color:#4ade80;'>'arriere-plan pour |'acces administrateur'</strong></td>
+        <td>acces</td>
+        <td>92%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L27</code></td>
+        <td>'Vault administrator contact details'</td>
+        <td><strong style='color:#4ade80;'>'Vault administrator contact details'</strong></td>
+        <td>Vault, administrator, contact, details</td>
+        <td>100%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+      <tr>
+        <td><code>L28</code></td>
+        <td>'Enter name; email address or phone number'</td>
+        <td><strong style='color:#4ade80;'>'Enter name; email address or phone number'</strong></td>
+        <td>Enter, name, email, address, phone, number</td>
+        <td>97%</td>
+        <td><span style='color:#4ade80; font-weight:bold;'>USER_FACING_UI_WORDING</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</body></html>

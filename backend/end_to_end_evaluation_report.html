@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>End-to-End Evidence Engine Benchmark Report</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 22px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .badge-pass { background: #064e3b; color: #a7f3d0; border: 1px solid #10b981; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+  .badge-fail { background: #450a0a; color: #fecaca; border: 1px solid #ef4444; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+  .badge-sec { background: #1e3a5f; color: #93c5fd; border: 1px solid #38bdf8; padding: 3px 8px; border-radius: 4px; font-size: 11px; }
+</style>
+</head>
+<body>
+<h1>End-to-End Evidence Engine Benchmark Report</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Rigorous evaluation of the Evidence Engine & Arbitrator against the 101 Excel Ground Truth benchmark cases without classifier training, magic thresholds, or GT leakage.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">4-Category Observable Top-1</div>
+    <div class="card-val" style="color: #4ade80;">28.72%</div>
+    <div class="card-sub">observable visual cases (N=94)</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">4-Category Observable Top-2</div>
+    <div class="card-val" style="color: #38bdf8;">70.21%</div>
+    <div class="card-sub">GT in primary or secondary stream</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Full 5-Category Top-1</div>
+    <div class="card-val" style="color: #f59e0b;">26.73%</div>
+    <div class="card-sub">including 7 unobservable hotkey cases</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Full 5-Category Top-2</div>
+    <div class="card-val" style="color: #38bdf8;">65.35%</div>
+    <div class="card-sub">multi-defect coverage rate</div>
+  </div>
+</div>
+
+<h2>1. Category-Level Diagnostic Performance</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Ground Truth Category</th>
+      <th>Benchmark Cases</th>
+      <th>Predicted Count</th>
+      <th>True Positives</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1 Score</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr style="">
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment </td>
+      <td>19</td>
+      <td>23</td>
+      <td style="font-weight:bold; color:#4ade80;">7</td>
+      <td>30.4%</td>
+      <td>36.8%</td>
+      <td style="font-weight:bold; color:#38bdf8;">33.3</td>
+    </tr>
+
+    <tr style="">
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping </td>
+      <td>19</td>
+      <td>23</td>
+      <td style="font-weight:bold; color:#4ade80;">6</td>
+      <td>26.1%</td>
+      <td>31.6%</td>
+      <td style="font-weight:bold; color:#38bdf8;">28.6</td>
+    </tr>
+
+    <tr style="">
+      <td style="font-weight:bold; color:#38bdf8;">Truncation </td>
+      <td>30</td>
+      <td>29</td>
+      <td style="font-weight:bold; color:#4ade80;">9</td>
+      <td>31.0%</td>
+      <td>30.0%</td>
+      <td style="font-weight:bold; color:#38bdf8;">30.5</td>
+    </tr>
+
+    <tr style="">
+      <td style="font-weight:bold; color:#38bdf8;">Untranslation </td>
+      <td>26</td>
+      <td>20</td>
+      <td style="font-weight:bold; color:#4ade80;">5</td>
+      <td>25.0%</td>
+      <td>19.2%</td>
+      <td style="font-weight:bold; color:#38bdf8;">21.7</td>
+    </tr>
+
+    <tr style="background: #182234; font-style: italic;">
+      <td style="font-weight:bold; color:#94a3b8;">Repeated hotkey (Visually Unsupported)</td>
+      <td>7</td>
+      <td>0</td>
+      <td style="font-weight:bold; color:#4ade80;">0</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td style="font-weight:bold; color:#38bdf8;">0.0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. 5-Class Confusion Matrix</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Ground Truth \ Predicted</th>
+      <th>Misalignment</th>
+      <th>Overlapping</th>
+      <th>Truncation</th>
+      <th>Untranslation</th>
+      <th>Repeated hotkey</th>
+      <th>Abstained / No Evidence</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>7</td>
+      <td>4</td>
+      <td>6</td>
+      <td>2</td>
+      <td>0</td>
+      <td style="color:#f59e0b;">0</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>6</td>
+      <td>6</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0</td>
+      <td style="color:#f59e0b;">2</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Truncation</td>
+      <td>3</td>
+      <td>5</td>
+      <td>9</td>
+      <td>10</td>
+      <td>0</td>
+      <td style="color:#f59e0b;">3</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Untranslation</td>
+      <td>6</td>
+      <td>7</td>
+      <td>7</td>
+      <td>5</td>
+      <td>0</td>
+      <td style="color:#f59e0b;">1</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Repeated hotkey</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td style="color:#f59e0b;">0</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>3. Root Cause Error Distribution</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Error Mechanism Pattern</th>
+      <th>Error Count</th>
+      <th>Physical Reason & Mechanism</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold; color:#f43f5e;"><code>Misalignment_CONFUSED_WITH_Untranslation</code></td>
+      <td style="font-weight:bold;">2</td>
+      <td style="font-size:12px; color:#cbd5e1;">Cross-category multi-defect physical competition.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#f43f5e;"><code>MISALIGNMENT_VS_LAYOUT_COLLISION_REFLOW</code></td>
+      <td style="font-weight:bold;">10</td>
+      <td style="font-size:12px; color:#cbd5e1;">Multi-column dialog displacement triggers both column break and text overflow.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#f43f5e;"><code>Overlapping_CONFUSED_WITH_Misalignment</code></td>
+      <td style="font-weight:bold;">6</td>
+      <td style="font-size:12px; color:#cbd5e1;">Cross-category multi-defect physical competition.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#f43f5e;"><code>INSUFFICIENT_OBSERVABLE_EVIDENCE</code></td>
+      <td style="font-weight:bold;">6</td>
+      <td style="font-size:12px; color:#cbd5e1;">Sub-pixel changes below observable threshold without clear defect mechanism.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#f43f5e;"><code>Overlapping_CONFUSED_WITH_Untranslation</code></td>
+      <td style="font-weight:bold;">2</td>
+      <td style="font-size:12px; color:#cbd5e1;">Cross-category multi-defect physical competition.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#f43f5e;"><code>OVERLAP_VS_TEXT_EXPANSION_CLIPPING</code></td>
+      <td style="font-weight:bold;">3</td>
+      <td style="font-size:12px; color:#cbd5e1;">Expanded label intruded into rigid sibling boundary, triggering overlapping and truncation evidence.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#f43f5e;"><code>REPEATED_HOTKEY_VISUALLY_UNSUPPORTED</code></td>
+      <td style="font-weight:bold;">7</td>
+      <td style="font-size:12px; color:#cbd5e1;">Native Win32 keyboard mnemonics rely on font underlines invisible to plain flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#f43f5e;"><code>Truncation_CONFUSED_WITH_Untranslation</code></td>
+      <td style="font-weight:bold;">10</td>
+      <td style="font-size:12px; color:#cbd5e1;">Cross-category multi-defect physical competition.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#f43f5e;"><code>TRUNCATION_VS_SIBLING_INTRUSION</code></td>
+      <td style="font-weight:bold;">5</td>
+      <td style="font-size:12px; color:#cbd5e1;">Text container boundary overflow accompanied by sibling box collision.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#f43f5e;"><code>Truncation_CONFUSED_WITH_Misalignment</code></td>
+      <td style="font-weight:bold;">3</td>
+      <td style="font-size:12px; color:#cbd5e1;">Cross-category multi-defect physical competition.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#f43f5e;"><code>UNTRANSLATION_SUPPRESSED_BY_SPATIAL_DRIFT</code></td>
+      <td style="font-weight:bold;">20</td>
+      <td style="font-size:12px; color:#cbd5e1;">Untranslated UI string accompanied by dominant structural column shift.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>4. Case Diagnostic Trace Sample (First 25 Cases)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Product / Folder (Lang)</th>
+      <th>Ground Truth</th>
+      <th>Primary Diagnosis</th>
+      <th>Top-1?</th>
+      <th>Top-2?</th>
+      <th>Dominant Physical Mechanism</th>
+      <th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold;">#9</td>
+      <td>Civil3d / Civil3d-01 (RUS)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Misalignment</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Structural Column Grid Break (486.0px anchor break, 393.5px residual drift)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (486.0px anchor break, 393.5px residual drift). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Overlapping (strength: 0.842). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#10</td>
+      <td>Civil3d / Civil3d-12 (FRA)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Untranslation</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Preserved User-Facing English Lexicon (10 untranslated strings, 18 Latin words)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Untranslation (strength: 1.000) driven by Preserved User-Facing English Lexicon (10 untranslated strings, 18 Latin words). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.956), Truncation (strength: 0.850). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#11</td>
+      <td>Civil3d / Civil3d-13 (ESP)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Truncation</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-fail'>ABSENT</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 120px overflow)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (0 verified ellipsis, 120px overflow). Coexisting secondary defect mechanisms identified: Untranslation (strength: 1.000). Reflow compensation noted: 100.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#12</td>
+      <td>Civil3d / Civil3d-14 (CHT)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Misalignment</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Structural Column Grid Break (187.0px anchor break, 93.6px residual drift)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (187.0px anchor break, 93.6px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000), Truncation (strength: 0.850), Untranslation (strength: 0.700). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#13</td>
+      <td>Civil3d / Civil3d-16 (KOR)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Overlapping</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Geometric Boundary Collision (8311px² overlap area, 223.0px intrusion)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (8311px² overlap area, 223.0px intrusion). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.887). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#14</td>
+      <td>Civil3d / Civil3d-23 (FRA)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Misalignment</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Structural Column Grid Break (165.0px anchor break, 165.0px residual drift)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (165.0px anchor break, 165.0px residual drift). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Untranslation (strength: 1.000), Overlapping (strength: 0.800). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#15</td>
+      <td>Inventor / Inventor-01 (JPN)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Misalignment</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Structural Column Grid Break (260.0px anchor break, 260.9px residual drift)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (260.0px anchor break, 260.9px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000), Truncation (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#16</td>
+      <td>Inventor / Inventor-12 (FRA)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Overlapping</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Geometric Boundary Collision (5392px² overlap area, 118.0px intrusion)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (5392px² overlap area, 118.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Untranslation (strength: 1.000), Misalignment (strength: 0.513). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#17</td>
+      <td>Inventor / Inventor-17 (CSY)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Overlapping</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Geometric Boundary Collision (3350px² overlap area, 102.0px intrusion)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (3350px² overlap area, 102.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Misalignment (strength: 0.986). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#18</td>
+      <td>Inventor / Inventor-25 (ESP)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Overlapping</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Geometric Boundary Collision (5335px² overlap area, 193.0px intrusion)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (5335px² overlap area, 193.0px intrusion). Coexisting secondary defect mechanisms identified: Truncation (strength: 1.000), Untranslation (strength: 1.000), Misalignment (strength: 0.578). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#19</td>
+      <td>Inventor / Inventor-27 (JPN)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Truncation</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-fail'>ABSENT</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.750). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#20</td>
+      <td>Inventor / Inventor-31 (DEU)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Misalignment</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Structural Column Grid Break (115.0px anchor break, 60.5px residual drift)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 0.979) driven by Structural Column Grid Break (115.0px anchor break, 60.5px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.597). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#21</td>
+      <td>Inventor / Inventor-37 (RUS)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Misalignment</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Structural Column Grid Break (184.0px anchor break, 184.0px residual drift)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (184.0px anchor break, 184.0px residual drift). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#22</td>
+      <td>Vault / Vault-28 (HUN)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Truncation</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Text Boundary Clipping / Localized Ellipsis (5 verified ellipsis, 0px overflow)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 1.000) driven by Text Boundary Clipping / Localized Ellipsis (5 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.635). Reflow compensation noted: 60.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#23</td>
+      <td>Vault / Vault-32 (PLK)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Untranslation</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-fail'>ABSENT</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Preserved User-Facing English Lexicon (1 untranslated strings, 5 Latin words)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Untranslation (strength: 0.350) driven by Preserved User-Facing English Lexicon (1 untranslated strings, 5 Latin words). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#24</td>
+      <td>Vault / Vault-35 (ESP)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Truncation</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Misalignment (strength: 0.741). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#25</td>
+      <td>Vault / Vault-36 (CHT)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Truncation</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-fail'>ABSENT</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Coexisting secondary defect mechanisms identified: Overlapping (strength: 0.514). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#26</td>
+      <td>Vault / Vault-37 (CSY)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Truncation</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-fail'>ABSENT</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Truncation (strength: 0.850) driven by Text Boundary Clipping / Localized Ellipsis (1 verified ellipsis, 0px overflow). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#27</td>
+      <td>Vault / Vault-40 (HUN)</td>
+      <td style="font-weight:bold;">Misalignment</td>
+      <td>Misalignment</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Structural Column Grid Break (227.0px anchor break, 208.0px residual drift)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (227.0px anchor break, 208.0px residual drift). Coexisting secondary defect mechanisms identified: Truncation (strength: 0.850). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#29</td>
+      <td>Civil3d / Civil3d-06 (RUS)</td>
+      <td style="font-weight:bold;">Overlapping</td>
+      <td>Misalignment</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Structural Column Grid Break (464.0px anchor break, 438.3px residual drift)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (464.0px anchor break, 438.3px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#30</td>
+      <td>Civil3d / Civil3d-18 (CSY)</td>
+      <td style="font-weight:bold;">Overlapping</td>
+      <td>NO_STRONG_OBSERVABLE_DEFECT</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-fail'>ABSENT</span></td>
+      <td style="font-size:11px; color:#38bdf8;">INSUFFICIENT_OBSERVABLE_PHYSICAL_EVIDENCE</td>
+      <td style="font-size:11px; color:#cbd5e1;">No single visual defect mechanism exhibited strong physical evidence (top candidate was Untranslation with strength 0.150). Reflow compensation noted: 100.0% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#31</td>
+      <td>Civil3d / Civil3d-28 (PTB)</td>
+      <td style="font-weight:bold;">Overlapping</td>
+      <td>Untranslation</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-fail'>ABSENT</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Preserved User-Facing English Lexicon (3 untranslated strings, 9 Latin words)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Untranslation (strength: 0.950) driven by Preserved User-Facing English Lexicon (3 untranslated strings, 9 Latin words). Coexisting secondary defect mechanisms identified: Truncation (strength: 0.850), Misalignment (strength: 0.772). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#32</td>
+      <td>Civil3d / Civil3d-29 (FRA)</td>
+      <td style="font-weight:bold;">Overlapping</td>
+      <td>Overlapping</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Geometric Boundary Collision (3784px² overlap area, 146.0px intrusion)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Overlapping (strength: 1.000) driven by Geometric Boundary Collision (3784px² overlap area, 146.0px intrusion). Coexisting secondary defect mechanisms identified: Untranslation (strength: 0.450). Reflow compensation noted: 66.7% of element displacement is explainable by upstream text expansion. Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#33</td>
+      <td>Civil3d / Civil3d-30 (CHT)</td>
+      <td style="font-weight:bold;">Overlapping</td>
+      <td>Misalignment</td>
+      <td><span class='badge-fail'>MISMATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Structural Column Grid Break (233.0px anchor break, 232.4px residual drift)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Misalignment (strength: 1.000) driven by Structural Column Grid Break (233.0px anchor break, 232.4px residual drift). Coexisting secondary defect mechanisms identified: Overlapping (strength: 1.000). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#34</td>
+      <td>Inventor / Inventor-07 (PTB)</td>
+      <td style="font-weight:bold;">Overlapping</td>
+      <td>Overlapping</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td><span class='badge-pass'>TOP-2 MATCH</span></td>
+      <td style="font-size:11px; color:#38bdf8;">Geometric Boundary Collision (1624px² overlap area, 74.0px intrusion)</td>
+      <td style="font-size:11px; color:#cbd5e1;">Primary diagnosis is Overlapping (strength: 0.715) driven by Geometric Boundary Collision (1624px² overlap area, 74.0px intrusion). Coexisting secondary defect mechanisms identified: Untranslation (strength: 0.450). Repeated hotkey remains VISUALLY_UNSUPPORTED as native Win32 mnemonic underlines are unobservable via flat OCR.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

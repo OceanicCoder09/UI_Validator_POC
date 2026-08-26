@@ -1,0 +1,3645 @@
+{
+  "total_benchmark_cases": 101,
+  "overlapping_cases_count": 19,
+  "non_overlapping_cases_count": 82,
+  "questions_answered": {
+    "Q_A_overlapping_with_genuine_new_intersections": "14 / 19 (73.7%)",
+    "Q_B_non_overlapping_with_intersections": "49 / 82 (59.8%)",
+    "Q_C_overlapping_with_gap_collapse": "18 / 19 (94.7%)",
+    "Q_D_gap_collapse_without_actual_collision": {
+      "in_overlapping_category": "4 / 19",
+      "across_all_benchmark_cases": "32 / 101"
+    },
+    "Q_E_collisions_fully_reflow_explained": "2 / 63 (3.2%)"
+  },
+  "discrimination_rankings": {
+    "vs_all_non_overlapping": [
+      {
+        "feature": "max_vertical_intrusion_px",
+        "overlapping_mean": 35.74,
+        "non_overlapping_mean": 14.15,
+        "separation_ratio": 0.0798
+      },
+      {
+        "feature": "residual_unexplained_collisions_count",
+        "overlapping_mean": 4.58,
+        "non_overlapping_mean": 2.45,
+        "separation_ratio": 0.0676
+      },
+      {
+        "feature": "max_horizontal_intrusion_px",
+        "overlapping_mean": 120.21,
+        "non_overlapping_mean": 76.94,
+        "separation_ratio": 0.049
+      },
+      {
+        "feature": "max_gap_collapse_px",
+        "overlapping_mean": 134.21,
+        "non_overlapping_mean": 113.24,
+        "separation_ratio": 0.0413
+      },
+      {
+        "feature": "num_newly_created_intersections",
+        "overlapping_mean": 4.84,
+        "non_overlapping_mean": 3.15,
+        "separation_ratio": 0.035
+      },
+      {
+        "feature": "max_residual_collision_area_px2",
+        "overlapping_mean": 5161.68,
+        "non_overlapping_mean": 2539.78,
+        "separation_ratio": 0.0202
+      },
+      {
+        "feature": "max_intersection_area_px2",
+        "overlapping_mean": 5170.89,
+        "non_overlapping_mean": 2628.77,
+        "separation_ratio": 0.019
+      },
+      {
+        "feature": "total_intersection_area_px2",
+        "overlapping_mean": 8829.68,
+        "non_overlapping_mean": 5306.95,
+        "separation_ratio": 0.0125
+      },
+      {
+        "feature": "num_gaps_became_non_positive",
+        "overlapping_mean": 15.95,
+        "non_overlapping_mean": 16.49,
+        "separation_ratio": 0.0003
+      }
+    ],
+    "vs_misalignment": [
+      {
+        "feature": "residual_unexplained_collisions_count",
+        "overlapping_mean": 4.58,
+        "misalignment_mean": 1.95,
+        "separation_ratio": 0.1261
+      },
+      {
+        "feature": "max_vertical_intrusion_px",
+        "overlapping_mean": 35.74,
+        "misalignment_mean": 14.53,
+        "separation_ratio": 0.087
+      },
+      {
+        "feature": "num_newly_created_intersections",
+        "overlapping_mean": 4.84,
+        "misalignment_mean": 2.68,
+        "separation_ratio": 0.0797
+      },
+      {
+        "feature": "max_residual_collision_area_px2",
+        "overlapping_mean": 5161.68,
+        "misalignment_mean": 1613.63,
+        "separation_ratio": 0.0748
+      },
+      {
+        "feature": "max_intersection_area_px2",
+        "overlapping_mean": 5170.89,
+        "misalignment_mean": 1704.32,
+        "separation_ratio": 0.0716
+      },
+      {
+        "feature": "total_intersection_area_px2",
+        "overlapping_mean": 8829.68,
+        "misalignment_mean": 3411.68,
+        "separation_ratio": 0.0627
+      },
+      {
+        "feature": "max_horizontal_intrusion_px",
+        "overlapping_mean": 120.21,
+        "misalignment_mean": 74.74,
+        "separation_ratio": 0.062
+      },
+      {
+        "feature": "max_gap_collapse_px",
+        "overlapping_mean": 134.21,
+        "misalignment_mean": 142.32,
+        "separation_ratio": 0.0076
+      },
+      {
+        "feature": "num_gaps_became_non_positive",
+        "overlapping_mean": 15.95,
+        "misalignment_mean": 14.68,
+        "separation_ratio": 0.0023
+      }
+    ],
+    "vs_truncation": [
+      {
+        "feature": "residual_unexplained_collisions_count",
+        "overlapping_mean": 4.58,
+        "truncation_mean": 2.03,
+        "separation_ratio": 0.1019
+      },
+      {
+        "feature": "max_gap_collapse_px",
+        "overlapping_mean": 134.21,
+        "truncation_mean": 104.67,
+        "separation_ratio": 0.0947
+      },
+      {
+        "feature": "max_horizontal_intrusion_px",
+        "overlapping_mean": 120.21,
+        "truncation_mean": 68.2,
+        "separation_ratio": 0.0718
+      },
+      {
+        "feature": "num_newly_created_intersections",
+        "overlapping_mean": 4.84,
+        "truncation_mean": 2.63,
+        "separation_ratio": 0.0653
+      },
+      {
+        "feature": "max_vertical_intrusion_px",
+        "overlapping_mean": 35.74,
+        "truncation_mean": 16.77,
+        "separation_ratio": 0.0514
+      },
+      {
+        "feature": "num_gaps_became_non_positive",
+        "overlapping_mean": 15.95,
+        "truncation_mean": 11.0,
+        "separation_ratio": 0.0456
+      },
+      {
+        "feature": "max_intersection_area_px2",
+        "overlapping_mean": 5170.89,
+        "truncation_mean": 4746.7,
+        "separation_ratio": 0.0003
+      },
+      {
+        "feature": "max_residual_collision_area_px2",
+        "overlapping_mean": 5161.68,
+        "truncation_mean": 4717.1,
+        "separation_ratio": 0.0003
+      },
+      {
+        "feature": "total_intersection_area_px2",
+        "overlapping_mean": 8829.68,
+        "truncation_mean": 8500.73,
+        "separation_ratio": 0.0001
+      }
+    ]
+  },
+  "category_summary_distributions": {
+    "Overlapping": {
+      "count": 19,
+      "num_newly_created_intersections": {
+        "mean": 4.84,
+        "std": 7.24,
+        "median": 2.0,
+        "q25": 0.5,
+        "q75": 5.5,
+        "min": 0.0,
+        "max": 30.0
+      },
+      "max_intersection_area_px2": {
+        "mean": 5170.89,
+        "std": 12555.35,
+        "median": 1242.0,
+        "q25": 208.0,
+        "q75": 1903.0,
+        "min": 0.0,
+        "max": 54918.0
+      },
+      "total_intersection_area_px2": {
+        "mean": 8829.68,
+        "std": 20652.79,
+        "median": 1624.0,
+        "q25": 390.0,
+        "q75": 5911.0,
+        "min": 0.0,
+        "max": 92910.0
+      },
+      "max_horizontal_intrusion_px": {
+        "mean": 120.21,
+        "std": 165.08,
+        "median": 69.0,
+        "q25": 13.0,
+        "q75": 115.0,
+        "min": 0.0,
+        "max": 617.0
+      },
+      "max_vertical_intrusion_px": {
+        "mean": 35.74,
+        "std": 70.86,
+        "median": 18.0,
+        "q25": 6.5,
+        "q75": 19.5,
+        "min": 0.0,
+        "max": 299.0
+      },
+      "max_gap_collapse_px": {
+        "mean": 134.21,
+        "std": 69.92,
+        "median": 136.0,
+        "q25": 87.0,
+        "q75": 200.0,
+        "min": 2.0,
+        "max": 246.0
+      },
+      "num_gaps_became_non_positive": {
+        "mean": 15.95,
+        "std": 17.23,
+        "median": 13.0,
+        "q25": 2.0,
+        "q75": 21.0,
+        "min": 0.0,
+        "max": 66.0
+      },
+      "residual_unexplained_collisions_count": {
+        "mean": 4.58,
+        "std": 7.17,
+        "median": 2.0,
+        "q25": 0.5,
+        "q75": 5.5,
+        "min": 0.0,
+        "max": 30.0
+      },
+      "max_residual_collision_area_px2": {
+        "mean": 5161.68,
+        "std": 12558.77,
+        "median": 1242.0,
+        "q25": 208.0,
+        "q75": 1903.0,
+        "min": 0.0,
+        "max": 54918.0
+      }
+    },
+    "Misalignment": {
+      "count": 19,
+      "num_newly_created_intersections": {
+        "mean": 2.68,
+        "std": 2.45,
+        "median": 2.0,
+        "q25": 0.5,
+        "q75": 4.0,
+        "min": 0.0,
+        "max": 8.0
+      },
+      "max_intersection_area_px2": {
+        "mean": 1704.32,
+        "std": 3209.5,
+        "median": 672.0,
+        "q25": 7.0,
+        "q75": 1922.5,
+        "min": 0.0,
+        "max": 14465.0
+      },
+      "total_intersection_area_px2": {
+        "mean": 3411.68,
+        "std": 6426.18,
+        "median": 1284.0,
+        "q25": 7.0,
+        "q75": 4242.5,
+        "min": 0.0,
+        "max": 28738.0
+      },
+      "max_horizontal_intrusion_px": {
+        "mean": 74.74,
+        "std": 78.12,
+        "median": 64.0,
+        "q25": 0.5,
+        "q75": 102.5,
+        "min": 0.0,
+        "max": 263.0
+      },
+      "max_vertical_intrusion_px": {
+        "mean": 14.53,
+        "std": 12.34,
+        "median": 15.0,
+        "q25": 7.0,
+        "q75": 18.5,
+        "min": 0.0,
+        "max": 55.0
+      },
+      "max_gap_collapse_px": {
+        "mean": 142.32,
+        "std": 61.21,
+        "median": 138.0,
+        "q25": 92.5,
+        "q75": 155.5,
+        "min": 56.0,
+        "max": 288.0
+      },
+      "num_gaps_became_non_positive": {
+        "mean": 14.68,
+        "std": 19.88,
+        "median": 7.0,
+        "q25": 4.0,
+        "q75": 12.5,
+        "min": 1.0,
+        "max": 81.0
+      },
+      "residual_unexplained_collisions_count": {
+        "mean": 1.95,
+        "std": 1.88,
+        "median": 2.0,
+        "q25": 0.0,
+        "q75": 3.5,
+        "min": 0.0,
+        "max": 5.0
+      },
+      "max_residual_collision_area_px2": {
+        "mean": 1613.63,
+        "std": 3235.14,
+        "median": 540.0,
+        "q25": 0.0,
+        "q75": 1922.5,
+        "min": 0.0,
+        "max": 14465.0
+      }
+    },
+    "Truncation": {
+      "count": 30,
+      "num_newly_created_intersections": {
+        "mean": 2.63,
+        "std": 4.72,
+        "median": 1.0,
+        "q25": 0.0,
+        "q75": 2.0,
+        "min": 0.0,
+        "max": 17.0
+      },
+      "max_intersection_area_px2": {
+        "mean": 4746.7,
+        "std": 21942.64,
+        "median": 63.0,
+        "q25": 0.0,
+        "q75": 984.0,
+        "min": 0.0,
+        "max": 122757.0
+      },
+      "total_intersection_area_px2": {
+        "mean": 8500.73,
+        "std": 38145.95,
+        "median": 69.0,
+        "q25": 0.0,
+        "q75": 1440.5,
+        "min": 0.0,
+        "max": 213436.0
+      },
+      "max_horizontal_intrusion_px": {
+        "mean": 68.2,
+        "std": 101.97,
+        "median": 24.0,
+        "q25": 0.0,
+        "q75": 107.5,
+        "min": 0.0,
+        "max": 493.0
+      },
+      "max_vertical_intrusion_px": {
+        "mean": 16.77,
+        "std": 44.5,
+        "median": 1.5,
+        "q25": 0.0,
+        "q75": 17.25,
+        "min": 0.0,
+        "max": 249.0
+      },
+      "max_gap_collapse_px": {
+        "mean": 104.67,
+        "std": 65.76,
+        "median": 94.5,
+        "q25": 54.5,
+        "q75": 156.25,
+        "min": 0.0,
+        "max": 259.0
+      },
+      "num_gaps_became_non_positive": {
+        "mean": 11.0,
+        "std": 15.47,
+        "median": 7.5,
+        "q25": 3.25,
+        "q75": 14.75,
+        "min": 0.0,
+        "max": 86.0
+      },
+      "residual_unexplained_collisions_count": {
+        "mean": 2.03,
+        "std": 3.49,
+        "median": 1.0,
+        "q25": 0.0,
+        "q75": 1.75,
+        "min": 0.0,
+        "max": 13.0
+      },
+      "max_residual_collision_area_px2": {
+        "mean": 4717.1,
+        "std": 21947.64,
+        "median": 63.0,
+        "q25": 0.0,
+        "q75": 912.0,
+        "min": 0.0,
+        "max": 122757.0
+      }
+    },
+    "Untranslation": {
+      "count": 26,
+      "num_newly_created_intersections": {
+        "mean": 4.23,
+        "std": 7.71,
+        "median": 2.0,
+        "q25": 0.0,
+        "q75": 4.5,
+        "min": 0.0,
+        "max": 35.0
+      },
+      "max_intersection_area_px2": {
+        "mean": 1276.31,
+        "std": 2329.49,
+        "median": 596.0,
+        "q25": 0.0,
+        "q75": 1356.0,
+        "min": 0.0,
+        "max": 11144.0
+      },
+      "total_intersection_area_px2": {
+        "mean": 3925.81,
+        "std": 7783.43,
+        "median": 1184.0,
+        "q25": 0.0,
+        "q75": 2694.0,
+        "min": 0.0,
+        "max": 29918.0
+      },
+      "max_horizontal_intrusion_px": {
+        "mean": 89.5,
+        "std": 124.63,
+        "median": 36.5,
+        "q25": 0.0,
+        "q75": 116.25,
+        "min": 0.0,
+        "max": 398.0
+      },
+      "max_vertical_intrusion_px": {
+        "mean": 11.46,
+        "std": 12.47,
+        "median": 14.0,
+        "q25": 0.0,
+        "q75": 18.0,
+        "min": 0.0,
+        "max": 43.0
+      },
+      "max_gap_collapse_px": {
+        "mean": 90.73,
+        "std": 86.19,
+        "median": 61.5,
+        "q25": 8.25,
+        "q75": 141.5,
+        "min": 0.0,
+        "max": 309.0
+      },
+      "num_gaps_became_non_positive": {
+        "mean": 16.23,
+        "std": 34.41,
+        "median": 3.0,
+        "q25": 0.0,
+        "q75": 12.25,
+        "min": 0.0,
+        "max": 140.0
+      },
+      "residual_unexplained_collisions_count": {
+        "mean": 3.5,
+        "std": 5.47,
+        "median": 2.0,
+        "q25": 0.0,
+        "q75": 4.5,
+        "min": 0.0,
+        "max": 23.0
+      },
+      "max_residual_collision_area_px2": {
+        "mean": 1276.31,
+        "std": 2329.49,
+        "median": 596.0,
+        "q25": 0.0,
+        "q75": 1356.0,
+        "min": 0.0,
+        "max": 11144.0
+      }
+    },
+    "Repeated hotkey": {
+      "count": 7,
+      "num_newly_created_intersections": {
+        "mean": 2.57,
+        "std": 3.06,
+        "median": 1.0,
+        "q25": 0.5,
+        "q75": 3.5,
+        "min": 0.0,
+        "max": 9.0
+      },
+      "max_intersection_area_px2": {
+        "mean": 1084.57,
+        "std": 1439.35,
+        "median": 504.0,
+        "q25": 45.0,
+        "q75": 1481.5,
+        "min": 0.0,
+        "max": 4035.0
+      },
+      "total_intersection_area_px2": {
+        "mean": 1893.57,
+        "std": 2644.64,
+        "median": 532.0,
+        "q25": 45.0,
+        "q75": 3019.0,
+        "min": 0.0,
+        "max": 6595.0
+      },
+      "max_horizontal_intrusion_px": {
+        "mean": 73.71,
+        "std": 92.55,
+        "median": 38.0,
+        "q25": 2.5,
+        "q75": 102.0,
+        "min": 0.0,
+        "max": 269.0
+      },
+      "max_vertical_intrusion_px": {
+        "mean": 11.86,
+        "std": 7.75,
+        "median": 14.0,
+        "q25": 7.0,
+        "q75": 17.5,
+        "min": 0.0,
+        "max": 20.0
+      },
+      "max_gap_collapse_px": {
+        "mean": 154.71,
+        "std": 69.97,
+        "median": 126.0,
+        "q25": 107.5,
+        "q75": 179.5,
+        "min": 82.0,
+        "max": 301.0
+      },
+      "num_gaps_became_non_positive": {
+        "mean": 45.86,
+        "std": 40.64,
+        "median": 29.0,
+        "q25": 8.0,
+        "q75": 88.0,
+        "min": 1.0,
+        "max": 99.0
+      },
+      "residual_unexplained_collisions_count": {
+        "mean": 1.71,
+        "std": 1.91,
+        "median": 1.0,
+        "q25": 0.5,
+        "q75": 2.0,
+        "min": 0.0,
+        "max": 6.0
+      },
+      "max_residual_collision_area_px2": {
+        "mean": 415.14,
+        "std": 424.12,
+        "median": 480.0,
+        "q25": 45.0,
+        "q75": 518.0,
+        "min": 0.0,
+        "max": 1300.0
+      }
+    }
+  },
+  "true_overlapping_exemplars": [
+    {
+      "case_id": 38,
+      "product": "Inventor",
+      "folder": "Inventor-39",
+      "lang": "ESP",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 110,
+      "num_newly_created_intersections": 30,
+      "max_intersection_area_px2": 54918,
+      "total_intersection_area_px2": 92910,
+      "max_horizontal_intrusion_px": 339,
+      "max_vertical_intrusion_px": 162,
+      "max_gap_collapse_px": 204,
+      "num_gaps_became_non_positive": 66,
+      "max_text_expansion_px": 172,
+      "max_container_expansion_px": 46,
+      "collision_type_breakdown": {
+        "text <-> container": 24,
+        "text <-> text": 3,
+        "text <-> control": 3
+      },
+      "reflow_explained_collisions_count": 0,
+      "residual_unexplained_collisions_count": 30,
+      "max_residual_collision_area_px2": 54918,
+      "has_genuine_new_intersection": true,
+      "has_genuine_gap_collapse": true,
+      "detailed_collisions": [
+        {
+          "element_1": {
+            "id": "E4",
+            "type": "text",
+            "text": "Calculation",
+            "loc_box": [
+              91,
+              43,
+              62,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E_C8",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              14,
+              39,
+              640,
+              323
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 992,
+          "h_intrusion_px": 62,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": -64,
+          "after_h_gap_px": -62,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E6",
+            "type": "text",
+            "text": "Common",
+            "loc_box": [
+              29,
+              67,
+              108,
+              14
+            ]
+          },
+          "element_2": {
+            "id": "E8",
+            "type": "text",
+            "text": "Facewidth",
+            "loc_box": [
+              27,
+              79,
+              234,
+              16
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 216,
+          "h_intrusion_px": 108,
+          "v_intrusion_px": 2,
+          "before_h_gap_px": 96,
+          "after_h_gap_px": -108,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E6",
+            "type": "text",
+            "text": "Common",
+            "loc_box": [
+              29,
+              67,
+              108,
+              14
+            ]
+          },
+          "element_2": {
+            "id": "E7",
+            "type": "text",
+            "text": "Gear Ratio",
+            "loc_box": [
+              28,
+              67,
+              61,
+              25
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 840,
+          "h_intrusion_px": 60,
+          "v_intrusion_px": 14,
+          "before_h_gap_px": -54,
+          "after_h_gap_px": -60,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E23",
+            "type": "text",
+            "text": "Gear2",
+            "loc_box": [
+              317,
+              173,
+              64,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E_C8",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              14,
+              39,
+              640,
+              323
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 1024,
+          "h_intrusion_px": 64,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": -38,
+          "after_h_gap_px": -64,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E25",
+            "type": "text",
+            "text": "Cylindrical Face",
+            "loc_box": [
+              199,
+              199,
+              74,
+              14
+            ]
+          },
+          "element_2": {
+            "id": "E_C8",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              14,
+              39,
+              640,
+              323
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 1036,
+          "h_intrusion_px": 74,
+          "v_intrusion_px": 14,
+          "before_h_gap_px": -88,
+          "after_h_gap_px": -74,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E26",
+            "type": "text",
+            "text": "Component",
+            "loc_box": [
+              319,
+              193,
+              74,
+              14
+            ]
+          },
+          "element_2": {
+            "id": "E_C8",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              14,
+              39,
+              640,
+              323
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 1036,
+          "h_intrusion_px": 74,
+          "v_intrusion_px": 14,
+          "before_h_gap_px": -72,
+          "after_h_gap_px": -74,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E30",
+            "type": "text",
+            "text": "Number of Teeth",
+            "loc_box": [
+              315,
+              215,
+              110,
+              14
+            ]
+          },
+          "element_2": {
+            "id": "E_C8",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              14,
+              39,
+              640,
+              323
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 1540,
+          "h_intrusion_px": 110,
+          "v_intrusion_px": 14,
+          "before_h_gap_px": -108,
+          "after_h_gap_px": -110,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E32",
+            "type": "text",
+            "text": "Plane",
+            "loc_box": [
+              225,
+              229,
+              32,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E_C8",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              14,
+              39,
+              640,
+              323
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 512,
+          "h_intrusion_px": 32,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": -36,
+          "after_h_gap_px": -32,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E33",
+            "type": "text",
+            "text": "57 ul",
+            "loc_box": [
+              319,
+              233,
+              36,
+              18
+            ]
+          },
+          "element_2": {
+            "id": "E_C8",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              14,
+              39,
+              640,
+              323
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 648,
+          "h_intrusion_px": 36,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": -34,
+          "after_h_gap_px": -36,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E36",
+            "type": "text",
+            "text": "Unit Correction",
+            "loc_box": [
+              315,
+              257,
+              104,
+              14
+            ]
+          },
+          "element_2": {
+            "id": "E_C8",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              14,
+              39,
+              640,
+              323
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 1456,
+          "h_intrusion_px": 104,
+          "v_intrusion_px": 14,
+          "before_h_gap_px": -92,
+          "after_h_gap_px": -104,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        }
+      ],
+      "provenance": {
+        "intersection_measurements": "DIRECTLY_MEASURED",
+        "gap_measurements": "DIRECTLY_MEASURED",
+        "intrusion_measurements": "DIRECTLY_MEASURED",
+        "reflow_correlation": "DERIVED_FROM_MEASUREMENT"
+      }
+    },
+    {
+      "case_id": 39,
+      "product": "Vault",
+      "folder": "Vault-04",
+      "lang": "HUN",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 34,
+      "num_newly_created_intersections": 4,
+      "max_intersection_area_px2": 18538,
+      "total_intersection_area_px2": 21651,
+      "max_horizontal_intrusion_px": 66,
+      "max_vertical_intrusion_px": 299,
+      "max_gap_collapse_px": 138,
+      "num_gaps_became_non_positive": 13,
+      "max_text_expansion_px": 39,
+      "max_container_expansion_px": 57,
+      "collision_type_breakdown": {
+        "text <-> control": 2,
+        "text <-> container": 2
+      },
+      "reflow_explained_collisions_count": 0,
+      "residual_unexplained_collisions_count": 4,
+      "max_residual_collision_area_px2": 18538,
+      "has_genuine_new_intersection": true,
+      "has_genuine_gap_collapse": true,
+      "detailed_collisions": [
+        {
+          "element_1": {
+            "id": "E9",
+            "type": "text",
+            "text": "Opacity:",
+            "loc_box": [
+              469,
+              221,
+              66,
+              18
+            ]
+          },
+          "element_2": {
+            "id": "E_C11",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              469,
+              218,
+              138,
+              24
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 1188,
+          "h_intrusion_px": 66,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": 9,
+          "after_h_gap_px": -66,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E13",
+            "type": "text",
+            "text": "]",
+            "loc_box": [
+              375,
+              291,
+              14,
+              70
+            ]
+          },
+          "element_2": {
+            "id": "E_C4",
+            "type": "container",
+            "text": "",
+            "loc_box": [
+              375,
+              66,
+              78,
+              301
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 980,
+          "h_intrusion_px": 14,
+          "v_intrusion_px": 70,
+          "before_h_gap_px": 0,
+          "after_h_gap_px": -14,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E16",
+            "type": "text",
+            "text": "Opacity-",
+            "loc_box": [
+              48,
+              419,
+              63,
+              18
+            ]
+          },
+          "element_2": {
+            "id": "E_C14",
+            "type": "dropdown",
+            "text": "",
+            "loc_box": [
+              44,
+              392,
+              307,
+              42
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 945,
+          "h_intrusion_px": 63,
+          "v_intrusion_px": 15,
+          "before_h_gap_px": -44,
+          "after_h_gap_px": -63,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C4",
+            "type": "container",
+            "text": "",
+            "loc_box": [
+              375,
+              66,
+              78,
+              301
+            ]
+          },
+          "element_2": {
+            "id": "E_C12",
+            "type": "container",
+            "text": "",
+            "loc_box": [
+              390,
+              68,
+              62,
+              299
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 18538,
+          "h_intrusion_px": 62,
+          "v_intrusion_px": 299,
+          "before_h_gap_px": 75,
+          "after_h_gap_px": -62,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        }
+      ],
+      "provenance": {
+        "intersection_measurements": "DIRECTLY_MEASURED",
+        "gap_measurements": "DIRECTLY_MEASURED",
+        "intrusion_measurements": "DIRECTLY_MEASURED",
+        "reflow_correlation": "DERIVED_FROM_MEASUREMENT"
+      }
+    },
+    {
+      "case_id": 29,
+      "product": "Civil3d",
+      "folder": "Civil3d-06",
+      "lang": "RUS",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 77,
+      "num_newly_created_intersections": 18,
+      "max_intersection_area_px2": 1908,
+      "total_intersection_area_px2": 15573,
+      "max_horizontal_intrusion_px": 465,
+      "max_vertical_intrusion_px": 23,
+      "max_gap_collapse_px": 246,
+      "num_gaps_became_non_positive": 52,
+      "max_text_expansion_px": 507,
+      "max_container_expansion_px": 250,
+      "collision_type_breakdown": {
+        "text <-> text": 2,
+        "text <-> control": 10,
+        "text <-> container": 6
+      },
+      "reflow_explained_collisions_count": 1,
+      "residual_unexplained_collisions_count": 17,
+      "max_residual_collision_area_px2": 1908,
+      "has_genuine_new_intersection": true,
+      "has_genuine_gap_collapse": true,
+      "detailed_collisions": [
+        {
+          "element_1": {
+            "id": "E7",
+            "type": "text",
+            "text": "Incoming connections",
+            "loc_box": [
+              12,
+              107,
+              186,
+              30
+            ]
+          },
+          "element_2": {
+            "id": "E8",
+            "type": "text",
+            "text": "Pipes",
+            "loc_box": [
+              18,
+              112,
+              78,
+              20
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 1560,
+          "h_intrusion_px": 78,
+          "v_intrusion_px": 20,
+          "before_h_gap_px": -34,
+          "after_h_gap_px": -78,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E17",
+            "type": "text",
+            "text": "Columns",
+            "loc_box": [
+              47,
+              193,
+              30,
+              14
+            ]
+          },
+          "element_2": {
+            "id": "E_C4",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              41,
+              183,
+              74,
+              34
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 420,
+          "h_intrusion_px": 30,
+          "v_intrusion_px": 14,
+          "before_h_gap_px": -1,
+          "after_h_gap_px": -30,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E18",
+            "type": "text",
+            "text": "Operator",
+            "loc_box": [
+              123,
+              193,
+              62,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E_C5",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              116,
+              183,
+              99,
+              34
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 992,
+          "h_intrusion_px": 62,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": 7,
+          "after_h_gap_px": -62,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E19",
+            "type": "text",
+            "text": "Value",
+            "loc_box": [
+              223,
+              193,
+              46,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E_C6",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              216,
+              183,
+              83,
+              34
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 736,
+          "h_intrusion_px": 46,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": 31,
+          "after_h_gap_px": -46,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E36",
+            "type": "text",
+            "text": "No channels connected",
+            "loc_box": [
+              501,
+              403,
+              76,
+              19
+            ]
+          },
+          "element_2": {
+            "id": "E34",
+            "type": "text",
+            "text": "Section type",
+            "loc_box": [
+              495,
+              395,
+              207,
+              34
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 1444,
+          "h_intrusion_px": 76,
+          "v_intrusion_px": 19,
+          "before_h_gap_px": -58,
+          "after_h_gap_px": -76,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E47",
+            "type": "text",
+            "text": "Help",
+            "loc_box": [
+              743,
+              787,
+              48,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E_C29",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              730,
+              780,
+              72,
+              31
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 768,
+          "h_intrusion_px": 48,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": 21,
+          "after_h_gap_px": -48,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E48",
+            "type": "text",
+            "text": "Cancel",
+            "loc_box": [
+              825,
+              787,
+              70,
+              18
+            ]
+          },
+          "element_2": {
+            "id": "E_C30",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              812,
+              780,
+              95,
+              31
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 1260,
+          "h_intrusion_px": 70,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": 20,
+          "after_h_gap_px": -70,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E49",
+            "type": "text",
+            "text": "Apply",
+            "loc_box": [
+              927,
+              785,
+              24,
+              18
+            ]
+          },
+          "element_2": {
+            "id": "E_C31",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              917,
+              780,
+              43,
+              30
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 432,
+          "h_intrusion_px": 24,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": 20,
+          "after_h_gap_px": -24,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C28",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              644,
+              780,
+              76,
+              31
+            ]
+          },
+          "element_2": {
+            "id": "E50",
+            "type": "text",
+            "text": "OK",
+            "loc_box": [
+              654,
+              785,
+              55,
+              23
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 1265,
+          "h_intrusion_px": 55,
+          "v_intrusion_px": 23,
+          "before_h_gap_px": 167,
+          "after_h_gap_px": -55,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E46",
+            "type": "text",
+            "text": "At least one connected catchme",
+            "loc_box": [
+              16,
+              577,
+              933,
+              31
+            ]
+          },
+          "element_2": {
+            "id": "E_C23",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              256,
+              606,
+              195,
+              35
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 390,
+          "h_intrusion_px": 195,
+          "v_intrusion_px": 2,
+          "before_h_gap_px": -161,
+          "after_h_gap_px": -195,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        }
+      ],
+      "provenance": {
+        "intersection_measurements": "DIRECTLY_MEASURED",
+        "gap_measurements": "DIRECTLY_MEASURED",
+        "intrusion_measurements": "DIRECTLY_MEASURED",
+        "reflow_correlation": "DERIVED_FROM_MEASUREMENT"
+      }
+    },
+    {
+      "case_id": 42,
+      "product": "Vault",
+      "folder": "Vault-12",
+      "lang": "CHT",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 45,
+      "num_newly_created_intersections": 7,
+      "max_intersection_area_px2": 11106,
+      "total_intersection_area_px2": 11881,
+      "max_horizontal_intrusion_px": 617,
+      "max_vertical_intrusion_px": 18,
+      "max_gap_collapse_px": 228,
+      "num_gaps_became_non_positive": 22,
+      "max_text_expansion_px": 555,
+      "max_container_expansion_px": 9,
+      "collision_type_breakdown": {
+        "text <-> container": 5,
+        "text <-> control": 2
+      },
+      "reflow_explained_collisions_count": 0,
+      "residual_unexplained_collisions_count": 7,
+      "max_residual_collision_area_px2": 11106,
+      "has_genuine_new_intersection": true,
+      "has_genuine_gap_collapse": true,
+      "detailed_collisions": [
+        {
+          "element_1": {
+            "id": "E_C5",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              19,
+              138,
+              621,
+              161
+            ]
+          },
+          "element_2": {
+            "id": "E23",
+            "type": "text",
+            "text": "Thumbnail",
+            "loc_box": [
+              21,
+              279,
+              617,
+              18
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 11106,
+          "h_intrusion_px": 617,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": -62,
+          "after_h_gap_px": -617,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C7",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              47,
+              140,
+              149,
+              27
+            ]
+          },
+          "element_2": {
+            "id": "E19",
+            "type": "text",
+            "text": "emplateAssembly iam",
+            "loc_box": [
+              174,
+              166,
+              22,
+              20
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 22,
+          "h_intrusion_px": 22,
+          "v_intrusion_px": 1,
+          "before_h_gap_px": -120,
+          "after_h_gap_px": -22,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C8",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              197,
+              140,
+              74,
+              27
+            ]
+          },
+          "element_2": {
+            "id": "E20",
+            "type": "text",
+            "text": "Latest (Noz",
+            "loc_box": [
+              231,
+              166,
+              40,
+              20
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 40,
+          "h_intrusion_px": 40,
+          "v_intrusion_px": 1,
+          "before_h_gap_px": -66,
+          "after_h_gap_px": -40,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C16",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              21,
+              185,
+              617,
+              95
+            ]
+          },
+          "element_2": {
+            "id": "E20",
+            "type": "text",
+            "text": "Latest (Noz",
+            "loc_box": [
+              231,
+              166,
+              40,
+              20
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 40,
+          "h_intrusion_px": 40,
+          "v_intrusion_px": 1,
+          "before_h_gap_px": -66,
+          "after_h_gap_px": -40,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C16",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              21,
+              185,
+              617,
+              95
+            ]
+          },
+          "element_2": {
+            "id": "E19",
+            "type": "text",
+            "text": "emplateAssembly iam",
+            "loc_box": [
+              174,
+              166,
+              22,
+              20
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 22,
+          "h_intrusion_px": 22,
+          "v_intrusion_px": 1,
+          "before_h_gap_px": -120,
+          "after_h_gap_px": -22,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C16",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              21,
+              185,
+              617,
+              95
+            ]
+          },
+          "element_2": {
+            "id": "E14",
+            "type": "text",
+            "text": "Revision",
+            "loc_box": [
+              197,
+              166,
+              34,
+              20
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 34,
+          "h_intrusion_px": 34,
+          "v_intrusion_px": 1,
+          "before_h_gap_px": -46,
+          "after_h_gap_px": -34,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C16",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              21,
+              185,
+              617,
+              95
+            ]
+          },
+          "element_2": {
+            "id": "E23",
+            "type": "text",
+            "text": "Thumbnail",
+            "loc_box": [
+              21,
+              279,
+              617,
+              18
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 617,
+          "h_intrusion_px": 617,
+          "v_intrusion_px": 1,
+          "before_h_gap_px": -62,
+          "after_h_gap_px": -617,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        }
+      ],
+      "provenance": {
+        "intersection_measurements": "DIRECTLY_MEASURED",
+        "gap_measurements": "DIRECTLY_MEASURED",
+        "intrusion_measurements": "DIRECTLY_MEASURED",
+        "reflow_correlation": "DERIVED_FROM_MEASUREMENT"
+      }
+    },
+    {
+      "case_id": 35,
+      "product": "Inventor",
+      "folder": "Inventor-08",
+      "lang": "JPN",
+      "gt_category": "Overlapping",
+      "matched_elements_count": 43,
+      "num_newly_created_intersections": 6,
+      "max_intersection_area_px2": 1957,
+      "total_intersection_area_px2": 6570,
+      "max_horizontal_intrusion_px": 103,
+      "max_vertical_intrusion_px": 19,
+      "max_gap_collapse_px": 201,
+      "num_gaps_became_non_positive": 20,
+      "max_text_expansion_px": 66,
+      "max_container_expansion_px": 299,
+      "collision_type_breakdown": {
+        "text <-> text": 3,
+        "text <-> container": 1,
+        "text <-> control": 2
+      },
+      "reflow_explained_collisions_count": 0,
+      "residual_unexplained_collisions_count": 6,
+      "max_residual_collision_area_px2": 1957,
+      "has_genuine_new_intersection": true,
+      "has_genuine_gap_collapse": true,
+      "detailed_collisions": [
+        {
+          "element_1": {
+            "id": "E8",
+            "type": "text",
+            "text": "-161218.024 mn",
+            "loc_box": [
+              193,
+              97,
+              80,
+              14
+            ]
+          },
+          "element_2": {
+            "id": "E7",
+            "type": "text",
+            "text": "X Offset:",
+            "loc_box": [
+              186,
+              95,
+              103,
+              19
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 1120,
+          "h_intrusion_px": 80,
+          "v_intrusion_px": 14,
+          "before_h_gap_px": 94,
+          "after_h_gap_px": -80,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E12",
+            "type": "text",
+            "text": "84170.682 mm",
+            "loc_box": [
+              187,
+              123,
+              54,
+              14
+            ]
+          },
+          "element_2": {
+            "id": "E6",
+            "type": "text",
+            "text": "Origin",
+            "loc_box": [
+              186,
+              122,
+              103,
+              19
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 756,
+          "h_intrusion_px": 54,
+          "v_intrusion_px": 14,
+          "before_h_gap_px": -38,
+          "after_h_gap_px": -54,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E20",
+            "type": "text",
+            "text": "3.892",
+            "loc_box": [
+              321,
+              255,
+              30,
+              12
+            ]
+          },
+          "element_2": {
+            "id": "E_C20",
+            "type": "container",
+            "text": "",
+            "loc_box": [
+              320,
+              253,
+              122,
+              18
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 360,
+          "h_intrusion_px": 30,
+          "v_intrusion_px": 12,
+          "before_h_gap_px": -38,
+          "after_h_gap_px": -30,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C5",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              186,
+              95,
+              119,
+              21
+            ]
+          },
+          "element_2": {
+            "id": "E7",
+            "type": "text",
+            "text": "X Offset:",
+            "loc_box": [
+              186,
+              95,
+              103,
+              19
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 1957,
+          "h_intrusion_px": 103,
+          "v_intrusion_px": 19,
+          "before_h_gap_px": 89,
+          "after_h_gap_px": -103,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C9",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              186,
+              121,
+              119,
+              22
+            ]
+          },
+          "element_2": {
+            "id": "E6",
+            "type": "text",
+            "text": "Origin",
+            "loc_box": [
+              186,
+              122,
+              103,
+              19
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 1957,
+          "h_intrusion_px": 103,
+          "v_intrusion_px": 19,
+          "before_h_gap_px": -38,
+          "after_h_gap_px": -103,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E18",
+            "type": "text",
+            "text": "OAdjust densiy manualy",
+            "loc_box": [
+              31,
+              227,
+              30,
+              14
+            ]
+          },
+          "element_2": {
+            "id": "E19",
+            "type": "text",
+            "text": "Densiy:",
+            "loc_box": [
+              18,
+              198,
+              118,
+              114
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 420,
+          "h_intrusion_px": 30,
+          "v_intrusion_px": 14,
+          "before_h_gap_px": -52,
+          "after_h_gap_px": -30,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        }
+      ],
+      "provenance": {
+        "intersection_measurements": "DIRECTLY_MEASURED",
+        "gap_measurements": "DIRECTLY_MEASURED",
+        "intrusion_measurements": "DIRECTLY_MEASURED",
+        "reflow_correlation": "DERIVED_FROM_MEASUREMENT"
+      }
+    }
+  ],
+  "false_positive_collision_exemplars": [
+    {
+      "case_id": 84,
+      "product": "Vault",
+      "folder": "Vault-24",
+      "lang": "CHT",
+      "gt_category": "Truncation",
+      "matched_elements_count": 29,
+      "num_newly_created_intersections": 14,
+      "max_intersection_area_px2": 122757,
+      "total_intersection_area_px2": 213436,
+      "max_horizontal_intrusion_px": 493,
+      "max_vertical_intrusion_px": 249,
+      "max_gap_collapse_px": 259,
+      "num_gaps_became_non_positive": 9,
+      "max_text_expansion_px": 946,
+      "max_container_expansion_px": 47,
+      "collision_type_breakdown": {
+        "text <-> text": 4,
+        "text <-> container": 2,
+        "text <-> control": 8
+      },
+      "reflow_explained_collisions_count": 4,
+      "residual_unexplained_collisions_count": 10,
+      "max_residual_collision_area_px2": 122757,
+      "has_genuine_new_intersection": true,
+      "has_genuine_gap_collapse": true,
+      "detailed_collisions": [
+        {
+          "element_1": {
+            "id": "E6",
+            "type": "text",
+            "text": "Browse; ;.",
+            "loc_box": [
+              483,
+              79,
+              48,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E9",
+            "type": "text",
+            "text": "Tiling",
+            "loc_box": [
+              506,
+              76,
+              186,
+              19
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 400,
+          "h_intrusion_px": 25,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": 94,
+          "after_h_gap_px": -25,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E15",
+            "type": "text",
+            "text": "In front",
+            "loc_box": [
+              417,
+              189,
+              40,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E25",
+            "type": "text",
+            "text": "Page",
+            "loc_box": [
+              7,
+              0,
+              977,
+              506
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 640,
+          "h_intrusion_px": 40,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": 50,
+          "after_h_gap_px": -40,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E20",
+            "type": "text",
+            "text": "Pages:",
+            "loc_box": [
+              507,
+              331,
+              46,
+              18
+            ]
+          },
+          "element_2": {
+            "id": "E25",
+            "type": "text",
+            "text": "Page",
+            "loc_box": [
+              7,
+              0,
+              977,
+              506
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 828,
+          "h_intrusion_px": 46,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": 43,
+          "after_h_gap_px": -46,
+          "explained_by_reflow": true,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C3",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              220,
+              31,
+              493,
+              249
+            ]
+          },
+          "element_2": {
+            "id": "E25",
+            "type": "text",
+            "text": "Page",
+            "loc_box": [
+              7,
+              0,
+              977,
+              506
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 122757,
+          "h_intrusion_px": 493,
+          "v_intrusion_px": 249,
+          "before_h_gap_px": -31,
+          "after_h_gap_px": -493,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C6",
+            "type": "dropdown",
+            "text": "",
+            "loc_box": [
+              321,
+              74,
+              373,
+              23
+            ]
+          },
+          "element_2": {
+            "id": "E9",
+            "type": "text",
+            "text": "Tiling",
+            "loc_box": [
+              506,
+              76,
+              186,
+              19
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 3534,
+          "h_intrusion_px": 186,
+          "v_intrusion_px": 19,
+          "before_h_gap_px": -34,
+          "after_h_gap_px": -186,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C8",
+            "type": "dropdown",
+            "text": "",
+            "loc_box": [
+              320,
+              102,
+              299,
+              24
+            ]
+          },
+          "element_2": {
+            "id": "E25",
+            "type": "text",
+            "text": "Page",
+            "loc_box": [
+              7,
+              0,
+              977,
+              506
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 7176,
+          "h_intrusion_px": 299,
+          "v_intrusion_px": 24,
+          "before_h_gap_px": -31,
+          "after_h_gap_px": -299,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C9",
+            "type": "dropdown",
+            "text": "",
+            "loc_box": [
+              320,
+              130,
+              375,
+              24
+            ]
+          },
+          "element_2": {
+            "id": "E25",
+            "type": "text",
+            "text": "Page",
+            "loc_box": [
+              7,
+              0,
+              977,
+              506
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 9000,
+          "h_intrusion_px": 375,
+          "v_intrusion_px": 24,
+          "before_h_gap_px": -31,
+          "after_h_gap_px": -375,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C10",
+            "type": "dropdown",
+            "text": "",
+            "loc_box": [
+              320,
+              158,
+              375,
+              24
+            ]
+          },
+          "element_2": {
+            "id": "E25",
+            "type": "text",
+            "text": "Page",
+            "loc_box": [
+              7,
+              0,
+              977,
+              506
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 9000,
+          "h_intrusion_px": 375,
+          "v_intrusion_px": 24,
+          "before_h_gap_px": -31,
+          "after_h_gap_px": -375,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C11",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              606,
+              211,
+              89,
+              24
+            ]
+          },
+          "element_2": {
+            "id": "E25",
+            "type": "text",
+            "text": "Page",
+            "loc_box": [
+              7,
+              0,
+              977,
+              506
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 2136,
+          "h_intrusion_px": 89,
+          "v_intrusion_px": 24,
+          "before_h_gap_px": 110,
+          "after_h_gap_px": -89,
+          "explained_by_reflow": true,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C12",
+            "type": "dropdown",
+            "text": "",
+            "loc_box": [
+              245,
+              245,
+              445,
+              27
+            ]
+          },
+          "element_2": {
+            "id": "E25",
+            "type": "text",
+            "text": "Page",
+            "loc_box": [
+              7,
+              0,
+              977,
+              506
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 12015,
+          "h_intrusion_px": 445,
+          "v_intrusion_px": 27,
+          "before_h_gap_px": -31,
+          "after_h_gap_px": -445,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        }
+      ],
+      "provenance": {
+        "intersection_measurements": "DIRECTLY_MEASURED",
+        "gap_measurements": "DIRECTLY_MEASURED",
+        "intrusion_measurements": "DIRECTLY_MEASURED",
+        "reflow_correlation": "DERIVED_FROM_MEASUREMENT"
+      }
+    },
+    {
+      "case_id": 98,
+      "product": "Inventor",
+      "folder": "Inventor-04",
+      "lang": "KOR",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 121,
+      "num_newly_created_intersections": 35,
+      "max_intersection_area_px2": 3657,
+      "total_intersection_area_px2": 29918,
+      "max_horizontal_intrusion_px": 317,
+      "max_vertical_intrusion_px": 40,
+      "max_gap_collapse_px": 267,
+      "num_gaps_became_non_positive": 119,
+      "max_text_expansion_px": 299,
+      "max_container_expansion_px": 296,
+      "collision_type_breakdown": {
+        "text <-> text": 13,
+        "text <-> container": 19,
+        "text <-> control": 3
+      },
+      "reflow_explained_collisions_count": 12,
+      "residual_unexplained_collisions_count": 23,
+      "max_residual_collision_area_px2": 3657,
+      "has_genuine_new_intersection": true,
+      "has_genuine_gap_collapse": true,
+      "detailed_collisions": [
+        {
+          "element_1": {
+            "id": "E2",
+            "type": "text",
+            "text": "Jr =",
+            "loc_box": [
+              344,
+              9,
+              36,
+              20
+            ]
+          },
+          "element_2": {
+            "id": "E29",
+            "type": "text",
+            "text": "Styles Editor",
+            "loc_box": [
+              339,
+              6,
+              128,
+              25
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 720,
+          "h_intrusion_px": 36,
+          "v_intrusion_px": 20,
+          "before_h_gap_px": -42,
+          "after_h_gap_px": -36,
+          "explained_by_reflow": true,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E6",
+            "type": "text",
+            "text": "JD Mod-I",
+            "loc_box": [
+              193,
+              40,
+              63,
+              21
+            ]
+          },
+          "element_2": {
+            "id": "E_C6",
+            "type": "container",
+            "text": "",
+            "loc_box": [
+              244,
+              38,
+              391,
+              141
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 252,
+          "h_intrusion_px": 12,
+          "v_intrusion_px": 21,
+          "before_h_gap_px": 88,
+          "after_h_gap_px": -12,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E10",
+            "type": "text",
+            "text": "Collabotate",
+            "loc_box": [
+              544,
+              37,
+              76,
+              24
+            ]
+          },
+          "element_2": {
+            "id": "E_C6",
+            "type": "container",
+            "text": "",
+            "loc_box": [
+              244,
+              38,
+              391,
+              141
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 1748,
+          "h_intrusion_px": 76,
+          "v_intrusion_px": 23,
+          "before_h_gap_px": 90,
+          "after_h_gap_px": -76,
+          "explained_by_reflow": true,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E16",
+            "type": "text",
+            "text": "fx",
+            "loc_box": [
+              274,
+              37,
+              44,
+              24
+            ]
+          },
+          "element_2": {
+            "id": "E_C6",
+            "type": "container",
+            "text": "",
+            "loc_box": [
+              244,
+              38,
+              391,
+              141
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 1012,
+          "h_intrusion_px": 44,
+          "v_intrusion_px": 23,
+          "before_h_gap_px": 50,
+          "after_h_gap_px": -44,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E37",
+            "type": "text",
+            "text": "ilnggcr",
+            "loc_box": [
+              1199,
+              107,
+              52,
+              26
+            ]
+          },
+          "element_2": {
+            "id": "E_C13",
+            "type": "container",
+            "text": "",
+            "loc_box": [
+              1193,
+              63,
+              101,
+              116
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 1352,
+          "h_intrusion_px": 52,
+          "v_intrusion_px": 26,
+          "before_h_gap_px": 4,
+          "after_h_gap_px": -52,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E50",
+            "type": "text",
+            "text": "CVPLocassembliam",
+            "loc_box": [
+              14,
+              217,
+              122,
+              23
+            ]
+          },
+          "element_2": {
+            "id": "E51",
+            "type": "text",
+            "text": "Representatbns",
+            "loc_box": [
+              13,
+              221,
+              58,
+              18
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 1026,
+          "h_intrusion_px": 57,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": -93,
+          "after_h_gap_px": -57,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E60",
+            "type": "text",
+            "text": "What tools are avallable?",
+            "loc_box": [
+              859,
+              297,
+              408,
+              21
+            ]
+          },
+          "element_2": {
+            "id": "E_C30",
+            "type": "container",
+            "text": "",
+            "loc_box": [
+              859,
+              315,
+              257,
+              21
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 771,
+          "h_intrusion_px": 257,
+          "v_intrusion_px": 3,
+          "before_h_gap_px": 7,
+          "after_h_gap_px": -257,
+          "explained_by_reflow": true,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E69",
+            "type": "text",
+            "text": "Are there am",
+            "loc_box": [
+              1015,
+              599,
+              140,
+              18
+            ]
+          },
+          "element_2": {
+            "id": "E_C37",
+            "type": "card",
+            "text": "",
+            "loc_box": [
+              859,
+              423,
+              417,
+              218
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 2520,
+          "h_intrusion_px": 140,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": -78,
+          "after_h_gap_px": -140,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E69",
+            "type": "text",
+            "text": "Are there am",
+            "loc_box": [
+              1015,
+              599,
+              140,
+              18
+            ]
+          },
+          "element_2": {
+            "id": "E_C41",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              999,
+              591,
+              171,
+              31
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 2520,
+          "h_intrusion_px": 140,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": 14,
+          "after_h_gap_px": -140,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E71",
+            "type": "text",
+            "text": "'document?",
+            "loc_box": [
+              1194,
+              599,
+              47,
+              18
+            ]
+          },
+          "element_2": {
+            "id": "E_C42",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              1179,
+              592,
+              76,
+              30
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 846,
+          "h_intrusion_px": 47,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": -27,
+          "after_h_gap_px": -47,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        }
+      ],
+      "provenance": {
+        "intersection_measurements": "DIRECTLY_MEASURED",
+        "gap_measurements": "DIRECTLY_MEASURED",
+        "intrusion_measurements": "DIRECTLY_MEASURED",
+        "reflow_correlation": "DERIVED_FROM_MEASUREMENT"
+      }
+    },
+    {
+      "case_id": 12,
+      "product": "Civil3d",
+      "folder": "Civil3d-14",
+      "lang": "CHT",
+      "gt_category": "Misalignment",
+      "matched_elements_count": 38,
+      "num_newly_created_intersections": 8,
+      "max_intersection_area_px2": 14465,
+      "total_intersection_area_px2": 28738,
+      "max_horizontal_intrusion_px": 263,
+      "max_vertical_intrusion_px": 55,
+      "max_gap_collapse_px": 200,
+      "num_gaps_became_non_positive": 11,
+      "max_text_expansion_px": 349,
+      "max_container_expansion_px": 4,
+      "collision_type_breakdown": {
+        "text <-> text": 3,
+        "text <-> control": 5
+      },
+      "reflow_explained_collisions_count": 3,
+      "residual_unexplained_collisions_count": 5,
+      "max_residual_collision_area_px2": 14465,
+      "has_genuine_new_intersection": true,
+      "has_genuine_gap_collapse": true,
+      "detailed_collisions": [
+        {
+          "element_1": {
+            "id": "E18",
+            "type": "text",
+            "text": "Name",
+            "loc_box": [
+              35,
+              275,
+              26,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E20",
+            "type": "text",
+            "text": "Sample Line Gro_",
+            "loc_box": [
+              26,
+              268,
+              431,
+              99
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 416,
+          "h_intrusion_px": 26,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": 148,
+          "after_h_gap_px": -26,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E21",
+            "type": "text",
+            "text": "Link",
+            "loc_box": [
+              313,
+              275,
+              28,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E20",
+            "type": "text",
+            "text": "Sample Line Gro_",
+            "loc_box": [
+              26,
+              268,
+              431,
+              99
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 448,
+          "h_intrusion_px": 28,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": 18,
+          "after_h_gap_px": -28,
+          "explained_by_reflow": true,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C18",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              28,
+              270,
+              101,
+              41
+            ]
+          },
+          "element_2": {
+            "id": "E20",
+            "type": "text",
+            "text": "Sample Line Gro_",
+            "loc_box": [
+              26,
+              268,
+              431,
+              99
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 4141,
+          "h_intrusion_px": 101,
+          "v_intrusion_px": 41,
+          "before_h_gap_px": 84,
+          "after_h_gap_px": -101,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C19",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              129,
+              270,
+              80,
+              41
+            ]
+          },
+          "element_2": {
+            "id": "E20",
+            "type": "text",
+            "text": "Sample Line Gro_",
+            "loc_box": [
+              26,
+              268,
+              431,
+              99
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 3280,
+          "h_intrusion_px": 80,
+          "v_intrusion_px": 41,
+          "before_h_gap_px": 4,
+          "after_h_gap_px": -80,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C21",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              309,
+              270,
+              80,
+              41
+            ]
+          },
+          "element_2": {
+            "id": "E20",
+            "type": "text",
+            "text": "Sample Line Gro_",
+            "loc_box": [
+              26,
+              268,
+              431,
+              99
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 3280,
+          "h_intrusion_px": 80,
+          "v_intrusion_px": 41,
+          "before_h_gap_px": 14,
+          "after_h_gap_px": -80,
+          "explained_by_reflow": true,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C23",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              128,
+              310,
+              263,
+              55
+            ]
+          },
+          "element_2": {
+            "id": "E22",
+            "type": "text",
+            "text": "Station Start",
+            "loc_box": [
+              389,
+              270,
+              66,
+              41
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 2,
+          "h_intrusion_px": 2,
+          "v_intrusion_px": 1,
+          "before_h_gap_px": 2,
+          "after_h_gap_px": -2,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C23",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              128,
+              310,
+              263,
+              55
+            ]
+          },
+          "element_2": {
+            "id": "E20",
+            "type": "text",
+            "text": "Sample Line Gro_",
+            "loc_box": [
+              26,
+              268,
+              431,
+              99
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 14465,
+          "h_intrusion_px": 263,
+          "v_intrusion_px": 55,
+          "before_h_gap_px": -82,
+          "after_h_gap_px": -263,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E22",
+            "type": "text",
+            "text": "Station Start",
+            "loc_box": [
+              389,
+              270,
+              66,
+              41
+            ]
+          },
+          "element_2": {
+            "id": "E20",
+            "type": "text",
+            "text": "Sample Line Gro_",
+            "loc_box": [
+              26,
+              268,
+              431,
+              99
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 2706,
+          "h_intrusion_px": 66,
+          "v_intrusion_px": 41,
+          "before_h_gap_px": 98,
+          "after_h_gap_px": -66,
+          "explained_by_reflow": true,
+          "provenance": "DIRECTLY_MEASURED"
+        }
+      ],
+      "provenance": {
+        "intersection_measurements": "DIRECTLY_MEASURED",
+        "gap_measurements": "DIRECTLY_MEASURED",
+        "intrusion_measurements": "DIRECTLY_MEASURED",
+        "reflow_correlation": "DERIVED_FROM_MEASUREMENT"
+      }
+    },
+    {
+      "case_id": 103,
+      "product": "Inventor",
+      "folder": "Inventor-22",
+      "lang": "KOR",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 106,
+      "num_newly_created_intersections": 22,
+      "max_intersection_area_px2": 4300,
+      "total_intersection_area_px2": 26809,
+      "max_horizontal_intrusion_px": 190,
+      "max_vertical_intrusion_px": 43,
+      "max_gap_collapse_px": 309,
+      "num_gaps_became_non_positive": 140,
+      "max_text_expansion_px": 164,
+      "max_container_expansion_px": 298,
+      "collision_type_breakdown": {
+        "text <-> container": 7,
+        "text <-> control": 13,
+        "control <-> control": 2
+      },
+      "reflow_explained_collisions_count": 5,
+      "residual_unexplained_collisions_count": 17,
+      "max_residual_collision_area_px2": 4300,
+      "has_genuine_new_intersection": true,
+      "has_genuine_gap_collapse": true,
+      "detailed_collisions": [
+        {
+          "element_1": {
+            "id": "E15",
+            "type": "text",
+            "text": "Riqid Ppe wath Fitings",
+            "loc_box": [
+              79,
+              134,
+              190,
+              18
+            ]
+          },
+          "element_2": {
+            "id": "E_C10",
+            "type": "container",
+            "text": "",
+            "loc_box": [
+              78,
+              149,
+              322,
+              19
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 570,
+          "h_intrusion_px": 190,
+          "v_intrusion_px": 3,
+          "before_h_gap_px": -111,
+          "after_h_gap_px": -190,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E37",
+            "type": "text",
+            "text": "Pipe",
+            "loc_box": [
+              594,
+              227,
+              34,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E_C14",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              574,
+              221,
+              478,
+              101
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 544,
+          "h_intrusion_px": 34,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": 94,
+          "after_h_gap_px": -34,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E41",
+            "type": "text",
+            "text": "couping",
+            "loc_box": [
+              590,
+              249,
+              31,
+              11
+            ]
+          },
+          "element_2": {
+            "id": "E_C13",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              590,
+              221,
+              100,
+              43
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 341,
+          "h_intrusion_px": 31,
+          "v_intrusion_px": 11,
+          "before_h_gap_px": -52,
+          "after_h_gap_px": -31,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E41",
+            "type": "text",
+            "text": "couping",
+            "loc_box": [
+              590,
+              249,
+              31,
+              11
+            ]
+          },
+          "element_2": {
+            "id": "E_C14",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              574,
+              221,
+              478,
+              101
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 341,
+          "h_intrusion_px": 31,
+          "v_intrusion_px": 11,
+          "before_h_gap_px": 70,
+          "after_h_gap_px": -31,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E42",
+            "type": "text",
+            "text": "ASME B16.11 Couplng ThreadecAS",
+            "loc_box": [
+              870,
+              248,
+              88,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E_C14",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              574,
+              221,
+              478,
+              101
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 1408,
+          "h_intrusion_px": 88,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": -180,
+          "after_h_gap_px": -88,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E45",
+            "type": "text",
+            "text": "Ebow 90",
+            "loc_box": [
+              690,
+              248,
+              86,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E_C14",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              574,
+              221,
+              478,
+              101
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 1376,
+          "h_intrusion_px": 86,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": 65,
+          "after_h_gap_px": -86,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E46",
+            "type": "text",
+            "text": "ASME B16.11 90 Deq Ebox ThrASM",
+            "loc_box": [
+              844,
+              266,
+              104,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E_C14",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              574,
+              221,
+              478,
+              101
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 1664,
+          "h_intrusion_px": 104,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": -180,
+          "after_h_gap_px": -104,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E81",
+            "type": "text",
+            "text": "Dameter",
+            "loc_box": [
+              578,
+              612,
+              37,
+              16
+            ]
+          },
+          "element_2": {
+            "id": "E_C23",
+            "type": "dropdown",
+            "text": "",
+            "loc_box": [
+              576,
+              608,
+              343,
+              24
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 592,
+          "h_intrusion_px": 37,
+          "v_intrusion_px": 16,
+          "before_h_gap_px": -49,
+          "after_h_gap_px": -37,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C6",
+            "type": "dropdown",
+            "text": "",
+            "loc_box": [
+              568,
+              91,
+              348,
+              26
+            ]
+          },
+          "element_2": {
+            "id": "E13",
+            "type": "text",
+            "text": "Custom Ebows",
+            "loc_box": [
+              742,
+              92,
+              120,
+              18
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 2160,
+          "h_intrusion_px": 120,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": -86,
+          "after_h_gap_px": -120,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C18",
+            "type": "container",
+            "text": "",
+            "loc_box": [
+              690,
+              303,
+              175,
+              18
+            ]
+          },
+          "element_2": {
+            "id": "E_C14",
+            "type": "button",
+            "text": "",
+            "loc_box": [
+              574,
+              221,
+              478,
+              101
+            ]
+          },
+          "collision_type": "text <-> container",
+          "intersection_area_px2": 3150,
+          "h_intrusion_px": 175,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": -179,
+          "after_h_gap_px": -175,
+          "explained_by_reflow": true,
+          "provenance": "DIRECTLY_MEASURED"
+        }
+      ],
+      "provenance": {
+        "intersection_measurements": "DIRECTLY_MEASURED",
+        "gap_measurements": "DIRECTLY_MEASURED",
+        "intrusion_measurements": "DIRECTLY_MEASURED",
+        "reflow_correlation": "DERIVED_FROM_MEASUREMENT"
+      }
+    },
+    {
+      "case_id": 96,
+      "product": "Civil3d",
+      "folder": "Civil3d-34",
+      "lang": "CHS",
+      "gt_category": "Untranslation",
+      "matched_elements_count": 14,
+      "num_newly_created_intersections": 9,
+      "max_intersection_area_px2": 11144,
+      "total_intersection_area_px2": 15165,
+      "max_horizontal_intrusion_px": 398,
+      "max_vertical_intrusion_px": 28,
+      "max_gap_collapse_px": 15,
+      "num_gaps_became_non_positive": 1,
+      "max_text_expansion_px": 116,
+      "max_container_expansion_px": 0,
+      "collision_type_breakdown": {
+        "text <-> text": 6,
+        "text <-> control": 3
+      },
+      "reflow_explained_collisions_count": 0,
+      "residual_unexplained_collisions_count": 9,
+      "max_residual_collision_area_px2": 11144,
+      "has_genuine_new_intersection": true,
+      "has_genuine_gap_collapse": true,
+      "detailed_collisions": [
+        {
+          "element_1": {
+            "id": "E8",
+            "type": "text",
+            "text": "Reduce the Level of Surface De",
+            "loc_box": [
+              93,
+              165,
+              428,
+              20
+            ]
+          },
+          "element_2": {
+            "id": "E12",
+            "type": "text",
+            "text": "Prospector; the command line;",
+            "loc_box": [
+              151,
+              183,
+              246,
+              16
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 492,
+          "h_intrusion_px": 246,
+          "v_intrusion_px": 2,
+          "before_h_gap_px": -165,
+          "after_h_gap_px": -246,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E8",
+            "type": "text",
+            "text": "Reduce the Level of Surface De",
+            "loc_box": [
+              93,
+              165,
+              428,
+              20
+            ]
+          },
+          "element_2": {
+            "id": "E9",
+            "type": "text",
+            "text": "To edit these surfaces, zcom i",
+            "loc_box": [
+              89,
+              181,
+              33,
+              21
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 116,
+          "h_intrusion_px": 29,
+          "v_intrusion_px": 4,
+          "before_h_gap_px": -218,
+          "after_h_gap_px": -29,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E11",
+            "type": "text",
+            "text": "state in the",
+            "loc_box": [
+              121,
+              185,
+              26,
+              14
+            ]
+          },
+          "element_2": {
+            "id": "E9",
+            "type": "text",
+            "text": "To edit these surfaces, zcom i",
+            "loc_box": [
+              89,
+              181,
+              33,
+              21
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 14,
+          "h_intrusion_px": 1,
+          "v_intrusion_px": 14,
+          "before_h_gap_px": -62,
+          "after_h_gap_px": -1,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E14",
+            "type": "text",
+            "text": "Maintain the High Level of Det",
+            "loc_box": [
+              90,
+              218,
+              316,
+              26
+            ]
+          },
+          "element_2": {
+            "id": "E15",
+            "type": "text",
+            "text": "These surfaces will always be ",
+            "loc_box": [
+              93,
+              243,
+              228,
+              16
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 228,
+          "h_intrusion_px": 228,
+          "v_intrusion_px": 1,
+          "before_h_gap_px": -202,
+          "after_h_gap_px": -228,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E14",
+            "type": "text",
+            "text": "Maintain the High Level of Det",
+            "loc_box": [
+              90,
+              218,
+              316,
+              26
+            ]
+          },
+          "element_2": {
+            "id": "E16",
+            "type": "text",
+            "text": "high level of detail:",
+            "loc_box": [
+              331,
+              243,
+              114,
+              18
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 75,
+          "h_intrusion_px": 75,
+          "v_intrusion_px": 1,
+          "before_h_gap_px": -72,
+          "after_h_gap_px": -75,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E14",
+            "type": "text",
+            "text": "Maintain the High Level of Det",
+            "loc_box": [
+              90,
+              218,
+              316,
+              26
+            ]
+          },
+          "element_2": {
+            "id": "E10",
+            "type": "text",
+            "text": "detail; You can return to thei",
+            "loc_box": [
+              350,
+              223,
+              52,
+              18
+            ]
+          },
+          "collision_type": "text <-> text",
+          "intersection_area_px2": 936,
+          "h_intrusion_px": 52,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": -60,
+          "after_h_gap_px": -52,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E7",
+            "type": "text",
+            "text": "you zoom out while improving C",
+            "loc_box": [
+              90,
+              118,
+              398,
+              28
+            ]
+          },
+          "element_2": {
+            "id": "E_C3",
+            "type": "input",
+            "text": "",
+            "loc_box": [
+              59,
+              110,
+              480,
+              100
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 11144,
+          "h_intrusion_px": 398,
+          "v_intrusion_px": 28,
+          "before_h_gap_px": -282,
+          "after_h_gap_px": -398,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C3",
+            "type": "input",
+            "text": "",
+            "loc_box": [
+              59,
+              110,
+              480,
+              100
+            ]
+          },
+          "element_2": {
+            "id": "E5",
+            "type": "text",
+            "text": "By reducing the",
+            "loc_box": [
+              91,
+              145,
+              68,
+              18
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 1224,
+          "h_intrusion_px": 68,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": -86,
+          "after_h_gap_px": -68,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        },
+        {
+          "element_1": {
+            "id": "E_C3",
+            "type": "input",
+            "text": "",
+            "loc_box": [
+              59,
+              110,
+              480,
+              100
+            ]
+          },
+          "element_2": {
+            "id": "E6",
+            "type": "text",
+            "text": "of surface detail,; the displa",
+            "loc_box": [
+              359,
+              125,
+              52,
+              18
+            ]
+          },
+          "collision_type": "text <-> control",
+          "intersection_area_px2": 936,
+          "h_intrusion_px": 52,
+          "v_intrusion_px": 18,
+          "before_h_gap_px": -360,
+          "after_h_gap_px": -52,
+          "explained_by_reflow": false,
+          "provenance": "DIRECTLY_MEASURED"
+        }
+      ],
+      "provenance": {
+        "intersection_measurements": "DIRECTLY_MEASURED",
+        "gap_measurements": "DIRECTLY_MEASURED",
+        "intrusion_measurements": "DIRECTLY_MEASURED",
+        "reflow_correlation": "DERIVED_FROM_MEASUREMENT"
+      }
+    }
+  ]
+}

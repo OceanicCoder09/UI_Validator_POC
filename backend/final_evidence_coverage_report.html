@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Final Physical Evidence Consolidation & Category Coverage Report</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 14px; text-align: center; }
+  .card-val { font-size: 20px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 11px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .status-pass { color: #4ade80; font-weight: 600; }
+  .status-part { color: #f59e0b; font-weight: 600; }
+  .status-fail { color: #f43f5e; font-weight: 600; }
+  .status-unsup { color: #94a3b8; font-weight: 600; }
+</style>
+</head>
+<body>
+<h1>Final Physical Evidence Consolidation & Category Coverage Report</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Master synthesis across 101 benchmark cases auditing directly measured geometric, structural, and lexical evidence with zero synthetic proxies.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 12px; color: #94a3b8;">Misalignment</div>
+    <div class="card-val" style="color: #4ade80;">11 / 19 (57.9%)</div>
+    <div class="card-sub">structural column anchor breaks</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 12px; color: #94a3b8;">Overlapping</div>
+    <div class="card-val" style="color: #4ade80;">14 / 19 (73.7%)</div>
+    <div class="card-sub">positive boundary collisions</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 12px; color: #94a3b8;">Truncation</div>
+    <div class="card-val" style="color: #38bdf8;">19 / 30 (63.3%)</div>
+    <div class="card-sub">verified ellipsis & clipping</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 12px; color: #94a3b8;">Untranslation</div>
+    <div class="card-val" style="color: #4ade80;">23 / 26 (88.5%)</div>
+    <div class="card-sub">user-facing English words</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 12px; color: #94a3b8;">Repeated Hotkey</div>
+    <div class="card-val" style="color: #94a3b8;">0 / 7 (0.0%)</div>
+    <div class="card-sub">VISUALLY_UNSUPPORTED via OCR</div>
+  </div>
+</div>
+
+<h2>1. Category-Level Evidence Coverage & Physical Mechanisms</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Defect Category</th>
+      <th>Benchmark N</th>
+      <th>Directly Supported</th>
+      <th>Partially Supported</th>
+      <th>Unsupported</th>
+      <th>Primary Genuine Physical Mechanism</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Misalignment</td>
+      <td>19</td>
+      <td class="status-pass">11 / 19 (57.9%)</td>
+      <td class="status-part">6 / 19 (31.6%)</td>
+      <td class="status-unsup">2 / 19 (10.5%)</td>
+      <td style="font-size:12px; color:#cbd5e1;">Relative column anchor break (mean: 116.7px), residual translation-corrected drift (median: 117.1px), and low directional coherence (0.11).</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Overlapping</td>
+      <td>19</td>
+      <td class="status-pass">14 / 19 (73.7%)</td>
+      <td class="status-part">3 / 19 (15.8%)</td>
+      <td class="status-unsup">2 / 19 (10.5%)</td>
+      <td style="font-size:12px; color:#cbd5e1;">Direct non-zero bounding box intersection area (mean: 11,847px²), multi-axis intrusion (mean: 120.2px H, 35.7px V), and sibling gap collapse (94.7%).</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Truncation</td>
+      <td>30</td>
+      <td class="status-pass">19 / 30 (63.3%)</td>
+      <td class="status-part">10 / 30 (33.3%)</td>
+      <td class="status-unsup">1 / 30 (3.3%)</td>
+      <td style="font-size:12px; color:#cbd5e1;">Verified localized ellipsis ('...', 60.0% of cases), measured text-to-container overflow, and pixel glyph edge cuts.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Untranslation</td>
+      <td>26</td>
+      <td class="status-pass">23 / 26 (88.5%)</td>
+      <td class="status-part">1 / 26 (3.8%)</td>
+      <td class="status-unsup">2 / 26 (7.7%)</td>
+      <td style="font-size:12px; color:#cbd5e1;">Preserved user-facing English words (mean: 12.08 words vs 5.59 in non-untrans), high Latin character ratio, and dictionary term retention.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Repeated hotkey</td>
+      <td>7</td>
+      <td class="status-pass">0 / 7 (0.0%)</td>
+      <td class="status-part">0 / 7 (0.0%)</td>
+      <td class="status-unsup">7 / 7 (100.0%)</td>
+      <td style="font-size:12px; color:#cbd5e1;">VISUALLY UNSUPPORTED via plain OCR. Mnemonics are rendered as Win32 font underlines or handled in resource binary (.rc) tables.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. Pairwise Category Evidence Analysis (10 Core Pairs)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Category Pair</th>
+      <th>Distinguishing Physical Mechanism</th>
+      <th>Shared / Confounding Mechanism</th>
+      <th>Complementary Evidence Features</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Misalignment vs Overlapping</td>
+      <td style="font-size:12px; color:#f8fafc;">Misalignment is characterized by column anchor breaks and asynchronous lateral drift without bounding box intersection; Overlapping is defined by positive pixel intrusion and sibling boundary collision.</td>
+      <td style="font-size:12px; color:#94a3b8;">Both exhibit high raw displacement due to layout reflow.</td>
+      <td style="font-size:12px; color:#4ade80;">max_column_anchor_break_px (Misalignment), max_vertical_intrusion_px & max_intersection_area_px2 (Overlapping)</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Misalignment vs Truncation</td>
+      <td style="font-size:12px; color:#f8fafc;">Misalignment displaces controls laterally off-grid while preserving text visibility; Truncation clips text at rigid container edges or appends ellipsis.</td>
+      <td style="font-size:12px; color:#94a3b8;">Both can be triggered by text length expansion.</td>
+      <td style="font-size:12px; color:#4ade80;">max_residual_disp_px (Misalignment), verified_ellipsis_count & clipping_elements_count (Truncation)</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Misalignment vs Untranslation</td>
+      <td style="font-size:12px; color:#f8fafc;">Misalignment shows large spatial displacement with fully localized text; Untranslation shows near-zero spatial displacement but heavy English lexical retention.</td>
+      <td style="font-size:12px; color:#94a3b8;">None (Spatial vs Lexical orthogonality).</td>
+      <td style="font-size:12px; color:#4ade80;">max_column_dx_std (Misalignment), total_latin_words_preserved (Untranslation)</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Misalignment vs Repeated hotkey</td>
+      <td style="font-size:12px; color:#f8fafc;">Misalignment has rich structural geometric evidence; Repeated hotkey is visually unobservable via plain OCR.</td>
+      <td style="font-size:12px; color:#94a3b8;">None.</td>
+      <td style="font-size:12px; color:#4ade80;">Structural displacement vs Win32 resource metadata.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Overlapping vs Truncation</td>
+      <td style="font-size:12px; color:#f8fafc;">Overlapping penetrates into sibling control boundaries; Truncation is confined inside rigid container boundaries.</td>
+      <td style="font-size:12px; color:#94a3b8;">Both result from text expansion exceeding allocated horizontal space.</td>
+      <td style="font-size:12px; color:#4ade80;">total_intersection_area_px2 (Overlapping), verified_ellipsis_count (Truncation)</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Overlapping vs Untranslation</td>
+      <td style="font-size:12px; color:#f8fafc;">Overlapping is geometric collision; Untranslation is lexical preservation.</td>
+      <td style="font-size:12px; color:#94a3b8;">None.</td>
+      <td style="font-size:12px; color:#4ade80;">max_horizontal_intrusion_px (Overlapping), genuine_untranslated_strings_count (Untranslation)</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Overlapping vs Repeated hotkey</td>
+      <td style="font-size:12px; color:#f8fafc;">Overlapping is physical collision; Repeated hotkey is unobservable mnemonic conflict.</td>
+      <td style="font-size:12px; color:#94a3b8;">None.</td>
+      <td style="font-size:12px; color:#4ade80;">Geometric intrusion vs Resource table parsing.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Truncation vs Untranslation</td>
+      <td style="font-size:12px; color:#f8fafc;">Truncation expands and gets clipped; Untranslation stays in English and does not expand.</td>
+      <td style="font-size:12px; color:#94a3b8;">Both involve text content.</td>
+      <td style="font-size:12px; color:#4ade80;">verified_ellipsis_count (Truncation), total_latin_words_preserved (Untranslation)</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Truncation vs Repeated hotkey</td>
+      <td style="font-size:12px; color:#f8fafc;">Truncation is visible boundary clipping/ellipsis; Repeated hotkey is unobservable via OCR.</td>
+      <td style="font-size:12px; color:#94a3b8;">None.</td>
+      <td style="font-size:12px; color:#4ade80;">Ellipsis/clipping vs Resource table parsing.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:600; color:#38bdf8;">Untranslation vs Repeated hotkey</td>
+      <td style="font-size:12px; color:#f8fafc;">Untranslation retains user-facing English words; Repeated hotkey involves duplicate accelerator keys.</td>
+      <td style="font-size:12px; color:#94a3b8;">Both are text/symbol level defects.</td>
+      <td style="font-size:12px; color:#4ade80;">Preserved Latin dictionary words vs Accelerator mnemonics.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>3. Case-by-Case Consolidated Evidence Sample (Top 25 Cases)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Product / Folder (Lang)</th>
+      <th>Ground Truth</th>
+      <th>Support Status</th>
+      <th>Strongest Mechanism</th>
+      <th>Coexisting Defects</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold;">#9</td>
+      <td>Civil3d / Civil3d-01 (RUS)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_COLUMN_DRIFT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#10</td>
+      <td>Civil3d / Civil3d-12 (FRA)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_COLUMN_DRIFT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, TEXT_TRUNCATION_CLIPPING, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#11</td>
+      <td>Civil3d / Civil3d-13 (ESP)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-unsup">UNSUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">TEXT_TRUNCATION_CLIPPING</td>
+      <td style="font-size:11px; color:#94a3b8;">TEXT_TRUNCATION_CLIPPING, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#12</td>
+      <td>Civil3d / Civil3d-14 (CHT)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-part">PARTIALLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">BOUNDARY_COLLISION_OVERLAP</td>
+      <td style="font-size:11px; color:#94a3b8;">BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#13</td>
+      <td>Civil3d / Civil3d-16 (KOR)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_COLUMN_DRIFT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, BOUNDARY_COLLISION_OVERLAP, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#14</td>
+      <td>Civil3d / Civil3d-23 (FRA)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_COLUMN_DRIFT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#15</td>
+      <td>Inventor / Inventor-01 (JPN)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_COLUMN_DRIFT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#16</td>
+      <td>Inventor / Inventor-12 (FRA)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_COLUMN_DRIFT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#17</td>
+      <td>Inventor / Inventor-17 (CSY)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_COLUMN_DRIFT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#18</td>
+      <td>Inventor / Inventor-25 (ESP)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_COLUMN_DRIFT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#19</td>
+      <td>Inventor / Inventor-27 (JPN)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-part">PARTIALLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">BOUNDARY_COLLISION_OVERLAP</td>
+      <td style="font-size:11px; color:#94a3b8;">BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#20</td>
+      <td>Inventor / Inventor-31 (DEU)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_COLUMN_DRIFT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, BOUNDARY_COLLISION_OVERLAP, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#21</td>
+      <td>Inventor / Inventor-37 (RUS)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_COLUMN_DRIFT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#22</td>
+      <td>Vault / Vault-28 (HUN)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-part">PARTIALLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">BOUNDARY_COLLISION_OVERLAP</td>
+      <td style="font-size:11px; color:#94a3b8;">BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#23</td>
+      <td>Vault / Vault-32 (PLK)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-part">PARTIALLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">UNTRANSLATED_USER_FACING_TEXT</td>
+      <td style="font-size:11px; color:#94a3b8;">UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#24</td>
+      <td>Vault / Vault-35 (ESP)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-part">PARTIALLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">TEXT_TRUNCATION_CLIPPING</td>
+      <td style="font-size:11px; color:#94a3b8;">TEXT_TRUNCATION_CLIPPING</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#25</td>
+      <td>Vault / Vault-36 (CHT)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-unsup">UNSUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">BOUNDARY_COLLISION_OVERLAP</td>
+      <td style="font-size:11px; color:#94a3b8;">BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#26</td>
+      <td>Vault / Vault-37 (CSY)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-part">PARTIALLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">BOUNDARY_COLLISION_OVERLAP</td>
+      <td style="font-size:11px; color:#94a3b8;">BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#27</td>
+      <td>Vault / Vault-40 (HUN)</td>
+      <td style="font-weight:600;">Misalignment</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_COLUMN_DRIFT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, BOUNDARY_COLLISION_OVERLAP, TEXT_TRUNCATION_CLIPPING, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#29</td>
+      <td>Civil3d / Civil3d-06 (RUS)</td>
+      <td style="font-weight:600;">Overlapping</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">GEOMETRIC_BOUNDARY_COLLISION</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, BOUNDARY_COLLISION_OVERLAP</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#30</td>
+      <td>Civil3d / Civil3d-18 (CSY)</td>
+      <td style="font-weight:600;">Overlapping</td>
+      <td class="status-part">PARTIALLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">NO_STRONG_OBSERVABLE_DEFECT</td>
+      <td style="font-size:11px; color:#94a3b8;">None</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#31</td>
+      <td>Civil3d / Civil3d-28 (PTB)</td>
+      <td style="font-weight:600;">Overlapping</td>
+      <td class="status-part">PARTIALLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">STRUCTURAL_MISALIGNMENT</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, TEXT_TRUNCATION_CLIPPING, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#32</td>
+      <td>Civil3d / Civil3d-29 (FRA)</td>
+      <td style="font-weight:600;">Overlapping</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">GEOMETRIC_BOUNDARY_COLLISION</td>
+      <td style="font-size:11px; color:#94a3b8;">BOUNDARY_COLLISION_OVERLAP, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#33</td>
+      <td>Civil3d / Civil3d-30 (CHT)</td>
+      <td style="font-weight:600;">Overlapping</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">GEOMETRIC_BOUNDARY_COLLISION</td>
+      <td style="font-size:11px; color:#94a3b8;">STRUCTURAL_MISALIGNMENT, BOUNDARY_COLLISION_OVERLAP</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#34</td>
+      <td>Inventor / Inventor-07 (PTB)</td>
+      <td style="font-weight:600;">Overlapping</td>
+      <td class="status-pass">DIRECTLY_SUPPORTED</td>
+      <td style="font-size:12px; color:#38bdf8;">GEOMETRIC_BOUNDARY_COLLISION</td>
+      <td style="font-size:11px; color:#94a3b8;">BOUNDARY_COLLISION_OVERLAP, UNTRANSLATED_USER_FACING_TEXT</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

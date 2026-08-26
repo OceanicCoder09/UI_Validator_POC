@@ -1,0 +1,5759 @@
+[
+  {
+    "case_id": 9,
+    "product": "Civil3d",
+    "folder": "Civil3d-01",
+    "lang": "RUS",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9980310201644897,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.00030899999546818435,
+        "Truncation": 0.0,
+        "Untranslation": 0.0016589999431744218
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.879532,
+        "Overlapping": 0.057326,
+        "Repeated hotkey": 0.00066,
+        "Truncation": 0.027315,
+        "Untranslation": 0.035167
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4241,
+      "attention_entropy": 0.7757
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 389.6,
+      "median_displacement_px": 51.2,
+      "num_independently_displaced": 27,
+      "max_alignment_divergence_px": 390,
+      "max_gap_collapse_px": 288,
+      "num_newly_created_intersections": 1,
+      "total_intersection_area_px2": 1600,
+      "log_intersection_area": 7.3784,
+      "max_text_expansion_px": 333,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.841
+    }
+  },
+  {
+    "case_id": 10,
+    "product": "Civil3d",
+    "folder": "Civil3d-12",
+    "lang": "FRA",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 3.7999998312443495e-05,
+        "Overlapping": 0.4480369985103607,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.551925003528595,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.00014800000644754618,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9998509883880615,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.9999439716339111,
+        "Repeated hotkey": 0.0,
+        "Truncation": 5.6000000768108293e-05,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.215173,
+        "Overlapping": 0.214509,
+        "Repeated hotkey": 0.280722,
+        "Truncation": 0.081215,
+        "Untranslation": 0.208381
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3763,
+      "attention_entropy": 0.994
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 86.0,
+      "median_displacement_px": 21.0,
+      "num_independently_displaced": 27,
+      "max_alignment_divergence_px": 97,
+      "max_gap_collapse_px": 105,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 51,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 7,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 11,
+    "product": "Civil3d",
+    "folder": "Civil3d-13",
+    "lang": "ESP",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.14387600123882294,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.8561239838600159
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.055638,
+        "Overlapping": 0.067154,
+        "Repeated hotkey": 0.032831,
+        "Truncation": 0.809245,
+        "Untranslation": 0.035133
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1119,
+      "attention_entropy": 0.9871
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 77.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 2,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 91,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 121,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 5,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 12,
+    "product": "Civil3d",
+    "folder": "Civil3d-14",
+    "lang": "CHT",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0008960000122897327,
+        "Overlapping": 0.9894580245018005,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.009314999915659428,
+        "Untranslation": 0.00033099998836405575
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0008299999753944576,
+        "Overlapping": 0.0003100000030826777,
+        "Repeated hotkey": 7.000000096013537e-06,
+        "Truncation": 3.000000106112566e-06,
+        "Untranslation": 0.9988499879837036
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.042025,
+        "Overlapping": 0.433854,
+        "Repeated hotkey": 0.009248,
+        "Truncation": 0.300473,
+        "Untranslation": 0.2144
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1471,
+      "attention_entropy": 0.9184
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 187.2,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 4,
+      "max_alignment_divergence_px": 187,
+      "max_gap_collapse_px": 187,
+      "num_newly_created_intersections": 7,
+      "total_intersection_area_px2": 28322,
+      "log_intersection_area": 10.2514,
+      "max_text_expansion_px": 16,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.99
+    }
+  },
+  {
+    "case_id": 13,
+    "product": "Civil3d",
+    "folder": "Civil3d-16",
+    "lang": "KOR",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.999783992767334,
+        "Truncation": 0.00021499999274965376,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.11730699986219406,
+        "Overlapping": 0.13565799593925476,
+        "Repeated hotkey": 0.7470340132713318,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.057681,
+        "Overlapping": 0.392594,
+        "Repeated hotkey": 0.113742,
+        "Truncation": 0.119686,
+        "Untranslation": 0.316297
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3987,
+      "attention_entropy": 0.8858
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 199.0,
+      "median_displacement_px": 13.0,
+      "num_independently_displaced": 22,
+      "max_alignment_divergence_px": 95,
+      "max_gap_collapse_px": 87,
+      "num_newly_created_intersections": 5,
+      "total_intersection_area_px2": 8311,
+      "log_intersection_area": 9.0255,
+      "max_text_expansion_px": 153,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 93.2,
+      "avg_match_confidence": 0.922
+    }
+  },
+  {
+    "case_id": 14,
+    "product": "Civil3d",
+    "folder": "Civil3d-23",
+    "lang": "FRA",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0001049999991664663,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9998949766159058,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.00796900037676096,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9920309782028198,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 9.7999996796716e-05,
+        "Overlapping": 0.030135000124573708,
+        "Repeated hotkey": 0.005179999861866236,
+        "Truncation": 0.9640920162200928,
+        "Untranslation": 0.0004949999856762588
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.163497,
+        "Overlapping": 0.115269,
+        "Repeated hotkey": 0.026544,
+        "Truncation": 0.40475,
+        "Untranslation": 0.28994
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1693,
+      "attention_entropy": 0.9551
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 334.3,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 15,
+      "max_alignment_divergence_px": 165,
+      "max_gap_collapse_px": 140,
+      "num_newly_created_intersections": 6,
+      "total_intersection_area_px2": 1664,
+      "log_intersection_area": 7.4176,
+      "max_text_expansion_px": 190,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 7,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 96.8,
+      "avg_match_confidence": 0.973
+    }
+  },
+  {
+    "case_id": 15,
+    "product": "Inventor",
+    "folder": "Inventor-01",
+    "lang": "JPN",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.9999809861183167,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.8999999156221747e-05,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.9943010210990906,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.005698999855667353,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.01500099990516901,
+        "Overlapping": 0.0016690000193193555,
+        "Repeated hotkey": 0.00047599998652003706,
+        "Truncation": 0.9828519821166992,
+        "Untranslation": 1.9999999949504854e-06
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.449299,
+        "Overlapping": 0.321675,
+        "Repeated hotkey": 0.010197,
+        "Truncation": 0.038014,
+        "Untranslation": 0.180814
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2316,
+      "attention_entropy": 0.9323
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 273.6,
+      "median_displacement_px": 11.2,
+      "num_independently_displaced": 18,
+      "max_alignment_divergence_px": 260,
+      "max_gap_collapse_px": 166,
+      "num_newly_created_intersections": 3,
+      "total_intersection_area_px2": 3317,
+      "log_intersection_area": 8.1071,
+      "max_text_expansion_px": 34,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.952
+    }
+  },
+  {
+    "case_id": 16,
+    "product": "Inventor",
+    "folder": "Inventor-12",
+    "lang": "FRA",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.9820200204849243,
+        "Overlapping": 0.017980000004172325,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9107400178909302,
+        "Overlapping": 0.0008219999726861715,
+        "Repeated hotkey": 0.06306800246238708,
+        "Truncation": 1.9999999949504854e-06,
+        "Untranslation": 0.02536799944937229
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.33168,
+        "Overlapping": 0.050827,
+        "Repeated hotkey": 0.160298,
+        "Truncation": 0.383721,
+        "Untranslation": 0.073474
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2452,
+      "attention_entropy": 0.9386
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 237.8,
+      "median_displacement_px": 4.1,
+      "num_independently_displaced": 17,
+      "max_alignment_divergence_px": 44,
+      "max_gap_collapse_px": 186,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 3428,
+      "log_intersection_area": 8.14,
+      "max_text_expansion_px": 86,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 3,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 97.8,
+      "avg_match_confidence": 0.962
+    }
+  },
+  {
+    "case_id": 17,
+    "product": "Inventor",
+    "folder": "Inventor-17",
+    "lang": "CSY",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.038318999111652374,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9616810083389282,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.394313,
+        "Overlapping": 0.26908,
+        "Repeated hotkey": 0.046856,
+        "Truncation": 0.091589,
+        "Untranslation": 0.198163
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 1.0,
+      "attention_entropy": 0.0
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 138.8,
+      "median_displacement_px": 14.6,
+      "num_independently_displaced": 18,
+      "max_alignment_divergence_px": 97,
+      "max_gap_collapse_px": 80,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 3350,
+      "log_intersection_area": 8.117,
+      "max_text_expansion_px": 42,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.972
+    }
+  },
+  {
+    "case_id": 18,
+    "product": "Inventor",
+    "folder": "Inventor-25",
+    "lang": "ESP",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.4000000192027073e-05,
+        "Truncation": 0.9999859929084778,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.06789399683475494,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9321060180664062,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.71036297082901,
+        "Overlapping": 0.2700980007648468,
+        "Repeated hotkey": 0.01952200010418892,
+        "Truncation": 1.4999999621068127e-05,
+        "Untranslation": 3.000000106112566e-06
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.018736,
+        "Overlapping": 0.07133,
+        "Repeated hotkey": 0.662477,
+        "Truncation": 0.190964,
+        "Untranslation": 0.056492
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1423,
+      "attention_entropy": 0.9489
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 121.5,
+      "median_displacement_px": 1.0,
+      "num_independently_displaced": 30,
+      "max_alignment_divergence_px": 60,
+      "max_gap_collapse_px": 142,
+      "num_newly_created_intersections": 7,
+      "total_intersection_area_px2": 5335,
+      "log_intersection_area": 8.5822,
+      "max_text_expansion_px": 134,
+      "has_ellipsis_count": 2,
+      "untranslated_words_count": 4,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.99
+    }
+  },
+  {
+    "case_id": 19,
+    "product": "Inventor",
+    "folder": "Inventor-27",
+    "lang": "JPN",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.9995710253715515,
+        "Overlapping": 3.000000106112566e-06,
+        "Repeated hotkey": 0.0004250000056345016,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0011129999766126275,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.9988870024681091,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 3.999999989900971e-06,
+        "Repeated hotkey": 0.0025659999810159206,
+        "Truncation": 0.0,
+        "Untranslation": 0.9974300265312195
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.179011,
+        "Overlapping": 0.175188,
+        "Repeated hotkey": 0.09825,
+        "Truncation": 0.318379,
+        "Untranslation": 0.229172
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 1.0,
+      "attention_entropy": 0.0
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 133.5,
+      "median_displacement_px": 8.4,
+      "num_independently_displaced": 14,
+      "max_alignment_divergence_px": 8,
+      "max_gap_collapse_px": 80,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 1944,
+      "log_intersection_area": 7.573,
+      "max_text_expansion_px": 8,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 3,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.998
+    }
+  },
+  {
+    "case_id": 20,
+    "product": "Inventor",
+    "folder": "Inventor-31",
+    "lang": "DEU",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.9960539937019348,
+        "Truncation": 0.0,
+        "Untranslation": 0.003945999778807163
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 5.999999848427251e-05,
+        "Truncation": 0.0,
+        "Untranslation": 0.9999390244483948
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.79517,
+        "Overlapping": 0.010548,
+        "Repeated hotkey": 0.052225,
+        "Truncation": 0.123372,
+        "Untranslation": 0.018686
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3297,
+      "attention_entropy": 0.9085
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 543.6,
+      "median_displacement_px": 23.5,
+      "num_independently_displaced": 50,
+      "max_alignment_divergence_px": 11,
+      "max_gap_collapse_px": 122,
+      "num_newly_created_intersections": 3,
+      "total_intersection_area_px2": 1056,
+      "log_intersection_area": 6.9632,
+      "max_text_expansion_px": 58,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.979
+    }
+  },
+  {
+    "case_id": 21,
+    "product": "Inventor",
+    "folder": "Inventor-37",
+    "lang": "RUS",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.9999939799308777,
+        "Repeated hotkey": 0.0,
+        "Truncation": 6.000000212225132e-06,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0002469999890308827,
+        "Overlapping": 9.999999974752427e-07,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9996370077133179,
+        "Untranslation": 0.0001140000022132881
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.059309,
+        "Overlapping": 0.271168,
+        "Repeated hotkey": 0.030519,
+        "Truncation": 0.022822,
+        "Untranslation": 0.616182
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1275,
+      "attention_entropy": 0.9623
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 184.0,
+      "median_displacement_px": 2.0,
+      "num_independently_displaced": 13,
+      "max_alignment_divergence_px": 184,
+      "max_gap_collapse_px": 98,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 116,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 93.3,
+      "avg_match_confidence": 0.949
+    }
+  },
+  {
+    "case_id": 22,
+    "product": "Vault",
+    "folder": "Vault-28",
+    "lang": "HUN",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.00673400005325675,
+        "Overlapping": 1.8000000636675395e-05,
+        "Repeated hotkey": 2.2000000171829015e-05,
+        "Truncation": 0.9932249784469604,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.9959819912910461,
+        "Repeated hotkey": 0.00367600005120039,
+        "Truncation": 0.00027099999715574086,
+        "Untranslation": 7.100000220816582e-05
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.498465,
+        "Overlapping": 0.012096,
+        "Repeated hotkey": 0.002894,
+        "Truncation": 0.473165,
+        "Untranslation": 0.01338
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.0727,
+      "attention_entropy": 0.97
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 440.0,
+      "median_displacement_px": 1.5,
+      "num_independently_displaced": 11,
+      "max_alignment_divergence_px": 62,
+      "max_gap_collapse_px": 94,
+      "num_newly_created_intersections": 1,
+      "total_intersection_area_px2": 14,
+      "log_intersection_area": 2.7081,
+      "max_text_expansion_px": 112,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.989
+    }
+  },
+  {
+    "case_id": 23,
+    "product": "Vault",
+    "folder": "Vault-32",
+    "lang": "PLK",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9999989867210388,
+        "Untranslation": 9.999999974752427e-07
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.017111999914050102,
+        "Untranslation": 0.9828879833221436
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9772170186042786,
+        "Overlapping": 0.00016799999866634607,
+        "Repeated hotkey": 0.0025740000419318676,
+        "Truncation": 0.020041000097990036,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.120644,
+        "Overlapping": 0.367787,
+        "Repeated hotkey": 0.025895,
+        "Truncation": 0.287245,
+        "Untranslation": 0.198428
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1398,
+      "attention_entropy": 0.982
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 49.4,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 1,
+      "max_alignment_divergence_px": 49,
+      "max_gap_collapse_px": 10,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 80,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 24,
+    "product": "Vault",
+    "folder": "Vault-35",
+    "lang": "ESP",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.602537989616394,
+        "Overlapping": 9.999999974752427e-07,
+        "Repeated hotkey": 0.0868849977850914,
+        "Truncation": 0.08560299873352051,
+        "Untranslation": 0.22497299313545227
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.25057,
+        "Overlapping": 0.118192,
+        "Repeated hotkey": 0.055857,
+        "Truncation": 0.545644,
+        "Untranslation": 0.029737
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1021,
+      "attention_entropy": 0.976
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 118.0,
+      "median_displacement_px": 2.0,
+      "num_independently_displaced": 5,
+      "max_alignment_divergence_px": 64,
+      "max_gap_collapse_px": 76,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 179,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.991
+    }
+  },
+  {
+    "case_id": 25,
+    "product": "Vault",
+    "folder": "Vault-36",
+    "lang": "CHT",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.11969099938869476,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.880308985710144,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.21823500096797943,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.7817649841308594,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9999859929084778,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.4000000192027073e-05
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.085042,
+        "Overlapping": 0.100759,
+        "Repeated hotkey": 0.029225,
+        "Truncation": 0.605247,
+        "Untranslation": 0.179728
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2602,
+      "attention_entropy": 0.949
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 127.0,
+      "median_displacement_px": 4.2,
+      "num_independently_displaced": 4,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 75,
+      "num_newly_created_intersections": 3,
+      "total_intersection_area_px2": 1236,
+      "log_intersection_area": 7.1204,
+      "max_text_expansion_px": 14,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.986
+    }
+  },
+  {
+    "case_id": 26,
+    "product": "Vault",
+    "folder": "Vault-37",
+    "lang": "CSY",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.07469599694013596,
+        "Overlapping": 0.04854400083422661,
+        "Repeated hotkey": 0.09324900060892105,
+        "Truncation": 0.7835100293159485,
+        "Untranslation": 9.999999974752427e-07
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.348859,
+        "Overlapping": 0.060371,
+        "Repeated hotkey": 0.00595,
+        "Truncation": 0.535712,
+        "Untranslation": 0.049108
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1156,
+      "attention_entropy": 0.9856
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 249.5,
+      "median_displacement_px": 1.7,
+      "num_independently_displaced": 5,
+      "max_alignment_divergence_px": 18,
+      "max_gap_collapse_px": 16,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 142,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.994
+    }
+  },
+  {
+    "case_id": 27,
+    "product": "Vault",
+    "folder": "Vault-40",
+    "lang": "HUN",
+    "gt_category": "Misalignment",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.9990659952163696,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0009340000106021762,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.9702330231666565,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.029766999185085297,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.8206719756126404,
+        "Overlapping": 0.0580810010433197,
+        "Repeated hotkey": 0.03462899848818779,
+        "Truncation": 0.0006719999946653843,
+        "Untranslation": 0.08594600111246109
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.482901,
+        "Overlapping": 0.376421,
+        "Repeated hotkey": 0.0102,
+        "Truncation": 0.098628,
+        "Untranslation": 0.031851
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.0884,
+      "attention_entropy": 0.9822
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 224.1,
+      "median_displacement_px": 1.2,
+      "num_independently_displaced": 7,
+      "max_alignment_divergence_px": 227,
+      "max_gap_collapse_px": 76,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 147,
+      "log_intersection_area": 4.9972,
+      "max_text_expansion_px": 206,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.987
+    }
+  },
+  {
+    "case_id": 29,
+    "product": "Civil3d",
+    "folder": "Civil3d-06",
+    "lang": "RUS",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.9998859763145447,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0001140000022132881
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.157808,
+        "Overlapping": 0.01875,
+        "Repeated hotkey": 0.000494,
+        "Truncation": 0.000975,
+        "Untranslation": 0.821972
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4029,
+      "attention_entropy": 0.9894
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 440.2,
+      "median_displacement_px": 48.3,
+      "num_independently_displaced": 69,
+      "max_alignment_divergence_px": 464,
+      "max_gap_collapse_px": 170,
+      "num_newly_created_intersections": 16,
+      "total_intersection_area_px2": 13896,
+      "log_intersection_area": 9.5394,
+      "max_text_expansion_px": 76,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 96.2,
+      "avg_match_confidence": 0.864
+    }
+  },
+  {
+    "case_id": 30,
+    "product": "Civil3d",
+    "folder": "Civil3d-18",
+    "lang": "CSY",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.05789700150489807,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9408940076828003,
+        "Untranslation": 0.00120900000911206
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.4000000192027073e-05,
+        "Truncation": 0.9999179840087891,
+        "Untranslation": 6.800000119255856e-05
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.085019,
+        "Overlapping": 0.165338,
+        "Repeated hotkey": 0.052199,
+        "Truncation": 0.581181,
+        "Untranslation": 0.116264
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1999,
+      "attention_entropy": 0.986
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 102.0,
+      "median_displacement_px": 1.0,
+      "num_independently_displaced": 4,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 103,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 146,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 91.3,
+      "avg_match_confidence": 0.992
+    }
+  },
+  {
+    "case_id": 31,
+    "product": "Civil3d",
+    "folder": "Civil3d-28",
+    "lang": "PTB",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 9.999999747378752e-06,
+        "Overlapping": 6.600000051548705e-05,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9999240040779114,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 3.999999989900971e-06,
+        "Overlapping": 0.1281609982252121,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.8718349933624268,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.29014599323272705,
+        "Overlapping": 0.7091429829597473,
+        "Repeated hotkey": 0.00017699999443721026,
+        "Truncation": 0.0005329999839887023,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.241445,
+        "Overlapping": 0.220265,
+        "Repeated hotkey": 0.074914,
+        "Truncation": 0.249621,
+        "Untranslation": 0.213755
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1113,
+      "attention_entropy": 0.9719
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 88.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 10,
+      "max_alignment_divergence_px": 84,
+      "max_gap_collapse_px": 66,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 66,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.999
+    }
+  },
+  {
+    "case_id": 32,
+    "product": "Civil3d",
+    "folder": "Civil3d-29",
+    "lang": "FRA",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9960460066795349,
+        "Overlapping": 0.0038270000368356705,
+        "Repeated hotkey": 0.0,
+        "Truncation": 4.5000000682193786e-05,
+        "Untranslation": 8.199999865610152e-05
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.035431,
+        "Overlapping": 0.212887,
+        "Repeated hotkey": 0.101071,
+        "Truncation": 0.537369,
+        "Untranslation": 0.113241
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1254,
+      "attention_entropy": 0.9805
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 104.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 7,
+      "max_alignment_divergence_px": 52,
+      "max_gap_collapse_px": 96,
+      "num_newly_created_intersections": 4,
+      "total_intersection_area_px2": 3784,
+      "log_intersection_area": 8.2388,
+      "max_text_expansion_px": 168,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 93.0,
+      "avg_match_confidence": 0.999
+    }
+  },
+  {
+    "case_id": 33,
+    "product": "Civil3d",
+    "folder": "Civil3d-30",
+    "lang": "CHT",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.9999399781227112,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 9.000000318337698e-06,
+        "Truncation": 0.0,
+        "Untranslation": 5.0999999075429514e-05
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9999639987945557,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.700000029813964e-05,
+        "Truncation": 1.8999999156221747e-05,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.412349,
+        "Overlapping": 0.259083,
+        "Repeated hotkey": 0.007217,
+        "Truncation": 0.239344,
+        "Untranslation": 0.082006
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4015,
+      "attention_entropy": 0.8624
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 233.7,
+      "median_displacement_px": 7.2,
+      "num_independently_displaced": 12,
+      "max_alignment_divergence_px": 233,
+      "max_gap_collapse_px": 1,
+      "num_newly_created_intersections": 7,
+      "total_intersection_area_px2": 5252,
+      "log_intersection_area": 8.5666,
+      "max_text_expansion_px": 288,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.944
+    }
+  },
+  {
+    "case_id": 34,
+    "product": "Inventor",
+    "folder": "Inventor-07",
+    "lang": "PTB",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 4.3000000005122274e-05,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9999570250511169,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9997280240058899,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.00027099999715574086,
+        "Truncation": 9.999999974752427e-07,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.197879,
+        "Overlapping": 0.012087,
+        "Repeated hotkey": 0.014975,
+        "Truncation": 0.726284,
+        "Untranslation": 0.048775
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.6459,
+      "attention_entropy": 0.8004
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 198.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 1,
+      "max_alignment_divergence_px": 1,
+      "max_gap_collapse_px": 130,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 1624,
+      "log_intersection_area": 7.3933,
+      "max_text_expansion_px": 54,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 3,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.985
+    }
+  },
+  {
+    "case_id": 35,
+    "product": "Inventor",
+    "folder": "Inventor-08",
+    "lang": "JPN",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.001491999952122569,
+        "Overlapping": 0.5621150135993958,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.02284199930727482,
+        "Untranslation": 0.4135499894618988
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.552077,
+        "Overlapping": 0.127089,
+        "Repeated hotkey": 0.005288,
+        "Truncation": 0.023982,
+        "Untranslation": 0.291564
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4937,
+      "attention_entropy": 0.9389
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 311.6,
+      "median_displacement_px": 10.0,
+      "num_independently_displaced": 17,
+      "max_alignment_divergence_px": 298,
+      "max_gap_collapse_px": 201,
+      "num_newly_created_intersections": 5,
+      "total_intersection_area_px2": 4613,
+      "log_intersection_area": 8.4369,
+      "max_text_expansion_px": 38,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.937
+    }
+  },
+  {
+    "case_id": 36,
+    "product": "Inventor",
+    "folder": "Inventor-33",
+    "lang": "ITA",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.121752,
+        "Overlapping": 0.032229,
+        "Repeated hotkey": 0.022943,
+        "Truncation": 0.7984,
+        "Untranslation": 0.024676
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2849,
+      "attention_entropy": 0.9411
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 96.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 1,
+      "max_alignment_divergence_px": 2,
+      "max_gap_collapse_px": 96,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 166,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 97.6,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 37,
+    "product": "Inventor",
+    "folder": "Inventor-34",
+    "lang": "KOR",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 4.099999932805076e-05,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.9999589920043945
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.00010599999950500205,
+        "Overlapping": 0.999891996383667,
+        "Repeated hotkey": 1.9999999949504854e-06,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.034417,
+        "Overlapping": 0.00054,
+        "Repeated hotkey": 0.040438,
+        "Truncation": 0.076813,
+        "Untranslation": 0.847793
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1272,
+      "attention_entropy": 0.984
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 138.3,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 10,
+      "max_alignment_divergence_px": 136,
+      "max_gap_collapse_px": 138,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 780,
+      "log_intersection_area": 6.6606,
+      "max_text_expansion_px": 96,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 27,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 95.3,
+      "avg_match_confidence": 0.984
+    }
+  },
+  {
+    "case_id": 38,
+    "product": "Inventor",
+    "folder": "Inventor-39",
+    "lang": "ESP",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.999970018863678,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 2.9999999242136255e-05,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.9901880025863647,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.009812000207602978,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.8076890110969543,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.19231100380420685
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.000423,
+        "Overlapping": 0.000293,
+        "Repeated hotkey": 0.439314,
+        "Truncation": 0.446329,
+        "Untranslation": 0.11364
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 1.0,
+      "attention_entropy": 0.0
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 172.1,
+      "median_displacement_px": 12.0,
+      "num_independently_displaced": 74,
+      "max_alignment_divergence_px": 142,
+      "max_gap_collapse_px": 204,
+      "num_newly_created_intersections": 22,
+      "total_intersection_area_px2": 28351,
+      "log_intersection_area": 10.2525,
+      "max_text_expansion_px": 172,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 99.1,
+      "avg_match_confidence": 0.987
+    }
+  },
+  {
+    "case_id": 39,
+    "product": "Vault",
+    "folder": "Vault-04",
+    "lang": "HUN",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 9.999999974752427e-07,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9999989867210388,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.140715,
+        "Overlapping": 0.209397,
+        "Repeated hotkey": 0.011943,
+        "Truncation": 0.239979,
+        "Untranslation": 0.397967
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1833,
+      "attention_entropy": 0.9208
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 205.3,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 4,
+      "max_alignment_divergence_px": 138,
+      "max_gap_collapse_px": 137,
+      "num_newly_created_intersections": 4,
+      "total_intersection_area_px2": 21651,
+      "log_intersection_area": 9.9829,
+      "max_text_expansion_px": 39,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 97.1,
+      "avg_match_confidence": 0.987
+    }
+  },
+  {
+    "case_id": 40,
+    "product": "Vault",
+    "folder": "Vault-05",
+    "lang": "ITA",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9999989867210388,
+        "Untranslation": 9.999999974752427e-07
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.002558999927714467,
+        "Untranslation": 0.9974409937858582
+      },
+      "mil_classifier": {
+        "Misalignment": 9.999999974752427e-07,
+        "Overlapping": 0.0037819999270141125,
+        "Repeated hotkey": 9.999999974752427e-07,
+        "Truncation": 0.9954180121421814,
+        "Untranslation": 0.0007980000227689743
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.004366,
+        "Overlapping": 0.060379,
+        "Repeated hotkey": 0.013784,
+        "Truncation": 0.081416,
+        "Untranslation": 0.840054
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3281,
+      "attention_entropy": 0.9664
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 2.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 0,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 2,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 28,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 87.5,
+      "avg_match_confidence": 0.994
+    }
+  },
+  {
+    "case_id": 41,
+    "product": "Vault",
+    "folder": "Vault-06",
+    "lang": "JPN",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.30359598994255066,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.696403980255127
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.03650100156664848,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.9634990096092224
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.10669,
+        "Overlapping": 0.103424,
+        "Repeated hotkey": 0.027144,
+        "Truncation": 0.325766,
+        "Untranslation": 0.436976
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.369,
+      "attention_entropy": 0.8997
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 47.0,
+      "median_displacement_px": 1.4,
+      "num_independently_displaced": 2,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 8,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 14,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.986
+    }
+  },
+  {
+    "case_id": 42,
+    "product": "Vault",
+    "folder": "Vault-12",
+    "lang": "CHT",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.5999999959603883e-05,
+        "Truncation": 0.0,
+        "Untranslation": 0.9999840259552002
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.9986860156059265,
+        "Truncation": 0.0,
+        "Untranslation": 0.0013139999937266111
+      },
+      "mil_classifier": {
+        "Misalignment": 9.999999974752427e-07,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.24417099356651306,
+        "Truncation": 1.4999999621068127e-05,
+        "Untranslation": 0.7558130025863647
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.141925,
+        "Overlapping": 0.014463,
+        "Repeated hotkey": 0.065087,
+        "Truncation": 0.717083,
+        "Untranslation": 0.061443
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3441,
+      "attention_entropy": 0.8139
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 359.2,
+      "median_displacement_px": 3.0,
+      "num_independently_displaced": 13,
+      "max_alignment_divergence_px": 32,
+      "max_gap_collapse_px": 226,
+      "num_newly_created_intersections": 6,
+      "total_intersection_area_px2": 11859,
+      "log_intersection_area": 9.3809,
+      "max_text_expansion_px": 30,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 1,
+      "match_rate_pct": 97.8,
+      "avg_match_confidence": 0.964
+    }
+  },
+  {
+    "case_id": 43,
+    "product": "Vault",
+    "folder": "Vault-14",
+    "lang": "FRA",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9983220100402832,
+        "Untranslation": 0.001677999971434474
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.9999999949504854e-06,
+        "Overlapping": 0.00016999999934341758,
+        "Repeated hotkey": 4.5000000682193786e-05,
+        "Truncation": 7.000000096013537e-06,
+        "Untranslation": 0.9997760057449341
+      },
+      "mil_classifier": {
+        "Misalignment": 6.800000119255856e-05,
+        "Overlapping": 0.025953000411391258,
+        "Repeated hotkey": 0.0009360000258311629,
+        "Truncation": 0.9730380177497864,
+        "Untranslation": 4.999999873689376e-06
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.142023,
+        "Overlapping": 0.161272,
+        "Repeated hotkey": 0.150114,
+        "Truncation": 0.435372,
+        "Untranslation": 0.11122
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1204,
+      "attention_entropy": 0.9486
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 86.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 13,
+      "max_alignment_divergence_px": 72,
+      "max_gap_collapse_px": 128,
+      "num_newly_created_intersections": 4,
+      "total_intersection_area_px2": 1703,
+      "log_intersection_area": 7.4407,
+      "max_text_expansion_px": 115,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 4,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.995
+    }
+  },
+  {
+    "case_id": 44,
+    "product": "Vault",
+    "folder": "Vault-18",
+    "lang": "JPN",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9973989725112915,
+        "Overlapping": 0.0025889999233186245,
+        "Repeated hotkey": 1.2000000424450263e-05,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.171007,
+        "Overlapping": 0.2073,
+        "Repeated hotkey": 0.017477,
+        "Truncation": 0.305921,
+        "Untranslation": 0.298296
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 1.0,
+      "attention_entropy": 0.0
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 36.4,
+      "median_displacement_px": 15.0,
+      "num_independently_displaced": 4,
+      "max_alignment_divergence_px": 34,
+      "max_gap_collapse_px": 0,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 27,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.986
+    }
+  },
+  {
+    "case_id": 45,
+    "product": "Vault",
+    "folder": "Vault-31",
+    "lang": "KOR",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.8506879806518555,
+        "Repeated hotkey": 9.999999974752427e-07,
+        "Truncation": 0.0,
+        "Untranslation": 0.14931100606918335
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.220177,
+        "Overlapping": 0.215019,
+        "Repeated hotkey": 0.020131,
+        "Truncation": 0.255467,
+        "Untranslation": 0.289206
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 1.0,
+      "attention_entropy": 0.0
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 38.3,
+      "median_displacement_px": 9.2,
+      "num_independently_displaced": 2,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 0,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 27,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.982
+    }
+  },
+  {
+    "case_id": 46,
+    "product": "Vault",
+    "folder": "Vault-33",
+    "lang": "PTB",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0029619999695569277,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.9970380067825317,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 9.999999974752427e-07,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 9.000000318337698e-06,
+        "Truncation": 0.9999899864196777,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.631201,
+        "Overlapping": 0.220953,
+        "Repeated hotkey": 0.004113,
+        "Truncation": 0.002281,
+        "Untranslation": 0.141451
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3061,
+      "attention_entropy": 0.9922
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 342.1,
+      "median_displacement_px": 17.2,
+      "num_independently_displaced": 36,
+      "max_alignment_divergence_px": 346,
+      "max_gap_collapse_px": 112,
+      "num_newly_created_intersections": 4,
+      "total_intersection_area_px2": 1565,
+      "log_intersection_area": 7.3563,
+      "max_text_expansion_px": 172,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 94.8,
+      "avg_match_confidence": 0.963
+    }
+  },
+  {
+    "case_id": 47,
+    "product": "Vault",
+    "folder": "Vault-34",
+    "lang": "CHS",
+    "gt_category": "Overlapping",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0018939999863505363,
+        "Overlapping": 0.9976779818534851,
+        "Repeated hotkey": 0.00041599999531172216,
+        "Truncation": 1.2000000424450263e-05,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.107264,
+        "Overlapping": 0.2877,
+        "Repeated hotkey": 0.070906,
+        "Truncation": 0.249543,
+        "Untranslation": 0.284587
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2774,
+      "attention_entropy": 0.9675
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 56.0,
+      "median_displacement_px": 2.2,
+      "num_independently_displaced": 3,
+      "max_alignment_divergence_px": 56,
+      "max_gap_collapse_px": 82,
+      "num_newly_created_intersections": 1,
+      "total_intersection_area_px2": 1460,
+      "log_intersection_area": 7.2869,
+      "max_text_expansion_px": 28,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 96.2,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 51,
+    "product": "Civil3d",
+    "folder": "Civil3d-22",
+    "lang": "FRA",
+    "gt_category": "Repeated hotkey",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.9999989867210388,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 9.999999974752427e-07,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.9894499778747559,
+        "Overlapping": 0.01054999977350235,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.119673,
+        "Overlapping": 0.209486,
+        "Repeated hotkey": 0.415452,
+        "Truncation": 0.24733,
+        "Untranslation": 0.008059
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.8795,
+      "attention_entropy": 0.5307
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 141.2,
+      "median_displacement_px": 12.2,
+      "num_independently_displaced": 48,
+      "max_alignment_divergence_px": 164,
+      "max_gap_collapse_px": 301,
+      "num_newly_created_intersections": 9,
+      "total_intersection_area_px2": 5473,
+      "log_intersection_area": 8.6078,
+      "max_text_expansion_px": 224,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 3,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 98.9,
+      "avg_match_confidence": 0.968
+    }
+  },
+  {
+    "case_id": 52,
+    "product": "Inventor",
+    "folder": "Inventor-02",
+    "lang": "ITA",
+    "gt_category": "Repeated hotkey",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.00048499999684281647,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9995149970054626,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.024089999496936798,
+        "Overlapping": 9.000000318337698e-06,
+        "Repeated hotkey": 0.015538999810814857,
+        "Truncation": 0.1609870046377182,
+        "Untranslation": 0.7993749976158142
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.097602,
+        "Overlapping": 0.06614,
+        "Repeated hotkey": 0.000222,
+        "Truncation": 0.664485,
+        "Untranslation": 0.171551
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.0836,
+      "attention_entropy": 0.9542
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 90.7,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 15,
+      "max_alignment_divergence_px": 22,
+      "max_gap_collapse_px": 116,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 565,
+      "log_intersection_area": 6.3386,
+      "max_text_expansion_px": 166,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 33,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 99.3,
+      "avg_match_confidence": 0.998
+    }
+  },
+  {
+    "case_id": 53,
+    "product": "Inventor",
+    "folder": "Inventor-28",
+    "lang": "JPN",
+    "gt_category": "Repeated hotkey",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.8728209733963013,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.12717899680137634,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.9995859861373901,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0004130000015720725,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.228831,
+        "Overlapping": 0.241875,
+        "Repeated hotkey": 0.010166,
+        "Truncation": 0.293343,
+        "Untranslation": 0.225785
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 1.0,
+      "attention_entropy": 0.0
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 54.1,
+      "median_displacement_px": 5.0,
+      "num_independently_displaced": 7,
+      "max_alignment_divergence_px": 69,
+      "max_gap_collapse_px": 99,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 6,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.997
+    }
+  },
+  {
+    "case_id": 54,
+    "product": "Inventor",
+    "folder": "Inventor-29",
+    "lang": "CSY",
+    "gt_category": "Repeated hotkey",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0006580000044777989,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9993420243263245,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.00866399984806776,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.4999999621068127e-05,
+        "Truncation": 0.991320013999939,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.109706,
+        "Overlapping": 0.281143,
+        "Repeated hotkey": 0.039382,
+        "Truncation": 0.367682,
+        "Untranslation": 0.202087
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3624,
+      "attention_entropy": 0.9982
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 63.8,
+      "median_displacement_px": 9.9,
+      "num_independently_displaced": 14,
+      "max_alignment_divergence_px": 20,
+      "max_gap_collapse_px": 150,
+      "num_newly_created_intersections": 3,
+      "total_intersection_area_px2": 2960,
+      "log_intersection_area": 7.9933,
+      "max_text_expansion_px": 54,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 94.7,
+      "avg_match_confidence": 0.976
+    }
+  },
+  {
+    "case_id": 55,
+    "product": "Inventor",
+    "folder": "Inventor-30",
+    "lang": "FRA",
+    "gt_category": "Repeated hotkey",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.24702900648117065,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.285614013671875,
+        "Truncation": 0.46735599637031555,
+        "Untranslation": 9.999999974752427e-07
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.365189,
+        "Overlapping": 0.072019,
+        "Repeated hotkey": 0.43745,
+        "Truncation": 0.028685,
+        "Untranslation": 0.096658
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.0741,
+      "attention_entropy": 0.9663
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 103.9,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 38,
+      "max_alignment_divergence_px": 30,
+      "max_gap_collapse_px": 126,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 76,
+      "has_ellipsis_count": 1,
+      "untranslated_words_count": 5,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 97.8,
+      "avg_match_confidence": 0.994
+    }
+  },
+  {
+    "case_id": 56,
+    "product": "Inventor",
+    "folder": "Inventor-36",
+    "lang": "PTB",
+    "gt_category": "Repeated hotkey",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 1.9999999949504854e-06,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.9999979734420776,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.9121699929237366,
+        "Overlapping": 9.40000027185306e-05,
+        "Repeated hotkey": 0.08773600310087204,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0002969999914057553,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.09530799835920334,
+        "Truncation": 0.9037449955940247,
+        "Untranslation": 0.0006500000017695129
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.372465,
+        "Overlapping": 0.092064,
+        "Repeated hotkey": 0.227576,
+        "Truncation": 0.216211,
+        "Untranslation": 0.091684
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.0916,
+      "attention_entropy": 0.9525
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 162.1,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 22,
+      "max_alignment_divergence_px": 40,
+      "max_gap_collapse_px": 142,
+      "num_newly_created_intersections": 1,
+      "total_intersection_area_px2": 532,
+      "log_intersection_area": 6.2785,
+      "max_text_expansion_px": 74,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 98.5,
+      "avg_match_confidence": 0.991
+    }
+  },
+  {
+    "case_id": 57,
+    "product": "Vault",
+    "folder": "Vault-09",
+    "lang": "PTB",
+    "gt_category": "Repeated hotkey",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.9943950176239014,
+        "Overlapping": 0.0056050000712275505,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9929069876670837,
+        "Overlapping": 3.999999989900971e-06,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.004195000045001507,
+        "Untranslation": 0.002893999917432666
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.271196,
+        "Overlapping": 0.200951,
+        "Repeated hotkey": 0.003754,
+        "Truncation": 0.489505,
+        "Untranslation": 0.034594
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.0837,
+      "attention_entropy": 0.9826
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 109.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 5,
+      "max_alignment_divergence_px": 28,
+      "max_gap_collapse_px": 48,
+      "num_newly_created_intersections": 1,
+      "total_intersection_area_px2": 90,
+      "log_intersection_area": 4.5109,
+      "max_text_expansion_px": 146,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.989
+    }
+  },
+  {
+    "case_id": 59,
+    "product": "Civil3d",
+    "folder": "Civil3d-04",
+    "lang": "PLK",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 4.999999873689376e-06,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9999949932098389,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.131338,
+        "Overlapping": 0.13011,
+        "Repeated hotkey": 0.046694,
+        "Truncation": 0.544242,
+        "Untranslation": 0.147616
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4178,
+      "attention_entropy": 0.8852
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 34.1,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 3,
+      "max_alignment_divergence_px": 2,
+      "max_gap_collapse_px": 58,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 68,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 3,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 60,
+    "product": "Civil3d",
+    "folder": "Civil3d-05",
+    "lang": "DEU",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.008107000030577183,
+        "Overlapping": 0.30863499641418457,
+        "Repeated hotkey": 0.0772550031542778,
+        "Truncation": 0.00023099999816622585,
+        "Untranslation": 0.6057720184326172
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.05253,
+        "Overlapping": 0.566231,
+        "Repeated hotkey": 0.000828,
+        "Truncation": 0.047495,
+        "Untranslation": 0.332916
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.0828,
+      "attention_entropy": 0.9563
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 268.3,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 22,
+      "max_alignment_divergence_px": 268,
+      "max_gap_collapse_px": 151,
+      "num_newly_created_intersections": 14,
+      "total_intersection_area_px2": 7583,
+      "log_intersection_area": 8.9338,
+      "max_text_expansion_px": 166,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 97.3,
+      "avg_match_confidence": 0.983
+    }
+  },
+  {
+    "case_id": 61,
+    "product": "Civil3d",
+    "folder": "Civil3d-10",
+    "lang": "PTB",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.018112000077962875,
+        "Overlapping": 0.005675999913364649,
+        "Repeated hotkey": 0.03722099959850311,
+        "Truncation": 0.9389899969100952,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.125471,
+        "Overlapping": 0.121942,
+        "Repeated hotkey": 0.104434,
+        "Truncation": 0.538729,
+        "Untranslation": 0.109423
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.133,
+      "attention_entropy": 0.948
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 41.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 5,
+      "max_alignment_divergence_px": 2,
+      "max_gap_collapse_px": 80,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 80,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 4,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 62,
+    "product": "Civil3d",
+    "folder": "Civil3d-17",
+    "lang": "HUN",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 3.000000106112566e-06,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.9999970197677612
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.197078,
+        "Overlapping": 0.35866,
+        "Repeated hotkey": 0.177847,
+        "Truncation": 0.218721,
+        "Untranslation": 0.047694
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4974,
+      "attention_entropy": 0.9321
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 316.3,
+      "median_displacement_px": 7.0,
+      "num_independently_displaced": 7,
+      "max_alignment_divergence_px": 10,
+      "max_gap_collapse_px": 144,
+      "num_newly_created_intersections": 1,
+      "total_intersection_area_px2": 1494,
+      "log_intersection_area": 7.3099,
+      "max_text_expansion_px": 260,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 83.3,
+      "avg_match_confidence": 0.966
+    }
+  },
+  {
+    "case_id": 63,
+    "product": "Civil3d",
+    "folder": "Civil3d-19",
+    "lang": "ESP",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.026009999215602875,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9739900231361389,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.281671,
+        "Overlapping": 0.57795,
+        "Repeated hotkey": 0.01362,
+        "Truncation": 0.040931,
+        "Untranslation": 0.085828
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 1.0,
+      "attention_entropy": 0.0
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 146.0,
+      "median_displacement_px": 15.0,
+      "num_independently_displaced": 11,
+      "max_alignment_divergence_px": 97,
+      "max_gap_collapse_px": 76,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 186,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 90.5,
+      "avg_match_confidence": 0.976
+    }
+  },
+  {
+    "case_id": 64,
+    "product": "Civil3d",
+    "folder": "Civil3d-20",
+    "lang": "PTB",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0021120000164955854,
+        "Truncation": 9.999999974752427e-07,
+        "Untranslation": 0.9978870153427124
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.161763,
+        "Overlapping": 0.096873,
+        "Repeated hotkey": 0.055804,
+        "Truncation": 0.66987,
+        "Untranslation": 0.015689
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2266,
+      "attention_entropy": 0.9667
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 24.1,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 1,
+      "max_alignment_divergence_px": 2,
+      "max_gap_collapse_px": 100,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 162,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.994
+    }
+  },
+  {
+    "case_id": 65,
+    "product": "Civil3d",
+    "folder": "Civil3d-21",
+    "lang": "ITA",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 9.999999974752427e-07,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.9999989867210388
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.021412000060081482,
+        "Overlapping": 0.0007680000271648169,
+        "Repeated hotkey": 0.0018810000037774444,
+        "Truncation": 0.9759129881858826,
+        "Untranslation": 2.5999999706982635e-05
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.03981,
+        "Overlapping": 0.14328,
+        "Repeated hotkey": 0.01875,
+        "Truncation": 0.192531,
+        "Untranslation": 0.605629
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1676,
+      "attention_entropy": 0.9921
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 20.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 1,
+      "max_alignment_divergence_px": 2,
+      "max_gap_collapse_px": 20,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 8,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 8,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 66,
+    "product": "Civil3d",
+    "folder": "Civil3d-26",
+    "lang": "ITA",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 9.999999974752427e-07,
+        "Overlapping": 0.8284850120544434,
+        "Repeated hotkey": 0.16509799659252167,
+        "Truncation": 0.006401999853551388,
+        "Untranslation": 1.4000000192027073e-05
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.197744,
+        "Overlapping": 0.168595,
+        "Repeated hotkey": 0.043618,
+        "Truncation": 0.354599,
+        "Untranslation": 0.235444
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4472,
+      "attention_entropy": 0.8809
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 81.0,
+      "median_displacement_px": 5.0,
+      "num_independently_displaced": 6,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 14,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 40,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 67,
+    "product": "Civil3d",
+    "folder": "Civil3d-32",
+    "lang": "HUN",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0015279999934136868,
+        "Untranslation": 0.9984719753265381
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.103484,
+        "Overlapping": 0.132306,
+        "Repeated hotkey": 0.055292,
+        "Truncation": 0.637594,
+        "Untranslation": 0.071324
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.0841,
+      "attention_entropy": 0.9703
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 4.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 0,
+      "max_alignment_divergence_px": 4,
+      "max_gap_collapse_px": 94,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 94,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 4,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 99.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 68,
+    "product": "Inventor",
+    "folder": "Inventor-03",
+    "lang": "CHS",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.9711999893188477,
+        "Overlapping": 0.028738999739289284,
+        "Repeated hotkey": 1.8000000636675395e-05,
+        "Truncation": 0.0,
+        "Untranslation": 4.3000000005122274e-05
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.9999999949504854e-06,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.9999979734420776
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9932159781455994,
+        "Overlapping": 0.006783999968320131,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.153528,
+        "Overlapping": 0.469374,
+        "Repeated hotkey": 0.088125,
+        "Truncation": 0.07627,
+        "Untranslation": 0.212703
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1884,
+      "attention_entropy": 0.9132
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 150.0,
+      "median_displacement_px": 2.2,
+      "num_independently_displaced": 2,
+      "max_alignment_divergence_px": 152,
+      "max_gap_collapse_px": 197,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 1976,
+      "log_intersection_area": 7.5893,
+      "max_text_expansion_px": -2,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 97.0,
+      "avg_match_confidence": 0.989
+    }
+  },
+  {
+    "case_id": 69,
+    "product": "Inventor",
+    "folder": "Inventor-05",
+    "lang": "PLK",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.8038510084152222,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.19614900648593903,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 7.000000096013537e-06,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9998930096626282,
+        "Untranslation": 9.899999713525176e-05
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.099001,
+        "Overlapping": 0.141582,
+        "Repeated hotkey": 0.054365,
+        "Truncation": 0.55794,
+        "Untranslation": 0.147113
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2484,
+      "attention_entropy": 0.9515
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 14.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 1,
+      "max_alignment_divergence_px": 1,
+      "max_gap_collapse_px": 71,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 70,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 3,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 70,
+    "product": "Inventor",
+    "folder": "Inventor-18",
+    "lang": "FRA",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.01908300071954727,
+        "Repeated hotkey": 0.9395350217819214,
+        "Truncation": 0.04138199985027313,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.105241,
+        "Overlapping": 0.135972,
+        "Repeated hotkey": 0.075329,
+        "Truncation": 0.647015,
+        "Untranslation": 0.036444
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2493,
+      "attention_entropy": 0.9504
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 8.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 0,
+      "max_alignment_divergence_px": 1,
+      "max_gap_collapse_px": 95,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 94,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.998
+    }
+  },
+  {
+    "case_id": 71,
+    "product": "Inventor",
+    "folder": "Inventor-19",
+    "lang": "CSY",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.9999889731407166,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 9.999999974752427e-07,
+        "Truncation": 0.0,
+        "Untranslation": 9.999999747378752e-06
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.012312,
+        "Overlapping": 0.273864,
+        "Repeated hotkey": 0.002513,
+        "Truncation": 0.567412,
+        "Untranslation": 0.143899
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3704,
+      "attention_entropy": 0.8778
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 146.3,
+      "median_displacement_px": 3.0,
+      "num_independently_displaced": 9,
+      "max_alignment_divergence_px": 122,
+      "max_gap_collapse_px": 136,
+      "num_newly_created_intersections": 13,
+      "total_intersection_area_px2": 6463,
+      "log_intersection_area": 8.774,
+      "max_text_expansion_px": 128,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.956
+    }
+  },
+  {
+    "case_id": 72,
+    "product": "Inventor",
+    "folder": "Inventor-21",
+    "lang": "CSY",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 3.999999989900971e-06,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.9999960064888,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.2000000424450263e-05,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.9999880194664001,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0004569999873638153,
+        "Overlapping": 0.8296120166778564,
+        "Repeated hotkey": 0.08437799662351608,
+        "Truncation": 0.04091800004243851,
+        "Untranslation": 0.04463500156998634
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.264554,
+        "Overlapping": 0.100435,
+        "Repeated hotkey": 0.500066,
+        "Truncation": 0.118409,
+        "Untranslation": 0.016536
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.0781,
+      "attention_entropy": 0.9662
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 106.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 16,
+      "max_alignment_divergence_px": 62,
+      "max_gap_collapse_px": 179,
+      "num_newly_created_intersections": 1,
+      "total_intersection_area_px2": 912,
+      "log_intersection_area": 6.8167,
+      "max_text_expansion_px": 110,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.994
+    }
+  },
+  {
+    "case_id": 73,
+    "product": "Inventor",
+    "folder": "Inventor-32",
+    "lang": "DEU",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9998549818992615,
+        "Untranslation": 0.0001449999981559813
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.999987006187439,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.2999999853491317e-05,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.317529,
+        "Overlapping": 0.176017,
+        "Repeated hotkey": 0.005848,
+        "Truncation": 0.003954,
+        "Untranslation": 0.496652
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.6448,
+      "attention_entropy": 0.9386
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 176.8,
+      "median_displacement_px": 9.6,
+      "num_independently_displaced": 1,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 0,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 36,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.893
+    }
+  },
+  {
+    "case_id": 74,
+    "product": "Inventor",
+    "folder": "Inventor-35",
+    "lang": "PLK",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0022009999956935644,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.9977989792823792
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.12616600096225739,
+        "Truncation": 0.0,
+        "Untranslation": 0.8738340139389038
+      },
+      "mil_classifier": {
+        "Misalignment": 5.900000178371556e-05,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.009368999861180782,
+        "Truncation": 7.300000288523734e-05,
+        "Untranslation": 0.9904999732971191
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.034635,
+        "Overlapping": 0.049166,
+        "Repeated hotkey": 0.125925,
+        "Truncation": 0.003302,
+        "Untranslation": 0.786972
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3373,
+      "attention_entropy": 0.9396
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 50.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 4,
+      "max_alignment_divergence_px": 2,
+      "max_gap_collapse_px": 50,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 90,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 47,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 98.6,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 75,
+    "product": "Vault",
+    "folder": "Vault-01",
+    "lang": "CSY",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9999849796295166,
+        "Untranslation": 1.4999999621068127e-05
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0184090007096529,
+        "Overlapping": 0.00025599999935366213,
+        "Repeated hotkey": 0.11429700255393982,
+        "Truncation": 0.7073670029640198,
+        "Untranslation": 0.15967200696468353
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.148865,
+        "Overlapping": 0.191538,
+        "Repeated hotkey": 0.051889,
+        "Truncation": 0.318254,
+        "Untranslation": 0.289454
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3483,
+      "attention_entropy": 0.9527
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 37.2,
+      "median_displacement_px": 1.0,
+      "num_independently_displaced": 4,
+      "max_alignment_divergence_px": 1,
+      "max_gap_collapse_px": 15,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 29,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 76,
+    "product": "Vault",
+    "folder": "Vault-02",
+    "lang": "FRA",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.06394899636507034,
+        "Overlapping": 1.9999999949504854e-06,
+        "Repeated hotkey": 0.0001720000000204891,
+        "Truncation": 0.9260269999504089,
+        "Untranslation": 0.009848999790847301
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.036431,
+        "Overlapping": 0.322128,
+        "Repeated hotkey": 0.060493,
+        "Truncation": 0.418137,
+        "Untranslation": 0.162811
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2008,
+      "attention_entropy": 0.9491
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 92.1,
+      "median_displacement_px": 2.0,
+      "num_independently_displaced": 19,
+      "max_alignment_divergence_px": 86,
+      "max_gap_collapse_px": 116,
+      "num_newly_created_intersections": 10,
+      "total_intersection_area_px2": 3362,
+      "log_intersection_area": 8.1206,
+      "max_text_expansion_px": 82,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.988
+    }
+  },
+  {
+    "case_id": 77,
+    "product": "Vault",
+    "folder": "Vault-03",
+    "lang": "DEU",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.005237999837845564,
+        "Untranslation": 0.9947620034217834
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 1.2000000424450263e-05,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.00048099999548867345,
+        "Truncation": 3.999999989900971e-06,
+        "Untranslation": 0.9995030164718628
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.109453,
+        "Overlapping": 0.087424,
+        "Repeated hotkey": 0.062988,
+        "Truncation": 0.577666,
+        "Untranslation": 0.162468
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2302,
+      "attention_entropy": 0.9755
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 132.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 8,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 104,
+      "num_newly_created_intersections": 1,
+      "total_intersection_area_px2": 30,
+      "log_intersection_area": 3.434,
+      "max_text_expansion_px": 102,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 3,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 95.5,
+      "avg_match_confidence": 0.995
+    }
+  },
+  {
+    "case_id": 78,
+    "product": "Vault",
+    "folder": "Vault-08",
+    "lang": "PLK",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.999970018863678,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 2.9999999242136255e-05,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.9997199773788452,
+        "Overlapping": 0.00022600000374950469,
+        "Repeated hotkey": 5.2999999752501026e-05,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0004900000058114529,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.780426025390625,
+        "Untranslation": 0.2190829962491989
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.10017,
+        "Overlapping": 0.09064,
+        "Repeated hotkey": 0.018195,
+        "Truncation": 0.266314,
+        "Untranslation": 0.524681
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1145,
+      "attention_entropy": 0.9789
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 148.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 3,
+      "max_alignment_divergence_px": 2,
+      "max_gap_collapse_px": 34,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 62,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 5,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 97.2,
+      "avg_match_confidence": 0.986
+    }
+  },
+  {
+    "case_id": 79,
+    "product": "Vault",
+    "folder": "Vault-11",
+    "lang": "ESP",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.7707890272140503,
+        "Overlapping": 0.1483519971370697,
+        "Repeated hotkey": 0.0808589980006218,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.620243,
+        "Overlapping": 0.026778,
+        "Repeated hotkey": 0.047685,
+        "Truncation": 0.242786,
+        "Untranslation": 0.062508
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1027,
+      "attention_entropy": 0.9671
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 339.0,
+      "median_displacement_px": 9.6,
+      "num_independently_displaced": 30,
+      "max_alignment_divergence_px": 57,
+      "max_gap_collapse_px": 91,
+      "num_newly_created_intersections": 6,
+      "total_intersection_area_px2": 8665,
+      "log_intersection_area": 9.0672,
+      "max_text_expansion_px": 114,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.993
+    }
+  },
+  {
+    "case_id": 80,
+    "product": "Vault",
+    "folder": "Vault-17",
+    "lang": "ITA",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 4.999999873689376e-06,
+        "Repeated hotkey": 0.9999909996986389,
+        "Truncation": 3.999999989900971e-06,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.26189,
+        "Overlapping": 0.20596,
+        "Repeated hotkey": 0.20922,
+        "Truncation": 0.25844,
+        "Untranslation": 0.064491
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2064,
+      "attention_entropy": 0.9493
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 96.7,
+      "median_displacement_px": 7.2,
+      "num_independently_displaced": 16,
+      "max_alignment_divergence_px": 64,
+      "max_gap_collapse_px": 142,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 766,
+      "log_intersection_area": 6.6425,
+      "max_text_expansion_px": 74,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.992
+    }
+  },
+  {
+    "case_id": 81,
+    "product": "Vault",
+    "folder": "Vault-20",
+    "lang": "PLK",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.386819,
+        "Overlapping": 0.046026,
+        "Repeated hotkey": 0.008748,
+        "Truncation": 0.505209,
+        "Untranslation": 0.053198
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2754,
+      "attention_entropy": 0.9345
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 252.0,
+      "median_displacement_px": 5.5,
+      "num_independently_displaced": 6,
+      "max_alignment_divergence_px": 2,
+      "max_gap_collapse_px": 97,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 1280,
+      "log_intersection_area": 7.1554,
+      "max_text_expansion_px": 73,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.989
+    }
+  },
+  {
+    "case_id": 82,
+    "product": "Vault",
+    "folder": "Vault-21",
+    "lang": "PTB",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.220210999250412,
+        "Overlapping": 0.05542299896478653,
+        "Repeated hotkey": 0.0024389999452978373,
+        "Truncation": 0.016871999949216843,
+        "Untranslation": 0.7050549983978271
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.201614,
+        "Overlapping": 0.215056,
+        "Repeated hotkey": 0.258095,
+        "Truncation": 0.222188,
+        "Untranslation": 0.103047
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2131,
+      "attention_entropy": 0.9355
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 95.5,
+      "median_displacement_px": 2.5,
+      "num_independently_displaced": 16,
+      "max_alignment_divergence_px": 41,
+      "max_gap_collapse_px": 95,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 880,
+      "log_intersection_area": 6.7811,
+      "max_text_expansion_px": 78,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.993
+    }
+  },
+  {
+    "case_id": 83,
+    "product": "Vault",
+    "folder": "Vault-23",
+    "lang": "ESP",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 7.400000322377309e-05,
+        "Overlapping": 9.999999974752427e-07,
+        "Repeated hotkey": 0.001598999951966107,
+        "Truncation": 0.9983260035514832,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.233811,
+        "Overlapping": 0.128808,
+        "Repeated hotkey": 0.064516,
+        "Truncation": 0.564966,
+        "Untranslation": 0.007898
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1384,
+      "attention_entropy": 0.9822
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 96.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 1,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 76,
+      "num_newly_created_intersections": 1,
+      "total_intersection_area_px2": 644,
+      "log_intersection_area": 6.4693,
+      "max_text_expansion_px": 148,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.996
+    }
+  },
+  {
+    "case_id": 84,
+    "product": "Vault",
+    "folder": "Vault-24",
+    "lang": "CHT",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0033019999973475933,
+        "Overlapping": 0.42112401127815247,
+        "Repeated hotkey": 1.9999999949504854e-06,
+        "Truncation": 0.0,
+        "Untranslation": 0.5755730271339417
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.2993,
+        "Overlapping": 0.012862,
+        "Repeated hotkey": 6.6e-05,
+        "Truncation": 0.508086,
+        "Untranslation": 0.179686
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2487,
+      "attention_entropy": 0.9213
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 555.4,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 12,
+      "max_alignment_divergence_px": 82,
+      "max_gap_collapse_px": 259,
+      "num_newly_created_intersections": 12,
+      "total_intersection_area_px2": 204124,
+      "log_intersection_area": 12.2265,
+      "max_text_expansion_px": 10,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.962
+    }
+  },
+  {
+    "case_id": 85,
+    "product": "Vault",
+    "folder": "Vault-26",
+    "lang": "FRA",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 9.000000318337698e-06,
+        "Overlapping": 0.011311000213027,
+        "Repeated hotkey": 0.8586249947547913,
+        "Truncation": 0.13003799319267273,
+        "Untranslation": 1.700000029813964e-05
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.569717,
+        "Overlapping": 0.009746,
+        "Repeated hotkey": 0.000601,
+        "Truncation": 0.073099,
+        "Untranslation": 0.346837
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3355,
+      "attention_entropy": 0.9606
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 471.0,
+      "median_displacement_px": 3.2,
+      "num_independently_displaced": 8,
+      "max_alignment_divergence_px": 50,
+      "max_gap_collapse_px": 30,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 108,
+      "log_intersection_area": 4.6913,
+      "max_text_expansion_px": 56,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 4,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.973
+    }
+  },
+  {
+    "case_id": 86,
+    "product": "Vault",
+    "folder": "Vault-27",
+    "lang": "DEU",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.14127899706363678,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.8587210178375244,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.9997749924659729,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.00022499999613501132,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 9.999999974752427e-07,
+        "Truncation": 0.0,
+        "Untranslation": 0.9999989867210388
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.089296,
+        "Overlapping": 0.465827,
+        "Repeated hotkey": 0.075802,
+        "Truncation": 0.280196,
+        "Untranslation": 0.088879
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.5071,
+      "attention_entropy": 0.8571
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 10.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 0,
+      "max_alignment_divergence_px": 1,
+      "max_gap_collapse_px": 0,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 224,
+      "log_intersection_area": 5.4161,
+      "max_text_expansion_px": 118,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.996
+    }
+  },
+  {
+    "case_id": 87,
+    "product": "Vault",
+    "folder": "Vault-29",
+    "lang": "ITA",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9983090162277222,
+        "Untranslation": 0.0016919999616220593
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.6363450288772583,
+        "Untranslation": 0.3636550009250641
+      },
+      "mil_classifier": {
+        "Misalignment": 0.01322100032120943,
+        "Overlapping": 0.974556028842926,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.012202000245451927,
+        "Untranslation": 1.9999999494757503e-05
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.101883,
+        "Overlapping": 0.271828,
+        "Repeated hotkey": 0.046392,
+        "Truncation": 0.449082,
+        "Untranslation": 0.130814
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1418,
+      "attention_entropy": 0.9837
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 2.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 0,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 6,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 86,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 88,
+    "product": "Vault",
+    "folder": "Vault-39",
+    "lang": "DEU",
+    "gt_category": "Truncation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0003330000035930425,
+        "Overlapping": 0.0001720000000204891,
+        "Repeated hotkey": 0.0060350000858306885,
+        "Truncation": 0.9934599995613098,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.27398,
+        "Overlapping": 0.032265,
+        "Repeated hotkey": 0.119024,
+        "Truncation": 0.573822,
+        "Untranslation": 0.000909
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4294,
+      "attention_entropy": 0.9227
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 151.0,
+      "median_displacement_px": 2.0,
+      "num_independently_displaced": 3,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 184,
+      "num_newly_created_intersections": 1,
+      "total_intersection_area_px2": 3560,
+      "log_intersection_area": 8.1778,
+      "max_text_expansion_px": 193,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.993
+    }
+  },
+  {
+    "case_id": 89,
+    "product": "Civil3d",
+    "folder": "Civil3d-02",
+    "lang": "CHS",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.5661460161209106,
+        "Overlapping": 0.010831999592483044,
+        "Repeated hotkey": 0.003602999961003661,
+        "Truncation": 0.40511101484298706,
+        "Untranslation": 0.014309000223875046
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.034673,
+        "Overlapping": 0.049524,
+        "Repeated hotkey": 0.018661,
+        "Truncation": 0.256462,
+        "Untranslation": 0.640679
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.7107,
+      "attention_entropy": 0.8679
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 149.0,
+      "median_displacement_px": 7.5,
+      "num_independently_displaced": 13,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 1,
+      "num_newly_created_intersections": 5,
+      "total_intersection_area_px2": 2840,
+      "log_intersection_area": 7.9519,
+      "max_text_expansion_px": 6,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 6,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.955
+    }
+  },
+  {
+    "case_id": 90,
+    "product": "Civil3d",
+    "folder": "Civil3d-07",
+    "lang": "JPN",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.020746,
+        "Overlapping": 0.185341,
+        "Repeated hotkey": 0.020831,
+        "Truncation": 0.039806,
+        "Untranslation": 0.733275
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2045,
+      "attention_entropy": 0.9593
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 62.2,
+      "median_displacement_px": 13.0,
+      "num_independently_displaced": 9,
+      "max_alignment_divergence_px": 13,
+      "max_gap_collapse_px": 3,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 2,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 94.1,
+      "avg_match_confidence": 0.95
+    }
+  },
+  {
+    "case_id": 91,
+    "product": "Civil3d",
+    "folder": "Civil3d-08",
+    "lang": "DEU",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.88851398229599,
+        "Overlapping": 0.11130400002002716,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.00018200000340584666,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.005154000129550695,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.994845986366272,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.48764199018478394,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.5123580098152161
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.152998,
+        "Overlapping": 0.104349,
+        "Repeated hotkey": 0.169795,
+        "Truncation": 0.432456,
+        "Untranslation": 0.140402
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3026,
+      "attention_entropy": 0.949
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 80.2,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 5,
+      "max_alignment_divergence_px": 45,
+      "max_gap_collapse_px": 124,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 90,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 17,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.99
+    }
+  },
+  {
+    "case_id": 92,
+    "product": "Civil3d",
+    "folder": "Civil3d-11",
+    "lang": "ITA",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.9999840259552002,
+        "Overlapping": 1.1000000085914508e-05,
+        "Repeated hotkey": 0.0,
+        "Truncation": 4.999999873689376e-06,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.9645119905471802,
+        "Overlapping": 0.03548799827694893,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0005070000188425183,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.9994919896125793
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.012953,
+        "Overlapping": 0.062069,
+        "Repeated hotkey": 0.002628,
+        "Truncation": 0.851355,
+        "Untranslation": 0.070995
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3809,
+      "attention_entropy": 0.8224
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 165.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 5,
+      "max_alignment_divergence_px": 2,
+      "max_gap_collapse_px": 92,
+      "num_newly_created_intersections": 7,
+      "total_intersection_area_px2": 8478,
+      "log_intersection_area": 9.0453,
+      "max_text_expansion_px": 92,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 7,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 98.4,
+      "avg_match_confidence": 0.982
+    }
+  },
+  {
+    "case_id": 93,
+    "product": "Civil3d",
+    "folder": "Civil3d-24",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.9999960064888,
+        "Truncation": 1.9999999949504854e-06,
+        "Untranslation": 1.9999999949504854e-06
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9999989867210388,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 9.999999974752427e-07
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.00943,
+        "Overlapping": 0.255109,
+        "Repeated hotkey": 0.189876,
+        "Truncation": 0.113809,
+        "Untranslation": 0.431776
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 1.0,
+      "attention_entropy": 0.0
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 76.1,
+      "median_displacement_px": 1.4,
+      "num_independently_displaced": 2,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 106,
+      "num_newly_created_intersections": 3,
+      "total_intersection_area_px2": 1422,
+      "log_intersection_area": 7.2605,
+      "max_text_expansion_px": 24,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 84.6,
+      "avg_match_confidence": 0.982
+    }
+  },
+  {
+    "case_id": 94,
+    "product": "Civil3d",
+    "folder": "Civil3d-25",
+    "lang": "JPN",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9999989867210388,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 9.999999974752427e-07
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.011558,
+        "Overlapping": 0.137628,
+        "Repeated hotkey": 0.008399,
+        "Truncation": 0.085305,
+        "Untranslation": 0.75711
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 1.0,
+      "attention_entropy": 0.0
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 95.4,
+      "median_displacement_px": 7.6,
+      "num_independently_displaced": 15,
+      "max_alignment_divergence_px": 54,
+      "max_gap_collapse_px": 1,
+      "num_newly_created_intersections": 6,
+      "total_intersection_area_px2": 2245,
+      "log_intersection_area": 7.7169,
+      "max_text_expansion_px": 16,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 8,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.99
+    }
+  },
+  {
+    "case_id": 95,
+    "product": "Civil3d",
+    "folder": "Civil3d-31",
+    "lang": "CHT",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.9946110248565674,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0053889998234808445,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 7.000000096013537e-06,
+        "Overlapping": 0.0038300000596791506,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.996163010597229,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.08300500363111496,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0005360000068321824,
+        "Truncation": 0.0,
+        "Untranslation": 0.9164590239524841
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.011989,
+        "Overlapping": 0.053804,
+        "Repeated hotkey": 0.004751,
+        "Truncation": 0.097769,
+        "Untranslation": 0.831688
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3164,
+      "attention_entropy": 0.8646
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 136.1,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 1,
+      "max_alignment_divergence_px": 1,
+      "max_gap_collapse_px": 1,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 14,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 21,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.999
+    }
+  },
+  {
+    "case_id": 96,
+    "product": "Civil3d",
+    "folder": "Civil3d-34",
+    "lang": "CHS",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.9999999949504854e-06,
+        "Untranslation": 0.9999979734420776
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.8025100231170654,
+        "Untranslation": 0.19749000668525696
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.020952999591827393,
+        "Truncation": 0.9790470004081726,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.052131,
+        "Overlapping": 0.414057,
+        "Repeated hotkey": 0.019648,
+        "Truncation": 0.155512,
+        "Untranslation": 0.358652
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4504,
+      "attention_entropy": 0.922
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 174.4,
+      "median_displacement_px": 18.9,
+      "num_independently_displaced": 14,
+      "max_alignment_divergence_px": 31,
+      "max_gap_collapse_px": 15,
+      "num_newly_created_intersections": 7,
+      "total_intersection_area_px2": 13005,
+      "log_intersection_area": 9.4732,
+      "max_text_expansion_px": 116,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 93.3,
+      "avg_match_confidence": 0.874
+    }
+  },
+  {
+    "case_id": 97,
+    "product": "Civil3d",
+    "folder": "Civil3d-35",
+    "lang": "ESP",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.8999999156221747e-05,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.9999809861183167,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 9.100000170292333e-05,
+        "Overlapping": 0.9999009966850281,
+        "Repeated hotkey": 0.0,
+        "Truncation": 4.999999873689376e-06,
+        "Untranslation": 3.000000106112566e-06
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.32685,
+        "Overlapping": 0.36407,
+        "Repeated hotkey": 0.023704,
+        "Truncation": 0.072316,
+        "Untranslation": 0.213059
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.0838,
+      "attention_entropy": 0.9641
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 226.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 15,
+      "max_alignment_divergence_px": 222,
+      "max_gap_collapse_px": 102,
+      "num_newly_created_intersections": 3,
+      "total_intersection_area_px2": 1784,
+      "log_intersection_area": 7.4872,
+      "max_text_expansion_px": 86,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 4,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.999
+    }
+  },
+  {
+    "case_id": 98,
+    "product": "Inventor",
+    "folder": "Inventor-04",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.9957039952278137,
+        "Truncation": 0.0,
+        "Untranslation": 0.004296000115573406
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.9995110034942627,
+        "Truncation": 0.0,
+        "Untranslation": 0.0004889999981969595
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9999909996986389,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 9.000000318337698e-06
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.226269,
+        "Overlapping": 0.608961,
+        "Repeated hotkey": 0.028422,
+        "Truncation": 0.111894,
+        "Untranslation": 0.024454
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3329,
+      "attention_entropy": 0.903
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 588.0,
+      "median_displacement_px": 65.6,
+      "num_independently_displaced": 109,
+      "max_alignment_divergence_px": 463,
+      "max_gap_collapse_px": 264,
+      "num_newly_created_intersections": 28,
+      "total_intersection_area_px2": 24964,
+      "log_intersection_area": 10.1252,
+      "max_text_expansion_px": 299,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 91.7,
+      "avg_match_confidence": 0.911
+    }
+  },
+  {
+    "case_id": 99,
+    "product": "Inventor",
+    "folder": "Inventor-06",
+    "lang": "PTB",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.9992290139198303,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.000770999991800636,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.3136720061302185,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.6863279938697815,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.008535999804735184,
+        "Overlapping": 0.0001049999991664663,
+        "Repeated hotkey": 0.9899489879608154,
+        "Truncation": 0.0001610000035725534,
+        "Untranslation": 0.0012489999644458294
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.385667,
+        "Overlapping": 0.151908,
+        "Repeated hotkey": 0.360009,
+        "Truncation": 0.081551,
+        "Untranslation": 0.020865
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1956,
+      "attention_entropy": 0.9409
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 198.0,
+      "median_displacement_px": 24.5,
+      "num_independently_displaced": 38,
+      "max_alignment_divergence_px": 147,
+      "max_gap_collapse_px": 159,
+      "num_newly_created_intersections": 3,
+      "total_intersection_area_px2": 3216,
+      "log_intersection_area": 8.0762,
+      "max_text_expansion_px": 102,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 17,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.989
+    }
+  },
+  {
+    "case_id": 100,
+    "product": "Inventor",
+    "folder": "Inventor-09",
+    "lang": "DEU",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 1.9999999494757503e-05,
+        "Overlapping": 1.1000000085914508e-05,
+        "Repeated hotkey": 0.0011950000189244747,
+        "Truncation": 0.998757004737854,
+        "Untranslation": 1.700000029813964e-05
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.122236,
+        "Overlapping": 0.23258,
+        "Repeated hotkey": 0.074511,
+        "Truncation": 0.380359,
+        "Untranslation": 0.190314
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.0775,
+      "attention_entropy": 0.9917
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 34.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 6,
+      "max_alignment_divergence_px": 12,
+      "max_gap_collapse_px": 46,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 66,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 98.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 101,
+    "product": "Inventor",
+    "folder": "Inventor-13",
+    "lang": "RUS",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 1.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.17351199686527252,
+        "Truncation": 0.8264880180358887,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.002054,
+        "Overlapping": 0.075991,
+        "Repeated hotkey": 0.025602,
+        "Truncation": 0.165672,
+        "Untranslation": 0.73068
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.6054,
+      "attention_entropy": 0.8554
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 6.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 0,
+      "max_alignment_divergence_px": 2,
+      "max_gap_collapse_px": 6,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 12,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 32,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 102,
+    "product": "Inventor",
+    "folder": "Inventor-16",
+    "lang": "JPN",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0031270000617951155,
+        "Truncation": 0.0,
+        "Untranslation": 0.9968730211257935
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 9.999999974752427e-07,
+        "Truncation": 0.0,
+        "Untranslation": 0.9999989867210388
+      },
+      "mil_classifier": {
+        "Misalignment": 0.00025499999173916876,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.9999999949504854e-06,
+        "Truncation": 0.0,
+        "Untranslation": 0.9997439980506897
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.05646,
+        "Overlapping": 0.289478,
+        "Repeated hotkey": 0.006622,
+        "Truncation": 0.043335,
+        "Untranslation": 0.604104
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.2112,
+      "attention_entropy": 0.927
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 122.1,
+      "median_displacement_px": 2.0,
+      "num_independently_displaced": 2,
+      "max_alignment_divergence_px": 78,
+      "max_gap_collapse_px": 5,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 2256,
+      "log_intersection_area": 7.7218,
+      "max_text_expansion_px": 8,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 4,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.936
+    }
+  },
+  {
+    "case_id": 103,
+    "product": "Inventor",
+    "folder": "Inventor-22",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.9974769949913025,
+        "Repeated hotkey": 0.0010450000409036875,
+        "Truncation": 0.0,
+        "Untranslation": 0.0014779999619349837
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 2.700000004551839e-05,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 9.999999974752427e-07,
+        "Truncation": 0.0,
+        "Untranslation": 0.9999719858169556
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.048643,
+        "Overlapping": 0.543093,
+        "Repeated hotkey": 0.001748,
+        "Truncation": 9e-06,
+        "Untranslation": 0.406507
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4095,
+      "attention_entropy": 0.8382
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 511.0,
+      "median_displacement_px": 22.8,
+      "num_independently_displaced": 76,
+      "max_alignment_divergence_px": 626,
+      "max_gap_collapse_px": 267,
+      "num_newly_created_intersections": 14,
+      "total_intersection_area_px2": 23546,
+      "log_intersection_area": 10.0668,
+      "max_text_expansion_px": 151,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 86.2,
+      "avg_match_confidence": 0.952
+    }
+  },
+  {
+    "case_id": 104,
+    "product": "Inventor",
+    "folder": "Inventor-23",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.33640000224113464,
+        "Overlapping": 0.05177700147032738,
+        "Repeated hotkey": 0.6116350293159485,
+        "Truncation": 0.0,
+        "Untranslation": 0.0001880000054370612
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.985306978225708,
+        "Overlapping": 0.014655999839305878,
+        "Repeated hotkey": 0.0,
+        "Truncation": 3.7999998312443495e-05,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 1.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.075113,
+        "Overlapping": 0.20436,
+        "Repeated hotkey": 0.091868,
+        "Truncation": 0.188762,
+        "Untranslation": 0.439897
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4211,
+      "attention_entropy": 0.9763
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 74.1,
+      "median_displacement_px": 4.1,
+      "num_independently_displaced": 8,
+      "max_alignment_divergence_px": 18,
+      "max_gap_collapse_px": 67,
+      "num_newly_created_intersections": 3,
+      "total_intersection_area_px2": 1329,
+      "log_intersection_area": 7.1929,
+      "max_text_expansion_px": 8,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 96.8,
+      "avg_match_confidence": 0.974
+    }
+  },
+  {
+    "case_id": 105,
+    "product": "Vault",
+    "folder": "Vault-07",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.19406799972057343,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0005549999768845737,
+        "Truncation": 9.999999974752427e-07,
+        "Untranslation": 0.8053759932518005
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.9999999949504854e-06,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.010021000169217587,
+        "Truncation": 0.0,
+        "Untranslation": 0.9899770021438599
+      },
+      "mil_classifier": {
+        "Misalignment": 0.14352700114250183,
+        "Overlapping": 0.1753620058298111,
+        "Repeated hotkey": 9.999999974752427e-07,
+        "Truncation": 0.6811100244522095,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.204975,
+        "Overlapping": 0.05762,
+        "Repeated hotkey": 0.007152,
+        "Truncation": 0.453059,
+        "Untranslation": 0.277194
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.092,
+      "attention_entropy": 0.9545
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 206.9,
+      "median_displacement_px": 2.0,
+      "num_independently_displaced": 4,
+      "max_alignment_divergence_px": 1,
+      "max_gap_collapse_px": 46,
+      "num_newly_created_intersections": 3,
+      "total_intersection_area_px2": 1039,
+      "log_intersection_area": 6.947,
+      "max_text_expansion_px": 16,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.977
+    }
+  },
+  {
+    "case_id": 106,
+    "product": "Vault",
+    "folder": "Vault-10",
+    "lang": "CHS",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0031210000161081553,
+        "Truncation": 0.0,
+        "Untranslation": 0.996878981590271
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.8752520084381104,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.12473499774932861,
+        "Untranslation": 1.2999999853491317e-05
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.070631,
+        "Overlapping": 0.251706,
+        "Repeated hotkey": 0.031512,
+        "Truncation": 0.29147,
+        "Untranslation": 0.35468
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4047,
+      "attention_entropy": 0.8553
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 4.0,
+      "median_displacement_px": 1.0,
+      "num_independently_displaced": 0,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 0,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 24,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 107,
+    "product": "Vault",
+    "folder": "Vault-13",
+    "lang": "CSY",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.9668059945106506,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.03319400176405907,
+        "Untranslation": 0.0
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.437434,
+        "Overlapping": 0.48151,
+        "Repeated hotkey": 0.004873,
+        "Truncation": 0.043365,
+        "Untranslation": 0.032818
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 1.0,
+      "attention_entropy": 0.0
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 230.0,
+      "median_displacement_px": 1.0,
+      "num_independently_displaced": 3,
+      "max_alignment_divergence_px": 230,
+      "max_gap_collapse_px": 124,
+      "num_newly_created_intersections": 2,
+      "total_intersection_area_px2": 3360,
+      "log_intersection_area": 8.12,
+      "max_text_expansion_px": 108,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.944
+    }
+  },
+  {
+    "case_id": 108,
+    "product": "Vault",
+    "folder": "Vault-15",
+    "lang": "DEU",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.9981200098991394,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.001879999996162951,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 9.000000318337698e-06,
+        "Overlapping": 0.29325801134109497,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.7067319750785828,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0008539999835193157,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0006040000007487833,
+        "Truncation": 0.9985399842262268,
+        "Untranslation": 1.9999999949504854e-06
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.07853,
+        "Overlapping": 0.172057,
+        "Repeated hotkey": 0.068994,
+        "Truncation": 0.557136,
+        "Untranslation": 0.123284
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1893,
+      "attention_entropy": 0.9874
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 10.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 0,
+      "max_alignment_divergence_px": 1,
+      "max_gap_collapse_px": 52,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 53,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 109,
+    "product": "Vault",
+    "folder": "Vault-16",
+    "lang": "HUN",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 1.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.12122499942779541,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 8.399999933317304e-05,
+        "Truncation": 0.8786839842796326,
+        "Untranslation": 7.000000096013537e-06
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.329663,
+        "Overlapping": 0.204538,
+        "Repeated hotkey": 0.046154,
+        "Truncation": 0.194112,
+        "Untranslation": 0.225534
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1242,
+      "attention_entropy": 0.9543
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 147.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 9,
+      "max_alignment_divergence_px": 127,
+      "max_gap_collapse_px": 106,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 61,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 1,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 98.1,
+      "avg_match_confidence": 0.99
+    }
+  },
+  {
+    "case_id": 110,
+    "product": "Vault",
+    "folder": "Vault-19",
+    "lang": "KOR",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.998494029045105,
+        "Truncation": 0.0,
+        "Untranslation": 0.0015059999423101544
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 3.999999989900971e-06,
+        "Truncation": 0.0,
+        "Untranslation": 0.9999960064888
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.9125679731369019,
+        "Repeated hotkey": 0.08656799793243408,
+        "Truncation": 8.70000003487803e-05,
+        "Untranslation": 0.0007769999792799354
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.010081,
+        "Overlapping": 0.488559,
+        "Repeated hotkey": 0.007249,
+        "Truncation": 0.071618,
+        "Untranslation": 0.422492
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.4272,
+      "attention_entropy": 0.9487
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 103.0,
+      "median_displacement_px": 10.5,
+      "num_independently_displaced": 8,
+      "max_alignment_divergence_px": 103,
+      "max_gap_collapse_px": 77,
+      "num_newly_created_intersections": 5,
+      "total_intersection_area_px2": 1666,
+      "log_intersection_area": 7.4188,
+      "max_text_expansion_px": 23,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 90.0,
+      "avg_match_confidence": 0.984
+    }
+  },
+  {
+    "case_id": 111,
+    "product": "Vault",
+    "folder": "Vault-22",
+    "lang": "CHS",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.7980639934539795,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.2019360065460205
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.9999979734420776,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.9999999949504854e-06
+      },
+      "mil_classifier": {
+        "Misalignment": 6.000000212225132e-06,
+        "Overlapping": 0.9993879795074463,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0006060000159777701
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.021332,
+        "Overlapping": 0.240107,
+        "Repeated hotkey": 0.020516,
+        "Truncation": 0.070633,
+        "Untranslation": 0.647412
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3355,
+      "attention_entropy": 0.9716
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 55.0,
+      "median_displacement_px": 3.3,
+      "num_independently_displaced": 4,
+      "max_alignment_divergence_px": 50,
+      "max_gap_collapse_px": 56,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 22,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 6,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 93.8,
+      "avg_match_confidence": 0.986
+    }
+  },
+  {
+    "case_id": 112,
+    "product": "Vault",
+    "folder": "Vault-25",
+    "lang": "CSY",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 3.400000059627928e-05,
+        "Overlapping": 0.9985169768333435,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0014449999434873462,
+        "Untranslation": 3.000000106112566e-06
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.326525,
+        "Overlapping": 0.039406,
+        "Repeated hotkey": 0.004095,
+        "Truncation": 0.411299,
+        "Untranslation": 0.218674
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.3729,
+      "attention_entropy": 0.996
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 290.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 2,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 4,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 42,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.964
+    }
+  },
+  {
+    "case_id": 113,
+    "product": "Vault",
+    "folder": "Vault-30",
+    "lang": "JPN",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 1.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 0.0003239999932702631,
+        "Repeated hotkey": 0.9016450047492981,
+        "Truncation": 0.008181000128388405,
+        "Untranslation": 0.08984900265932083
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.01833,
+        "Overlapping": 0.270832,
+        "Repeated hotkey": 0.003285,
+        "Truncation": 0.137834,
+        "Untranslation": 0.569718
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.796,
+      "attention_entropy": 0.7299
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 83.0,
+      "median_displacement_px": 16.7,
+      "num_independently_displaced": 3,
+      "max_alignment_divergence_px": 0,
+      "max_gap_collapse_px": 0,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": -2,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 0,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 85.7,
+      "avg_match_confidence": 1.0
+    }
+  },
+  {
+    "case_id": 114,
+    "product": "Vault",
+    "folder": "Vault-38",
+    "lang": "FRA",
+    "gt_category": "Untranslation",
+    "model_probabilities": {
+      "vit_classifier": {
+        "Misalignment": 0.00010099999781232327,
+        "Overlapping": 0.9995480179786682,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.00021399999968707561,
+        "Untranslation": 0.00013699999544769526
+      },
+      "hybrid_classifier": {
+        "Misalignment": 0.0,
+        "Overlapping": 1.0,
+        "Repeated hotkey": 0.0,
+        "Truncation": 0.0,
+        "Untranslation": 0.0
+      },
+      "mil_classifier": {
+        "Misalignment": 0.6253319978713989,
+        "Overlapping": 0.0001610000035725534,
+        "Repeated hotkey": 0.009186999872326851,
+        "Truncation": 0.23225200176239014,
+        "Untranslation": 0.1330689936876297
+      },
+      "relationship_classifier_oof": {
+        "Misalignment": 0.391233,
+        "Overlapping": 0.085409,
+        "Repeated hotkey": 0.069046,
+        "Truncation": 0.449754,
+        "Untranslation": 0.004558
+      }
+    },
+    "mil_metadata": {
+      "max_attention_weight": 0.1342,
+      "attention_entropy": 0.9688
+    },
+    "relationship_evidence_features": {
+      "max_displacement_px": 120.0,
+      "median_displacement_px": 0.0,
+      "num_independently_displaced": 5,
+      "max_alignment_divergence_px": 104,
+      "max_gap_collapse_px": 184,
+      "num_newly_created_intersections": 0,
+      "total_intersection_area_px2": 0,
+      "log_intersection_area": 0.0,
+      "max_text_expansion_px": 150,
+      "has_ellipsis_count": 0,
+      "untranslated_words_count": 2,
+      "hotkey_conflict_count": 0,
+      "match_rate_pct": 100.0,
+      "avg_match_confidence": 0.99
+    }
+  }
+]

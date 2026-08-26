@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Root Cause Error & Causal Chain Audit Report</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 16px; text-align: center; }
+  .card-val { font-size: 22px; font-weight: bold; margin-top: 4px; color: #38bdf8; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .badge-arb { background: #0369a1; color: #e0f2fe; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+  .badge-cov { background: #831843; color: #ffe4e6; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+  .badge-pass { background: #064e3b; color: #a7f3d0; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+</style>
+</head>
+<body>
+<h1>Root Cause Error & Causal Chain Audit Report</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Investigating whether prediction errors stem from <strong>arbitration ranking (downstream consequence stealing primary)</strong> versus <strong>evidence coverage gaps</strong> across all 101 benchmark cases.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Arbitration Errors (GT in Secondary)</div>
+    <div class="card-val" style="color: #38bdf8;">39 / 74 (52.7%)</div>
+    <div class="card-sub">GT detected but ranked as secondary</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Evidence Coverage Errors (GT Absent)</div>
+    <div class="card-val" style="color: #f43f5e;">35 / 74 (47.3%)</div>
+    <div class="card-sub">including 7 unobservable hotkeys</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Causal Chains Identified</div>
+    <div class="card-val" style="color: #4ade80;">23 cases</div>
+    <div class="card-sub">mechanistic root-to-effect chains</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 13px; color: #94a3b8;">Primary Diagnosis Coverage</div>
+    <div class="card-val" style="color: #f8fafc;">94.1%</div>
+    <div class="card-sub">95/101 diagnosed</div>
+  </div>
+</div>
+
+<h2>1. Downstream Phenomena That Steal Primary Status by Category</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Ground Truth Category</th>
+      <th>Downstream 'Thief' Category</th>
+      <th>Occurrence Count</th>
+      <th>Physical Causal Mechanism</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td style="font-weight:bold; color:#f43f5e;">Untranslation</td>
+      <td style="font-weight:bold;">2 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Misalignment defect caused spatial/lexical side-effect that triggered Untranslation evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td style="font-weight:bold; color:#f43f5e;">Truncation</td>
+      <td style="font-weight:bold;">6 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Misalignment defect caused spatial/lexical side-effect that triggered Truncation evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td style="font-weight:bold; color:#f43f5e;">Overlapping</td>
+      <td style="font-weight:bold;">4 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Misalignment defect caused spatial/lexical side-effect that triggered Overlapping evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td style="font-weight:bold; color:#f43f5e;">Misalignment</td>
+      <td style="font-weight:bold;">6 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Overlapping defect caused spatial/lexical side-effect that triggered Misalignment evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td style="font-weight:bold; color:#f43f5e;">NO_STRONG_OBSERVABLE_DEFECT</td>
+      <td style="font-weight:bold;">2 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Overlapping defect caused spatial/lexical side-effect that triggered NO_STRONG_OBSERVABLE_DEFECT evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td style="font-weight:bold; color:#f43f5e;">Untranslation</td>
+      <td style="font-weight:bold;">2 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Overlapping defect caused spatial/lexical side-effect that triggered Untranslation evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td style="font-weight:bold; color:#f43f5e;">Truncation</td>
+      <td style="font-weight:bold;">3 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Overlapping defect caused spatial/lexical side-effect that triggered Truncation evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Repeated hotkey</td>
+      <td style="font-weight:bold; color:#f43f5e;">Misalignment</td>
+      <td style="font-weight:bold;">1 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Repeated hotkey defect caused spatial/lexical side-effect that triggered Misalignment evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Repeated hotkey</td>
+      <td style="font-weight:bold; color:#f43f5e;">Truncation</td>
+      <td style="font-weight:bold;">4 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Repeated hotkey defect caused spatial/lexical side-effect that triggered Truncation evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Repeated hotkey</td>
+      <td style="font-weight:bold; color:#f43f5e;">Overlapping</td>
+      <td style="font-weight:bold;">1 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Repeated hotkey defect caused spatial/lexical side-effect that triggered Overlapping evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Repeated hotkey</td>
+      <td style="font-weight:bold; color:#f43f5e;">Untranslation</td>
+      <td style="font-weight:bold;">1 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Repeated hotkey defect caused spatial/lexical side-effect that triggered Untranslation evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Truncation</td>
+      <td style="font-weight:bold; color:#f43f5e;">Untranslation</td>
+      <td style="font-weight:bold;">10 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Truncation defect caused spatial/lexical side-effect that triggered Untranslation evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Truncation</td>
+      <td style="font-weight:bold; color:#f43f5e;">Overlapping</td>
+      <td style="font-weight:bold;">5 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Truncation defect caused spatial/lexical side-effect that triggered Overlapping evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Truncation</td>
+      <td style="font-weight:bold; color:#f43f5e;">NO_STRONG_OBSERVABLE_DEFECT</td>
+      <td style="font-weight:bold;">3 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Truncation defect caused spatial/lexical side-effect that triggered NO_STRONG_OBSERVABLE_DEFECT evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Truncation</td>
+      <td style="font-weight:bold; color:#f43f5e;">Misalignment</td>
+      <td style="font-weight:bold;">3 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Truncation defect caused spatial/lexical side-effect that triggered Misalignment evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Untranslation</td>
+      <td style="font-weight:bold; color:#f43f5e;">Misalignment</td>
+      <td style="font-weight:bold;">6 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Untranslation defect caused spatial/lexical side-effect that triggered Misalignment evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Untranslation</td>
+      <td style="font-weight:bold; color:#f43f5e;">Overlapping</td>
+      <td style="font-weight:bold;">7 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Untranslation defect caused spatial/lexical side-effect that triggered Overlapping evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Untranslation</td>
+      <td style="font-weight:bold; color:#f43f5e;">Truncation</td>
+      <td style="font-weight:bold;">7 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Untranslation defect caused spatial/lexical side-effect that triggered Truncation evaluator.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#38bdf8;">Untranslation</td>
+      <td style="font-weight:bold; color:#f43f5e;">NO_STRONG_OBSERVABLE_DEFECT</td>
+      <td style="font-weight:bold;">1 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Untranslation defect caused spatial/lexical side-effect that triggered NO_STRONG_OBSERVABLE_DEFECT evaluator.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. Verified Physical Causal Chains in Localized UI</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Causal Mechanism Chain</th>
+      <th>Frequency</th>
+      <th>Physical Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold; color:#4ade80;"><code>Misalignment -> Downstream Collision</code></td>
+      <td style="font-weight:bold;">3 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Observed physical propagation from root initiation to downstream UI artifact.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#4ade80;"><code>Overlapping -> Downstream Truncation/Clipping</code></td>
+      <td style="font-weight:bold;">1 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Observed physical propagation from root initiation to downstream UI artifact.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#4ade80;"><code>Repeated Hotkey -> Visual OCR Blindspot</code></td>
+      <td style="font-weight:bold;">7 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Observed physical propagation from root initiation to downstream UI artifact.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#4ade80;"><code>Truncation -> Sibling Boundary Collision</code></td>
+      <td style="font-weight:bold;">2 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Observed physical propagation from root initiation to downstream UI artifact.</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold; color:#4ade80;"><code>Untranslation -> Downstream Displacement/Overlap</code></td>
+      <td style="font-weight:bold;">10 cases</td>
+      <td style="font-size:12px; color:#cbd5e1;">Observed physical propagation from root initiation to downstream UI artifact.</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>3. Case-by-Case Causal Error Audit Sample (First 25 Cases)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Ground Truth</th>
+      <th>Primary Prediction</th>
+      <th>Secondary Streams</th>
+      <th>Error Classification</th>
+      <th>Identified Causal Chain</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight:bold;">#9</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-size:11px; color:#94a3b8;">Truncation, Overlapping</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Direct Ground-Truth Mechanism Alignment</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#10</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Untranslation</td>
+      <td style="font-size:11px; color:#94a3b8;">Misalignment, Truncation</td>
+      <td><span class='badge-arb'>ARBITRATION ERROR (IN SECONDARY)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#11</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-size:11px; color:#94a3b8;">Untranslation</td>
+      <td><span class='badge-cov'>COVERAGE ERROR</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#12</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-size:11px; color:#94a3b8;">Overlapping, Truncation, Untranslation</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Direct Ground-Truth Mechanism Alignment</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#13</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td style="font-size:11px; color:#94a3b8;">Misalignment</td>
+      <td><span class='badge-arb'>ARBITRATION ERROR (IN SECONDARY)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Structural Column Drift -> Downstream Sibling Collision</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#14</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-size:11px; color:#94a3b8;">Truncation, Untranslation, Overlapping</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Direct Ground-Truth Mechanism Alignment</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#15</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-size:11px; color:#94a3b8;">Overlapping, Truncation</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Direct Ground-Truth Mechanism Alignment</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#16</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td style="font-size:11px; color:#94a3b8;">Truncation, Untranslation, Misalignment</td>
+      <td><span class='badge-arb'>ARBITRATION ERROR (IN SECONDARY)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#17</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td style="font-size:11px; color:#94a3b8;">Truncation, Misalignment</td>
+      <td><span class='badge-arb'>ARBITRATION ERROR (IN SECONDARY)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Structural Column Drift -> Downstream Sibling Collision</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#18</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Overlapping</td>
+      <td style="font-size:11px; color:#94a3b8;">Truncation, Untranslation, Misalignment</td>
+      <td><span class='badge-arb'>ARBITRATION ERROR (IN SECONDARY)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Structural Column Drift -> Downstream Sibling Collision</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#19</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-size:11px; color:#94a3b8;">Overlapping</td>
+      <td><span class='badge-cov'>COVERAGE ERROR</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#20</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-size:11px; color:#94a3b8;">Overlapping</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Direct Ground-Truth Mechanism Alignment</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#21</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-size:11px; color:#94a3b8;">None</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Direct Ground-Truth Mechanism Alignment</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#22</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-size:11px; color:#94a3b8;">Misalignment</td>
+      <td><span class='badge-arb'>ARBITRATION ERROR (IN SECONDARY)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#23</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Untranslation</td>
+      <td style="font-size:11px; color:#94a3b8;">None</td>
+      <td><span class='badge-cov'>COVERAGE ERROR</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#24</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-size:11px; color:#94a3b8;">Misalignment</td>
+      <td><span class='badge-arb'>ARBITRATION ERROR (IN SECONDARY)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#25</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-size:11px; color:#94a3b8;">Overlapping</td>
+      <td><span class='badge-cov'>COVERAGE ERROR</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#26</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Truncation</td>
+      <td style="font-size:11px; color:#94a3b8;">None</td>
+      <td><span class='badge-cov'>COVERAGE ERROR</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#27</td>
+      <td style="font-weight:bold; color:#38bdf8;">Misalignment</td>
+      <td>Misalignment</td>
+      <td style="font-size:11px; color:#94a3b8;">Truncation</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Direct Ground-Truth Mechanism Alignment</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#29</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td style="font-size:11px; color:#94a3b8;">Overlapping</td>
+      <td><span class='badge-arb'>ARBITRATION ERROR (IN SECONDARY)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#30</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>NO_STRONG_OBSERVABLE_DEFECT</td>
+      <td style="font-size:11px; color:#94a3b8;">None</td>
+      <td><span class='badge-cov'>COVERAGE ERROR</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#31</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Untranslation</td>
+      <td style="font-size:11px; color:#94a3b8;">Truncation, Misalignment</td>
+      <td><span class='badge-cov'>COVERAGE ERROR</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#32</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Overlapping</td>
+      <td style="font-size:11px; color:#94a3b8;">Untranslation</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Direct Ground-Truth Mechanism Alignment</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#33</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Misalignment</td>
+      <td style="font-size:11px; color:#94a3b8;">Overlapping</td>
+      <td><span class='badge-arb'>ARBITRATION ERROR (IN SECONDARY)</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Cross-Defect Feature Precedence Competition</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight:bold;">#34</td>
+      <td style="font-weight:bold; color:#38bdf8;">Overlapping</td>
+      <td>Overlapping</td>
+      <td style="font-size:11px; color:#94a3b8;">Untranslation</td>
+      <td><span class='badge-pass'>TOP-1 MATCH</span></td>
+      <td style="font-size:11px; color:#cbd5e1;">Direct Ground-Truth Mechanism Alignment</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

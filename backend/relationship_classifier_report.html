@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Relationship Evidence Classifier Evaluation</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+  h1 { color: #38bdf8; font-size: 24px; margin-bottom: 6px; }
+  h2 { color: #93c5fd; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  .metrics-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 18px; text-align: center; }
+  .card-val { font-size: 26px; font-weight: bold; color: #38bdf8; margin-top: 4px; }
+  .card-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 13px; background: #1e293b; border-radius: 6px; overflow: hidden; }
+  th, td { padding: 10px 14px; text-align: right; border-bottom: 1px solid #334155; }
+  th:first-child, td:first-child { text-align: left; }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:hover { background: #243247; }
+  .coef-pos { color: #4ade80; font-family: monospace; }
+  .coef-neg { color: #f43f5e; font-family: monospace; }
+</style>
+</head>
+<body>
+<h1>Relationship Evidence Classifier — Repeated Stratified 3-Fold CV (10 Repeats)</h1>
+<div style="color: #94a3b8; font-size: 14px;">
+  Evaluated on 101 benchmark cases across 5 core categories using compact physical relationship evidence with L2 regularized Logistic Regression.
+</div>
+
+<div class="metrics-banner">
+  <div class="card">
+    <div style="font-size: 14px; color: #94a3b8;">Mean Top-1 Accuracy</div>
+    <div class="card-val">33.59%</div>
+    <div class="card-sub">&plusmn; 6.11%</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 14px; color: #94a3b8;">Mean Top-2 Accuracy</div>
+    <div class="card-val">55.23%</div>
+    <div class="card-sub">&plusmn; 6.02%</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 14px; color: #94a3b8;">ViT+Evidence Baseline</div>
+    <div class="card-val" style="color: #94a3b8;">41.58%</div>
+    <div class="card-sub">Whole-screen hybrid baseline</div>
+  </div>
+  <div class="card">
+    <div style="font-size: 14px; color: #94a3b8;">Total Fold Evaluations</div>
+    <div class="card-val" style="color: #f8fafc;">1010</div>
+    <div class="card-sub">30 folds (10 repeats &times; 3 splits)</div>
+  </div>
+</div>
+
+<h2>1. Per-Class Recall & Precision</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Class Name</th>
+      <th>Total GT Evaluations</th>
+      <th>Correct</th>
+      <th>Recall</th>
+      <th>Precision</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td style="font-weight: 600;">Misalignment</td>
+      <td>190</td>
+      <td>54</td>
+      <td style="font-weight: bold; color: #38bdf8;">28.42%</td>
+      <td>32.53%</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight: 600;">Overlapping</td>
+      <td>190</td>
+      <td>18</td>
+      <td style="font-weight: bold; color: #38bdf8;">9.47%</td>
+      <td>11.84%</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight: 600;">Repeated hotkey</td>
+      <td>70</td>
+      <td>9</td>
+      <td style="font-weight: bold; color: #38bdf8;">12.86%</td>
+      <td>15.79%</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight: 600;">Truncation</td>
+      <td>300</td>
+      <td>144</td>
+      <td style="font-weight: bold; color: #38bdf8;">48.0%</td>
+      <td>38.3%</td>
+    </tr>
+
+    <tr>
+      <td style="font-weight: 600;">Untranslation</td>
+      <td>260</td>
+      <td>114</td>
+      <td style="font-weight: bold; color: #38bdf8;">43.85%</td>
+      <td>44.02%</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. Aggregated Confusion Matrix (Row = True GT, Col = Predicted)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>True GT / Predicted</th>
+<th>Misalign</th><th>Overlapp</th><th>Repeated</th><th>Truncati</th><th>Untransl</th><th>Total GT</th></tr></thead><tbody><tr><td style='font-weight:600;'>Misalignment</td><td style='font-weight: bold; color: #4ade80;'>54</td><td style='color: #94a3b8;'>32</td><td style='color: #94a3b8;'>12</td><td style='color: #94a3b8;'>68</td><td style='color: #94a3b8;'>24</td><td style='font-weight:bold;'>190</td></tr><tr><td style='font-weight:600;'>Overlapping</td><td style='color: #94a3b8;'>29</td><td style='font-weight: bold; color: #4ade80;'>18</td><td style='color: #94a3b8;'>8</td><td style='color: #94a3b8;'>75</td><td style='color: #94a3b8;'>60</td><td style='font-weight:bold;'>190</td></tr><tr><td style='font-weight:600;'>Repeated hotkey</td><td style='color: #94a3b8;'>19</td><td style='color: #94a3b8;'>10</td><td style='font-weight: bold; color: #4ade80;'>9</td><td style='color: #94a3b8;'>27</td><td style='color: #94a3b8;'>5</td><td style='font-weight:bold;'>70</td></tr><tr><td style='font-weight:600;'>Truncation</td><td style='color: #94a3b8;'>37</td><td style='color: #94a3b8;'>42</td><td style='color: #94a3b8;'>21</td><td style='font-weight: bold; color: #4ade80;'>144</td><td style='color: #94a3b8;'>56</td><td style='font-weight:bold;'>300</td></tr><tr><td style='font-weight:600;'>Untranslation</td><td style='color: #94a3b8;'>27</td><td style='color: #94a3b8;'>50</td><td style='color: #94a3b8;'>7</td><td style='color: #94a3b8;'>62</td><td style='font-weight: bold; color: #4ade80;'>114</td><td style='font-weight:bold;'>260</td></tr>
+  </tbody>
+</table>
+
+<h2>3. Strongest Learned Logistic Regression Coefficients by Category</h2>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:18px;">Category: <code>Misalignment</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Name</th>
+      <th>Mean Coefficient (Weight)</th>
+      <th>Impact Direction</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>num_newly_created_intersections</code></td>
+      <td class="coef-neg">-1.1204</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>max_displacement_px</code></td>
+      <td class="coef-pos">+0.9716</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>untranslated_words_count</code></td>
+      <td class="coef-neg">-0.7000</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>median_displacement_px</code></td>
+      <td class="coef-pos">+0.6937</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>match_rate_pct</code></td>
+      <td class="coef-pos">+0.6540</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>has_ellipsis_count</code></td>
+      <td class="coef-pos">+0.6061</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:18px;">Category: <code>Overlapping</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Name</th>
+      <th>Mean Coefficient (Weight)</th>
+      <th>Impact Direction</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>max_alignment_divergence_px</code></td>
+      <td class="coef-pos">+1.4230</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>max_displacement_px</code></td>
+      <td class="coef-neg">-0.7094</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>hotkey_conflict_count</code></td>
+      <td class="coef-pos">+0.5218</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>num_independently_displaced</code></td>
+      <td class="coef-neg">-0.4805</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>untranslated_words_count</code></td>
+      <td class="coef-neg">-0.4069</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>match_rate_pct</code></td>
+      <td class="coef-neg">-0.3900</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:18px;">Category: <code>Repeated hotkey</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Name</th>
+      <th>Mean Coefficient (Weight)</th>
+      <th>Impact Direction</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>num_independently_displaced</code></td>
+      <td class="coef-pos">+1.6961</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>max_displacement_px</code></td>
+      <td class="coef-neg">-1.2734</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>num_newly_created_intersections</code></td>
+      <td class="coef-neg">-1.1351</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>max_gap_collapse_px</code></td>
+      <td class="coef-pos">+0.9889</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>max_alignment_divergence_px</code></td>
+      <td class="coef-neg">-0.7044</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>median_displacement_px</code></td>
+      <td class="coef-neg">-0.5106</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:18px;">Category: <code>Truncation</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Name</th>
+      <th>Mean Coefficient (Weight)</th>
+      <th>Impact Direction</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>num_independently_displaced</code></td>
+      <td class="coef-neg">-1.1350</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>max_alignment_divergence_px</code></td>
+      <td class="coef-neg">-1.0822</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>num_newly_created_intersections</code></td>
+      <td class="coef-pos">+1.0625</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>max_text_expansion_px</code></td>
+      <td class="coef-pos">+0.5548</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>max_gap_collapse_px</code></td>
+      <td class="coef-pos">+0.4868</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>has_ellipsis_count</code></td>
+      <td class="coef-neg">-0.4345</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h3 style="font-size:15px; color:#38bdf8; margin-top:18px;">Category: <code>Untranslation</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Feature Name</th>
+      <th>Mean Coefficient (Weight)</th>
+      <th>Impact Direction</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><code>max_text_expansion_px</code></td>
+      <td class="coef-neg">-0.9822</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>max_alignment_divergence_px</code></td>
+      <td class="coef-pos">+0.8930</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>max_gap_collapse_px</code></td>
+      <td class="coef-neg">-0.7834</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>num_newly_created_intersections</code></td>
+      <td class="coef-pos">+0.7655</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+    <tr>
+      <td><code>match_rate_pct</code></td>
+      <td class="coef-neg">-0.7251</td>
+      <td>Decreases probability (-)</td>
+    </tr>
+
+    <tr>
+      <td><code>untranslated_words_count</code></td>
+      <td class="coef-pos">+0.7003</td>
+      <td>Increases probability (+)</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>
